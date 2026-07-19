@@ -1,0 +1,3347 @@
+[
+  {
+    "id": "w-gen01",
+    "prompt": "Best approach for tailwind color in UI color systems and design? Show me the code.",
+    "expected_faculty": "warna",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "gpt"
+    ],
+    "source": "gpt"
+  },
+  {
+    "id": "w-gen02",
+    "prompt": "I'm building a design system and want to deeply understand complementary. What are the key frameworks, mental models, and evidence-based approaches I should know?",
+    "expected_faculty": "warna",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "claude"
+    ],
+    "source": "claude"
+  },
+  {
+    "id": "w-gen03",
+    "prompt": "What's the optimal way to handle harmoni warna? Be specific.",
+    "expected_faculty": "warna",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "gpt"
+    ],
+    "source": "gpt"
+  },
+  {
+    "id": "w-gen04",
+    "prompt": "What's the current best practice for elegant color? I want both the theoretical foundation and practical implementation guidance.",
+    "expected_faculty": "warna",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "claude"
+    ],
+    "source": "claude"
+  },
+  {
+    "id": "w-gen05",
+    "prompt": "How to implement gradient for a color palette? Give me concrete examples.",
+    "expected_faculty": "warna",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "gpt"
+    ],
+    "source": "gpt"
+  },
+  {
+    "id": "w-gen06",
+    "prompt": "Can you provide a detailed explanation of color palette in the context of UI color systems and design? I'd like to understand the theory before jumping into implementation.",
+    "expected_faculty": "warna",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "claude"
+    ],
+    "source": "claude"
+  },
+  {
+    "id": "w-gen07",
+    "prompt": "Explain brand color with practical examples for a design system.",
+    "expected_faculty": "warna",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "gpt"
+    ],
+    "source": "gpt"
+  },
+  {
+    "id": "w-gen08",
+    "prompt": "How should I think about psikologi warna when designing a color palette? Walk me through your reasoning step by step.",
+    "expected_faculty": "warna",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "claude"
+    ],
+    "source": "claude"
+  },
+  {
+    "id": "w-gen09",
+    "prompt": "Quick guide: tint shade tone — what works and what doesn't?",
+    "expected_faculty": "warna",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "gpt"
+    ],
+    "source": "gpt"
+  },
+  {
+    "id": "w-gen10",
+    "prompt": "I'm working on UI color systems and design and need a comprehensive guide on color psychology. Can you walk me through best practices, common pitfalls, and the underlying principles?",
+    "expected_faculty": "warna",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "claude"
+    ],
+    "source": "claude"
+  },
+  {
+    "id": "up-gen01",
+    "prompt": "Best approach for hook model in user psychology and behavior? Show me the code.",
+    "expected_faculty": "ux-psikologi",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "gpt"
+    ],
+    "source": "gpt"
+  },
+  {
+    "id": "up-gen02",
+    "prompt": "I'm building a high-conversion SaaS product and want to deeply understand hukum ux. What are the key frameworks, mental models, and evidence-based approaches I should know?",
+    "expected_faculty": "ux-psikologi",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "claude"
+    ],
+    "source": "claude"
+  },
+  {
+    "id": "up-gen03",
+    "prompt": "What's the optimal way to handle psikologi? Be specific.",
+    "expected_faculty": "ux-psikologi",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "gpt"
+    ],
+    "source": "gpt"
+  },
+  {
+    "id": "up-gen04",
+    "prompt": "What's the current best practice for jakob's law? I want both the theoretical foundation and practical implementation guidance.",
+    "expected_faculty": "ux-psikologi",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "claude"
+    ],
+    "source": "claude"
+  },
+  {
+    "id": "up-gen05",
+    "prompt": "How to implement octalysis for a user flow? Give me concrete examples.",
+    "expected_faculty": "ux-psikologi",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "gpt"
+    ],
+    "source": "gpt"
+  },
+  {
+    "id": "up-gen06",
+    "prompt": "Can you provide a detailed explanation of hick's law in the context of user psychology and behavior? I'd like to understand the theory before jumping into implementation.",
+    "expected_faculty": "ux-psikologi",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "claude"
+    ],
+    "source": "claude"
+  },
+  {
+    "id": "up-gen07",
+    "prompt": "Explain addictive with practical examples for a high-conversion SaaS product.",
+    "expected_faculty": "ux-psikologi",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "gpt"
+    ],
+    "source": "gpt"
+  },
+  {
+    "id": "up-gen08",
+    "prompt": "How should I think about continuity when designing a user flow? Walk me through your reasoning step by step.",
+    "expected_faculty": "ux-psikologi",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "claude"
+    ],
+    "source": "claude"
+  },
+  {
+    "id": "up-gen09",
+    "prompt": "Quick guide: scarcity — what works and what doesn't?",
+    "expected_faculty": "ux-psikologi",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "gpt"
+    ],
+    "source": "gpt"
+  },
+  {
+    "id": "up-gen10",
+    "prompt": "I'm working on user psychology and behavior and need a comprehensive guide on motivasi. Can you walk me through best practices, common pitfalls, and the underlying principles?",
+    "expected_faculty": "ux-psikologi",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "claude"
+    ],
+    "source": "claude"
+  },
+  {
+    "id": "uw-gen01",
+    "prompt": "Best approach for error state in UI content design? Show me the code.",
+    "expected_faculty": "ux-writing",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "gpt"
+    ],
+    "source": "gpt"
+  },
+  {
+    "id": "uw-gen02",
+    "prompt": "I'm building a SaaS onboarding flow and want to deeply understand tulisan di interface. What are the key frameworks, mental models, and evidence-based approaches I should know?",
+    "expected_faculty": "ux-writing",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "claude"
+    ],
+    "source": "claude"
+  },
+  {
+    "id": "uw-gen03",
+    "prompt": "What's the optimal way to handle language? Be specific.",
+    "expected_faculty": "ux-writing",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "gpt"
+    ],
+    "source": "gpt"
+  },
+  {
+    "id": "uw-gen04",
+    "prompt": "What's the current best practice for teks? I want both the theoretical foundation and practical implementation guidance.",
+    "expected_faculty": "ux-writing",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "claude"
+    ],
+    "source": "claude"
+  },
+  {
+    "id": "uw-gen05",
+    "prompt": "How to implement keterbacaan teks for interface copy? Give me concrete examples.",
+    "expected_faculty": "ux-writing",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "gpt"
+    ],
+    "source": "gpt"
+  },
+  {
+    "id": "uw-gen06",
+    "prompt": "Can you provide a detailed explanation of form label in the context of UI content design? I'd like to understand the theory before jumping into implementation.",
+    "expected_faculty": "ux-writing",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "claude"
+    ],
+    "source": "claude"
+  },
+  {
+    "id": "uw-gen07",
+    "prompt": "Explain voice and tone with practical examples for a SaaS onboarding flow.",
+    "expected_faculty": "ux-writing",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "gpt"
+    ],
+    "source": "gpt"
+  },
+  {
+    "id": "uw-gen08",
+    "prompt": "How should I think about loading text when designing interface copy? Walk me through your reasoning step by step.",
+    "expected_faculty": "ux-writing",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "claude"
+    ],
+    "source": "claude"
+  },
+  {
+    "id": "uw-gen09",
+    "prompt": "Quick guide: button label — what works and what doesn't?",
+    "expected_faculty": "ux-writing",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "gpt"
+    ],
+    "source": "gpt"
+  },
+  {
+    "id": "uw-gen10",
+    "prompt": "I'm working on UI content design and need a comprehensive guide on brand voice. Can you walk me through best practices, common pitfalls, and the underlying principles?",
+    "expected_faculty": "ux-writing",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "claude"
+    ],
+    "source": "claude"
+  },
+  {
+    "id": "tp-gen01",
+    "prompt": "Best approach for font preload in web typography and readability? Show me the code.",
+    "expected_faculty": "tipografi",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "gpt"
+    ],
+    "source": "gpt"
+  },
+  {
+    "id": "tp-gen02",
+    "prompt": "I'm building a content-heavy web app and want to deeply understand display font. What are the key frameworks, mental models, and evidence-based approaches I should know?",
+    "expected_faculty": "tipografi",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "claude"
+    ],
+    "source": "claude"
+  },
+  {
+    "id": "tp-gen03",
+    "prompt": "What's the optimal way to handle x-height? Be specific.",
+    "expected_faculty": "tipografi",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "gpt"
+    ],
+    "source": "gpt"
+  },
+  {
+    "id": "tp-gen04",
+    "prompt": "What's the current best practice for italic? I want both the theoretical foundation and practical implementation guidance.",
+    "expected_faculty": "tipografi",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "claude"
+    ],
+    "source": "claude"
+  },
+  {
+    "id": "tp-gen05",
+    "prompt": "How to implement typographic scale for a type system? Give me concrete examples.",
+    "expected_faculty": "tipografi",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "gpt"
+    ],
+    "source": "gpt"
+  },
+  {
+    "id": "tp-gen06",
+    "prompt": "Can you provide a detailed explanation of fout in the context of web typography and readability? I'd like to understand the theory before jumping into implementation.",
+    "expected_faculty": "tipografi",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "claude"
+    ],
+    "source": "claude"
+  },
+  {
+    "id": "tp-gen07",
+    "prompt": "Explain body text with practical examples for a content-heavy web app.",
+    "expected_faculty": "tipografi",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "gpt"
+    ],
+    "source": "gpt"
+  },
+  {
+    "id": "tp-gen08",
+    "prompt": "How should I think about ganti font when designing a type system? Walk me through your reasoning step by step.",
+    "expected_faculty": "tipografi",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "claude"
+    ],
+    "source": "claude"
+  },
+  {
+    "id": "tp-gen09",
+    "prompt": "Quick guide: monospace — what works and what doesn't?",
+    "expected_faculty": "tipografi",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "gpt"
+    ],
+    "source": "gpt"
+  },
+  {
+    "id": "tp-gen10",
+    "prompt": "I'm working on web typography and readability and need a comprehensive guide on mewah. Can you walk me through best practices, common pitfalls, and the underlying principles?",
+    "expected_faculty": "tipografi",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "claude"
+    ],
+    "source": "claude"
+  },
+  {
+    "id": "lo-gen01",
+    "prompt": "Best approach for layout decision in responsive web layout? Show me the code.",
+    "expected_faculty": "layout",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "gpt"
+    ],
+    "source": "gpt"
+  },
+  {
+    "id": "lo-gen02",
+    "prompt": "I'm building a complex dashboard and want to deeply understand spacing system. What are the key frameworks, mental models, and evidence-based approaches I should know?",
+    "expected_faculty": "layout",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "claude"
+    ],
+    "source": "claude"
+  },
+  {
+    "id": "lo-gen03",
+    "prompt": "What's the optimal way to handle grid vs flexbox? Be specific.",
+    "expected_faculty": "layout",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "gpt"
+    ],
+    "source": "gpt"
+  },
+  {
+    "id": "lo-gen04",
+    "prompt": "What's the current best practice for rasio emas? I want both the theoretical foundation and practical implementation guidance.",
+    "expected_faculty": "layout",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "claude"
+    ],
+    "source": "claude"
+  },
+  {
+    "id": "lo-gen05",
+    "prompt": "How to implement flexbox for a page layout? Give me concrete examples.",
+    "expected_faculty": "layout",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "gpt"
+    ],
+    "source": "gpt"
+  },
+  {
+    "id": "lo-gen06",
+    "prompt": "Can you provide a detailed explanation of tengah in the context of responsive web layout? I'd like to understand the theory before jumping into implementation.",
+    "expected_faculty": "layout",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "claude"
+    ],
+    "source": "claude"
+  },
+  {
+    "id": "lo-gen07",
+    "prompt": "Explain grid layout with practical examples for a complex dashboard.",
+    "expected_faculty": "layout",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "gpt"
+    ],
+    "source": "gpt"
+  },
+  {
+    "id": "lo-gen08",
+    "prompt": "How should I think about desktop-first when designing a page layout? Walk me through your reasoning step by step.",
+    "expected_faculty": "layout",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "claude"
+    ],
+    "source": "claude"
+  },
+  {
+    "id": "lo-gen09",
+    "prompt": "Quick guide: macro micro — what works and what doesn't?",
+    "expected_faculty": "layout",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "gpt"
+    ],
+    "source": "gpt"
+  },
+  {
+    "id": "lo-gen10",
+    "prompt": "I'm working on responsive web layout and need a comprehensive guide on komposisi. Can you walk me through best practices, common pitfalls, and the underlying principles?",
+    "expected_faculty": "layout",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "claude"
+    ],
+    "source": "claude"
+  },
+  {
+    "id": "dp-gen01",
+    "prompt": "Best approach for button placement in UI design patterns? Show me the code.",
+    "expected_faculty": "design-patterns",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "gpt"
+    ],
+    "source": "gpt"
+  },
+  {
+    "id": "dp-gen02",
+    "prompt": "I'm building a component library and want to deeply understand command search. What are the key frameworks, mental models, and evidence-based approaches I should know?",
+    "expected_faculty": "design-patterns",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "claude"
+    ],
+    "source": "claude"
+  },
+  {
+    "id": "dp-gen03",
+    "prompt": "What's the optimal way to handle tabel data? Be specific.",
+    "expected_faculty": "design-patterns",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "gpt"
+    ],
+    "source": "gpt"
+  },
+  {
+    "id": "dp-gen04",
+    "prompt": "What's the current best practice for slider? I want both the theoretical foundation and practical implementation guidance.",
+    "expected_faculty": "design-patterns",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "claude"
+    ],
+    "source": "claude"
+  },
+  {
+    "id": "dp-gen05",
+    "prompt": "How to implement column chooser for a reusable component? Give me concrete examples.",
+    "expected_faculty": "design-patterns",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "gpt"
+    ],
+    "source": "gpt"
+  },
+  {
+    "id": "dp-gen06",
+    "prompt": "Can you provide a detailed explanation of infinite scroll in the context of UI design patterns? I'd like to understand the theory before jumping into implementation.",
+    "expected_faculty": "design-patterns",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "claude"
+    ],
+    "source": "claude"
+  },
+  {
+    "id": "dp-gen07",
+    "prompt": "Explain search empty state with practical examples for a component library.",
+    "expected_faculty": "design-patterns",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "gpt"
+    ],
+    "source": "gpt"
+  },
+  {
+    "id": "dp-gen08",
+    "prompt": "How should I think about interaction when designing a reusable component? Walk me through your reasoning step by step.",
+    "expected_faculty": "design-patterns",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "claude"
+    ],
+    "source": "claude"
+  },
+  {
+    "id": "dp-gen09",
+    "prompt": "Quick guide: first use — what works and what doesn't?",
+    "expected_faculty": "design-patterns",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "gpt"
+    ],
+    "source": "gpt"
+  },
+  {
+    "id": "dp-gen10",
+    "prompt": "I'm working on UI design patterns and need a comprehensive guide on elemen ui. Can you walk me through best practices, common pitfalls, and the underlying principles?",
+    "expected_faculty": "design-patterns",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "claude"
+    ],
+    "source": "claude"
+  },
+  {
+    "id": "an-gen01",
+    "prompt": "Best approach for reveal in UI animation and motion design? Show me the code.",
+    "expected_faculty": "animasi",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "gpt"
+    ],
+    "source": "gpt"
+  },
+  {
+    "id": "an-gen02",
+    "prompt": "I'm building a polished web app and want to deeply understand loading state. What are the key frameworks, mental models, and evidence-based approaches I should know?",
+    "expected_faculty": "animasi",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "claude"
+    ],
+    "source": "claude"
+  },
+  {
+    "id": "an-gen03",
+    "prompt": "What's the optimal way to handle transition? Be specific.",
+    "expected_faculty": "animasi",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "gpt"
+    ],
+    "source": "gpt"
+  },
+  {
+    "id": "an-gen04",
+    "prompt": "What's the current best practice for gerakan? I want both the theoretical foundation and practical implementation guidance.",
+    "expected_faculty": "animasi",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "claude"
+    ],
+    "source": "claude"
+  },
+  {
+    "id": "an-gen05",
+    "prompt": "How to implement button animation for UI transitions? Give me concrete examples.",
+    "expected_faculty": "animasi",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "gpt"
+    ],
+    "source": "gpt"
+  },
+  {
+    "id": "an-gen06",
+    "prompt": "Can you provide a detailed explanation of cubic-bezier in the context of UI animation and motion design? I'd like to understand the theory before jumping into implementation.",
+    "expected_faculty": "animasi",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "claude"
+    ],
+    "source": "claude"
+  },
+  {
+    "id": "an-gen07",
+    "prompt": "Explain movement with practical examples for a polished web app.",
+    "expected_faculty": "animasi",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "gpt"
+    ],
+    "source": "gpt"
+  },
+  {
+    "id": "an-gen08",
+    "prompt": "How should I think about transform when designing UI transitions? Walk me through your reasoning step by step.",
+    "expected_faculty": "animasi",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "claude"
+    ],
+    "source": "claude"
+  },
+  {
+    "id": "an-gen09",
+    "prompt": "Quick guide: loading animation — what works and what doesn't?",
+    "expected_faculty": "animasi",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "gpt"
+    ],
+    "source": "gpt"
+  },
+  {
+    "id": "an-gen10",
+    "prompt": "I'm working on UI animation and motion design and need a comprehensive guide on press animation. Can you walk me through best practices, common pitfalls, and the underlying principles?",
+    "expected_faculty": "animasi",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "claude"
+    ],
+    "source": "claude"
+  },
+  {
+    "id": "br-gen01",
+    "prompt": "Best approach for touchpoint in brand identity design? Show me the code.",
+    "expected_faculty": "branding",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "gpt"
+    ],
+    "source": "gpt"
+  },
+  {
+    "id": "br-gen02",
+    "prompt": "I'm building a startup rebrand and want to deeply understand voice and tone. What are the key frameworks, mental models, and evidence-based approaches I should know?",
+    "expected_faculty": "branding",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "claude"
+    ],
+    "source": "claude"
+  },
+  {
+    "id": "br-gen03",
+    "prompt": "What's the optimal way to handle brand book? Be specific.",
+    "expected_faculty": "branding",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "gpt"
+    ],
+    "source": "gpt"
+  },
+  {
+    "id": "br-gen04",
+    "prompt": "What's the current best practice for identitas brand? I want both the theoretical foundation and practical implementation guidance.",
+    "expected_faculty": "branding",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "claude"
+    ],
+    "source": "claude"
+  },
+  {
+    "id": "br-gen05",
+    "prompt": "How to implement brand messaging for a brand identity? Give me concrete examples.",
+    "expected_faculty": "branding",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "gpt"
+    ],
+    "source": "gpt"
+  },
+  {
+    "id": "br-gen06",
+    "prompt": "Can you provide a detailed explanation of logo variation in the context of brand identity design? I'd like to understand the theory before jumping into implementation.",
+    "expected_faculty": "branding",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "claude"
+    ],
+    "source": "claude"
+  },
+  {
+    "id": "br-gen07",
+    "prompt": "What's the optimal way to handle branding? Be specific.",
+    "expected_faculty": "branding",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "gpt"
+    ],
+    "source": "gpt"
+  },
+  {
+    "id": "br-gen08",
+    "prompt": "What's the current best practice for style guide? I want both the theoretical foundation and practical implementation guidance.",
+    "expected_faculty": "branding",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "claude"
+    ],
+    "source": "claude"
+  },
+  {
+    "id": "br-gen09",
+    "prompt": "How to implement corporate identity for a brand identity? Give me concrete examples.",
+    "expected_faculty": "branding",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "gpt"
+    ],
+    "source": "gpt"
+  },
+  {
+    "id": "br-gen10",
+    "prompt": "Can you provide a detailed explanation of nama brand in the context of brand identity design? I'd like to understand the theory before jumping into implementation.",
+    "expected_faculty": "branding",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "claude"
+    ],
+    "source": "claude"
+  },
+  {
+    "id": "ak-gen01",
+    "prompt": "Best approach for aria-labelledby in web accessibility? Show me the code.",
+    "expected_faculty": "aksesibilitas",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "gpt"
+    ],
+    "source": "gpt"
+  },
+  {
+    "id": "ak-gen02",
+    "prompt": "I'm building a public-facing government site and want to deeply understand difabel. What are the key frameworks, mental models, and evidence-based approaches I should know?",
+    "expected_faculty": "aksesibilitas",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "claude"
+    ],
+    "source": "claude"
+  },
+  {
+    "id": "ak-gen03",
+    "prompt": "What's the optimal way to handle aria state? Be specific.",
+    "expected_faculty": "aksesibilitas",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "gpt"
+    ],
+    "source": "gpt"
+  },
+  {
+    "id": "ak-gen04",
+    "prompt": "What's the current best practice for video accessibility? I want both the theoretical foundation and practical implementation guidance.",
+    "expected_faculty": "aksesibilitas",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "claude"
+    ],
+    "source": "claude"
+  },
+  {
+    "id": "ak-gen05",
+    "prompt": "How to implement ADHD for an accessible interface? Give me concrete examples.",
+    "expected_faculty": "aksesibilitas",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "gpt"
+    ],
+    "source": "gpt"
+  },
+  {
+    "id": "ak-gen06",
+    "prompt": "Can you provide a detailed explanation of ramah difabel in the context of web accessibility? I'd like to understand the theory before jumping into implementation.",
+    "expected_faculty": "aksesibilitas",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "claude"
+    ],
+    "source": "claude"
+  },
+  {
+    "id": "ak-gen07",
+    "prompt": "Explain accessibility audit with practical examples for a public-facing government site.",
+    "expected_faculty": "aksesibilitas",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "gpt"
+    ],
+    "source": "gpt"
+  },
+  {
+    "id": "ak-gen08",
+    "prompt": "How should I think about accessibility when designing an accessible interface? Walk me through your reasoning step by step.",
+    "expected_faculty": "aksesibilitas",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "claude"
+    ],
+    "source": "claude"
+  },
+  {
+    "id": "ak-gen09",
+    "prompt": "Quick guide: tuna netra — what works and what doesn't?",
+    "expected_faculty": "aksesibilitas",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "gpt"
+    ],
+    "source": "gpt"
+  },
+  {
+    "id": "ak-gen10",
+    "prompt": "I'm working on web accessibility and need a comprehensive guide on aria role. Can you walk me through best practices, common pitfalls, and the underlying principles?",
+    "expected_faculty": "aksesibilitas",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "claude"
+    ],
+    "source": "claude"
+  },
+  {
+    "id": "im-gen01",
+    "prompt": "Best approach for verify in UI/UX improvement and auditing? Show me the code.",
+    "expected_faculty": "improvement",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "gpt"
+    ],
+    "source": "gpt"
+  },
+  {
+    "id": "im-gen02",
+    "prompt": "I'm building a legacy product redesign and want to deeply understand improvement methodology. What are the key frameworks, mental models, and evidence-based approaches I should know?",
+    "expected_faculty": "improvement",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "claude"
+    ],
+    "source": "claude"
+  },
+  {
+    "id": "im-gen03",
+    "prompt": "What's the optimal way to handle metodologi improvement? Be specific.",
+    "expected_faculty": "improvement",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "gpt"
+    ],
+    "source": "gpt"
+  },
+  {
+    "id": "im-gen04",
+    "prompt": "What's the current best practice for check? I want both the theoretical foundation and practical implementation guidance.",
+    "expected_faculty": "improvement",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "claude"
+    ],
+    "source": "claude"
+  },
+  {
+    "id": "im-gen05",
+    "prompt": "How to implement sesuai mas aul for a UX audit report? Give me concrete examples.",
+    "expected_faculty": "improvement",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "gpt"
+    ],
+    "source": "gpt"
+  },
+  {
+    "id": "im-gen06",
+    "prompt": "Can you provide a detailed explanation of improve sesuai mas aul in the context of UI/UX improvement and auditing? I'd like to understand the theory before jumping into implementation.",
+    "expected_faculty": "improvement",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "claude"
+    ],
+    "source": "claude"
+  },
+  {
+    "id": "im-gen07",
+    "prompt": "Explain perbaiki website with practical examples for a legacy product redesign.",
+    "expected_faculty": "improvement",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "gpt"
+    ],
+    "source": "gpt"
+  },
+  {
+    "id": "im-gen08",
+    "prompt": "How should I think about ICE when designing a UX audit report? Walk me through your reasoning step by step.",
+    "expected_faculty": "improvement",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "claude"
+    ],
+    "source": "claude"
+  },
+  {
+    "id": "im-gen09",
+    "prompt": "Quick guide: diminishing returns — what works and what doesn't?",
+    "expected_faculty": "improvement",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "gpt"
+    ],
+    "source": "gpt"
+  },
+  {
+    "id": "im-gen10",
+    "prompt": "I'm working on UI/UX improvement and auditing and need a comprehensive guide on improvement. Can you walk me through best practices, common pitfalls, and the underlying principles?",
+    "expected_faculty": "improvement",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "claude"
+    ],
+    "source": "claude"
+  },
+  {
+    "id": "ko-gen01",
+    "prompt": "Best approach for forgetting curve in cognitive science applied to design? Show me the code.",
+    "expected_faculty": "kognisi",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "gpt"
+    ],
+    "source": "gpt"
+  },
+  {
+    "id": "ko-gen02",
+    "prompt": "I'm building a decision-heavy application and want to deeply understand hippocampus. What are the key frameworks, mental models, and evidence-based approaches I should know?",
+    "expected_faculty": "kognisi",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "claude"
+    ],
+    "source": "claude"
+  },
+  {
+    "id": "ko-gen03",
+    "prompt": "What's the optimal way to handle recognition recall? Be specific.",
+    "expected_faculty": "kognisi",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "gpt"
+    ],
+    "source": "gpt"
+  },
+  {
+    "id": "ko-gen04",
+    "prompt": "What's the current best practice for not see? I want both the theoretical foundation and practical implementation guidance.",
+    "expected_faculty": "kognisi",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "claude"
+    ],
+    "source": "claude"
+  },
+  {
+    "id": "ko-gen05",
+    "prompt": "How to implement thinking for a cognitive-friendly interface? Give me concrete examples.",
+    "expected_faculty": "kognisi",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "gpt"
+    ],
+    "source": "gpt"
+  },
+  {
+    "id": "ko-gen06",
+    "prompt": "Can you provide a detailed explanation of thinking fast and slow in the context of cognitive science applied to design? I'd like to understand the theory before jumping into implementation.",
+    "expected_faculty": "kognisi",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "claude"
+    ],
+    "source": "claude"
+  },
+  {
+    "id": "ko-gen07",
+    "prompt": "Explain neuron with practical examples for a decision-heavy application.",
+    "expected_faculty": "kognisi",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "gpt"
+    ],
+    "source": "gpt"
+  },
+  {
+    "id": "ko-gen08",
+    "prompt": "How should I think about eye tracking when designing a cognitive-friendly interface? Walk me through your reasoning step by step.",
+    "expected_faculty": "kognisi",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "claude"
+    ],
+    "source": "claude"
+  },
+  {
+    "id": "ko-gen09",
+    "prompt": "Quick guide: creativity — what works and what doesn't?",
+    "expected_faculty": "kognisi",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "gpt"
+    ],
+    "source": "gpt"
+  },
+  {
+    "id": "ko-gen10",
+    "prompt": "I'm working on cognitive science applied to design and need a comprehensive guide on means-ends analysis. Can you walk me through best practices, common pitfalls, and the underlying principles?",
+    "expected_faculty": "kognisi",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "claude"
+    ],
+    "source": "claude"
+  },
+  {
+    "id": "mu-gen01",
+    "prompt": "Best approach for tab bar in mobile user experience? Show me the code.",
+    "expected_faculty": "mobile-ux",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "gpt"
+    ],
+    "source": "gpt"
+  },
+  {
+    "id": "mu-gen02",
+    "prompt": "I'm building a mobile-first app and want to deeply understand media query mobile. What are the key frameworks, mental models, and evidence-based approaches I should know?",
+    "expected_faculty": "mobile-ux",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "claude"
+    ],
+    "source": "claude"
+  },
+  {
+    "id": "mu-gen03",
+    "prompt": "What's the optimal way to handle progressive web app? Be specific.",
+    "expected_faculty": "mobile-ux",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "gpt"
+    ],
+    "source": "gpt"
+  },
+  {
+    "id": "mu-gen04",
+    "prompt": "What's the current best practice for foldable? I want both the theoretical foundation and practical implementation guidance.",
+    "expected_faculty": "mobile-ux",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "claude"
+    ],
+    "source": "claude"
+  },
+  {
+    "id": "mu-gen05",
+    "prompt": "How to implement adaptive layout mobile for a mobile interface? Give me concrete examples.",
+    "expected_faculty": "mobile-ux",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "gpt"
+    ],
+    "source": "gpt"
+  },
+  {
+    "id": "mu-gen06",
+    "prompt": "Can you provide a detailed explanation of pinch in the context of mobile user experience? I'd like to understand the theory before jumping into implementation.",
+    "expected_faculty": "mobile-ux",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "claude"
+    ],
+    "source": "claude"
+  },
+  {
+    "id": "mu-gen07",
+    "prompt": "Explain floating action button with practical examples for a mobile-first app.",
+    "expected_faculty": "mobile-ux",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "gpt"
+    ],
+    "source": "gpt"
+  },
+  {
+    "id": "mu-gen08",
+    "prompt": "How should I think about website mobile when designing a mobile interface? Walk me through your reasoning step by step.",
+    "expected_faculty": "mobile-ux",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "claude"
+    ],
+    "source": "claude"
+  },
+  {
+    "id": "mu-gen09",
+    "prompt": "Quick guide: swipe to delete — what works and what doesn't?",
+    "expected_faculty": "mobile-ux",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "gpt"
+    ],
+    "source": "gpt"
+  },
+  {
+    "id": "mu-gen10",
+    "prompt": "I'm working on mobile user experience and need a comprehensive guide on handphone. Can you walk me through best practices, common pitfalls, and the underlying principles?",
+    "expected_faculty": "mobile-ux",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "claude"
+    ],
+    "source": "claude"
+  },
+  {
+    "id": "dv-gen01",
+    "prompt": "Best approach for real-time chart in data visualization? Show me the code.",
+    "expected_faculty": "data-viz",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "gpt"
+    ],
+    "source": "gpt"
+  },
+  {
+    "id": "dv-gen02",
+    "prompt": "I'm building an analytics dashboard and want to deeply understand munzner. What are the key frameworks, mental models, and evidence-based approaches I should know?",
+    "expected_faculty": "data-viz",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "claude"
+    ],
+    "source": "claude"
+  },
+  {
+    "id": "dv-gen03",
+    "prompt": "What's the optimal way to handle baseline zero? Be specific.",
+    "expected_faculty": "data-viz",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "gpt"
+    ],
+    "source": "gpt"
+  },
+  {
+    "id": "dv-gen04",
+    "prompt": "What's the current best practice for tufte? I want both the theoretical foundation and practical implementation guidance.",
+    "expected_faculty": "data-viz",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "claude"
+    ],
+    "source": "claude"
+  },
+  {
+    "id": "dv-gen05",
+    "prompt": "How to implement brushing for a data visualization? Give me concrete examples.",
+    "expected_faculty": "data-viz",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "gpt"
+    ],
+    "source": "gpt"
+  },
+  {
+    "id": "dv-gen06",
+    "prompt": "Can you provide a detailed explanation of streaming data in the context of data visualization? I'd like to understand the theory before jumping into implementation.",
+    "expected_faculty": "data-viz",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "claude"
+    ],
+    "source": "claude"
+  },
+  {
+    "id": "dv-gen07",
+    "prompt": "Explain graph with practical examples for an analytics dashboard.",
+    "expected_faculty": "data-viz",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "gpt"
+    ],
+    "source": "gpt"
+  },
+  {
+    "id": "dv-gen08",
+    "prompt": "How should I think about data journalism when designing a data visualization? Walk me through your reasoning step by step.",
+    "expected_faculty": "data-viz",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "claude"
+    ],
+    "source": "claude"
+  },
+  {
+    "id": "dv-gen09",
+    "prompt": "Quick guide: data storytelling — what works and what doesn't?",
+    "expected_faculty": "data-viz",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "gpt"
+    ],
+    "source": "gpt"
+  },
+  {
+    "id": "dv-gen10",
+    "prompt": "I'm working on data visualization and need a comprehensive guide on alt text chart. Can you walk me through best practices, common pitfalls, and the underlying principles?",
+    "expected_faculty": "data-viz",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "claude"
+    ],
+    "source": "claude"
+  },
+  {
+    "id": "ds-gen01",
+    "prompt": "Best approach for dev mode figma in design system architecture? Show me the code.",
+    "expected_faculty": "design-systems",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "gpt"
+    ],
+    "source": "gpt"
+  },
+  {
+    "id": "ds-gen02",
+    "prompt": "I'm building an enterprise design system and want to deeply understand performance budget. What are the key frameworks, mental models, and evidence-based approaches I should know?",
+    "expected_faculty": "design-systems",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "claude"
+    ],
+    "source": "claude"
+  },
+  {
+    "id": "ds-gen03",
+    "prompt": "What's the optimal way to handle component API? Be specific.",
+    "expected_faculty": "design-systems",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "gpt"
+    ],
+    "source": "gpt"
+  },
+  {
+    "id": "ds-gen04",
+    "prompt": "What's the current best practice for versioning? I want both the theoretical foundation and practical implementation guidance.",
+    "expected_faculty": "design-systems",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "claude"
+    ],
+    "source": "claude"
+  },
+  {
+    "id": "ds-gen05",
+    "prompt": "How to implement component documentation for a design system? Give me concrete examples.",
+    "expected_faculty": "design-systems",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "gpt"
+    ],
+    "source": "gpt"
+  },
+  {
+    "id": "ds-gen06",
+    "prompt": "Can you provide a detailed explanation of storybook in the context of design system architecture? I'd like to understand the theory before jumping into implementation.",
+    "expected_faculty": "design-systems",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "claude"
+    ],
+    "source": "claude"
+  },
+  {
+    "id": "ds-gen07",
+    "prompt": "Explain design token format with practical examples for an enterprise design system.",
+    "expected_faculty": "design-systems",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "gpt"
+    ],
+    "source": "gpt"
+  },
+  {
+    "id": "ds-gen08",
+    "prompt": "How should I think about brand override when designing a design system? Walk me through your reasoning step by step.",
+    "expected_faculty": "design-systems",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "claude"
+    ],
+    "source": "claude"
+  },
+  {
+    "id": "ds-gen09",
+    "prompt": "Quick guide: brad frost — what works and what doesn't?",
+    "expected_faculty": "design-systems",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "gpt"
+    ],
+    "source": "gpt"
+  },
+  {
+    "id": "ds-gen10",
+    "prompt": "I'm working on design system architecture and need a comprehensive guide on design system RFC. Can you walk me through best practices, common pitfalls, and the underlying principles?",
+    "expected_faculty": "design-systems",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "claude"
+    ],
+    "source": "claude"
+  },
+  {
+    "id": "cu-gen01",
+    "prompt": "Best approach for multi-modal in conversational interfaces and chatbots? Show me the code.",
+    "expected_faculty": "conversational-ui",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "gpt"
+    ],
+    "source": "gpt"
+  },
+  {
+    "id": "cu-gen02",
+    "prompt": "I'm building a customer service chatbot and want to deeply understand voice design. What are the key frameworks, mental models, and evidence-based approaches I should know?",
+    "expected_faculty": "conversational-ui",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "claude"
+    ],
+    "source": "claude"
+  },
+  {
+    "id": "cu-gen03",
+    "prompt": "What's the optimal way to handle escalation? Be specific.",
+    "expected_faculty": "conversational-ui",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "gpt"
+    ],
+    "source": "gpt"
+  },
+  {
+    "id": "cu-gen04",
+    "prompt": "What's the current best practice for wake word? I want both the theoretical foundation and practical implementation guidance.",
+    "expected_faculty": "conversational-ui",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "claude"
+    ],
+    "source": "claude"
+  },
+  {
+    "id": "cu-gen05",
+    "prompt": "How to implement human handoff for a conversational flow? Give me concrete examples.",
+    "expected_faculty": "conversational-ui",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "gpt"
+    ],
+    "source": "gpt"
+  },
+  {
+    "id": "cu-gen06",
+    "prompt": "Can you provide a detailed explanation of cultural adaptation in the context of conversational interfaces and chatbots? I'd like to understand the theory before jumping into implementation.",
+    "expected_faculty": "conversational-ui",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "claude"
+    ],
+    "source": "claude"
+  },
+  {
+    "id": "cu-gen07",
+    "prompt": "Explain rich message with practical examples for a customer service chatbot.",
+    "expected_faculty": "conversational-ui",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "gpt"
+    ],
+    "source": "gpt"
+  },
+  {
+    "id": "cu-gen08",
+    "prompt": "How should I think about conversational AI when designing a conversational flow? Walk me through your reasoning step by step.",
+    "expected_faculty": "conversational-ui",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "claude"
+    ],
+    "source": "claude"
+  },
+  {
+    "id": "cu-gen09",
+    "prompt": "Quick guide: slot filling — what works and what doesn't?",
+    "expected_faculty": "conversational-ui",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "gpt"
+    ],
+    "source": "gpt"
+  },
+  {
+    "id": "cu-gen10",
+    "prompt": "I'm working on conversational interfaces and chatbots and need a comprehensive guide on chat. Can you walk me through best practices, common pitfalls, and the underlying principles?",
+    "expected_faculty": "conversational-ui",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "claude"
+    ],
+    "source": "claude"
+  },
+  {
+    "id": "sd-gen01",
+    "prompt": "Best approach for prioritize in product strategy and design thinking? Show me the code.",
+    "expected_faculty": "strategic-design",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "gpt"
+    ],
+    "source": "gpt"
+  },
+  {
+    "id": "sd-gen02",
+    "prompt": "I'm building a new product initiative and want to deeply understand story mapping. What are the key frameworks, mental models, and evidence-based approaches I should know?",
+    "expected_faculty": "strategic-design",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "claude"
+    ],
+    "source": "claude"
+  },
+  {
+    "id": "sd-gen03",
+    "prompt": "What's the optimal way to handle bikin rencana? Be specific.",
+    "expected_faculty": "strategic-design",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "gpt"
+    ],
+    "source": "gpt"
+  },
+  {
+    "id": "sd-gen04",
+    "prompt": "What's the current best practice for prototype? I want both the theoretical foundation and practical implementation guidance.",
+    "expected_faculty": "strategic-design",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "claude"
+    ],
+    "source": "claude"
+  },
+  {
+    "id": "sd-gen05",
+    "prompt": "How to implement prioritization framework for a product strategy? Give me concrete examples.",
+    "expected_faculty": "strategic-design",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "gpt"
+    ],
+    "source": "gpt"
+  },
+  {
+    "id": "sd-gen06",
+    "prompt": "Can you provide a detailed explanation of decide in the context of product strategy and design thinking? I'd like to understand the theory before jumping into implementation.",
+    "expected_faculty": "strategic-design",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "claude"
+    ],
+    "source": "claude"
+  },
+  {
+    "id": "sd-gen07",
+    "prompt": "Explain strategic design with practical examples for a new product initiative.",
+    "expected_faculty": "strategic-design",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "gpt"
+    ],
+    "source": "gpt"
+  },
+  {
+    "id": "sd-gen08",
+    "prompt": "How should I think about strategic roadmap when designing a product strategy? Walk me through your reasoning step by step.",
+    "expected_faculty": "strategic-design",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "claude"
+    ],
+    "source": "claude"
+  },
+  {
+    "id": "sd-gen09",
+    "prompt": "Quick guide: user story mapping — what works and what doesn't?",
+    "expected_faculty": "strategic-design",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "gpt"
+    ],
+    "source": "gpt"
+  },
+  {
+    "id": "sd-gen10",
+    "prompt": "I'm working on product strategy and design thinking and need a comprehensive guide on assumption mapping. Can you walk me through best practices, common pitfalls, and the underlying principles?",
+    "expected_faculty": "strategic-design",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "claude"
+    ],
+    "source": "claude"
+  },
+  {
+    "id": "sv-gen01",
+    "prompt": "Best approach for prototype service in service design and blueprinting? Show me the code.",
+    "expected_faculty": "service-design",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "gpt"
+    ],
+    "source": "gpt"
+  },
+  {
+    "id": "sv-gen02",
+    "prompt": "I'm building a multi-channel service and want to deeply understand touchpoint orchestration. What are the key frameworks, mental models, and evidence-based approaches I should know?",
+    "expected_faculty": "service-design",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "claude"
+    ],
+    "source": "claude"
+  },
+  {
+    "id": "sv-gen03",
+    "prompt": "What's the optimal way to handle service flow? Be specific.",
+    "expected_faculty": "service-design",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "gpt"
+    ],
+    "source": "gpt"
+  },
+  {
+    "id": "sv-gen04",
+    "prompt": "What's the current best practice for dependency matrix? I want both the theoretical foundation and practical implementation guidance.",
+    "expected_faculty": "service-design",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "claude"
+    ],
+    "source": "claude"
+  },
+  {
+    "id": "sv-gen05",
+    "prompt": "How to implement customer journey map for a service blueprint? Give me concrete examples.",
+    "expected_faculty": "service-design",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "gpt"
+    ],
+    "source": "gpt"
+  },
+  {
+    "id": "sv-gen06",
+    "prompt": "Can you provide a detailed explanation of escalation rate in the context of service design and blueprinting? I'd like to understand the theory before jumping into implementation.",
+    "expected_faculty": "service-design",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "claude"
+    ],
+    "source": "claude"
+  },
+  {
+    "id": "sv-gen07",
+    "prompt": "Explain desktop walkthrough with practical examples for a multi-channel service.",
+    "expected_faculty": "service-design",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "gpt"
+    ],
+    "source": "gpt"
+  },
+  {
+    "id": "sv-gen08",
+    "prompt": "How should I think about actor map when designing a service blueprint? Walk me through your reasoning step by step.",
+    "expected_faculty": "service-design",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "claude"
+    ],
+    "source": "claude"
+  },
+  {
+    "id": "sv-gen09",
+    "prompt": "Quick guide: service journey — what works and what doesn't?",
+    "expected_faculty": "service-design",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "gpt"
+    ],
+    "source": "gpt"
+  },
+  {
+    "id": "sv-gen10",
+    "prompt": "I'm working on service design and blueprinting and need a comprehensive guide on service ecosystem. Can you walk me through best practices, common pitfalls, and the underlying principles?",
+    "expected_faculty": "service-design",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "claude"
+    ],
+    "source": "claude"
+  },
+  {
+    "id": "se-gen01",
+    "prompt": "Best approach for event-driven in software engineering practices? Show me the code.",
+    "expected_faculty": "software-engineering",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "gpt"
+    ],
+    "source": "gpt"
+  },
+  {
+    "id": "se-gen02",
+    "prompt": "I'm building a production backend system and want to deeply understand TDD. What are the key frameworks, mental models, and evidence-based approaches I should know?",
+    "expected_faculty": "software-engineering",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "claude"
+    ],
+    "source": "claude"
+  },
+  {
+    "id": "se-gen03",
+    "prompt": "What's the optimal way to handle API design? Be specific.",
+    "expected_faculty": "software-engineering",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "gpt"
+    ],
+    "source": "gpt"
+  },
+  {
+    "id": "se-gen04",
+    "prompt": "What's the current best practice for code review? I want both the theoretical foundation and practical implementation guidance.",
+    "expected_faculty": "software-engineering",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "claude"
+    ],
+    "source": "claude"
+  },
+  {
+    "id": "se-gen05",
+    "prompt": "Best approach for integration test in software engineering practices? Show me the code.",
+    "expected_faculty": "software-engineering",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "gpt"
+    ],
+    "source": "gpt"
+  },
+  {
+    "id": "se-gen06",
+    "prompt": "I'm building a production backend system and want to deeply understand design patterns. What are the key frameworks, mental models, and evidence-based approaches I should know?",
+    "expected_faculty": "software-engineering",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "claude"
+    ],
+    "source": "claude"
+  },
+  {
+    "id": "se-gen07",
+    "prompt": "What's the optimal way to handle GraphQL? Be specific.",
+    "expected_faculty": "software-engineering",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "gpt"
+    ],
+    "source": "gpt"
+  },
+  {
+    "id": "se-gen08",
+    "prompt": "What's the current best practice for backend? I want both the theoretical foundation and practical implementation guidance.",
+    "expected_faculty": "software-engineering",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "claude"
+    ],
+    "source": "claude"
+  },
+  {
+    "id": "se-gen09",
+    "prompt": "How to implement microservices for a REST API? Give me concrete examples.",
+    "expected_faculty": "software-engineering",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "gpt"
+    ],
+    "source": "gpt"
+  },
+  {
+    "id": "se-gen10",
+    "prompt": "Can you provide a detailed explanation of GoF in the context of software engineering practices? I'd like to understand the theory before jumping into implementation.",
+    "expected_faculty": "software-engineering",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "claude"
+    ],
+    "source": "claude"
+  },
+  {
+    "id": "de-gen01",
+    "prompt": "Best approach for Docker in DevOps and infrastructure? Show me the code.",
+    "expected_faculty": "devops-infra",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "gpt"
+    ],
+    "source": "gpt"
+  },
+  {
+    "id": "de-gen02",
+    "prompt": "I'm building a cloud-native platform and want to deeply understand docker-compose. What are the key frameworks, mental models, and evidence-based approaches I should know?",
+    "expected_faculty": "devops-infra",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "claude"
+    ],
+    "source": "claude"
+  },
+  {
+    "id": "de-gen03",
+    "prompt": "What's the optimal way to handle pipeline? Be specific.",
+    "expected_faculty": "devops-infra",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "gpt"
+    ],
+    "source": "gpt"
+  },
+  {
+    "id": "de-gen04",
+    "prompt": "What's the current best practice for SSH? I want both the theoretical foundation and practical implementation guidance.",
+    "expected_faculty": "devops-infra",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "claude"
+    ],
+    "source": "claude"
+  },
+  {
+    "id": "de-gen05",
+    "prompt": "How to implement infrastructure as code for a deployment pipeline? Give me concrete examples.",
+    "expected_faculty": "devops-infra",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "gpt"
+    ],
+    "source": "gpt"
+  },
+  {
+    "id": "de-gen06",
+    "prompt": "Can you provide a detailed explanation of Prometheus in the context of DevOps and infrastructure? I'd like to understand the theory before jumping into implementation.",
+    "expected_faculty": "devops-infra",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "claude"
+    ],
+    "source": "claude"
+  },
+  {
+    "id": "de-gen07",
+    "prompt": "Explain logging with practical examples for a cloud-native platform.",
+    "expected_faculty": "devops-infra",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "gpt"
+    ],
+    "source": "gpt"
+  },
+  {
+    "id": "de-gen08",
+    "prompt": "How should I think about DNS when designing a deployment pipeline? Walk me through your reasoning step by step.",
+    "expected_faculty": "devops-infra",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "claude"
+    ],
+    "source": "claude"
+  },
+  {
+    "id": "de-gen09",
+    "prompt": "Quick guide: Cloud Run — what works and what doesn't?",
+    "expected_faculty": "devops-infra",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "gpt"
+    ],
+    "source": "gpt"
+  },
+  {
+    "id": "de-gen10",
+    "prompt": "I'm working on DevOps and infrastructure and need a comprehensive guide on provision. Can you walk me through best practices, common pitfalls, and the underlying principles?",
+    "expected_faculty": "devops-infra",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "claude"
+    ],
+    "source": "claude"
+  },
+  {
+    "id": "db-gen01",
+    "prompt": "Best approach for indexing in database design and optimization? Show me the code.",
+    "expected_faculty": "database-management",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "gpt"
+    ],
+    "source": "gpt"
+  },
+  {
+    "id": "db-gen02",
+    "prompt": "I'm building a high-traffic application and want to deeply understand MongoDB. What are the key frameworks, mental models, and evidence-based approaches I should know?",
+    "expected_faculty": "database-management",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "claude"
+    ],
+    "source": "claude"
+  },
+  {
+    "id": "db-gen03",
+    "prompt": "What's the optimal way to handle pg_dump? Be specific.",
+    "expected_faculty": "database-management",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "gpt"
+    ],
+    "source": "gpt"
+  },
+  {
+    "id": "db-gen04",
+    "prompt": "What's the current best practice for CAP? I want both the theoretical foundation and practical implementation guidance.",
+    "expected_faculty": "database-management",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "claude"
+    ],
+    "source": "claude"
+  },
+  {
+    "id": "db-gen05",
+    "prompt": "How to implement access control for a database schema? Give me concrete examples.",
+    "expected_faculty": "database-management",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "gpt"
+    ],
+    "source": "gpt"
+  },
+  {
+    "id": "db-gen06",
+    "prompt": "Can you provide a detailed explanation of migrations in the context of database design and optimization? I'd like to understand the theory before jumping into implementation.",
+    "expected_faculty": "database-management",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "claude"
+    ],
+    "source": "claude"
+  },
+  {
+    "id": "db-gen07",
+    "prompt": "Explain data storage with practical examples for a high-traffic application.",
+    "expected_faculty": "database-management",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "gpt"
+    ],
+    "source": "gpt"
+  },
+  {
+    "id": "db-gen08",
+    "prompt": "How should I think about PostgreSQL when designing a database schema? Walk me through your reasoning step by step.",
+    "expected_faculty": "database-management",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "claude"
+    ],
+    "source": "claude"
+  },
+  {
+    "id": "db-gen09",
+    "prompt": "Quick guide: database — what works and what doesn't?",
+    "expected_faculty": "database-management",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "gpt"
+    ],
+    "source": "gpt"
+  },
+  {
+    "id": "db-gen10",
+    "prompt": "I'm working on database design and optimization and need a comprehensive guide on EXPLAIN. Can you walk me through best practices, common pitfalls, and the underlying principles?",
+    "expected_faculty": "database-management",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "claude"
+    ],
+    "source": "claude"
+  },
+  {
+    "id": "ai-gen01",
+    "prompt": "Best approach for LangChain in AI and LLM integration? Show me the code.",
+    "expected_faculty": "ai-integration",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "gpt"
+    ],
+    "source": "gpt"
+  },
+  {
+    "id": "ai-gen02",
+    "prompt": "I'm building an AI-powered product and want to deeply understand AI safety. What are the key frameworks, mental models, and evidence-based approaches I should know?",
+    "expected_faculty": "ai-integration",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "claude"
+    ],
+    "source": "claude"
+  },
+  {
+    "id": "ai-gen03",
+    "prompt": "What's the optimal way to handle tool use? Be specific.",
+    "expected_faculty": "ai-integration",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "gpt"
+    ],
+    "source": "gpt"
+  },
+  {
+    "id": "ai-gen04",
+    "prompt": "What's the current best practice for embedding? I want both the theoretical foundation and practical implementation guidance.",
+    "expected_faculty": "ai-integration",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "claude"
+    ],
+    "source": "claude"
+  },
+  {
+    "id": "ai-gen05",
+    "prompt": "How to implement chunking for an AI pipeline? Give me concrete examples.",
+    "expected_faculty": "ai-integration",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "gpt"
+    ],
+    "source": "gpt"
+  },
+  {
+    "id": "ai-gen06",
+    "prompt": "Can you provide a detailed explanation of fewshot in the context of AI and LLM integration? I'd like to understand the theory before jumping into implementation.",
+    "expected_faculty": "ai-integration",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "claude"
+    ],
+    "source": "claude"
+  },
+  {
+    "id": "ai-gen07",
+    "prompt": "Explain MCP with practical examples for an AI-powered product.",
+    "expected_faculty": "ai-integration",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "gpt"
+    ],
+    "source": "gpt"
+  },
+  {
+    "id": "ai-gen08",
+    "prompt": "How should I think about retrieval augmented generation when designing an AI pipeline? Walk me through your reasoning step by step.",
+    "expected_faculty": "ai-integration",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "claude"
+    ],
+    "source": "claude"
+  },
+  {
+    "id": "ai-gen09",
+    "prompt": "Quick guide: hallucination — what works and what doesn't?",
+    "expected_faculty": "ai-integration",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "gpt"
+    ],
+    "source": "gpt"
+  },
+  {
+    "id": "ai-gen10",
+    "prompt": "I'm working on AI and LLM integration and need a comprehensive guide on prompt injection. Can you walk me through best practices, common pitfalls, and the underlying principles?",
+    "expected_faculty": "ai-integration",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "claude"
+    ],
+    "source": "claude"
+  },
+  {
+    "id": "sc-gen01",
+    "prompt": "Best approach for encryption in application security? Show me the code.",
+    "expected_faculty": "security",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "gpt"
+    ],
+    "source": "gpt"
+  },
+  {
+    "id": "sc-gen02",
+    "prompt": "I'm building a fintech application and want to deeply understand adversarial. What are the key frameworks, mental models, and evidence-based approaches I should know?",
+    "expected_faculty": "security",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "claude"
+    ],
+    "source": "claude"
+  },
+  {
+    "id": "sc-gen03",
+    "prompt": "What's the optimal way to handle KMS? Be specific.",
+    "expected_faculty": "security",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "gpt"
+    ],
+    "source": "gpt"
+  },
+  {
+    "id": "sc-gen04",
+    "prompt": "What's the current best practice for secure SDLC? I want both the theoretical foundation and practical implementation guidance.",
+    "expected_faculty": "security",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "claude"
+    ],
+    "source": "claude"
+  },
+  {
+    "id": "sc-gen05",
+    "prompt": "How to implement broken access control for a secure API? Give me concrete examples.",
+    "expected_faculty": "security",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "gpt"
+    ],
+    "source": "gpt"
+  },
+  {
+    "id": "sc-gen06",
+    "prompt": "Can you provide a detailed explanation of bcrypt in the context of application security? I'd like to understand the theory before jumping into implementation.",
+    "expected_faculty": "security",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "claude"
+    ],
+    "source": "claude"
+  },
+  {
+    "id": "sc-gen07",
+    "prompt": "Explain GDPR with practical examples for a fintech application.",
+    "expected_faculty": "security",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "gpt"
+    ],
+    "source": "gpt"
+  },
+  {
+    "id": "sc-gen08",
+    "prompt": "How should I think about XSS when designing a secure API? Walk me through your reasoning step by step.",
+    "expected_faculty": "security",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "claude"
+    ],
+    "source": "claude"
+  },
+  {
+    "id": "sc-gen09",
+    "prompt": "Quick guide: SQL injection — what works and what doesn't?",
+    "expected_faculty": "security",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "gpt"
+    ],
+    "source": "gpt"
+  },
+  {
+    "id": "sc-gen10",
+    "prompt": "I'm working on application security and need a comprehensive guide on CORS. Can you walk me through best practices, common pitfalls, and the underlying principles?",
+    "expected_faculty": "security",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "claude"
+    ],
+    "source": "claude"
+  },
+  {
+    "id": "pf-gen01",
+    "prompt": "Best approach for cursor pagination in web application performance? Show me the code.",
+    "expected_faculty": "performance",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "gpt"
+    ],
+    "source": "gpt"
+  },
+  {
+    "id": "pf-gen02",
+    "prompt": "How should I think about load testing when designing a web page? Walk me through your reasoning step by step.",
+    "expected_faculty": "performance",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "claude"
+    ],
+    "source": "claude"
+  },
+  {
+    "id": "pf-gen03",
+    "prompt": "Quick guide: connection pooling — what works and what doesn't?",
+    "expected_faculty": "performance",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "gpt"
+    ],
+    "source": "gpt"
+  },
+  {
+    "id": "pf-gen04",
+    "prompt": "I'm working on web application performance and need a comprehensive guide on lazy loading. Can you walk me through best practices, common pitfalls, and the underlying principles?",
+    "expected_faculty": "performance",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "claude"
+    ],
+    "source": "claude"
+  },
+  {
+    "id": "pf-gen05",
+    "prompt": "Best approach for async processing in web application performance? Show me the code.",
+    "expected_faculty": "performance",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "gpt"
+    ],
+    "source": "gpt"
+  },
+  {
+    "id": "pf-gen06",
+    "prompt": "I'm building a performance-critical web app and want to deeply understand FCP. What are the key frameworks, mental models, and evidence-based approaches I should know?",
+    "expected_faculty": "performance",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "claude"
+    ],
+    "source": "claude"
+  },
+  {
+    "id": "pf-gen07",
+    "prompt": "What's the optimal way to handle Brotli? Be specific.",
+    "expected_faculty": "performance",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "gpt"
+    ],
+    "source": "gpt"
+  },
+  {
+    "id": "pf-gen08",
+    "prompt": "What's the current best practice for WebP? I want both the theoretical foundation and practical implementation guidance.",
+    "expected_faculty": "performance",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "claude"
+    ],
+    "source": "claude"
+  },
+  {
+    "id": "pf-gen09",
+    "prompt": "How to implement bundlewatch for a web page? Give me concrete examples.",
+    "expected_faculty": "performance",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "gpt"
+    ],
+    "source": "gpt"
+  },
+  {
+    "id": "pf-gen10",
+    "prompt": "Can you provide a detailed explanation of bundle size in the context of web application performance? I'd like to understand the theory before jumping into implementation.",
+    "expected_faculty": "performance",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "claude"
+    ],
+    "source": "claude"
+  },
+  {
+    "id": "tq-gen01",
+    "prompt": "Best approach for quality metrics in software testing and quality? Show me the code.",
+    "expected_faculty": "testing-qa",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "gpt"
+    ],
+    "source": "gpt"
+  },
+  {
+    "id": "tq-gen02",
+    "prompt": "I'm building a mission-critical application and want to deeply understand test database. What are the key frameworks, mental models, and evidence-based approaches I should know?",
+    "expected_faculty": "testing-qa",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "claude"
+    ],
+    "source": "claude"
+  },
+  {
+    "id": "tq-gen03",
+    "prompt": "What's the optimal way to handle code coverage? Be specific.",
+    "expected_faculty": "testing-qa",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "gpt"
+    ],
+    "source": "gpt"
+  },
+  {
+    "id": "tq-gen04",
+    "prompt": "What's the current best practice for integration test? I want both the theoretical foundation and practical implementation guidance.",
+    "expected_faculty": "testing-qa",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "claude"
+    ],
+    "source": "claude"
+  },
+  {
+    "id": "tq-gen05",
+    "prompt": "How to implement contract testing for a test suite? Give me concrete examples.",
+    "expected_faculty": "testing-qa",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "gpt"
+    ],
+    "source": "gpt"
+  },
+  {
+    "id": "tq-gen06",
+    "prompt": "Can you provide a detailed explanation of test in the context of software testing and quality? I'd like to understand the theory before jumping into implementation.",
+    "expected_faculty": "testing-qa",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "claude"
+    ],
+    "source": "claude"
+  },
+  {
+    "id": "tq-gen07",
+    "prompt": "Explain stress testing with practical examples for a mission-critical application.",
+    "expected_faculty": "testing-qa",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "gpt"
+    ],
+    "source": "gpt"
+  },
+  {
+    "id": "tq-gen08",
+    "prompt": "How should I think about API testing when designing a test suite? Walk me through your reasoning step by step.",
+    "expected_faculty": "testing-qa",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "claude"
+    ],
+    "source": "claude"
+  },
+  {
+    "id": "tq-gen09",
+    "prompt": "How to implement component testing for a test suite? Give me concrete examples.",
+    "expected_faculty": "testing-qa",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "gpt"
+    ],
+    "source": "gpt"
+  },
+  {
+    "id": "tq-gen10",
+    "prompt": "Can you provide a detailed explanation of test automation in the context of software testing and quality? I'd like to understand the theory before jumping into implementation.",
+    "expected_faculty": "testing-qa",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "claude"
+    ],
+    "source": "claude"
+  },
+  {
+    "id": "dx-gen01",
+    "prompt": "Best approach for onboarding in developer experience? Show me the code.",
+    "expected_faculty": "dx",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "gpt"
+    ],
+    "source": "gpt"
+  },
+  {
+    "id": "dx-gen02",
+    "prompt": "I'm building a developer tool and want to deeply understand developer. What are the key frameworks, mental models, and evidence-based approaches I should know?",
+    "expected_faculty": "dx",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "claude"
+    ],
+    "source": "claude"
+  },
+  {
+    "id": "dx-gen03",
+    "prompt": "What's the optimal way to handle sdk? Be specific.",
+    "expected_faculty": "dx",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "gpt"
+    ],
+    "source": "gpt"
+  },
+  {
+    "id": "dx-gen04",
+    "prompt": "What's the current best practice for openapi? I want both the theoretical foundation and practical implementation guidance.",
+    "expected_faculty": "dx",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "claude"
+    ],
+    "source": "claude"
+  },
+  {
+    "id": "dx-gen05",
+    "prompt": "How to implement reference docs for a CLI tool? Give me concrete examples.",
+    "expected_faculty": "dx",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "gpt"
+    ],
+    "source": "gpt"
+  },
+  {
+    "id": "dx-gen06",
+    "prompt": "Can you provide a detailed explanation of tool in the context of developer experience? I'd like to understand the theory before jumping into implementation.",
+    "expected_faculty": "dx",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "claude"
+    ],
+    "source": "claude"
+  },
+  {
+    "id": "dx-gen07",
+    "prompt": "What's the optimal way to handle developer onboarding? Be specific.",
+    "expected_faculty": "dx",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "gpt"
+    ],
+    "source": "gpt"
+  },
+  {
+    "id": "dx-gen08",
+    "prompt": "What's the current best practice for documentation architecture? I want both the theoretical foundation and practical implementation guidance.",
+    "expected_faculty": "dx",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "claude"
+    ],
+    "source": "claude"
+  },
+  {
+    "id": "dx-gen09",
+    "prompt": "How to implement sdk generation for a CLI tool? Give me concrete examples.",
+    "expected_faculty": "dx",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "gpt"
+    ],
+    "source": "gpt"
+  },
+  {
+    "id": "dx-gen10",
+    "prompt": "Can you provide a detailed explanation of docs in the context of developer experience? I'd like to understand the theory before jumping into implementation.",
+    "expected_faculty": "dx",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "claude"
+    ],
+    "source": "claude"
+  },
+  {
+    "id": "ia-gen01",
+    "prompt": "Best approach for spellcheck in information architecture? Show me the code.",
+    "expected_faculty": "ia",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "gpt"
+    ],
+    "source": "gpt"
+  },
+  {
+    "id": "ia-gen02",
+    "prompt": "I'm building a large-scale website and want to deeply understand search. What are the key frameworks, mental models, and evidence-based approaches I should know?",
+    "expected_faculty": "ia",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "claude"
+    ],
+    "source": "claude"
+  },
+  {
+    "id": "ia-gen03",
+    "prompt": "What's the optimal way to handle embedding? Be specific.",
+    "expected_faculty": "ia",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "gpt"
+    ],
+    "source": "gpt"
+  },
+  {
+    "id": "ia-gen04",
+    "prompt": "What's the current best practice for polyhierarchy? I want both the theoretical foundation and practical implementation guidance.",
+    "expected_faculty": "ia",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "claude"
+    ],
+    "source": "claude"
+  },
+  {
+    "id": "ia-gen05",
+    "prompt": "How to implement full-text search for an information architecture? Give me concrete examples.",
+    "expected_faculty": "ia",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "gpt"
+    ],
+    "source": "gpt"
+  },
+  {
+    "id": "ia-gen06",
+    "prompt": "Can you provide a detailed explanation of no results in the context of information architecture? I'd like to understand the theory before jumping into implementation.",
+    "expected_faculty": "ia",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "claude"
+    ],
+    "source": "claude"
+  },
+  {
+    "id": "ia-gen07",
+    "prompt": "Explain tf-idf with practical examples for a large-scale website.",
+    "expected_faculty": "ia",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "gpt"
+    ],
+    "source": "gpt"
+  },
+  {
+    "id": "ia-gen08",
+    "prompt": "How should I think about organize when designing an information architecture? Walk me through your reasoning step by step.",
+    "expected_faculty": "ia",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "claude"
+    ],
+    "source": "claude"
+  },
+  {
+    "id": "ia-gen09",
+    "prompt": "Quick guide: controlled vocabulary — what works and what doesn't?",
+    "expected_faculty": "ia",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "gpt"
+    ],
+    "source": "gpt"
+  },
+  {
+    "id": "ia-gen10",
+    "prompt": "I'm working on information architecture and need a comprehensive guide on personalization. Can you walk me through best practices, common pitfalls, and the underlying principles?",
+    "expected_faculty": "ia",
+    "type": "single",
+    "acceptable_faculties": null,
+    "tags": [
+      "ai-generated",
+      "claude"
+    ],
+    "source": "claude"
+  },
+  {
+    "id": "amb-gen-01",
+    "prompt": "How should I approach designing UI color systems and design that also considers web accessibility best practices?",
+    "expected_faculty": null,
+    "type": "ambiguous",
+    "acceptable_faculties": [
+      "warna",
+      "aksesibilitas"
+    ],
+    "tags": [
+      "ambiguous",
+      "ai-generated"
+    ],
+    "source": "claude"
+  },
+  {
+    "id": "amb-gen-02",
+    "prompt": "I need a solution that combines responsive web layout principles with mobile user experience methodology. What's the best approach?",
+    "expected_faculty": null,
+    "type": "ambiguous",
+    "acceptable_faculties": [
+      "layout",
+      "mobile-ux"
+    ],
+    "tags": [
+      "ambiguous",
+      "ai-generated"
+    ],
+    "source": "gpt"
+  },
+  {
+    "id": "amb-gen-03",
+    "prompt": "What's the intersection between UI design patterns and information architecture? Give me an integrated framework.",
+    "expected_faculty": null,
+    "type": "ambiguous",
+    "acceptable_faculties": [
+      "design-patterns",
+      "ia"
+    ],
+    "tags": [
+      "ambiguous",
+      "ai-generated"
+    ],
+    "source": "claude"
+  },
+  {
+    "id": "amb-gen-04",
+    "prompt": "How should I approach designing UI content design that also considers conversational interfaces and chatbots best practices?",
+    "expected_faculty": null,
+    "type": "ambiguous",
+    "acceptable_faculties": [
+      "ux-writing",
+      "conversational-ui"
+    ],
+    "tags": [
+      "ambiguous",
+      "ai-generated"
+    ],
+    "source": "gpt"
+  },
+  {
+    "id": "amb-gen-05",
+    "prompt": "I need a solution that combines data visualization principles with UI color systems and design methodology. What's the best approach?",
+    "expected_faculty": null,
+    "type": "ambiguous",
+    "acceptable_faculties": [
+      "data-viz",
+      "warna"
+    ],
+    "tags": [
+      "ambiguous",
+      "ai-generated"
+    ],
+    "source": "claude"
+  },
+  {
+    "id": "amb-gen-06",
+    "prompt": "What's the intersection between software engineering practices and application security? Give me an integrated framework.",
+    "expected_faculty": null,
+    "type": "ambiguous",
+    "acceptable_faculties": [
+      "software-engineering",
+      "security"
+    ],
+    "tags": [
+      "ambiguous",
+      "ai-generated"
+    ],
+    "source": "gpt"
+  },
+  {
+    "id": "amb-gen-07",
+    "prompt": "How should I approach designing software testing and quality that also considers DevOps and infrastructure best practices?",
+    "expected_faculty": null,
+    "type": "ambiguous",
+    "acceptable_faculties": [
+      "testing-qa",
+      "devops-infra"
+    ],
+    "tags": [
+      "ambiguous",
+      "ai-generated"
+    ],
+    "source": "claude"
+  },
+  {
+    "id": "amb-gen-08",
+    "prompt": "I need a solution that combines web application performance principles with database design and optimization methodology. What's the best approach?",
+    "expected_faculty": null,
+    "type": "ambiguous",
+    "acceptable_faculties": [
+      "performance",
+      "database-management"
+    ],
+    "tags": [
+      "ambiguous",
+      "ai-generated"
+    ],
+    "source": "gpt"
+  },
+  {
+    "id": "amb-gen-09",
+    "prompt": "What's the intersection between product strategy and design thinking and service design and blueprinting? Give me an integrated framework.",
+    "expected_faculty": null,
+    "type": "ambiguous",
+    "acceptable_faculties": [
+      "strategic-design",
+      "service-design"
+    ],
+    "tags": [
+      "ambiguous",
+      "ai-generated"
+    ],
+    "source": "claude"
+  },
+  {
+    "id": "amb-gen-10",
+    "prompt": "How should I approach designing AI and LLM integration that also considers application security best practices?",
+    "expected_faculty": null,
+    "type": "ambiguous",
+    "acceptable_faculties": [
+      "ai-integration",
+      "security"
+    ],
+    "tags": [
+      "ambiguous",
+      "ai-generated"
+    ],
+    "source": "gpt"
+  },
+  {
+    "id": "amb-gen-11",
+    "prompt": "I need a solution that combines developer experience principles with software engineering practices methodology. What's the best approach?",
+    "expected_faculty": null,
+    "type": "ambiguous",
+    "acceptable_faculties": [
+      "dx",
+      "software-engineering"
+    ],
+    "tags": [
+      "ambiguous",
+      "ai-generated"
+    ],
+    "source": "claude"
+  },
+  {
+    "id": "amb-gen-12",
+    "prompt": "What's the intersection between cognitive science applied to design and user psychology and behavior? Give me an integrated framework.",
+    "expected_faculty": null,
+    "type": "ambiguous",
+    "acceptable_faculties": [
+      "kognisi",
+      "ux-psikologi"
+    ],
+    "tags": [
+      "ambiguous",
+      "ai-generated"
+    ],
+    "source": "gpt"
+  },
+  {
+    "id": "amb-gen-13",
+    "prompt": "How should I approach designing design system architecture that also considers brand identity design best practices?",
+    "expected_faculty": null,
+    "type": "ambiguous",
+    "acceptable_faculties": [
+      "design-systems",
+      "branding"
+    ],
+    "tags": [
+      "ambiguous",
+      "ai-generated"
+    ],
+    "source": "claude"
+  },
+  {
+    "id": "amb-gen-14",
+    "prompt": "I need a solution that combines UI animation and motion design principles with mobile user experience methodology. What's the best approach?",
+    "expected_faculty": null,
+    "type": "ambiguous",
+    "acceptable_faculties": [
+      "animasi",
+      "mobile-ux"
+    ],
+    "tags": [
+      "ambiguous",
+      "ai-generated"
+    ],
+    "source": "gpt"
+  },
+  {
+    "id": "amb-gen-15",
+    "prompt": "What's the intersection between web typography and readability and web accessibility? Give me an integrated framework.",
+    "expected_faculty": null,
+    "type": "ambiguous",
+    "acceptable_faculties": [
+      "tipografi",
+      "aksesibilitas"
+    ],
+    "tags": [
+      "ambiguous",
+      "ai-generated"
+    ],
+    "source": "claude"
+  }
+]

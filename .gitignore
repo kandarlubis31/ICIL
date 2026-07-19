@@ -1,0 +1,25 @@
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Eval results (prompts are tracked, results are generated)
+eval/_eval-results.json
+eval/_eval-results-*.json
+
+# Dependencies
+node_modules/
+
+# Temp
+*.tmp
+*.log
+
+# Backup files
+*.bak-*

@@ -1,0 +1,85 @@
+{
+  "name": "icil",
+  "version": "25.0.0",
+  "description": "ICIL — Intelligence Campus Interactive Library. 216 courses, 29 faculties, 10 MCP tools. 🏁 CAMPUS MILESTONE — ROADMAP v2 complete: Phase A (10 deepening courses) + Phase B (MCP v3) + Phase C (Design Ethics).",
+  "main": "campus-core.js",
+  "bin": {
+    "icil": "./load-context.js",
+    "icil-mcp": "./mcp-server.js"
+  },
+  "files": [
+    "campus-core.js",
+    "load-context.js",
+    "mcp-server.js",
+    "index.json",
+    "warna/",
+    "ux-psikologi/",
+    "ux-writing/",
+    "tipografi/",
+    "layout/",
+    "design-patterns/",
+    "animasi/",
+    "branding/",
+    "aksesibilitas/",
+    "improvement/",
+    "kognisi/",
+    "mobile-ux/",
+    "data-viz/",
+    "design-systems/",
+    "conversational-ui/",
+    "strategic-design/",
+    "service-design/",
+    "software-engineering/",
+    "devops-infra/",
+    "database-management/",
+    "ai-integration/",
+    "security/",
+    "performance/",
+    "testing-qa/",
+    "dx/",
+    "ia/",
+    "agentic-engineering/",
+    "ux-research/",
+    "design-ethics/"
+  ],
+  "scripts": {
+    "search": "node load-context.js",
+    "list": "node load-context.js --list",
+    "mcp": "node mcp-server.js",
+    "eval": "node eval-runner.js",
+    "eval:json": "node eval-runner.js --json",
+    "eval:ci": "node eval-runner.js --ci",
+    "ci:validate": "node ci-validate.js",
+    "ci:gate": "node ci-validate.js --with-eval"
+  },
+  "keywords": [
+    "ui",
+    "ux",
+    "design",
+    "accessibility",
+    "typography",
+    "color-theory",
+    "animation",
+    "branding",
+    "cognitive-science",
+    "mcp-server",
+    "ai-agent",
+    "knowledge-base",
+    "design-system",
+    "campus",
+    "icil"
+  ],
+  "author": "Mas Aul",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mas-aul/icil"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.0",
+    "zod": "^4.4.3"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

@@ -1,0 +1,277 @@
+╔══════════════════════════════════════════════════════════════╗
+║  🎓 ICIL — Intelligence Campus Interactive Library          ║
+║  "The Sacred Dictionary for AI Agents"                      ║
+║  v25.0.0 🏁 — CAMPUS MILESTONE                              ║
+╚══════════════════════════════════════════════════════════════╝
+
+================================================================
+📌 WHAT IS THIS?
+================================================================
+
+ICIL (Intelligence Campus Interactive Library) is a SUPER COMPREHENSIVE KNOWLEDGE BASE
+purpose-built as a REFERENCE for AI AGENTS.
+
+Think of it like this: An AI agent is like a student. It can code,
+design, analyze — but its knowledge is limited to its training data.
+
+This campus is a SACRED LIBRARY that AI agents can load as
+"context injection." Once loaded, the agent instantly gains
+EXPERT-LEVEL KNOWLEDGE in specific domains.
+
+================================================================
+🎯 THE BIG VISION
+================================================================
+
+"Build AI agents that can design, write, and code LIKE HUMANS —
+with expert-level quality standards."
+
+User just says:
+  "Bro, improve this website's UI to feel more human."
+  "Build a landing page that feels luxurious and elegant."
+  "Write engaging microcopy for the onboarding flow."
+  "Design ethical AI systems that respect user privacy."
+
+→ AI agent AUTO-DETECTS which faculties are relevant.
+→ Loads the context.
+→ Executes with EXPERT-LEVEL quality.
+
+No need for the user to pick faculties — the AI figures it out itself.
+
+================================================================
+🏛️ STRUCTURE
+================================================================
+
+inteligence_mas-aul/
+├── AGENTS.md                        ← Agent guide — load this FIRST
+├── README.md                        ← Campus map
+├── index.md                         ← Ultra-compact AI entry point
+├── index.json                       ← Machine-readable catalog + auto-router
+├── campus-core.js                   ← Shared library (searchCampus, getCourseContent, etc.)
+├── load-context.js                  ← CLI auto-router
+├── mcp-server.js                    ← MCP server v3 (10 tools for AI agents)
+├── CAMPUS-OVERVIEW.md               ← Full overview + 16 cross-faculty task paths
+├── CONTEXT.md                       ← Session save state
+├── CHANGELOG.md                     ← Version history
+├── CONTRIBUTING.md                  ← Contribution guide + course template
+├── ROADMAP-v2.md                    ← v2 Roadmap — 100% COMPLETE 🏁
+│
+├── warna/              🎨 9 courses ← Theory, harmony, psychology, culture, accessibility
+├── ux-psikologi/       🎭 7 courses ← Cognitive biases, UX laws, Gestalt, persuasion
+├── ux-writing/         ✍️ 7 courses ← Microcopy, voice & tone, error states, onboarding
+├── tipografi/          🔤 7 courses ← Font pairing, type scale, readability, variable fonts
+├── layout/             📐 7 courses ← Grid systems, CSS Grid, Flexbox, responsive, composition
+├── design-patterns/    🧩 8 courses ← Modal, forms, navigation, search, tables, feedback
+├── animasi/            ✨ 7 courses ← Motion principles, easing, micro-interactions, transitions
+├── branding/           🏷️ 7 courses ← Brand strategy, identity, voice, guidelines, evolution
+├── aksesibilitas/      ♿ 7 courses ← WCAG, semantic HTML, ARIA, keyboard nav, screen readers
+├── improvement/        🔧 7 courses ← Audit, heuristics, prioritization, iterative refinement (META)
+├── kognisi/            🧠 7 courses ← Cognitive science: how humans think, perceive, remember
+├── mobile-ux/          📱 7 courses ← Touch targets, gestures, thumb zone, navigation, haptics
+├── data-viz/           📊 7 courses ← Visual encoding, chart selection, dashboards, storytelling
+├── design-systems/     🛠️ 7 courses ← Tokens, components, Figma, governance, ROI
+├── conversational-ui/  💬 8 courses ← Chatbots, voice UI, NLU, personality, multi-modal, AI agents
+├── strategic-design/   🧭 7 courses ← Double Diamond, JTBD, OKRs, Cynefin, systems thinking
+├── service-design/     🌐 7 courses ← S-D logic, blueprinting, journey mapping, orchestration
+├── software-engineering/ ⚙️ 9 courses ← Clean code, SOLID, DDD, CQRS, APIs, patterns, testing
+├── devops-infra/       🐳 7 courses ← Linux, Docker, CI/CD, cloud, networking, monitoring, IaC
+├── database-management/ 🗄️ 7 courses ← SQL, normalization, indexing, migrations, NoSQL, backup
+├── ai-integration/     🤖 10 courses ← Prompts, RAG, embeddings, agents, multi-modal, cost, MCP
+├── security/           🔐 9 courses ← OWASP, auth, encryption, zero trust, supply chain, AI security
+├── performance/        ⚡ 7 courses ← Web Vitals, caching, backend/DB optimization, load testing
+├── testing-qa/         🧪 7 courses ← Test pyramid, unit/integration/E2E, CI automation, quality
+├── dx/                 🖥️ 7 courses ← DX strategy, CLI design, API design, docs, SDK, onboarding
+├── ia/                 🗂️ 7 courses ← IA fundamentals, navigation, search, taxonomies, content modeling
+├── agentic-engineering/ 🤖 9 courses ← Runtimes, context eng, multi-agent, observability, cost, safety
+├── ux-research/        🔬 7 courses ← Research methods, interviews, quant, synthesis, ops, usability
+└── design-ethics/      ⚖️ 7 courses ← Ethical frameworks, privacy, AI fairness, dark patterns, sustainability
+
+TOTAL: 216 courses across 29 faculties
+
+================================================================
+🧠 HOW IT WORKS (FOR AI AGENTS)
+================================================================
+
+STEP 1 — Agent receives a user prompt:
+  "Make a dashboard UI that's more engaging so users don't bounce."
+
+STEP 2 — Agent reads index.json → matches keywords:
+  "engaging"      → ux-psikologi (persuasion, gamification)
+  "don't bounce"  → ux-psikologi (cognitive biases, choice paralysis)
+  "dashboard UI"  → warna (palette, accessibility)
+                  → ux-writing (microcopy)
+
+STEP 3 — Agent loads relevant context:
+  [load ux-psikologi/02-cognitive-biases.md]
+  [load ux-psikologi/05-persuasion-behavioral-design.md]
+  [load warna/06-color-accessibility.md]
+  [load ux-writing/03-component-microcopy.md]
+
+STEP 4 — Agent EXECUTES with expert-level knowledge.
+
+OR use the auto-router CLI:
+  node load-context.js "build an accessible landing page"
+  node load-context.js "prompt" --json    # programmatic
+  node load-context.js --list             # all faculties
+
+OR use the MCP server for AI agent integration:
+  { mcpServers: { icil: { command: "node", args: ["mcp-server.js"] } } }
+  10 tools: search_campus · load_course · list_faculties · search_across
+            · compare_courses · get_campus_stats · search_by_faculty
+            · get_course_prerequisites · export_course · recommend_learning_path
+
+================================================================
+🔥 WHY IS THIS DIFFERENT?
+================================================================
+
+❌ Most "prompt engineering" = writing long instructions in system prompts.
+   Results: generic, shallow, inconsistent.
+
+✅ ICIL Campus = STRUCTURED knowledge base that is:
+   • SELF-CONTAINED: Each file stands alone
+   • DEEP: Not surface-level — deep like real university courses
+   • AGENT-FIRST: Optimized format for AI agent loading — AGENTS.md is the entry point
+   • RESEARCH-BACKED: All content from research, not guesswork
+   • MACHINE-READABLE: index.json + keyword mapping + word-boundary auto-router
+   • PRACTICAL: Theory + examples + code + cheatsheets
+   • MCP-POWERED: 10 tools for AI agent discovery and consumption
+   • EVAL-VALIDATED: 200-prompt eval set with CI gates (P@3 60%, R@3 86%, MRR 0.80)
+   • ETHICS-BUILT-IN: Dedicated design ethics faculty (privacy, AI fairness, dark patterns, sustainability)
+
+================================================================
+📊 CURRENT STATE — v25.0.0 🏁 CAMPUS MILESTONE
+================================================================
+
+✅ 29 FACULTIES — 216 courses:
+
+   🎨 Color                9 courses  • Theory → Advanced composition
+   🧠 UX Psychology        7 courses  • Cognitive biases → Gamification
+   ✍️ UX Writing           7 courses  • Microcopy → Content systems
+   🔤 Typography           7 courses  • Anatomy → Web typography
+   📐 Layout & Grid        7 courses  • Grid basics → Golden ratio
+   🧩 Design Patterns      8 courses  • Modal → Complex components
+   ✨ Animation & Motion    7 courses  • Principles → Loading screens
+   🏷️ Branding             7 courses  • Strategy → Competitive positioning
+   ♿ Accessibility         7 courses  • WCAG → Inclusive design
+   🔧 Improvement          7 courses  • Methodology → ICIL Protocol (META-FACULTY)
+   🧠 Human Cognition      7 courses  • Cognitive architecture → Metacognition
+   📱 Mobile UX            7 courses  • Mobile-first → Haptics & adaptive layouts
+   📊 Data Visualization   7 courses  • Visual encoding → Accessible storytelling
+   🛠️ Design Systems       7 courses  • Foundations → ROI & multi-brand
+   💬 Conversational UI    8 courses  • Fundamentals → Conv AI Agents
+   🧭 Strategic Design     7 courses  • Double Diamond → Strategy execution
+   🌐 Service Design       7 courses  • S-D Logic → AI-human orchestration → Metrics
+   ⚙️ Software Engineering 9 courses  • Clean code → SOLID → DDD → Event Sourcing
+   🐳 DevOps & Infra       7 courses  • Linux → Docker → CI/CD → Cloud → IaC
+   🗄️ Database Management  7 courses  • SQL → Indexing → Migrations → NoSQL → Backup
+   🤖 AI Integration      10 courses  • Prompts → RAG → Agents → Multi-Modal → Cost
+   🔐 Security & Defense   9 courses  • OWASP → Auth → Zero Trust → Supply Chain → AI
+   ⚡ Performance          7 courses  • Web Vitals → Caching → Backend → DB → Budgets
+   🧪 Testing & QA         7 courses  • Pyramid → Unit → Integration → E2E → Metrics
+   🖥️ Developer Experience 7 courses  • DX strategy → CLI → API → Docs → SDK → Onboarding
+   🗂️ Info Architecture    7 courses  • LATCH → Navigation → Search → Taxonomies → AI IA
+   🤖 Agentic Engineering  9 courses  • Runtimes → Context eng → Multi-agent → A2A → Economics
+   🔬 UX Research          7 courses  • Methods → Interviews → Quant → Synthesis → AI-augmented
+   ⚖️ Design Ethics        7 courses  • Frameworks → Privacy → AI Fairness → Dark Patterns → Sustainability
+
+ROADMAP v2 — 100% COMPLETE ✅:
+   • Phase A: 10 deepening courses (AI Integration +3, Agentic Eng +2, Security +2, SW Eng +2, Conv UI +1)
+   • Phase B: MCP Server v3 (5 new tools → 10 total)
+   • Phase C: Faculty #29 — Design Ethics (7 courses)
+
+MCP Server v3 — 10 Tools:
+   search_campus · load_course · list_faculties · search_across · compare_courses
+   get_campus_stats · search_by_faculty · get_course_prerequisites · export_course
+   · recommend_learning_path
+
+Router Precision: P@3 60%, R@3 86%, MRR 0.80
+Eval Set: 200 labeled prompts (EN+ID bilingual, 3 difficulty tiers)
+
+================================================================
+🚀 HOW TO USE THIS PROJECT
+================================================================
+
+### Quick Start (for AI agents)
+```bash
+# Install dependencies
+npm install
+
+# Auto-route a prompt
+node load-context.js "design an accessible form for mobile"
+
+# List all faculties
+node load-context.js --list
+
+# Interactive mode
+node load-context.js --interactive
+
+# Programmatic usage
+const { searchCampus } = require('./campus-core');
+const result = searchCampus("your prompt here");
+```
+
+### MCP Server (Claude Desktop / Cursor)
+```json
+{
+  "mcpServers": {
+    "icil": {
+      "command": "node",
+      "args": ["path/to/inteligence_mas-aul/mcp-server.js"]
+    }
+  }
+}
+```
+
+### Validate & Test
+```bash
+npm run ci:validate     # Schema + duplicates + cross-refs
+npm run ci:gate         # Full CI with eval gate
+npm run eval            # Run eval suite
+```
+
+================================================================
+🤝 JOIN US! — WHAT YOU CAN WORK ON
+================================================================
+
+1. RESEARCH — Find trusted sources, collect data, validate facts
+2. WRITING — Write new courses in existing or new faculties
+3. REVIEW — Check content quality, fix inaccuracies
+4. NEW FACULTY IDEAS — Know a domain we don't have? Propose it!
+5. TOOLS — Build scripts/CLI that help AI agents load context
+6. TESTING — Try loading into AI agents (Claude, GPT, Gemini), see results
+7. ROUTER PRECISION — Fix no-match prompts, reduce duplicate keywords
+8. SPREAD THE WORD — Share with the community
+
+Writing format:
+  → Clear, practical English with technical terms preserved
+  → Structure: Level → Prerequisites → Content → Cheatsheet → Next
+  → Includes code, tables, BEFORE/AFTER examples
+  → Self-contained: agent can read 1 file without needing others
+  → Compact format: ~500 words/course, tables > prose
+
+================================================================
+💡 WHY SHOULD YOU JOIN?
+================================================================
+
+• REAL open-source portfolio — not another generic CRUD app
+• Learn while building — research → write → level up
+• Impact: every file you write gets used by AI agents worldwide
+• Be part of something that DOESN'T EXIST YET — this is pioneering
+• Fun: write "courses" in your own style
+
+================================================================
+📞 QUESTIONS? JUST ASK.
+================================================================
+
+That's the concept. Simple, right?
+
+We're building AI agents that UNDERSTAND DESIGN like humans —
+not just "generate," but truly COMPREHEND.
+
+With v25.0.0, ICIL is a complete campus: 216 courses, 29 faculties,
+10 MCP tools. From design fundamentals to agentic engineering to
+design ethics — whatever an AI agent needs to build better products,
+it's here.
+
+Let's build the future of AI-assisted design. 🚀
+
+— Mas Aul
