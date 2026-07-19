@@ -26,6 +26,11 @@ inteligence_mas-aul/
 ├── CONTEXT.md             # Session save state
 ├── CHANGELOG.md           # Version history
 ├── CONTRIBUTING.md        # Contribution guide + course template
+├── eval-set.json          # 200-prompt eval set (EN+ID bilingual, 3 difficulty tiers)
+├── eval-runner.js         # Eval runner: P@3, R@3, MRR, CI gate
+├── ci-validate.js         # CI validator: schema, duplicates, cross-refs, eval gate
+├── eval/                  # Eval directory (eval-runner copy for CI)
+├── archive/               # Archive of deprecated files
 ├── {29 faculty dirs}/     # Each: README.md + 7-10 .md courses
 └── package.json
 ```

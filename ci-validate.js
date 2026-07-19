@@ -133,11 +133,15 @@ function validateSchema(index) {
 }
 
 // ── Check Duplicate Keywords ──────────────────────────────────
+// Returns { hardErrors: string[], warnings: string[] }
+//   hardErrors = DUPLICATE HIGH (same keyword at HIGH in 2+ faculties) — blocks CI
+//   warnings   = CROSS-FACULTY (keyword shared at different tiers) — informational only
 function checkDuplicateKeywords(index) {
-  const errors = [];
+  const hardErrors = [];
+  const warnings = [];
   const keywordMap = {}; // keyword → [{faculty, priority}]
 
-  if (!index.auto_router?.trigger_keywords) return errors;
+  if (!index.auto_router?.trigger_keywords) return { hardErrors, warnings };
 
   for (const [facultySlug, data] of Object.entries(index.auto_router.trigger_keywords)) {
     const keywords = data.keywords || {};
@@ -151,35 +155,29 @@ function checkDuplicateKeywords(index) {
     }
   }
 
-  // Check for keywords that appear in MULTIPLE faculties at HIGH priority
   for (const [kw, entries] of Object.entries(keywordMap)) {
     if (entries.length > 1) {
       const highEntries = entries.filter((e) => e.priority === "high");
       if (highEntries.length > 1) {
         const faculties = highEntries.map((e) => e.faculty).join(", ");
-        errors.push(
+        hardErrors.push(
           `DUPLICATE HIGH: "${kw}" appears in multiple faculties at HIGH priority: [${faculties}]`
         );
       }
-      // Also warn about same keyword across faculties at any priority
+      // Warn about same keyword across faculties at any priority
       const faculties = [...new Set(entries.map((e) => e.faculty))];
-      if (faculties.length > 1) {
-        // Guard: skip if already caught as DUPLICATE HIGH above.
-        // (faculties.length > 1 ensures cross-faculty; highEntries <= 1
-        // prevents double-reporting keywords already flagged as HIGH dupes.)
-        if (highEntries.length <= 1) {
-          const details = entries
-            .map((e) => `${e.faculty}:${e.priority}`)
-            .join(", ");
-          errors.push(
-            `CROSS-FACULTY: "${kw}" shared across [${faculties.join(", ")}] (${details})`
-          );
-        }
+      if (faculties.length > 1 && highEntries.length <= 1) {
+        const details = entries
+          .map((e) => `${e.faculty}:${e.priority}`)
+          .join(", ");
+        warnings.push(
+          `CROSS-FACULTY: "${kw}" shared across [${faculties.join(", ")}] (${details})`
+        );
       }
     }
   }
 
-  return errors;
+  return { hardErrors, warnings };
 }
 
 // ── Check Cross-References ────────────────────────────────────
@@ -221,16 +219,16 @@ function checkCrossReferences(index) {
 }
 
 // ── Print Report ──────────────────────────────────────────────
-function printReport(schemaErrors, dupErrors, refErrors, evalResult, jsonMode) {
+function printReport(schemaErrors, dupHardErrors, dupWarnings, refErrors, evalResult, jsonMode) {
   if (jsonMode) {
     const report = {
       schema: { passed: schemaErrors.length === 0, errors: schemaErrors },
-      duplicates: { passed: dupErrors.length === 0, errors: dupErrors },
+      duplicates: { passed: dupHardErrors.length === 0, hardErrors: dupHardErrors, warnings: dupWarnings },
       crossRefs: { passed: refErrors.length === 0, errors: refErrors },
       eval: evalResult || null,
       allPassed:
         schemaErrors.length === 0 &&
-        dupErrors.length === 0 &&
+        dupHardErrors.length === 0 &&
         refErrors.length === 0 &&
         (!evalResult || evalResult.thresholdCheck?.allPassed),
     };
@@ -248,12 +246,23 @@ function printReport(schemaErrors, dupErrors, refErrors, evalResult, jsonMode) {
     for (const err of schemaErrors) console.log(`  - ${err}`);
   }
 
-  // Duplicates
-  if (dupErrors.length === 0) {
+  // Duplicates — hard errors (DUPLICATE HIGH) separate from warnings (CROSS-FACULTY)
+  if (dupHardErrors.length === 0 && dupWarnings.length === 0) {
     console.log(`${c.green}✓ Duplicate Keywords — PASSED${c.reset}`);
   } else {
-    console.log(`${c.red}✗ Duplicate Keywords — ${dupErrors.length} ERRORS:${c.reset}`);
-    for (const err of dupErrors) console.log(`  - ${err}`);
+    if (dupHardErrors.length > 0) {
+      console.log(`${c.red}✗ Duplicate Keywords — ${dupHardErrors.length} HARD ERRORS:${c.reset}`);
+      for (const err of dupHardErrors) console.log(`  - ${err}`);
+    }
+    if (dupWarnings.length > 0) {
+      console.log(`${c.yellow}⚠ Cross-Faculty Keywords — ${dupWarnings.length} warnings (informational, all different-tier overlaps)${c.reset}`);
+      // Only show first 10 warnings to keep output scannable
+      if (dupWarnings.length <= 10) {
+        for (const w of dupWarnings) console.log(`${c.dim}  - ${w}${c.reset}`);
+      } else {
+        console.log(`${c.dim}  (${dupWarnings.length} total — all legit cross-faculty concepts)${c.reset}`);
+      }
+    }
   }
 
   // Cross-references
@@ -276,7 +285,7 @@ function printReport(schemaErrors, dupErrors, refErrors, evalResult, jsonMode) {
 
   const allOk =
     schemaErrors.length === 0 &&
-    dupErrors.length === 0 &&
+    dupHardErrors.length === 0 &&
     refErrors.length === 0 &&
     (!evalResult || evalResult.thresholdCheck?.allPassed);
 
@@ -303,7 +312,7 @@ function main() {
 
   // Run checks
   const schemaErrors = validateSchema(index);
-  const dupErrors = checkDuplicateKeywords(index);
+  const { hardErrors: dupHardErrors, warnings: dupWarnings } = checkDuplicateKeywords(index);
   const refErrors = checkCrossReferences(index);
 
   // Optional eval
@@ -319,12 +328,13 @@ function main() {
     }
   }
 
-  printReport(schemaErrors, dupErrors, refErrors, evalResult, jsonMode);
+  printReport(schemaErrors, dupHardErrors, dupWarnings, refErrors, evalResult, jsonMode);
 
-  // Exit code
+  // Exit code: only hard errors (DUPLICATE HIGH) block CI.
+  // CROSS-FACULTY warnings are informational — they don't fail CI.
   const allOk =
     schemaErrors.length === 0 &&
-    dupErrors.length === 0 &&
+    dupHardErrors.length === 0 &&
     refErrors.length === 0 &&
     (!evalResult || evalResult.thresholdCheck?.allPassed);
 

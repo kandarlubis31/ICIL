@@ -1,5 +1,12 @@
 # 🎓 ICIL — Intelligence Campus Interactive Library
 
+[![Version](https://img.shields.io/badge/version-v25.0.4-blue)](https://github.com/mas-aul/icil/releases)
+[![Courses](https://img.shields.io/badge/courses-216-green)](./index.json)
+[![Faculties](https://img.shields.io/badge/faculties-29-orange)](./index.json)
+[![MCP Tools](https://img.shields.io/badge/MCP%20tools-10-purple)](./mcp-server.js)
+[![Eval P@3](https://img.shields.io/badge/P%403-71.2%25-yellow)](./eval-set.json)
+[![License](https://img.shields.io/badge/license-MIT-lightgrey)](./LICENSE)
+
 > **Sacred Dictionary for AI Agents** — A super comprehensive knowledge base reference for AI agents across various knowledge domains.
 >
 > **New to the repo? Load [`AGENTS.md`](./AGENTS.md) first** — it's the agent guide with repo layout, routing, conventions, and testing.

@@ -173,7 +173,7 @@ Why: Quick overview for AI agents before loading context. "How big is this campu
 |---------|-------|---------|--------|
 | design-ethics | ⚖️ | 7 | Ethics, privacy, AI fairness, sustainability |
 
-**New campus total: 218 courses across 29 faculties.**
+**New campus total: 216 courses across 29 faculties.**
 
 ---
 

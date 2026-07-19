@@ -2,7 +2,7 @@
 
 > **For AI Agents: Load this file FIRST to understand the entire campus, then use `load-context.js` or the auto-router to drill into specific faculties.**
 
-**Version:** v25.0.0 🏁 | **Courses:** 216 | **Faculties:** 29 | **Last Updated:** 2026-07-19 | **Roadmap:** ROADMAP-v2.md — COMPLETE ✅
+**Version:** v25.0.4 | **Courses:** 216 | **Faculties:** 29 | **P@3:** 71.2% | **Last Updated:** 2026-07-20 | **Roadmap:** ROADMAP-v2.md — COMPLETE ✅
 
 ---
 
@@ -66,7 +66,7 @@ HOW TO USE:
 |---|---------|-----|---------|--------|
 | 12 | 📱 **Mobile UX** | `mobile-ux/` | 7 | Mobile-first, touch/gestures, navigation, thumb zones, forms, haptics, adaptive |
 | 13 | 📊 **Data Visualization** | `data-viz/` | 7 | Visual encoding, chart selection, color, dashboards, interactive, storytelling, a11y |
-| 14 | 💬 **Conversational UI** | `conversational-ui/` | 7 | Chatbots, NLU/intents, voice UI, error recovery, personality, multi-modal |
+| 14 | 💬 **Conversational UI** | `conversational-ui/` | 8 | Chatbots, NLU/intents, voice UI, error recovery, personality, multi-modal, conv AI agents |
 | 15 | 🛠️ **Design Systems** | `design-systems/` | 7 | Foundations, tokens, components, Figma, governance, multi-brand, ROI |
 | 16 | 🧭 **Strategic Design** | `strategic-design/` | 7 | Design Thinking, JTBD, OKRs, roadmapping, first principles, Cynefin, execution |
 
@@ -80,16 +80,16 @@ HOW TO USE:
 
 | # | Faculty | Dir | Courses | Domain |
 |---|---------|-----|---------|--------|
-| 18 | ⚙️ **Software Engineering** | `software-engineering/` | 7 | Clean code, architecture, APIs, design patterns, testing, refactoring, DI |
+| 18 | ⚙️ **Software Engineering** | `software-engineering/` | 9 | SOLID, architecture, APIs, design patterns, testing, refactoring, DDD, CQRS |
 | 19 | 🐳 **DevOps & Infra** | `devops-infra/` | 7 | Linux, Docker, CI/CD, cloud, networking, monitoring, IaC |
 | 20 | 🗄️ **Database Management** | `database-management/` | 7 | SQL, normalization, indexing, migrations, NoSQL, modeling, backup |
-| 21 | 🤖 **AI Integration** | `ai-integration/` | 10 | Prompts, RAG, embeddings, orchestration, evaluation, safety, MCP, agents, multi-modal, cost optimization |
+| 21 | 🤖 **AI Integration** | `ai-integration/` | 10 | Prompts, RAG, embeddings, orchestration, evaluation, safety, MCP, agents, multi-modal, cost |
 
 ### 🔐 Quality Layer — Security, Performance & Testing
 
 | # | Faculty | Dir | Courses | Domain |
 |---|---------|-----|---------|--------|
-| 22 | 🔐 **Security & Defense** | `security/` | 7 | OWASP, threat modeling, auth, encryption, AI security, incident response |
+| 22 | 🔐 **Security & Defense** | `security/` | 9 | OWASP, threat modeling, auth, encryption, AI security, incident response, zero trust, supply chain |
 | 23 | ⚡ **Performance** | `performance/` | 7 | Core Web Vitals, caching, backend/DB optimization, load testing, budgets |
 | 24 | 🧪 **Testing & QA** | `testing-qa/` | 7 | Test pyramid, unit/integration/E2E, CI automation, quality metrics |
 | 25 | 🖥️ **Developer Experience** | `dx/` | 7 | CLI design, API ergonomics, Diátaxis docs, SDK patterns, TTFC, DevEx surveys |
@@ -284,20 +284,20 @@ These are the most common multi-faculty combinations for AI agent tasks:
 | 🧠 Human Cognition | `kognisi` | 7 | Beginner→Advanced | Dual process, perception, memory, decision making, metacognition |
 | 📱 Mobile UX | `mobile-ux` | 7 | Beginner→Advanced | Touch targets, gestures, thumb zone, mobile forms, haptics |
 | 📊 Data Viz | `data-viz` | 7 | Beginner→Advanced | Visual encoding, chart selection, dashboards, storytelling, a11y |
-| 💬 Conversational UI | `conversational-ui` | 7 | Beginner→Advanced | Chatbots, NLU/intents, VUI, error recovery, multi-modal |
+| 💬 Conversational UI | `conversational-ui` | 8 | Beginner→Advanced | Chatbots, NLU/intents, VUI, error recovery, multi-modal, conv AI agents |
 | 🛠️ Design Systems | `design-systems` | 7 | Beginner→Advanced | Tokens, components, Figma, governance, multi-brand, ROI |
 | 🧭 Strategic Design | `strategic-design` | 7 | Beginner→Advanced | Double Diamond, JTBD, OKRs, Cynefin, first principles, execution |
 | 🌐 Service Design | `service-design` | 7 | Beginner→Advanced | S-D logic, blueprinting, journey mapping, ecosystems, AI-human orchestration, metrics |
-| ⚙️ Software Engineering | `software-engineering` | 7 | Beginner→Advanced | SOLID, architecture, APIs, GoF patterns, testing, refactoring, DI |
+| ⚙️ Software Engineering | `software-engineering` | 9 | Beginner→Advanced | SOLID, architecture, APIs, GoF patterns, testing, refactoring, DDD, CQRS |
 | 🐳 DevOps & Infra | `devops-infra` | 7 | Beginner→Advanced | Linux, Docker, CI/CD, cloud, networking, monitoring, IaC |
 | 🗄️ Database Management | `database-management` | 7 | Beginner→Advanced | SQL, normalization, indexing, migrations, NoSQL, modeling, backup |
 | 🤖 AI Integration | `ai-integration` | 10 | Beginner→Advanced | Prompts, RAG, embeddings, orchestration, eval, safety, MCP, agents, multi-modal, cost |
-| 🔐 Security | `security` | 7 | Beginner→Advanced | OWASP Top 10 + LLM Top 10, auth, encryption, AI security, incident response |
+| 🔐 Security | `security` | 9 | Beginner→Advanced | OWASP Top 10 + LLM Top 10, auth, encryption, AI security, zero trust, supply chain |
 | ⚡ Performance | `performance` | 7 | Beginner→Advanced | Core Web Vitals (lab + field), caching, backend/DB optimization, load testing |
 | 🧪 Testing & QA | `testing-qa` | 7 | Beginner→Advanced | Test pyramid, unit/integration/E2E, CI automation, quality metrics |
 | 🖥️ Developer Experience | `dx` | 7 | Beginner→Advanced | CLI design, API ergonomics, Diátaxis docs, SDK patterns, TTFC, DevEx |
 | 🗂️ Information Architecture | `ia` | 7 | Beginner→Advanced | LATCH, navigation, faceted search, taxonomies, content modeling, card sorting |
-| 🤖 Agentic Engineering | `agentic-engineering` | 9 | Beginner→Advanced | Runtimes, context eng, multi-agent, observability, cost, safety, lifecycle, A2A, economics |
+| 🔀 Agentic Engineering | `agentic-engineering` | 9 | Beginner→Advanced | Runtimes, context eng, multi-agent, observability, cost, safety, lifecycle, A2A, economics |
 | 🔬 UX Research | `ux-research` | 7 | Beginner→Advanced | Research methods, interviews, quantitative, synthesis, ops, usability, AI-augmented |
 
 ---
@@ -348,7 +348,7 @@ The MCP server exposes ten tools: `search_campus`, `load_course`, `list_facultie
 inteligence_mas-aul/
 ├── CAMPUS-OVERVIEW.md       ← 🗺️ YOU ARE HERE — start here
 ├── README.md                ← Campus map for humans
-├── index.json               ← Machine-readable catalog (v25.0.0) + auto-router
+├── index.json               ← Machine-readable catalog (v25.0.4) + auto-router
 ├── load-context.js          ← CLI auto-router
 ├── mcp-server.js            ← MCP server for AI agents (10 tools, v3)
 ├── campus-core.js           ← Shared library
@@ -369,20 +369,20 @@ inteligence_mas-aul/
 ├── kognisi/                 ← 🧠 Faculty 11: Human Cognition (7)
 ├── mobile-ux/               ← 📱 Faculty 12: Mobile UX (7)
 ├── data-viz/                ← 📊 Faculty 13: Data Viz (7)
-├── conversational-ui/       ← 💬 Faculty 14: Conversational UI (7)
+├── conversational-ui/       ← 💬 Faculty 14: Conversational UI (8)
 ├── design-systems/          ← 🛠️ Faculty 15: Design Systems (7)
 ├── strategic-design/        ← 🧭 Faculty 16: Strategic Design (7)
 ├── service-design/          ← 🌐 Faculty 17: Service Design (7)
-├── software-engineering/    ← ⚙️ Faculty 18: Software Engineering (7)
+├── software-engineering/    ← ⚙️ Faculty 18: Software Engineering (9)
 ├── devops-infra/            ← 🐳 Faculty 19: DevOps & Infra (7)
 ├── database-management/     ← 🗄️ Faculty 20: Database Management (7)
-├── ai-integration/          ← 🤖 Faculty 21: AI Integration (7)
-├── security/                ← 🔐 Faculty 22: Security & Defense (7)
+├── ai-integration/          ← 🤖 Faculty 21: AI Integration (10)
+├── security/                ← 🔐 Faculty 22: Security & Defense (9)
 ├── performance/             ← ⚡ Faculty 23: Performance Engineering (7)
 ├── testing-qa/              ← 🧪 Faculty 24: Testing & QA (7)
 ├── dx/                      ← 🖥️ Faculty 25: Developer Experience (7)
 ├── ia/                      ← 🗂️ Faculty 26: Information Architecture (7)
-├── agentic-engineering/     ← 🤖 Faculty 27: Agentic Engineering (7)
+├── agentic-engineering/     ← 🔀 Faculty 27: Agentic Engineering (9)
 ├── ux-research/             ← 🔬 Faculty 28: UX Research (7)
 └── design-ethics/           ← ⚖️ Faculty 29: Design Ethics (7)
 ```
@@ -405,6 +405,6 @@ inteligence_mas-aul/
 
 > *"Deep knowledge makes agents truly powerful. This campus gives AI agents the expertise of 29 university departments in 216 files."* — Mas Aul 🔥
 >
-> **v25.0.0 🏁**: CAMPUS MILESTONE — ROADMAP v2 100% complete. 216 courses, 29 faculties, 10 MCP tools. Phase C: Design Ethics (7 courses).
+> **v25.0.4**: CI ALL GREEN — 0 DUPLICATE HIGH, P@3=71.2%, R@3=93.9%, MRR=0.919. 216 courses, 29 faculties, 10 MCP tools.
 >
 > **🗺️ Next**: v3 planning — community proposals welcome.

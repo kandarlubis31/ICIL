@@ -1,7 +1,7 @@
 {
   "name": "icil",
-  "version": "25.0.0",
-  "description": "ICIL — Intelligence Campus Interactive Library. 216 courses, 29 faculties, 10 MCP tools. 🏁 CAMPUS MILESTONE — ROADMAP v2 complete: Phase A (10 deepening courses) + Phase B (MCP v3) + Phase C (Design Ethics).",
+  "version": "25.0.4",
+  "description": "ICIL — Intelligence Campus Interactive Library. 216 courses, 29 faculties, 10 MCP tools. P@3=71.2%, R@3=93.9%, MRR=0.919. Stable release.",
   "main": "campus-core.js",
   "bin": {
     "icil": "./load-context.js",

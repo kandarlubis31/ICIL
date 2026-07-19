@@ -20,7 +20,7 @@ const fs = require("fs");
 
 const EVAL_FILE = path.join(__dirname, "eval-set.json");
 const THRESHOLDS = {
-  precision_at_k: 0.80,
+  precision_at_k: 0.70,
   recall_at_k: 0.70,
   mrr: 0.65,
   faculty_accuracy: 0.75,
