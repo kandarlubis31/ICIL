@@ -11,8 +11,8 @@ desktop.ini
 *~
 
 # Eval results (prompts are tracked, results are generated)
-eval/_eval-results.json
-eval/_eval-results-*.json
+archive/eval-legacy/_eval-results.json
+archive/eval-legacy/_eval-results-*.json
 
 # Dependencies
 node_modules/

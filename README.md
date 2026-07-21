@@ -15,6 +15,30 @@ Welcome to **ICIL — Intelligence Campus Interactive Library**, an *intelligenc
 
 ---
 
+## ⚡ Quick Start
+
+```bash
+# Clone & install
+git clone https://github.com/kandarlubis31/ICIL.git && cd ICIL && npm install
+
+# Route any design/dev prompt to relevant courses
+node load-context.js "build an accessible landing page"
+
+# List all 29 faculties with course counts
+node load-context.js --list
+
+# Start MCP server for Claude Desktop / Cursor
+node mcp-server.js
+
+# Run CI validation
+node ci-validate.js --with-eval
+```
+
+> **AI Agent?** Load [`AGENTS.md`](./AGENTS.md) first — it's the single source of truth for repo conventions.  
+> **MCP User?** Configure Claude Desktop with [`mcp-server.js`](./mcp-server.js) — 10 tools, zero API keys.
+
+---
+
 ## 📈 Eval Progress
 
 > Auto-router precision & recall journey — from 54.4% P@3 to 72.8% across 5 tuning rounds.

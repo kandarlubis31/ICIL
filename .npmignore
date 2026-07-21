@@ -1,0 +1,48 @@
+# .npmignore — Safety net only (canonical include list = package.json → "files" array)
+# npm ignores everything NOT in the "files" array by default.
+# This file exists as explicit documentation + fallback if "files" is ever removed.
+
+# Dev/CI tools (not needed at runtime)
+ci-validate.js
+eval-runner.js
+eval-set.json
+eval/
+
+# Archive
+archive/
+
+# Meta (only runtime meta files included via "files" array)
+AUDIT-PLAN.md
+CHANGELOG.md
+ISSUES.md
+ROADMAP-v2.md
+PROGRESS-REPORT.md
+CONTEXT.md
+ARCHIVE.md
+konsep.txt
+.konsep
+
+# Git
+.git/
+.gitignore
+.github/
+
+# Deps
+node_modules/
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Temp
+*.tmp
+*.log
+*.bak-*

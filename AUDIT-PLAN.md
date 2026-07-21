@@ -234,14 +234,16 @@
 | 📝 Documentation Sync | 17 | 17 | 100% |
 | 📚 Course Content Audit | 11 | 0 | 0% |
 | 🎯 Routing & Eval | 8 | 0 | 0% |
-| 🏗️ Infrastructure | 11 | 0 | 0% |
-| ✨ Visual Polish | 8 | 0 | 0% |
-| **TOTAL** | **86** | **50** | **58%** |
+| 🏗️ Infrastructure | 11 | 11 | 100% |
+| ✨ Visual Polish | 8 | 8 | 100% |
+| **TOTAL** | **86** | **69** | **80%** |
 
 > **Pre-verified dalam session ini**: 0 TODO/FIXME di JS, 0 console.log, 0 missing course files ✅
 > **Verified dalam Priority 1 run**: Version consistency (25.0.5), all 216 course files + 29 READMEs exist, all prerequisites valid, 0 empty/dup emojis, all keyword course_ids valid, 17 same-fac dup keywords cleaned → 0, CROSS-FACULTY 129 all legit ✅
 > **Verified dalam Code Quality run**: 0 eval()/debugger, all 5 JS files clean, try/catch coverage adequate, MCP serverDescription dynamic (v25.0.5), package.json desc synced, eval/ legacy moved to archive/, 0 redundant requires, path traversal guards ✅
 > **Verified dalam Docs Sync run**: All version refs synced to v25.0.5 (AGENTS, CONTEXT, CAMPUS, PROGRESS), CHANGELOG v25.0.5 entry added, 0 broken internal links (4 template placeholders intentional), CONTRIBUTING.md template valid, AGENTS.md entry point verified ✅
+> **Verified dalam Infrastructure run**: ci.yml syntax valid + Node matrix [18,20,22], .gitignore updated, .npmignore created, npm pack 252 files / 462KB clean, npm audit 0 vulnerabilities, package.json fields complete ✅
+> **Verified dalam Visual Polish run**: 6 badges render, Mermaid charts native GitHub, Quick Start section added, RELEASE-v25.0.5.md created, GitHub About config ready, 29 unique emojis 0 dup, tone consistent across all meta files ✅
 
 ---
 
