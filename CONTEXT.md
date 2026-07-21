@@ -9,7 +9,7 @@
 | Attribute | Value |
 |-----------|-------|
 | **Project** | ICIL — Intelligence Campus Interactive Library |
-| **Version** | v25.0.4 |
+| **Version** | v25.0.5 |
 | **Language** | English (fully translated from Indonesian) |
 | **Total Courses** | 216 |
 | **Total Faculties** | 29 active
@@ -92,7 +92,7 @@ Content with code blocks, tables, ASCII diagrams.
 
 ---
 
-> **Next:** [XX — Next Course](./xx-next-course.md)
+> **Next:** Continue to next course in the sequence
 ```
 
 ### For Each New Faculty, Update:
@@ -113,9 +113,9 @@ Content with code blocks, tables, ASCII diagrams.
 ```
 inteligence_mas-aul/
 ├── README.md              # Campus map
-├── index.json             # Machine-readable index (v25.0.4)
+├── index.json             # Machine-readable index (v25.0.5)
 ├── CONTEXT.md             # THIS FILE — session save state
-├── CHANGELOG.md           # Version history (v1.0 → v25.0.4)
+├── CHANGELOG.md           # Version history (v1.0 → v25.0.5)
 ├── CONTRIBUTING.md        # Contribution guide & templates
 ├── LICENSE                # MIT License
 ├── load-context.js        # Auto-router CLI tool
@@ -167,17 +167,17 @@ inteligence_mas-aul/
 
 ## 📋 Session History (Summary)
 
-> Full version-by-version history lives in [`CHANGELOG.md`](./CHANGELOG.md) — v1.0.0 (1 faculty, 9 courses) → v25.0.4 (29 faculties, 216 courses).
+> Full version-by-version history lives in [`CHANGELOG.md`](./CHANGELOG.md) — v1.0.0 (1 faculty, 9 courses) → v25.0.5 (29 faculties, 216 courses).
 
-**Key milestones:** v9 Branding + Accessibility · v11 Cognitive Science · v18 4 Engineering Faculties · v19.1 74% token compaction · v20 DX + IA + MCP v2 · v21 Agentic Engineering + router fix · v22 UX Research · v23 Full Content Audit (199 courses, 18 fixes) · v24 Phase A1/B/C (204→216 courses, 5 MCP→10 tools) · v25.0.4 CI All Green, P@3=72.8%, 0 DUPLICATE HIGH
+**Key milestones:** v9 Branding + Accessibility · v11 Cognitive Science · v18 4 Engineering Faculties · v19.1 74% token compaction · v20 DX + IA + MCP v2 · v21 Agentic Engineering + router fix · v22 UX Research · v23 Full Content Audit (199 courses, 18 fixes) · v24 Phase A1/B/C (204→216 courses, 5 MCP→10 tools) · v25.0.5 Phase 1 LOW tightening, P@3=72.8%, 0 DUPLICATE HIGH
 
 ---
 
-## 🔜 Current State (v25.0.4)
+## 🔜 Current State (v25.0.5)
 
-> **🏁 STABLE — CI ALL GREEN.** 216 courses, 29 faculties, 10 MCP tools. P@3=72.8%, R@3=94.4%, MRR=0.922. 0 DUPLICATE HIGH. All 9 bugs from ISSUES.md fixed. ROADMAP v2 complete.
+> **🏁 STABLE — CI ALL GREEN.** 216 courses, 29 faculties, 10 MCP tools. P@3=72.8%, R@3=94.4%, MRR=0.922. 0 DUPLICATE HIGH. All 9 bugs + 17 same-fac dup keywords fixed.
 
-### What's done (v25.0.1→v25.0.4)
+### What's done (v25.0.1→v25.0.5)
 - ✅ 9 bugs fixed (ISSUES.md closed)
 - ✅ 15 DUPLICATE HIGH → 0
 - ✅ `getFacultyEmoji()` deleted — emoji single source: `index.json`
@@ -189,16 +189,22 @@ inteligence_mas-aul/
 - ✅ 3 rounds keyword tuning: P@3 59.3%→72.8%, R@3 85.9%→94.4%
 - ✅ Eval threshold 0.80→0.70 (CI now green)
 - ✅ ci-validate.js: CROSS-FACULTY = warnings only (don't block CI)
-- ✅ README badges + package.json v25.0.4 + AGENTS.md synced
-- ✅ 7 meta files synced (PROGRESS-REPORT full rewrite, CAMPUS-OVERVIEW course counts, CONTEXT trimmed)
-- ✅ CHANGELOG rebuilt v1→v25
-- ✅ Git repo initialized, 282 files committed, tagged v25.0.4
+- ✅ README badges + package.json v25.0.5 + AGENTS.md synced
+- ✅ 7 meta files synced (PROGRESS-REPORT full rewrite, CAMPUS-OVERVIEW course counts, CONTEXT trimmed) + Phase 1 LOW tightening docs
+- ✅ Phase 1 LOW keyword tightening: 35 dropped, 8 tightened → P@3 71.6%→72.8%
+- ✅ 17 same-fac duplicate keywords cleaned → 0
+- ✅ README.md tree counts fixed (5 faculties) + Mermaid eval progress charts
+- ✅ eval/ legacy scripts (7 files) → archive/eval-legacy/
+- ✅ package.json + index.json version synced to 25.0.5
+- ✅ CHANGELOG v25.0.5 entry + AGENTS.md/CONTEXT/CAMPUS/PROGRESS synced
+- ✅ GitHub CI workflow + version drift check + dynamic courseCount
+- ✅ AUDIT-PLAN.md created: 86-item checklist, 40/86 (47%) complete
 
 ### What remains
 - 2 noMatch (1.0%), 0 failed prompts — edge cases from ambiguous multi-faculty queries
 - 129 CROSS-FACULTY keywords — all legitimate, 0 need negative_keywords
+- AUDIT-PLAN in progress: 40/86 items (47%) — Docs Sync complete, Infra + Visual remaining
 - GitHub push pending (repo initialized locally)
-- npm publish when public
 
 ### Quick commands
 ```bash

@@ -4,6 +4,43 @@
 
 ---
 
+## v25.0.5 (July 22, 2026) — 🎯 Phase 1 LOW Tightening + Data Integrity
+
+### Phase 1 — LOW-tier Keyword Tightening (35 dropped, 8 tightened)
+- **design-patterns**: DROP `control`/`output`/`focus`, tighten `input`→MEDIUM[07], `interaction`+`interaksi`→MEDIUM[01,06,07]
+- **dx**: DROP `developer`/`tool`
+- **strategic-design**: DROP `think`/`decide`/`choose`/`goal`/`vision`/`mission`/`leadership`/`product`/`experiment`, tighten `strategic`→MEDIUM[01,03], `planning`+`prioritize`+`roadmap`→MEDIUM[04], `validate`→MEDIUM[01,02]
+- **conversational-ui**: DROP `talk`/`speak`/`listen`/`message`/`reply`/`respond`/`session`/`turn`/`interactive`/`assistant`
+- **design-systems**: DROP `shared`/`reusable`/`consistent`/`konsisten`/`library`
+- **improvement**: DROP `bagus`/`quality`/`kualitas`/`standard`/`standar`
+- Eval: P@3 71.6%→72.8% (+1.2%), CROSS-FACULTY 130→129
+
+### Data Integrity — 17 Same-Faculty Dup Keywords → 0
+- 17 keywords appearing in both higher & lower tiers within same faculty cleaned
+- All 216 course files + 29 READMEs validated on disk, 0 missing
+- All prerequisite references validated, 0 broken cross-refs
+- Version sync: `index.json` + `package.json` → 25.0.5
+
+### README.md — Eval Progress Charts
+- Mermaid xychart-beta: P@3 + R@3 dual-line chart (v24.1.0→v25.0.5)
+- MRR line chart (0.731→0.922)
+- Tree counts fixed: 5 faculties with stale `(7 courses)` → actual (8-10)
+- Version badge: v25.0.4→v25.0.5
+
+### Code Quality — eval/ Legacy Cleanup
+- 7 legacy eval/ files (eval-prompts.json era) → `archive/eval-legacy/`
+- `package.json` description synced to v25.0.5 metrics
+- AGENTS.md + PROGRESS-REPORT.md eval/ references corrected
+
+### Infrastructure
+- `.github/workflows/ci.yml`: CI gate on push/PR to master
+- `campus-core.js`: dynamic `courseCount` from `courses.length`
+- `ci-validate.js`: version drift check (package.json vs index.json)
+
+### Eval Baseline: P@3=72.8% | R@3=94.4% | MRR=0.922 | 0 DUPLICATE HIGH | 129 CROSS-FACULTY
+
+---
+
 ## v25.0.4 (July 20, 2026) — 🎯 Precision 71.2% + CI All Green
 
 ### Eval Tuning (3 rounds, +11.9% P@3)

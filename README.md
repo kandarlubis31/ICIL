@@ -1,6 +1,6 @@
 # 🎓 ICIL — Intelligence Campus Interactive Library
 
-[![Version](https://img.shields.io/badge/version-v25.0.4-blue)](https://github.com/mas-aul/icil/releases)
+[![Version](https://img.shields.io/badge/version-v25.0.5-blue)](https://github.com/mas-aul/icil/releases)
 [![Courses](https://img.shields.io/badge/courses-216-green)](./index.json)
 [![Faculties](https://img.shields.io/badge/faculties-29-orange)](./index.json)
 [![MCP Tools](https://img.shields.io/badge/MCP%20tools-10-purple)](./mcp-server.js)
@@ -12,6 +12,44 @@
 > **New to the repo? Load [`AGENTS.md`](./AGENTS.md) first** — it's the agent guide with repo layout, routing, conventions, and testing.
 
 Welcome to **ICIL — Intelligence Campus Interactive Library**, an *intelligence layer* designed as a sacred reference for AI agents. Each directory is a **faculty of knowledge**, and each `.md` file is a **course** that can be loaded by AI agents as deep contextual knowledge.
+
+---
+
+## 📈 Eval Progress
+
+> Auto-router precision & recall journey — from 54.4% P@3 to 72.8% across 5 tuning rounds.
+
+### Precision@3 & Recall@3
+
+```mermaid
+xychart-beta
+  title "P@3 & R@3 Progress — ICIL Auto-Router"
+  x-axis ["v24.1.0", "v25.0.0", "v25.0.3", "v25.0.5"]
+  y-axis "%" 50 --> 100
+  line [54.4, 59.3, 64.9, 72.8]
+  line [77.9, 85.9, 84.5, 94.4]
+```
+
+> Top line: P@3 · Bottom line: R@3 — CI gate threshold at 70%
+
+### MRR (Mean Reciprocal Rank)
+
+```mermaid
+xychart-beta
+  title "MRR Progress — ICIL Auto-Router"
+  x-axis ["v24.1.0", "v25.0.0", "v25.0.5"]
+  y-axis "MRR" 0.65 --> 1.0
+  line [0.731, 0.809, 0.922]
+```
+
+> CI threshold at 0.65 ✅ — current 0.922 well above
+
+| Release | P@3 | R@3 | MRR | Key Event |
+|---------|------|-----|-----|-----------|
+| v24.1.0 | 54.4% | 77.9% | 0.731 | Eval infrastructure launched |
+| v25.0.0 | 59.3% | 85.9% | 0.809 | Design Ethics faculty + baseline |
+| v25.0.3 | 64.9% | 84.5% | — | DUPLICATE HIGH → 0 + noise removal |
+| **v25.0.5** | **72.8%** | **94.4%** | **0.922** | Phase 1 LOW tightening + 17 dup keywords fixed |
 
 ---
 
@@ -66,21 +104,21 @@ inteligence_mas-aul/
 ├── design-systems/             # 🛠️ Faculty of Design Systems & Tools
 │   └── (7 courses)
 ├── conversational-ui/          # 💬 Faculty of Conversational UI & Voice
-│   └── (7 courses)
+│   └── (8 courses)
 ├── strategic-design/           # 🧭 Faculty of Strategic Design & Product Thinking
 │   └── (7 courses)
 ├── service-design/             # 🌐 Faculty of Service Design & Systems
 │   └── (7 courses)
 ├── software-engineering/       # ⚙️ Faculty of Software Engineering
-│   └── (7 courses)
+│   └── (9 courses)
 ├── devops-infra/               # 🐳 Faculty of DevOps & Infrastructure
 │   └── (7 courses)
 ├── database-management/        # 🗄️ Faculty of Database Management
 │   └── (7 courses)
 ├── ai-integration/             # 🤖 Faculty of AI Integration & LLM
-│   └── (7 courses)
+│   └── (10 courses)
 ├── security/                   # 🔐 Faculty of Security & App Defense
-│   └── (7 courses)
+│   └── (9 courses)
 ├── performance/                # ⚡ Faculty of Performance Engineering
 │   └── (7 courses)
 ├── testing-qa/                 # 🧪 Faculty of Testing & Quality Assurance
@@ -90,7 +128,7 @@ inteligence_mas-aul/
 ├── ia/                         # 🗂️ Faculty of Information Architecture
 │   └── (7 courses)
 ├── agentic-engineering/        # 🤖 Faculty of Agentic Engineering & Orchestration
-│   └── (7 courses)
+│   └── (9 courses)
 ├── ux-research/                # 🔬 Faculty of UX Research & Discovery
 │   └── (7 courses)
 └── design-ethics/              # ⚖️ Faculty of Design Ethics
@@ -216,7 +254,7 @@ Complete design system lifecycle: from foundations (build vs buy, atomic design,
 ### 💬 Faculty of Conversational UI & Voice — `conversational-ui/`
 Complete conversational design spectrum: from fundamentals (Grice's maxims, chat vs voice, cooperative flow) through NLU architecture (intents, entities, training data, confidence thresholds, slot filling), chatbot UX patterns (greetings, quick replies, typing indicators, rich messages, carousels, human handoff), voice UI design (wake words, confirmation strategies, earcons, SSML), error recovery (no-match ladder, misrecognition defense, graceful degradation), personality & tone (brand alignment, tone mapping, humor guidelines, cultural adaptation), to multi-modal interfaces (voice + screen + touch, device adaptation, conversation continuity).
 
-**7 Courses** | **Level: Beginner → Advanced**
+**8 Courses** | **Level: Beginner → Advanced**
 
 ### 🧭 Faculty of Strategic Design & Product Thinking — `strategic-design/`
 The **strategic thinking faculty** — teaches AI agents how to think like product leaders. Covers Design Thinking & the Double Diamond (divergent/convergent process), problem discovery & framing (Jobs-to-be-Done, How Might We, Amazon Working Backwards), product strategy & outcome thinking (vision, OKRs, NCTs, product-market fit), strategic roadmapping (Now-Next-Later, Opportunity Solution Trees, story mapping), first principles & systems thinking (decomposition, feedback loops, leverage points), strategic decision-making (Cynefin, pre-mortems, Red Teaming, decision matrices), and bridging strategy to execution (dual-track agile, strategic narratives, stakeholder alignment, North Star metrics).
@@ -231,7 +269,7 @@ The **orchestration faculty** — bridges individual touchpoints into coherent e
 ### ⚙️ Faculty of Software Engineering — `software-engineering/`
 The **engineering foundation** — clean code, SOLID principles, software architecture (monolith/microservices/event-driven), API design (REST/GraphQL/gRPC), GoF design patterns, testing strategies (unit/integration/E2E/TDD), refactoring & code review, and project structure with dependency injection.
 
-**7 Courses** | **Level: Beginner → Advanced**
+**9 Courses** | **Level: Beginner → Advanced**
 
 ### 🐳 Faculty of DevOps & Infrastructure — `devops-infra/`
 The **deployment layer** — Linux server fundamentals, Docker containerization, CI/CD pipelines (GitHub Actions), cloud deployment (AWS/GCP/Cloud Run), networking & proxies (DNS/nginx/TLS), monitoring & logging (Prometheus/Grafana), and infrastructure as code (Terraform).
@@ -246,12 +284,12 @@ The **data layer** — relational design & normalization (1NF-3NF), SQL mastery 
 ### 🤖 Faculty of AI Integration & LLM Engineering — `ai-integration/`
 The **AI engineering layer** — prompt engineering (few-shot/chain-of-thought/structured output), RAG architecture (retrieval/chunking/re-ranking), embeddings & vector search, LLM orchestration (function calling/agents/ReAct), evaluation & hallucination detection, AI safety & guardrails, and MCP tool integration.
 
-**7 Courses** | **Level: Beginner → Advanced**
+**10 Courses** | **Level: Beginner → Advanced**
 
 ### 🔐 Faculty of Security & Application Defense — `security/`
 The **security layer** — OWASP Top 10 & threat modeling (STRIDE), authentication & authorization (OAuth/JWT/bcrypt/RBAC), API & input security (validation/SQL injection/rate limiting/CORS), encryption & data protection (TLS/AES/secrets management), secure SDLC & dependency security (SAST/DAST/npm audit), AI-specific security (prompt injection/jailbreaking), and incident response & compliance (GDPR/SOC2/post-mortem).
 
-**7 Courses** | **Level: Beginner → Advanced**
+**9 Courses** | **Level: Beginner → Advanced**
 
 ### ⚡ Faculty of Performance Engineering — `performance/`
 The **optimization layer** — Core Web Vitals & frontend performance (LCP/INP/CLS/Lighthouse), caching strategies (Redis/CDN/cache invalidation), backend optimization (N+1/connection pooling/async processing), database performance (EXPLAIN/indexes/cursor pagination), network & asset optimization (WebP/lazy loading/Brotli/HTTP/2), load testing & profiling (k6/flamegraph/P95), and performance budgets & CI enforcement.
@@ -276,7 +314,7 @@ The **structure layer** — IA fundamentals & organization schemes (LATCH: Locat
 ### 🤖 Faculty of Agentic Engineering & Orchestration — `agentic-engineering/`
 The **operational layer** for autonomous AI agents — teaches how to *run agents in production*, beyond building single agents. Covers durable runtimes & control planes (state machines, checkpointing, HITL gates), context engineering (attention budget, compaction, JIT retrieval, scratchpads), multi-agent coordination (supervisor/worker, hierarchical, peer swarm, handoff protocols, delegation drift prevention), agent observability & evaluation (tracing, nested spans, trajectory eval, CI eval gates), cost-aware planning (model routing, confidence escalation, semantic caching, per-task budgets), agent safety & sandboxing (tool scoping, E2B microVMs, tool poisoning defense, audit trails), and agent productionization & lifecycle (versioning behavior bundles, non-human identity, canary/blue-green deployment, behavioral regression testing). Distinct from `ai-integration/` which covers *building* single agents (prompts, RAG, orchestration, eval, safety, MCP).
 
-**7 Courses** | **Level: Beginner → Advanced**
+**9 Courses** | **Level: Beginner → Advanced**
 
 ### 🔬 Faculty of UX Research & Discovery — `ux-research/`
 The **evidence layer** — teaches how to systematically gather, validate, and synthesize user evidence before designing. While other faculties teach *how to design* (Color, Typography, Layout) and *how to build* (Engineering, DevOps), this faculty teaches **how to research** — the foundation that precedes all design and product work. Covers research fundamentals & method selection (qualitative, quantitative, generative, evaluative, triangulation), qualitative interview techniques (semi-structured interviews, contextual inquiry, active listening, bias avoidance), quantitative methods (survey design, web analytics, A/B testing, usability metrics like SUS/NPS), research synthesis & sensemaking (affinity mapping, coding, journey mapping, persona development, insight statements), research operations (ResearchOps maturity, participant management, repositories, democratization, continuous discovery), usability testing & evaluation (moderated/unmoderated testing, task design, severity rating, heuristic evaluation), and AI-augmented research frontier (AI-moderated interviews, synthetic users, continuous discovery pipelines, AI insight validation, research ethics). Distinct from `ux-psikologi` (psychology of users) and `strategic-design` (problem framing) — this faculty teaches the *research methodology* itself.

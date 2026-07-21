@@ -1,7 +1,7 @@
 {
   "name": "icil",
-  "version": "25.0.4",
-  "description": "ICIL — Intelligence Campus Interactive Library. 216 courses, 29 faculties, 10 MCP tools. P@3=71.2%, R@3=93.9%, MRR=0.919. Stable release.",
+  "version": "25.0.5",
+  "description": "ICIL — Intelligence Campus Interactive Library. 216 courses, 29 faculties, 10 MCP tools. P@3=72.8%, R@3=94.4%, MRR=0.922. CI All Green.",
   "main": "campus-core.js",
   "bin": {
     "icil": "./load-context.js",

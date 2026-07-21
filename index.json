@@ -1,6 +1,6 @@
 {
   "campus": "ICIL — Intelligence Campus Interactive Library",
-  "version": "25.0.4",
+  "version": "25.0.5",
   "language": "en",
   "description": "ICIL v25.0.0 🏁 — Phase C complete: Faculty #29 Design Ethics & Responsibility (7 courses). 216 courses, 29 faculties, 10 MCP tools. Full audit (199 verified, 18 corrections) + Phase A (10 deepening courses) + Phase B (MCP v3) + Phase C (new faculty). CAMPUS MILESTONE.",
   "totalCourses": 216,
@@ -1630,7 +1630,6 @@
             "kata": "any",
             "bahasa": "any",
             "language": "any",
-            "languages": "any",
             "tone": "any",
             "friendly": [
               "02"
@@ -1850,7 +1849,6 @@
             "typeface": "any",
             "typography": "any",
             "tipografi": "any",
-            "bold": "any",
             "italic": "any",
             "tebal": "any",
             "miring": "any",
@@ -3428,9 +3426,6 @@
             "accessibility": [
               "01"
             ],
-            "a11y": [
-              "01"
-            ],
             "accessible": [
               "01"
             ],
@@ -3474,9 +3469,6 @@
               "05"
             ],
             "required field": [
-              "05"
-            ],
-            "aria-required": [
               "05"
             ],
             "focus ring": [
@@ -4000,7 +3992,6 @@
             "ICE": [
               "04"
             ],
-            "perbaiki": "any",
             "review": [
               "02",
               "03"
@@ -5355,9 +5346,6 @@
             ]
           },
           "medium": {
-            "design-systems": [
-              "01"
-            ],
             "tokens": [
               "02"
             ],
@@ -5443,9 +5431,6 @@
             "build vs buy": [
               "01"
             ],
-            "design system team": [
-              "01"
-            ],
             "design system platform": [
               "01"
             ],
@@ -5478,7 +5463,6 @@
             ]
           },
           "low": {
-            "component API": "any",
             "naming convention": "any",
             "platform team": [
               "01"
@@ -5795,7 +5779,6 @@
           },
           "low": {
             "conversation": "any",
-            "percakapan": "any",
             "bot": "any",
             "natural language": "any"
           }
@@ -6226,9 +6209,6 @@
             ],
             "blueprint": [
               "02"
-            ],
-            "journey map": [
-              "03"
             ],
             "touchpoint": [
               "01",
@@ -7057,7 +7037,6 @@
           },
           "low": {
             "LLM": "any",
-            "AI agent": "any",
             "vector": "any",
             "orchestration": "any",
             "agent": [
@@ -7267,9 +7246,6 @@
               "05"
             ],
             "secure SDLC": [
-              "05"
-            ],
-            "npm audit": [
               "05"
             ],
             "model theft": [
@@ -7795,7 +7771,6 @@
             ]
           },
           "low": {
-            "dx": "any",
             "ergonomics": [
               "01"
             ],
@@ -8357,9 +8332,6 @@
             "model swap": [
               "07"
             ],
-            "agent identity": [
-              "08"
-            ],
             "agent DNS": [
               "08"
             ],
@@ -8401,14 +8373,10 @@
           },
           "low": {
             "agentic": "any",
-            "agent system": "any",
             "autonomous agent": "any",
             "agent orchestration": "any",
             "agent production": "any",
             "production agent": "any",
-            "agent monitoring": [
-              "04"
-            ],
             "agent cost": [
               "05"
             ],
@@ -8417,9 +8385,6 @@
             ],
             "agent security": [
               "06"
-            ],
-            "agent deployment": [
-              "07"
             ],
             "agent ci": [
               "07"

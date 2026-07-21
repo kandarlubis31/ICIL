@@ -8,7 +8,7 @@
 
 **ICIL (Intelligence Campus Interactive Library)** — a curated knowledge base of 216 markdown "courses" across 29 "faculties", designed to be loaded as **context injection** for AI agents. Not a RAG corpus — a **static curated context library**. Each `.md` file is self-contained expert knowledge on one topic.
 
-**Current version:** v25.0.4 | **Faculties:** 29 | **Courses:** 216 | **Language:** English
+**Current version:** v25.0.5 | **Faculties:** 29 | **Courses:** 216 | **Language:** English
 
 ---
 
@@ -29,7 +29,7 @@ inteligence_mas-aul/
 ├── eval-set.json          # 200-prompt eval set (EN+ID bilingual, 3 difficulty tiers)
 ├── eval-runner.js         # Eval runner: P@3, R@3, MRR, CI gate
 ├── ci-validate.js         # CI validator: schema, duplicates, cross-refs, eval gate
-├── eval/                  # Eval directory (eval-runner copy for CI)
+├── eval/                  # Legacy eval scripts (eval-prompts.json era, pre-v24.1)
 ├── archive/               # Archive of deprecated files
 ├── {29 faculty dirs}/     # Each: README.md + 7-10 .md courses
 └── package.json

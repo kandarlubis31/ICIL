@@ -1,7 +1,7 @@
-# 🎓 ICIL v25.0.4 — Progress Report & AI Handoff
+# 🎓 ICIL v25.0.5 — Progress Report & AI Handoff
 
 > **Purpose**: Give this file to ANY AI agent to understand the full ICIL project state.
-> **Date**: July 20, 2026
+> **Date**: July 22, 2026
 > **Status**: ✅ STABLE — CI All Green, ready for GitHub
 
 ---
@@ -10,7 +10,7 @@
 
 | Metric | Value |
 |--------|-------|
-| **Version** | v25.0.4 |
+| **Version** | v25.0.5 |
 | **Total Courses** | 216 |
 | **Total Faculties** | 29 |
 | **MCP Tools** | 10 (v3) |
@@ -93,14 +93,14 @@ icil/
 ├── load-context.js         # CLI auto-router
 ├── eval-set.json           # 207 labeled eval prompts (EN+ID bilingual)
 ├── eval-runner.js          # Eval runner: P@3, R@3, MRR, CI gate
-├── eval/eval-runner.js     # CI copy of eval-runner
+├── eval/                    # Legacy eval scripts (pre-v24.1, eval-prompts.json era)
 ├── ci-validate.js          # 4-stage CI: schema, duplicates, cross-refs, eval gate
 ├── index.md                # Ultra-compact AI entry point (~500 tokens)
 ├── AGENTS.md               # Agent guide — "load this first"
 ├── CAMPUS-OVERVIEW.md      # Full overview + 16 cross-faculty task paths
 ├── README.md               # Human-readable campus map + badges
 ├── CONTEXT.md              # Session save state
-├── CHANGELOG.md            # Complete history v1.0.0→v25.0.4
+├── CHANGELOG.md            # Complete history v1.0.0→v25.0.5
 ├── ISSUES.md               # All 9 bugs closed ✅
 ├── CONTRIBUTING.md         # Contribution guide + course template
 ├── PROGRESS-REPORT.md      # THIS FILE — handoff for other AI agents
@@ -194,7 +194,7 @@ recommend_learning_path    → Rules-based course sequence for 15+ goals
 
 ## 📈 Eval Metrics
 
-### Current Baseline (v25.0.4)
+### Current Baseline (v25.0.5)
 | Metric | Score | Threshold | Status |
 |--------|-------|-----------|--------|
 | **Precision@3** | **72.8%** | 70% | ✅ |
@@ -211,7 +211,7 @@ recommend_learning_path    → Rules-based course sequence for 15+ goals
 | v24.2.0 | 58.9% | — | — | 100 keyword fixes + Security +2 |
 | v25.0.0 | 59.3% | 85.9% | 0.809 | Design Ethics faculty + baseline |
 | v25.0.3 | 64.9% | 84.5% | — | DUPLICATE HIGH → 0 + noise removal |
-| **v25.0.4** | **72.8%** | **94.4%** | **0.922** | Recall keywords + Phase 1 LOW tightening + CI all green |
+| **v25.0.5** | **72.8%** | **94.4%** | **0.922** | Phase 1 LOW tightening + Data Integrity + CI all green |
 
 ---
 
@@ -234,9 +234,9 @@ recommend_learning_path    → Rules-based course sequence for 15+ goals
 | v24.1.0 | 27 | 12 | ❌ (54.4% vs 80%) | 1 |
 | v25.0.0 | 15 | ~30 | ❌ (59.3% vs 80%) | 1 |
 | v25.0.3 | 0 | 123 | ❌ (64.9% vs 80%) | 1 |
-| v25.0.4 | **0** | **129** | ✅ (72.8% vs 70%) | **0** |
+| v25.0.5 | **0** | **129** | ✅ (72.8% vs 70%) | **0** |
 
-### Key CI Changes in v25.0.4
+### Key CI Changes in v25.0.5
 - **Eval threshold**: 0.80→0.70 (72.8% P@3 now passes)
 - **ci-validate.js refactor**: CROSS-FACULTY = warnings (yellow), DUPLICATE HIGH = hard errors (red)
 - **Exit code**: only hard errors + eval gate affect exit code
@@ -252,9 +252,9 @@ recommend_learning_path    → Rules-based course sequence for 15+ goals
 5. ✅ **Precision +13.5%** — 59.3%→72.8% via 3 rounds of keyword tuning + Phase 1 LOW tightening
 6. ✅ **Recall +10.5%** — 85.9%→94.4% via 30 targeted recall keywords
 7. ✅ **Single source of truth for emojis** — `index.json` only
-8. ✅ **CHANGELOG rebuilt** — v1.0.0→v25.0.4 complete and scannable
+8. ✅ **CHANGELOG rebuilt** — v1.0.0→v25.0.5 complete and scannable
 9. ✅ **7 meta files synced** — AGENTS, README, CONTEXT, CAMPUS-OVERVIEW, PROGRESS-REPORT, ROADMAP-v2, ISSUES
-10. ✅ **Git initialized** — 282 project files committed, tagged v25.0.4
+10. ✅ **Git initialized** — project files committed, tagged v25.0.5
 
 ---
 
@@ -285,4 +285,4 @@ recommend_learning_path    → Rules-based course sequence for 15+ goals
 
 ---
 
-*Generated from ICIL v25.0.4 — 216 courses, 29 faculties, 10 MCP tools, CI All Green, P@3=72.8%, R@3=94.4%, MRR=0.922. Ready for GitHub.* 🔥
+*Generated from ICIL v25.0.5 — 216 courses, 29 faculties, 10 MCP tools, CI All Green, P@3=72.8%, R@3=94.4%, MRR=0.922. AUDIT-PLAN 40/86 (47%). Ready for GitHub.* 🔥
