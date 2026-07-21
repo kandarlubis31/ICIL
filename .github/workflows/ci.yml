@@ -1,0 +1,26 @@
+name: ICIL CI
+
+on:
+  push:
+    branches: [master, main]
+  pull_request:
+    branches: [master, main]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "18"
+          cache: "npm"
+
+      - run: npm install
+
+      - name: Schema + duplicate keywords + cross-references
+        run: node ci-validate.js
+
+      - name: Full gate (schema + duplicates + cross-refs + eval)
+        run: node ci-validate.js --with-eval

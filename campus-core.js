@@ -300,7 +300,7 @@ function listFacultiesData(index) {
     slug,
     name: faculty.name,
     emoji: index.faculties[slug].emoji || "📚",
-    courseCount: faculty.courseCount,
+    courseCount: faculty.courses.length,
     level: faculty.level,
     description: faculty.description,
     courses: faculty.courses.map((c) => ({

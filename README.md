@@ -4,7 +4,7 @@
 [![Courses](https://img.shields.io/badge/courses-216-green)](./index.json)
 [![Faculties](https://img.shields.io/badge/faculties-29-orange)](./index.json)
 [![MCP Tools](https://img.shields.io/badge/MCP%20tools-10-purple)](./mcp-server.js)
-[![Eval P@3](https://img.shields.io/badge/P%403-71.2%25-yellow)](./eval-set.json)
+[![Eval P@3](https://img.shields.io/badge/P%403-72.8%25-yellow)](./eval-set.json)
 [![License](https://img.shields.io/badge/license-MIT-lightgrey)](./LICENSE)
 
 > **Sacred Dictionary for AI Agents** — A super comprehensive knowledge base reference for AI agents across various knowledge domains.

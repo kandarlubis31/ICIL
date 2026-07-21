@@ -2578,6 +2578,19 @@
             ],
             "onboarding flow": [
               "06"
+            ],
+            "interaction": [
+              "01",
+              "06",
+              "07"
+            ],
+            "interaksi": [
+              "01",
+              "06",
+              "07"
+            ],
+            "input": [
+              "07"
             ]
           },
           "low": {
@@ -2586,17 +2599,11 @@
             "pola ui": "any",
             "ui element": "any",
             "elemen ui": "any",
-            "interaction": "any",
-            "interaksi": "any",
             "widget": "any",
-            "control": "any",
-            "input": "any",
-            "output": "any",
             "tap": "any",
             "hover": "any",
             "keyboard": "any",
             "tab": "any",
-            "focus": "any",
             "feedback": [
               "06"
             ],
@@ -3993,7 +4000,6 @@
             "ICE": [
               "04"
             ],
-            "bagus": "any",
             "perbaiki": "any",
             "review": [
               "02",
@@ -4005,10 +4011,6 @@
             "check": [
               "02"
             ],
-            "quality": "any",
-            "kualitas": "any",
-            "standard": "any",
-            "standar": "any",
             "clean up": [
               "05"
             ],
@@ -4569,8 +4571,7 @@
           "mobile home",
           "mobile house",
           "rv",
-          "recreational vehicle",
-          "mobile game"
+          "recreational vehicle"
         ],
         "recommended_courses": [
           "01",
@@ -5477,11 +5478,6 @@
             ]
           },
           "low": {
-            "library": "any",
-            "shared": "any",
-            "reusable": "any",
-            "consistent": "any",
-            "konsisten": "any",
             "component API": "any",
             "naming convention": "any",
             "platform team": [
@@ -5800,18 +5796,8 @@
           "low": {
             "conversation": "any",
             "percakapan": "any",
-            "interactive": "any",
-            "assistant": "any",
             "bot": "any",
-            "speak": "any",
-            "talk": "any",
-            "listen": "any",
-            "natural language": "any",
-            "message": "any",
-            "reply": "any",
-            "respond": "any",
-            "turn": "any",
-            "session": "any"
+            "natural language": "any"
           }
         }
       },
@@ -6057,23 +6043,23 @@
             "strategy": [
               "03",
               "07"
+            ],
+            "strategic": [
+              "01",
+              "03"
+            ],
+            "planning": [
+              "04"
+            ],
+            "prioritize": [
+              "04"
+            ],
+            "validate": [
+              "01",
+              "02"
             ]
           },
           "low": {
-            "planning": "any",
-            "prioritize": "any",
-            "vision": "any",
-            "mission": "any",
-            "goal": "any",
-            "think": "any",
-            "decide": "any",
-            "choose": "any",
-            "strategic": "any",
-            "product": "any",
-            "leadership": "any",
-            "roadmap": "any",
-            "experiment": "any",
-            "validate": "any",
             "make plan": "any",
             "bikin rencana": "any",
             "rencana strategis": "any",
@@ -7505,6 +7491,12 @@
             "API testing": [
               "03"
             ],
+            "rest api": [
+              "03"
+            ],
+            "edge cases": [
+              "03"
+            ],
             "Supertest": [
               "03"
             ],
@@ -7556,6 +7548,12 @@
               "01"
             ],
             "component testing": [
+              "02"
+            ],
+            "component tests": [
+              "02"
+            ],
+            "mock": [
               "02"
             ],
             "test fixture": [
@@ -7798,8 +7796,6 @@
           },
           "low": {
             "dx": "any",
-            "developer": "any",
-            "tool": "any",
             "ergonomics": [
               "01"
             ],

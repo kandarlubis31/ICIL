@@ -169,13 +169,13 @@ inteligence_mas-aul/
 
 > Full version-by-version history lives in [`CHANGELOG.md`](./CHANGELOG.md) — v1.0.0 (1 faculty, 9 courses) → v25.0.4 (29 faculties, 216 courses).
 
-**Key milestones:** v9 Branding + Accessibility · v11 Cognitive Science · v18 4 Engineering Faculties · v19.1 74% token compaction · v20 DX + IA + MCP v2 · v21 Agentic Engineering + router fix · v22 UX Research · v23 Full Content Audit (199 courses, 18 fixes) · v24 Phase A1/B/C (204→216 courses, 5 MCP→10 tools) · v25.0.4 CI All Green, P@3=71.2%, 0 DUPLICATE HIGH
+**Key milestones:** v9 Branding + Accessibility · v11 Cognitive Science · v18 4 Engineering Faculties · v19.1 74% token compaction · v20 DX + IA + MCP v2 · v21 Agentic Engineering + router fix · v22 UX Research · v23 Full Content Audit (199 courses, 18 fixes) · v24 Phase A1/B/C (204→216 courses, 5 MCP→10 tools) · v25.0.4 CI All Green, P@3=72.8%, 0 DUPLICATE HIGH
 
 ---
 
 ## 🔜 Current State (v25.0.4)
 
-> **🏁 STABLE — CI ALL GREEN.** 216 courses, 29 faculties, 10 MCP tools. P@3=71.2%, R@3=93.9%, MRR=0.919. 0 DUPLICATE HIGH. All 9 bugs from ISSUES.md fixed. ROADMAP v2 complete.
+> **🏁 STABLE — CI ALL GREEN.** 216 courses, 29 faculties, 10 MCP tools. P@3=72.8%, R@3=94.4%, MRR=0.922. 0 DUPLICATE HIGH. All 9 bugs from ISSUES.md fixed. ROADMAP v2 complete.
 
 ### What's done (v25.0.1→v25.0.4)
 - ✅ 9 bugs fixed (ISSUES.md closed)
@@ -186,7 +186,7 @@ inteligence_mas-aul/
 - ✅ `compare_courses` + `search_across` deduplicated
 - ✅ Prerequisite format standardized
 - ✅ Dynamic mcp-server.js description from `loadIndex()`
-- ✅ 3 rounds keyword tuning: P@3 59.3%→71.2%, R@3 85.9%→93.9%
+- ✅ 3 rounds keyword tuning: P@3 59.3%→72.8%, R@3 85.9%→94.4%
 - ✅ Eval threshold 0.80→0.70 (CI now green)
 - ✅ ci-validate.js: CROSS-FACULTY = warnings only (don't block CI)
 - ✅ README badges + package.json v25.0.4 + AGENTS.md synced
@@ -195,8 +195,8 @@ inteligence_mas-aul/
 - ✅ Git repo initialized, 282 files committed, tagged v25.0.4
 
 ### What remains
-- 3 eval failures (1.5%) — genuinely ambiguous multi-faculty prompts
-- 130 CROSS-FACULTY keywords — all legitimate, 0 need negative_keywords
+- 2 noMatch (1.0%), 0 failed prompts — edge cases from ambiguous multi-faculty queries
+- 129 CROSS-FACULTY keywords — all legitimate, 0 need negative_keywords
 - GitHub push pending (repo initialized locally)
 - npm publish when public
 

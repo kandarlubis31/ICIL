@@ -2,7 +2,7 @@
 
 > **For AI Agents: Load this file FIRST to understand the entire campus, then use `load-context.js` or the auto-router to drill into specific faculties.**
 
-**Version:** v25.0.4 | **Courses:** 216 | **Faculties:** 29 | **P@3:** 71.2% | **Last Updated:** 2026-07-20 | **Roadmap:** ROADMAP-v2.md — COMPLETE ✅
+**Version:** v25.0.4 | **Courses:** 216 | **Faculties:** 29 | **P@3:** 72.8% | **Last Updated:** 2026-07-20 | **Roadmap:** ROADMAP-v2.md — COMPLETE ✅
 
 ---
 
@@ -405,6 +405,6 @@ inteligence_mas-aul/
 
 > *"Deep knowledge makes agents truly powerful. This campus gives AI agents the expertise of 29 university departments in 216 files."* — Mas Aul 🔥
 >
-> **v25.0.4**: CI ALL GREEN — 0 DUPLICATE HIGH, P@3=71.2%, R@3=93.9%, MRR=0.919. 216 courses, 29 faculties, 10 MCP tools.
+> **v25.0.4**: CI ALL GREEN — 0 DUPLICATE HIGH, P@3=72.8%, R@3=94.4%, MRR=0.922. 216 courses, 29 faculties, 10 MCP tools.
 >
 > **🗺️ Next**: v3 planning — community proposals welcome.

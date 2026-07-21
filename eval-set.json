@@ -2,7 +2,7 @@
   "name": "ICIL Auto-Router Eval Set",
   "version": "1.0.0",
   "description": "Labeled evaluation prompts for measuring ICIL auto-router accuracy. 200 prompts across 29 faculties, 3 difficulty tiers, EN+ID bilingual coverage, and edge-case testing.",
-  "total_prompts": 200,
+  "total_prompts": 207,
   "faculties_covered": 29,
   "metrics_target": {
     "precision_at_k": 0.85,
@@ -210,6 +210,13 @@
     {"id":"eval-197","prompt":"How does human perception of motion affect animation timing in UI?","expected_faculties":["animasi","kognisi"],"expected_courses":["01","02"],"category":"animation-cognition","difficulty":"hard","notes":"Motion perception = animasi + cognitive science overlap"},
     {"id":"eval-198","prompt":"Create an onboarding flow that teaches users without annoying them","expected_faculties":["ux-writing","mobile-ux","design-patterns"],"expected_courses":["05"],"category":"onboarding","difficulty":"hard","notes":"Triple-faculty: onboarding copy + mobile patterns + form/pattern design"},
     {"id":"eval-199","prompt":"How do I know if our product is actually solving the right problem?","expected_faculties":["strategic-design","ux-research"],"expected_courses":["02","01"],"category":"strategy-research","difficulty":"medium","notes":"Problem framing + research fundamentals"},
-    {"id":"eval-200","prompt":"Coba jelasin gimana cara bikin sistem yang scalable, secure, dan maintainable","expected_faculties":["software-engineering","security","devops-infra"],"expected_courses":["02","01","04"],"category":"multi","difficulty":"hard","notes":"BI: broad system design — architecture + security + cloud deployment"}
+    {"id":"eval-200","prompt":"Coba jelasin gimana cara bikin sistem yang scalable, secure, dan maintainable","expected_faculties":["software-engineering","security","devops-infra"],"expected_courses":["02","01","04"],"category":"multi","difficulty":"hard","notes":"BI: broad system design — architecture + security + cloud deployment"},
+    {"id":"eval-201","prompt":"How do I use design ethics to decide if a feature is manipulative or just persuasive?","expected_faculties":["design-ethics"],"expected_courses":["01"],"category":"ethics","difficulty":"easy","notes":"Direct design ethics frameworks query — course 01"},
+    {"id":"eval-202","prompt":"How do I implement privacy first design with data minimization for a health app?","expected_faculties":["design-ethics"],"expected_courses":["02"],"category":"ethics","difficulty":"easy","notes":"Privacy first + data minimization HIGH keywords — course 02"},
+    {"id":"eval-203","prompt":"How does inclusive design support neurodiversity design for ADHD and autism users?","expected_faculties":["design-ethics"],"expected_courses":["03"],"category":"ethics","difficulty":"medium","notes":"Inclusive design + neurodiversity design + ADHD design HIGH keywords — course 03"},
+    {"id":"eval-204","prompt":"Our AI hiring tool shows bias against certain demographics — how do we audit algorithmic fairness?","expected_faculties":["design-ethics"],"expected_courses":["04"],"category":"ethics","difficulty":"medium","notes":"AI ethics + algorithmic fairness — course 04"},
+    {"id":"eval-205","prompt":"Are roach motel unsubscribe flows considered dark patterns under the EU Digital Services Act?","expected_faculties":["design-ethics"],"expected_courses":["05"],"category":"ethics","difficulty":"easy","notes":"Dark patterns + EU DSA — course 05"},
+    {"id":"eval-206","prompt":"How do I calculate a carbon budget and implement digital sustainability for our product?","expected_faculties":["design-ethics"],"expected_courses":["06"],"category":"ethics","difficulty":"medium","notes":"Carbon budget + digital sustainability HIGH keywords — course 06"},
+    {"id":"eval-207","prompt":"My boss wants to add a dark pattern that boosts conversion — how do I handle ethical escalation as a designer?","expected_faculties":["design-ethics","ux-psikologi"],"expected_courses":["07","06"],"category":"ethics","difficulty":"hard","notes":"Dark pattern + ethical escalation HIGH keywords — courses 07+06"}
   ]
 }

@@ -73,8 +73,10 @@ function validateSchema(index) {
           }
         }
       }
-      // Validate courseCount matches courses array length
-      if (faculty.courseCount !== faculty.courses.length) {
+      // Validate courseCount matches courses array length (campus-core.js now computes
+      // this dynamically from courses.length, but ci-validate.js still checks raw field for data integrity.
+      // When courseCount is undefined/missing, skip — only flag explicit mismatches.
+      if (faculty.courseCount !== undefined && faculty.courseCount !== faculty.courses.length) {
         errors.push(
           `Faculty '${slug}': courseCount=${faculty.courseCount} but courses.length=${faculty.courses.length}`
         );
@@ -110,6 +112,19 @@ function validateSchema(index) {
         errors.push(`Faculty '${slug}' has NO trigger_keywords entry`);
       }
     }
+  }
+
+  // Check version consistency: package.json === index.json
+  try {
+    const pkgRaw = fs.readFileSync(path.join(CAMPUS_ROOT, "package.json"), "utf-8");
+    const pkgJson = JSON.parse(pkgRaw);
+    if (pkgJson.version !== index.version) {
+      errors.push(
+        `VERSION DRIFT: package.json=${pkgJson.version}, index.json=${index.version} — they must match`
+      );
+    }
+  } catch (err) {
+    errors.push(`Could not verify version consistency: ${err.message}`);
   }
 
   // Check for duplicate emoji assignments
