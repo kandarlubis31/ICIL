@@ -244,7 +244,7 @@ Check that all `faculty/XX-file.md` references point to files that actually exis
 
 - Open an issue for discussion
 - Check `CONTEXT.md` for current project state
-- Check `konsep.txt` for the original vision
+- Check `AGENTS.md` for repo conventions and routing
 
 ---
 
