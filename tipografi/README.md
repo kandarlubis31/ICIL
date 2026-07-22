@@ -8,15 +8,15 @@ This faculty covers the entire spectrum of digital typography: from letter anato
 
 ## 📋 Course List
 
-| ID | Course | Level |
-|----|--------|-------|
-| 01 | [Typeface Anatomy & Classification](./01-type-anatomy-classification.md) | 🟢 Beginner |
-| 02 | [Type Scale & Hierarchy](./02-type-scale-hierarchy.md) | 🟢 Beginner |
-| 03 | [Font Pairing](./03-font-pairing.md) | 🟡 Intermediate |
-| 04 | [Readability & Legibility](./04-readability-legibility.md) | 🟡 Intermediate |
-| 05 | [Line-Height & Spacing](./05-line-height-spacing.md) | 🟡 Intermediate |
-| 06 | [Variable Fonts](./06-variable-fonts.md) | 🔴 Advanced |
-| 07 | [Web Typography & Performance](./07-web-typography.md) | 🔴 Advanced |
+| ID | Course | Level | Prerequisite |
+|----|--------|-------|-------------|
+| 01 | [Typeface Anatomy & Classification](./01-type-anatomy-classification.md) | 🟢 Beginner | — |
+| 02 | [Type Scale & Hierarchy](./02-type-scale-hierarchy.md) | 🟢 Beginner | — |
+| 03 | [Font Pairing](./03-font-pairing.md) | 🟡 Intermediate | 01 |
+| 04 | [Readability & Legibility](./04-readability-legibility.md) | 🟡 Intermediate | 01 |
+| 05 | [Line-Height & Spacing](./05-line-height-spacing.md) | 🟡 Intermediate | 04 |
+| 06 | [Variable Fonts](./06-variable-fonts.md) | 🔴 Advanced | 01, 02 |
+| 07 | [Web Typography & Performance](./07-web-typography.md) | 🔴 Advanced | 01, 06 |
 
 ---
 

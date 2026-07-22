@@ -17,6 +17,8 @@ Bridges UI design with solid software engineering. Covers clean code, architectu
 | 05 | [Testing Strategies](./05-testing-strategies.md) | 🟡 | 01 |
 | 06 | [Refactoring & Code Review](./06-refactoring-code-review.md) | 🟡 | 01,05 |
 | 07 | [Project Structure & DI](./07-project-structure-di.md) | 🔴 | 02,04 |
+| 08 | [Domain-Driven Design](./08-domain-driven-design.md) | 🔴 | 01,02 |
+| 09 | [Event Sourcing & CQRS](./09-event-sourcing-cqrs.md) | 🔴 | 02,08 |
 
 ---
 
