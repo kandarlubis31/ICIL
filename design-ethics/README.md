@@ -8,7 +8,7 @@ The #1 most-requested missing faculty. Covers the full ethics spectrum: from eth
 
 ## 📋 Course List
 
-| ID | Course | Level | Prereq |
+| ID | Course | Level | Prerequisite |
 |----|--------|-------|--------|
 | 01 | [Ethical Frameworks for Designers](./01-ethical-frameworks-designers.md) | 🟢 | — |
 | 02 | [Privacy-First Design & Data Minimization](./02-privacy-first-design.md) | 🟡 | 01 |

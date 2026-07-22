@@ -4,9 +4,9 @@
 
 ---
 
-## 📋 Course Catalog
+## 📋 Course List
 
-| # | Course | Level | Prereq | Key Topics |
+| # | Course | Level | Prerequisite | Key Topics |
 |---|--------|-------|--------|------------|
 | 01 | [IA Fundamentals & Organization](./01-ia-fundamentals-organization.md) | 🟢 Beginner | — | IA definition, LATCH, organization schemes, structures, heuristics |
 | 02 | [Navigation & Wayfinding](./02-navigation-wayfinding.md) | 🟡 Intermediate | 01 | Nav types, information scent, breadcrumbs, sitemaps, wayfinding |
@@ -41,6 +41,6 @@
 
 ---
 
-## 📊 Keywords
+## 🔍 Keyword Index
 
 `information architecture`, `ia`, `taxonomy`, `ontology`, `navigation`, `wayfinding`, `search systems`, `card sorting`, `tree testing`, `content modeling`, `metadata`, `schema.org`, `controlled vocabulary`, `faceted search`, `semantic search`, `embeddings`, `rag`, `personalization`, `sitemap`, `information scent`, `federated search`

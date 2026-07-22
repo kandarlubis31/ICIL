@@ -16,7 +16,7 @@ This faculty fills the fundamental gap: no existing faculty teaches the *researc
 
 ## 📋 Course List
 
-| ID | Course | Level | Prereq |
+| ID | Course | Level | Prerequisite |
 |----|--------|-------|--------|
 | 01 | [Research Fundamentals & Methods](./01-research-fundamentals-methods.md) | 🟢 | — |
 | 02 | [Qualitative Interview Techniques](./02-qualitative-interview-techniques.md) | 🟡 | 01 |
@@ -60,6 +60,6 @@ This faculty fills the fundamental gap: no existing faculty teaches the *researc
 
 ---
 
-## 📊 Keywords
+## 🔍 Keyword Index
 
 `ux research`, `user research`, `user interview`, `qualitative research`, `quantitative research`, `usability testing`, `survey design`, `contextual inquiry`, `diary study`, `a/b testing`, `affinity mapping`, `synthesis`, `sensemaking`, `persona`, `journey map`, `research ops`, `researchops`, `research repository`, `participant recruitment`, `continuous discovery`, `usability metrics`, `sus`, `nps`, `csat`, `heuristic evaluation`, `ai-moderated interview`, `synthetic users`, `ai-augmented research`, `dovetail`, `marvin`, `maze`, `usertesting`, `nn/g`, `teresa torres`, `triangulation`, `insight validation`

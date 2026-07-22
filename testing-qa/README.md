@@ -8,7 +8,7 @@ From test pyramid fundamentals through unit, integration, E2E, performance testi
 
 ## 📋 Course List
 
-| ID | Course | Level | Prereq |
+| ID | Course | Level | Prerequisite |
 |----|--------|-------|--------|
 | 01 | [Testing Fundamentals & Pyramid](./01-testing-fundamentals.md) | 🟢 | — |
 | 02 | [Unit & Component Testing](./02-unit-component-testing.md) | 🟡 | 01 |

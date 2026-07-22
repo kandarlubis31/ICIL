@@ -8,7 +8,7 @@ Bridges UI design with solid software engineering. Covers clean code, architectu
 
 ## 📋 Course List
 
-| ID | Course | Level | Prereq |
+| ID | Course | Level | Prerequisite |
 |----|--------|-------|--------|
 | 01 | [Clean Code & SOLID Principles](./01-clean-code-solid.md) | 🟢 | — |
 | 02 | [Software Architecture Patterns](./02-software-architecture.md) | 🟡 | 01 |

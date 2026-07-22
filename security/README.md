@@ -8,7 +8,7 @@ Covers the full security spectrum: from OWASP Top 10 and threat modeling through
 
 ## 📋 Course List
 
-| ID | Course | Level | Prereq |
+| ID | Course | Level | Prerequisite |
 |----|--------|-------|--------|
 | 01 | [OWASP Top 10 & Threat Modeling](./01-owasp-threat-modeling.md) | 🟢 | — |
 | 02 | [Authentication & Authorization](./02-auth-authorization.md) | 🟡 | 01 |

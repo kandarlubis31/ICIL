@@ -8,7 +8,7 @@ Designing services, not just screens. Bridges individual touchpoints into cohere
 
 ## 📋 Course List
 
-| ID | Course | Level | Prereq |
+| ID | Course | Level | Prerequisite |
 |----|--------|-------|--------|
 | 01 | [Service Design & S-D Logic](./01-service-design-sd-logic.md) | 🟢 | — |
 | 02 | [Service Blueprinting](./02-service-blueprinting.md) | 🟡 | 01 |

@@ -8,7 +8,7 @@ From relational schema design to NoSQL patterns, query optimization, migrations,
 
 ## 📋 Course List
 
-| ID | Course | Level | Prereq |
+| ID | Course | Level | Prerequisite |
 |----|--------|-------|--------|
 | 01 | [Relational Design & Normalization](./01-relational-design-normalization.md) | 🟢 | — |
 | 02 | [SQL Mastery](./02-sql-mastery.md) | 🟢 | 01 |

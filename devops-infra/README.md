@@ -8,7 +8,7 @@ Covers the full deployment lifecycle: from Linux fundamentals through containeri
 
 ## 📋 Course List
 
-| ID | Course | Level | Prereq |
+| ID | Course | Level | Prerequisite |
 |----|--------|-------|--------|
 | 01 | [Linux Server Fundamentals](./01-linux-server-fundamentals.md) | 🟢 | — |
 | 02 | [Containerization & Docker](./02-containerization-docker.md) | 🟡 | 01 |

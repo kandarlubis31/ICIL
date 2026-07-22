@@ -16,7 +16,7 @@ The **operational layer** for autonomous AI agents. While `ai-integration/` teac
 
 ## 📋 Course List
 
-| ID | Course | Level | Prereq |
+| ID | Course | Level | Prerequisite |
 |----|--------|-------|--------|
 | 01 | [Agentic Runtimes & Control Planes](./01-agentic-runtimes-control-planes.md) | 🟢 | — |
 | 02 | [Context Engineering: Compaction & Recall](./02-context-engineering-compaction.md) | 🟡 | 01 |
@@ -60,6 +60,6 @@ The **operational layer** for autonomous AI agents. While `ai-integration/` teac
 
 ---
 
-## 📊 Keywords
+## 🔍 Keyword Index
 
 `agentic`, `agent runtime`, `control plane`, `state machine`, `durable execution`, `context engineering`, `context compaction`, `attention budget`, `just-in-time context`, `scratchpad`, `multi-agent`, `supervisor worker`, `agent handoff`, `agent observability`, `tracing`, `agent eval`, `trajectory evaluation`, `cost-aware planning`, `model routing`, `token budget`, `agent sandboxing`, `tool scoping`, `HITL`, `human in the loop`, `tool poisoning`, `agent identity`, `agent lifecycle`, `agent versioning`, `canary deployment`, `behavioral regression`, `A2A`, `agent-to-agent`, `agent protocol`, `agent discovery`, `agent card`, `Google A2A`, `agent marketplace`, `agent pricing`, `AaaS`, `agent SLA`, `agent reputation`, `LangGraph`, `LangSmith`, `Langfuse`, `E2B`, `CrewAI`, `AutoGen`

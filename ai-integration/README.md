@@ -8,7 +8,7 @@ Covers the engineering side of AI: prompt engineering, RAG architecture, embeddi
 
 ## 📋 Course List
 
-| ID | Course | Level | Prereq |
+| ID | Course | Level | Prerequisite |
 |----|--------|-------|--------|
 | 01 | [Prompt Engineering Fundamentals](./01-prompt-engineering.md) | 🟢 | — |
 | 02 | [RAG Architecture](./02-rag-architecture.md) | 🟡 | 01 |

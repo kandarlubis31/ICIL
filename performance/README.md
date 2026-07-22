@@ -8,7 +8,7 @@ Covers the full performance spectrum: Core Web Vitals, caching, backend optimiza
 
 ## 📋 Course List
 
-| ID | Course | Level | Prereq |
+| ID | Course | Level | Prerequisite |
 |----|--------|-------|--------|
 | 01 | [Core Web Vitals & Frontend Perf](./01-core-web-vitals.md) | 🟢 | — |
 | 02 | [Caching Strategies](./02-caching-strategies.md) | 🟡 | 01 |

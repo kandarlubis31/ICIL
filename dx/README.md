@@ -4,9 +4,9 @@
 
 ---
 
-## 📋 Course Catalog
+## 📋 Course List
 
-| # | Course | Level | Prereq | Key Topics |
+| # | Course | Level | Prerequisite | Key Topics |
 |---|--------|-------|--------|------------|
 | 01 | [DX Fundamentals & Strategy](./01-dx-fundamentals-strategy.md) | 🟢 Beginner | — | DX vs UX, maturity model, pillars, metrics, TTFHW |
 | 02 | [CLI Design Patterns](./02-cli-design-patterns.md) | 🟡 Intermediate | 01 | Command naming, --help, output design, exit codes, POSIX |
@@ -41,6 +41,6 @@
 
 ---
 
-## 📊 Keywords
+## 🔍 Keyword Index
 
 `dx`, `developer experience`, `cli`, `api design`, `sdk`, `documentation`, `docs-as-code`, `error messages`, `developer onboarding`, `ttfhw`, `friction log`, `api playground`, `changelog`, `deprecation`, `migration guide`, `diataxis`, `exit codes`, `posix`
