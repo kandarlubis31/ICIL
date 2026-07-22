@@ -4,8 +4,8 @@
   "description": "ICIL — Intelligence Campus Interactive Library. 216 courses, 29 faculties, 10 MCP tools. P@3=72.8%, R@3=94.4%, MRR=0.922. CI All Green.",
   "main": "campus-core.js",
   "bin": {
-    "icil": "./load-context.js",
-    "icil-mcp": "./mcp-server.js"
+    "icil": "load-context.js",
+    "icil-mcp": "mcp-server.js"
   },
   "files": [
     "campus-core.js",
@@ -66,14 +66,38 @@
     "ai-agent",
     "knowledge-base",
     "design-system",
+    "design-ethics",
+    "software-engineering",
+    "devops",
+    "database",
+    "ai-integration",
+    "agentic-engineering",
+    "security",
+    "performance",
+    "testing",
+    "ux-research",
+    "service-design",
+    "strategic-design",
+    "conversational-ui",
+    "mobile-ux",
+    "information-architecture",
+    "developer-experience",
+    "data-visualization",
     "campus",
-    "icil"
+    "icil",
+    "context-injection",
+    "llm",
+    "claude-code"
   ],
   "author": "Mas Aul",
   "license": "MIT",
+  "homepage": "https://github.com/kandarlubis31/ICIL#readme",
   "repository": {
     "type": "git",
-    "url": "https://github.com/kandarlubis31/ICIL"
+    "url": "git+https://github.com/kandarlubis31/ICIL.git"
+  },
+  "bugs": {
+    "url": "https://github.com/kandarlubis31/ICIL/issues"
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.0.0",
