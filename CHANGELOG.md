@@ -4,6 +4,18 @@
 
 ---
 
+## v25.0.7 (July 22, 2026) — 📚 Faculty README Standardization
+
+### Faculty README Audit & Standardization (18 files)
+- **5 bug fixes**: Missing Prerequisite columns in layout, tipografi, ux-writing, design-patterns; missing courses 08-09 in software-engineering course table
+- **13 standardization**: `Prereq`→`Prerequisite`, `Keywords`→`Keyword Index`, `Course Catalog`→`Course List` — all 29 READMEs now follow gold standard template
+- All prerequisites verified against actual course file headers
+
+### CI
+- CI validation PASSED — 0 schema errors, 0 broken cross-refs, 0 DUPLICATE HIGH, exit 0
+
+---
+
 ## v25.0.6 (July 22, 2026) — 📦 Package Polish + Docs Fix
 
 ### npm Package Metadata
@@ -446,4 +458,4 @@ Color theory, harmony, psychology, culture, digital models, accessibility, palet
 
 ---
 
-*ICIL v25.0.6 — 216 courses, 29 faculties, 10 MCP tools. Built by Mas Aul 🔥*
+*ICIL v25.0.7 — 216 courses, 29 faculties, 10 MCP tools. Built by Mas Aul 🔥*

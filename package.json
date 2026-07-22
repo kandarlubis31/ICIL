@@ -1,6 +1,6 @@
 {
   "name": "@kandarlubis/icil",
-  "version": "25.0.6",
+  "version": "25.0.7",
   "description": "ICIL — Intelligence Campus Interactive Library. 216 courses, 29 faculties, 10 MCP tools. P@3=72.8%, R@3=94.4%, MRR=0.922. CI All Green.",
   "main": "campus-core.js",
   "bin": {
