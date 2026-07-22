@@ -1,6 +1,6 @@
 # 🎓 ICIL — Intelligence Campus Interactive Library
 
-[![Version](https://img.shields.io/badge/version-v25.0.5-blue)](https://github.com/kandarlubis31/ICIL/releases)
+[![Version](https://img.shields.io/badge/version-v25.0.6-blue)](https://github.com/kandarlubis31/ICIL/releases)
 [![Courses](https://img.shields.io/badge/courses-216-green)](./index.json)
 [![Faculties](https://img.shields.io/badge/faculties-29-orange)](./index.json)
 [![MCP Tools](https://img.shields.io/badge/MCP%20tools-10-purple)](./mcp-server.js)

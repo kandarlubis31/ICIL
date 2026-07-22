@@ -4,6 +4,20 @@
 
 ---
 
+## v25.0.6 (July 22, 2026) — 📦 Package Polish + Docs Fix
+
+### npm Package Metadata
+- **Keywords expanded**: 15 → 35 (added: design-ethics, software-engineering, devops, database, ai-integration, agentic-engineering, security, performance, testing, ux-research, service-design, strategic-design, conversational-ui, mobile-ux, information-architecture, developer-experience, data-visualization, context-injection, llm, claude-code)
+- **homepage** added: `https://github.com/kandarlubis31/ICIL#readme`
+- **bugs URL** added: `https://github.com/kandarlubis31/ICIL/issues`
+
+### Documentation Fixes
+- **README**: Badge version link fixed (`mas-aul/icil` → `kandarlubis31/ICIL`)
+- **CONTRIBUTING.md**: Removed stale `konsep.txt` reference (deleted since v25.0.4), replaced with `AGENTS.md`
+- **LICENSE**: Copyright holder fixed (`ICIL` → `Mas Aul`)
+
+---
+
 ## v25.0.5 (July 22, 2026) — 🎯 Phase 1 LOW Tightening + Data Integrity
 
 ### Phase 1 — LOW-tier Keyword Tightening (35 dropped, 8 tightened)
@@ -432,4 +446,4 @@ Color theory, harmony, psychology, culture, digital models, accessibility, palet
 
 ---
 
-*ICIL v25.0.4 — 216 courses, 29 faculties, 10 MCP tools. Built by Mas Aul 🔥*
+*ICIL v25.0.6 — 216 courses, 29 faculties, 10 MCP tools. Built by Mas Aul 🔥*
