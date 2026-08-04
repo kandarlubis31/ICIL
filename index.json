@@ -2300,7 +2300,12 @@
           "skeleton loading",
           "chatbot error",
           "empty state copy",
-          "empty state text"
+          "empty state text",
+          "game dialog",
+          "narrative dialog",
+          "story dialog",
+          "percakapan karakter",
+          "dialog percakapan"
         ],
         "recommended_courses": [
           "01",
@@ -3987,6 +3992,9 @@
             ],
             "legacy codebase": [
               "05"
+            ],
+            "where do I start design system": [
+              "05"
             ]
           },
           "medium": {
@@ -4131,6 +4139,9 @@
             ],
             "extract design system": [
               "05"
+            ],
+            "extract from legacy": [
+              "05"
             ]
           },
           "low": {
@@ -4197,7 +4208,13 @@
           "brand strategy",
           "code logic",
           "API architecture",
-          "database schema"
+          "database schema",
+          "color psychology",
+          "UX psychology",
+          "UX law",
+          "design psychology",
+          "strategic thinking framework",
+          "design thinking process"
         ],
         "recommended_courses": [
           "01",
@@ -5531,6 +5548,12 @@
             ],
             "design system from codebase": [
               "05"
+            ],
+            "extract from codebase": [
+              "05"
+            ],
+            "legacy codebase design": [
+              "05"
             ]
           },
           "medium": {
@@ -5709,7 +5732,17 @@
           "design pattern catalog",
           "data table",
           "modal popup",
-          "tooltip hover"
+          "tooltip hover",
+          "brand voice",
+          "brand tone",
+          "voice and tone",
+          "tone of voice",
+          "story dialog",
+          "game dialog",
+          "narrative dialog",
+          "modal dialog",
+          "dialog box",
+          "accessibility dialog"
         ],
         "recommended_courses": [
           "01",
@@ -6571,7 +6604,14 @@
           "CAD software",
           "agent runtime",
           "agent orchestration",
-          "AI agent"
+          "AI agent",
+          "IA architecture",
+          "information architecture",
+          "knowledge architecture",
+          "UX architecture",
+          "design architecture",
+          "content architecture",
+          "data architecture"
         ],
         "recommended_courses": [
           "01",
@@ -6868,6 +6908,9 @@
               "04"
             ],
             "scalable dan secure": [
+              "04"
+            ],
+            "scalable secure maintainable": [
               "04"
             ]
           },
@@ -7682,6 +7725,15 @@
             ],
             "scale": [
               "03"
+            ],
+            "k6": [
+              "06"
+            ],
+            "load test": [
+              "06"
+            ],
+            "breaking point": [
+              "06"
             ]
           },
           "low": {
@@ -7912,7 +7964,18 @@
           "security OWASP",
           "performance cache",
           "testing unit",
-          "user research"
+          "user research",
+          "user onboarding",
+          "onboarding UX",
+          "onboarding flow",
+          "form label",
+          "accessible form",
+          "REST API endpoint",
+          "API security",
+          "API performance",
+          "API test",
+          "knowledge base docs",
+          "RAG docs"
         ],
         "recommended_courses": [
           "01",
@@ -8015,6 +8078,12 @@
             ],
             "developer errors": [
               "06"
+            ],
+            "API developers love": [
+              "03"
+            ],
+            "useful for devs": [
+              "06"
             ]
           },
           "medium": {
@@ -8083,21 +8152,6 @@
             ],
             "idempotency": [
               "05"
-            ],
-            "API": [
-              "03"
-            ],
-            "developer": [
-              "01"
-            ],
-            "docs": [
-              "04"
-            ],
-            "error messages": [
-              "06"
-            ],
-            "onboarding": [
-              "07"
             ]
           }
         }
@@ -8122,7 +8176,14 @@
           "website structure",
           "sitemap generator",
           "card sorting test",
-          "tree testing UX"
+          "tree testing UX",
+          "RAG pipeline",
+          "vector embedding",
+          "semantic search engine",
+          "hybrid search",
+          "chatbot search",
+          "AI-powered search",
+          "LLM search"
         ],
         "recommended_courses": [
           "01",
@@ -8210,9 +8271,6 @@
             ]
           },
           "medium": {
-            "navigation": [
-              "02"
-            ],
             "breadcrumb": [
               "02"
             ],
@@ -8280,9 +8338,6 @@
             "full-text search": [
               "03"
             ],
-            "rag": [
-              "07"
-            ],
             "embedding": [
               "07"
             ],
@@ -8294,22 +8349,13 @@
             ]
           },
           "low": {
-            "organize": [
-              "01"
-            ],
             "categorize": [
               "01",
               "04"
             ],
-            "label": [
-              "01"
-            ],
             "findability": [
               "01",
               "03"
-            ],
-            "browse": [
-              "02"
             ],
             "information overload": [
               "01"
@@ -8328,6 +8374,12 @@
             ],
             "authority file": [
               "04"
+            ],
+            "navigation": [
+              "02"
+            ],
+            "rag": [
+              "07"
             ]
           }
         }
