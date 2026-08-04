@@ -2,7 +2,7 @@
 
 > **Level: 🔴 Advanced** | Prerequisite: security/05 | ~10 min
 
-Every dependency is a potential backdoor. SolarWinds (2020) → Log4Shell (2021) → xz utils (2024) — supply chain attacks grew 742% (2022-2024). This course covers SBOMs, SLSA framework, and practical hardening for Node.js, Python, and container supply chains.
+Every dependency is a potential backdoor. SolarWinds (2020) → Log4Shell (2021) → xz utils (2024) — supply-chain risk continues to evolve as dependencies, build systems, and registries change. This course covers SBOMs, SLSA framework, and practical hardening for Node.js, Python, and container supply chains.
 
 ---
 

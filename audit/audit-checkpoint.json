@@ -1,0 +1,94 @@
+{
+  "schemaVersion": "1.0.0",
+  "generatedAt": "2026-08-01",
+  "catalogVersion": "26.0.0",
+  "manifestSnapshot": {
+    "catalogVersion": "26.0.0",
+    "totalCourses": 226,
+    "researchUnreviewed": 160,
+    "structuralReview": 43,
+    "courseRowsSha256": "55dc65fb09c8528573200125245174db80e2394bc3c8e1303bc0604647de9561"
+  },
+  "policy": {
+    "evidenceOnly": true,
+    "courseContentWasModified": false,
+    "automatedPassIsNotEditorialApproval": true
+  },
+  "status": "awaiting_research",
+  "message": "Research this batch and record findings in audit/faculty-reports before running the runner again.",
+  "faculty": "software-engineering",
+  "courses": [
+    {
+      "course": "software-engineering/01",
+      "title": "Clean Code & SOLID Principles",
+      "file": "software-engineering/01-clean-code-solid.md",
+      "structuralStatus": "structural_pass",
+      "structuralIssues": []
+    },
+    {
+      "course": "software-engineering/02",
+      "title": "Software Architecture Patterns",
+      "file": "software-engineering/02-software-architecture.md",
+      "structuralStatus": "structural_review",
+      "structuralIssues": [
+        "placeholder"
+      ]
+    },
+    {
+      "course": "software-engineering/03",
+      "title": "API Design",
+      "file": "software-engineering/03-api-design.md",
+      "structuralStatus": "structural_pass",
+      "structuralIssues": []
+    },
+    {
+      "course": "software-engineering/04",
+      "title": "Design Patterns (GoF)",
+      "file": "software-engineering/04-gof-design-patterns.md",
+      "structuralStatus": "structural_pass",
+      "structuralIssues": []
+    },
+    {
+      "course": "software-engineering/05",
+      "title": "Testing Strategies",
+      "file": "software-engineering/05-testing-strategies.md",
+      "structuralStatus": "structural_pass",
+      "structuralIssues": []
+    },
+    {
+      "course": "software-engineering/06",
+      "title": "Refactoring & Code Review",
+      "file": "software-engineering/06-refactoring-code-review.md",
+      "structuralStatus": "structural_pass",
+      "structuralIssues": []
+    },
+    {
+      "course": "software-engineering/07",
+      "title": "Project Structure & DI",
+      "file": "software-engineering/07-project-structure-di.md",
+      "structuralStatus": "structural_pass",
+      "structuralIssues": []
+    },
+    {
+      "course": "software-engineering/08",
+      "title": "Domain-Driven Design & Bounded Contexts",
+      "file": "software-engineering/08-domain-driven-design.md",
+      "structuralStatus": "structural_pass",
+      "structuralIssues": []
+    },
+    {
+      "course": "software-engineering/09",
+      "title": "Event Sourcing, CQRS & Event-Driven Systems",
+      "file": "software-engineering/09-event-sourcing-cqrs.md",
+      "structuralStatus": "structural_pass",
+      "structuralIssues": []
+    }
+  ],
+  "remainingUnreviewed": 160,
+  "researchGate": [
+    "Use primary or otherwise appropriate sources and record canonical URLs.",
+    "Write factual findings and exact actions; do not infer verification from structural_pass.",
+    "Do not edit course content as part of this planning step.",
+    "Regenerate the manifest and run CI/eval after the report is complete."
+  ]
+}

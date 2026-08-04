@@ -594,7 +594,7 @@ server.tool(
       const errors = [];
 
       for (const file of files.slice(0, 10)) {
-        if (!file || file.includes("..") || file.includes("~")) {
+        if (!file || file.includes("..") || file.includes("~") || path.isAbsolute(file)) {
           errors.push({ file, error: "Invalid path" });
           continue;
         }

@@ -1,0 +1,191 @@
+{
+  "faculty": "performance",
+  "catalogVersion": "26.0.0",
+  "reviewedAt": "2026-08-01",
+  "researchCutoff": "2026-08-01",
+  "auditor": "ICIL audit batch",
+  "method": "Risk-first review against official web.dev, MDN, IETF, Node.js, PostgreSQL, Grafana k6, and Lighthouse CI documentation. No course rewrite was performed.",
+  "facultyFindings": [
+    "The faculty provides a useful performance-engineering overview, but many numeric targets and configuration values are examples or heuristics rather than universal requirements.",
+    "Several courses mix browser, CDN, Node.js, PostgreSQL, Redis, Nginx, k6, and Lighthouse-specific instructions without consistently naming the tested version, deployment assumptions, or measurement conditions.",
+    "Operational examples need stronger safety boundaries: cache invalidation and queues need failure handling, database commands need production warnings, load tests need authorization and isolation, and synthetic CI gates need variance/flakiness controls.",
+    "The courses should distinguish field metrics from lab proxies and measured workload results from illustrative budgets."
+  ],
+  "courses": [
+    {
+      "course": "performance/01",
+      "status": "needs_update",
+      "sourceTier": ["primary"],
+      "sources": [
+        {"name": "web.dev — Web Vitals", "url": "https://web.dev/articles/vitals"},
+        {"name": "web.dev — Defining Core Web Vitals metric thresholds", "url": "https://web.dev/articles/defining-core-web-vitals-thresholds"},
+        {"name": "Chrome — User Experience Report", "url": "https://developer.chrome.com/docs/crux/"}
+      ],
+      "findings": [
+        "The LCP, INP, and CLS thresholds are aligned with current Core Web Vitals guidance, but metric definitions and thresholds are maintained guidance and should carry an access date.",
+        "The statement that poor scores equal poor SEO ranking is too broad; search ranking is multi-factor and the course should describe CWV as one signal rather than a guaranteed ranking outcome.",
+        "The field-versus-lab distinction is correct, but Lighthouse does not provide field INP; field measurement needs CrUX or RUM and lab tools use proxies such as TBT.",
+        "The checklist's universal 3G/mobile and 200KB bundle rules are useful test policies but not universal requirements; they should be framed as project budgets based on audience and measurement.",
+        "The claim that font-display and size-adjust prevent layout shift needs qualification: font metrics, fallback selection, loading behavior, and page layout determine the outcome."
+      ],
+      "actions": [
+        "add source access dates and clarify CWV guidance can change",
+        "replace the SEO implication with a bounded ranking/performance caveat",
+        "distinguish field INP from lab proxies explicitly",
+        "label mobile/network and bundle limits as project-specific budgets",
+        "qualify the font metric example and test it across fallback/rendering paths"
+      ],
+      "routingImpact": "inspect"
+    },
+    {
+      "course": "performance/02",
+      "status": "needs_update",
+      "sourceTier": ["primary"],
+      "sources": [
+        {"name": "MDN — HTTP caching", "url": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Caching"},
+        {"name": "IETF RFC 9111 — HTTP Caching", "url": "https://www.rfc-editor.org/rfc/rfc9111"},
+        {"name": "Redis — SET command", "url": "https://redis.io/docs/latest/commands/set/"}
+      ],
+      "findings": [
+        "The cache-layer model is useful, but the database cache layer and provider behavior vary; query caching, materialized views, and application caches should not be presented as interchangeable.",
+        "The one-hour Redis TTL, one-year asset TTL, 1–60 minute API TTL, and 80% hit-rate rule are illustrative policy values, not generally valid defaults; freshness, privacy, invalidation cost, and workload should drive them.",
+        "The Redis example assumes a specific client/library and ORM without declaring versions or failure behavior. JSON parsing, cache errors, concurrent misses, and stale data need handling guidance.",
+        "Deleting one key on a write does not solve distributed invalidation, key fan-out, race conditions, or cache stampedes; the course needs bounded cache-aside safety guidance.",
+        "The blanket statement that POST/PUT/DELETE responses should not be cached is too broad without distinguishing HTTP cache semantics, explicit cache controls, and application-specific behavior."
+      ],
+      "actions": [
+        "scope examples to declared Redis/client/ORM versions or make them pseudocode",
+        "reframe TTL and hit-rate numbers as workload-tested starting points",
+        "add cache-miss concurrency, error, invalidation, and stampede considerations",
+        "qualify HTTP method caching guidance with RFC semantics and authorization/privacy controls",
+        "add metrics beyond hit rate, including staleness, origin load, and eviction behavior"
+      ],
+      "routingImpact": "regression-required"
+    },
+    {
+      "course": "performance/03",
+      "status": "needs_update",
+      "sourceTier": ["primary"],
+      "sources": [
+        {"name": "Node.js — Don't block the event loop", "url": "https://nodejs.org/en/learn/asynchronous-work/dont-block-the-event-loop"},
+        {"name": "node-postgres — Pooling", "url": "https://node-postgres.com/features/pooling"},
+        {"name": "OpenTelemetry — JavaScript Node.js", "url": "https://opentelemetry.io/docs/languages/js/getting-started/nodejs/"}
+      ],
+      "findings": [
+        "The N+1 example identifies a real class of inefficiency, but eager loading is not always one query and can create large joins, duplicate rows, or over-fetching; batching and measured query plans are alternatives.",
+        "The pool max=20, 30-second idle timeout, 2-second connection timeout, and ~100ms connection overhead are environment-specific examples, not safe defaults.",
+        "The fire-and-forget queue example can lose work or hide errors if enqueueing fails, and it omits retries, idempotency, dead-letter handling, transaction/outbox coordination, and graceful shutdown.",
+        "The checklist's instruction to eliminate ALL N+1 queries is too absolute; some bounded or intentionally batched access patterns may be acceptable after measurement.",
+        "Compression choice and level depend on payloads, CPU, proxy, and content negotiation; a fixed gzip level should be presented as a test parameter."
+      ],
+      "actions": [
+        "explain eager loading trade-offs and include batching/projection alternatives",
+        "label pool values as workload- and deployment-specific",
+        "replace fire-and-forget with a durable queue safety pattern",
+        "add event-loop blocking, CPU-bound work, and worker-thread boundaries",
+        "tie compression settings to benchmarked payload and CPU trade-offs"
+      ],
+      "routingImpact": "regression-required"
+    },
+    {
+      "course": "performance/04",
+      "status": "needs_update",
+      "sourceTier": ["primary"],
+      "sources": [
+        {"name": "PostgreSQL — Using EXPLAIN", "url": "https://www.postgresql.org/docs/current/using-explain.html"},
+        {"name": "PostgreSQL — Performance tips", "url": "https://www.postgresql.org/docs/current/performance-tips.html"},
+        {"name": "PostgreSQL — CREATE INDEX", "url": "https://www.postgresql.org/docs/current/sql-createindex.html"}
+      ],
+      "findings": [
+        "The course is PostgreSQL-specific but does not identify a tested PostgreSQL version, extension availability, or permissions for ALTER SYSTEM and pg_stat_statements.",
+        "The missing-index 1ms-to-30-second claim and 'fixes 30% of slow queries' claim are uncited and too absolute; plans depend on data distribution, selectivity, hardware, contention, and workload.",
+        "'Index every foreign key' and 'use cursor pagination for lists over 1000 rows' are heuristics, not universal rules; index usefulness and pagination strategy require measured access patterns.",
+        "EXPLAIN ANALYZE executes the statement, and production diagnosis may need read-only safeguards, transaction strategy, BUFFERS, and representative data; this warning is absent.",
+        "Index creation, ALTER SYSTEM, logging, and pg_stat_statements have lock, overhead, permissions, and operational implications that need production-safe boundaries."
+      ],
+      "actions": [
+        "add PostgreSQL version/extension/permission scope",
+        "remove or source numeric performance claims",
+        "replace universal index and pagination rules with plan/workload criteria",
+        "warn that EXPLAIN ANALYZE executes statements and show safe diagnosis options",
+        "cover index-build locking, CREATE INDEX CONCURRENTLY trade-offs, and observability overhead"
+      ],
+      "routingImpact": "regression-required"
+    },
+    {
+      "course": "performance/05",
+      "status": "needs_update",
+      "sourceTier": ["primary"],
+      "sources": [
+        {"name": "MDN — rel resource hints", "url": "https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/rel"},
+        {"name": "IETF RFC 9114 — HTTP/3", "url": "https://www.rfc-editor.org/rfc/rfc9114"},
+        {"name": "MDN — HTTP compression", "url": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/Compression"}
+      ],
+      "findings": [
+        "The format recommendations are useful orientation, but size reductions such as 25–35% and 10x are workload-, encoder-, and content-dependent and need sourcing or softer language.",
+        "The Nginx Brotli/HTTP/3 snippets are deployment- and version-specific; the course should distinguish server configuration, CDN configuration, and browser negotiation.",
+        "HTTP/2's server push is obsolete in the modern web platform and should not appear as a current capability without an explicit historical/deprecation note.",
+        "The immutable one-year cache policy is safe only with reliable content hashing and deployment invalidation; API `private` caching also needs authorization, personalization, and privacy caveats.",
+        "The course does not cover selective resource hints; overusing preload or preconnect can compete with critical resources and harm performance."
+      ],
+      "actions": [
+        "source or qualify compression and size-reduction numbers",
+        "scope Nginx/HTTP/3 snippets to tested versions and deployment roles",
+        "remove or clearly mark HTTP/2 server push as historical",
+        "tie immutable caching to verified hash/version deployment behavior",
+        "add selective preload/preconnect guidance and content-negotiation caveats"
+      ],
+      "routingImpact": "regression-required"
+    },
+    {
+      "course": "performance/06",
+      "status": "needs_update",
+      "sourceTier": ["primary"],
+      "sources": [
+        {"name": "Grafana k6 — Documentation", "url": "https://grafana.com/docs/k6/latest/"},
+        {"name": "Node.js — CPU profiling", "url": "https://nodejs.org/en/learn/diagnostics/flame-graphs"},
+        {"name": "OpenTelemetry — Profiling", "url": "https://opentelemetry.io/docs/concepts/signals/profiles/"}
+      ],
+      "findings": [
+        "The k6 scenario is a useful example, but 100 VUs, 500ms/1000ms percentile thresholds, and a 1% error target are workload-specific acceptance criteria, not general health thresholds.",
+        "The example lacks authorization, environment isolation, rate limits, test-data cleanup, third-party dependency controls, and an explicit prohibition on unapproved production load tests.",
+        "The claim that P95 spikes at 200 VUs identifies a bottleneck is too strong without accounting for arrival model, ramp schedule, saturation, coordinated omission, and downstream dependencies.",
+        "Node profiler flags and the `0x` tool are version/tooling-sensitive; generated profiles may contain sensitive code or data and need handling guidance.",
+        "The course should distinguish smoke, load, stress, spike, and soak tests and require an observable hypothesis before optimization."
+      ],
+      "actions": [
+        "label VUs, percentile, and error thresholds as example SLOs",
+        "add an authorization and safe-environment load-test gate",
+        "explain traffic models, saturation, downstream limits, and result interpretation",
+        "scope profiler commands to Node/tool versions and add artifact-safety notes",
+        "add test-type selection and an explicit hypothesis/measurement workflow"
+      ],
+      "routingImpact": "regression-required"
+    },
+    {
+      "course": "performance/07",
+      "status": "needs_update",
+      "sourceTier": ["primary"],
+      "sources": [
+        {"name": "web.dev — Performance budgets", "url": "https://web.dev/articles/performance-budgets-101"},
+        {"name": "Lighthouse CI", "url": "https://github.com/GoogleChrome/lighthouse-ci"},
+        {"name": "Chrome — Lighthouse performance audits", "url": "https://developer.chrome.com/docs/lighthouse/performance/"}
+      ],
+      "findings": [
+        "The budget model is sound, but fixed LCP/TBT/CLS, JS/CSS/image sizes, and a 20% improvement target are illustrative values that should be derived from a baseline, audience, route, and product goals.",
+        "TBT is a lab metric and should not be presented as a replacement for field INP; the course needs an explicit lab-versus-field mapping.",
+        "A Lighthouse CI score or assertion can be noisy across runners and browser versions; strict PR blocking needs repeated runs, variance handling, pinned tooling, and a clear policy for flaky failures.",
+        "The sample workflow omits dependency/tool version pinning, server startup/readiness, artifact retention, and whether temporary public upload is acceptable for the project's data.",
+        "The bundle-size and 10% increase limits are project policies, not universal thresholds, and should account for compression, route splitting, and intentional feature changes."
+      ],
+      "actions": [
+        "derive budgets from measured baselines and label examples as project policy",
+        "distinguish TBT lab use from field INP monitoring",
+        "add repeat/variance/flakiness controls and pin Lighthouse tooling",
+        "document server readiness, artifacts, privacy, and upload configuration",
+        "make bundle thresholds route- and product-specific with an exception process"
+      ],
+      "routingImpact": "regression-required"
+    }
+  ]
+}

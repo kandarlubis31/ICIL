@@ -1,22 +1,26 @@
 # 🗺️ ICIL v2 Roadmap — The Next Evolution
 
-> **Status**: ✅ COMPLETE — v25.0.0 delivered. 216 courses, 29 faculties, 10 MCP tools. All 3 phases (A+B+C) shipped.
-> **Strategy**: DEEPEN first (advanced courses in top faculties) → BUILD MCP v3 (new tools) → EXPAND (Faculty #29). ✅ ALL DONE
+> **Status**: ✅ COMPLETE — v26.0.0 delivered. 226 courses, 30 faculties, 10 MCP tools. All 3 phases (A+B+C) shipped; Knowledge & Context Engineering was added afterward as Faculty #30.
+> **Strategy**: DEEPEN first (advanced courses in top faculties) → BUILD MCP v3 (new tools) → EXPAND (Design Ethics, then Knowledge & Context). ✅ ALL DONE (manual v26 audit re-baseline remains)
 
 ---
 
-## 📍 Current State (v23.0.0)
+## 📍 Current State (v26.0.0)
 
 | Attribute | Value |
 |-----------|-------|
-| **Faculties** | 28 |
-| **Courses** | 199 |
-| **Audit** | ✅ 100% complete — 18 research-backed corrections |
-| **MCP Tools** | 5 (search_campus, load_course, list_faculties, search_across, compare_courses) |
-| **Auto-router** | 28 trigger keyword groups, 36 routing examples, word-boundary matching |
+| **Faculties** | 30 |
+| **Courses** | 226 |
+| **Audit** | 🔄 v26 re-baseline in progress — automated gates green; manual content review remains |
+| **MCP Tools** | 10 (all v3 tools shipped) |
+| **Auto-router** | 30 trigger keyword groups, word-boundary matching, HIGH → MEDIUM → LOW priorities |
+| **Eval baseline** | P@3 73.7%, R@3 96.0%, MRR 0.934 across 217 prompts |
 | **Format** | Compact (~500-1300 words/course, dense tables, ⚡ Action Checklists) |
 
-### Current Faculty Map
+### Historical Faculty Map (v23 snapshot retained for roadmap traceability)
+
+> The map below documents the starting point for this roadmap. The current v26 faculty catalog is authoritative in `index.json` and includes Design Ethics (#29) plus Knowledge & Context Engineering (#30).
+
 ```
 🎨 DESIGN FOUNDATIONS (1-11):  Color(9), UX Psychology, UX Writing, Typography,
     Layout, Design Patterns(8), Animation, Branding, Accessibility, Improvement, Cognition
@@ -173,7 +177,7 @@ Why: Quick overview for AI agents before loading context. "How big is this campu
 |---------|-------|---------|--------|
 | design-ethics | ⚖️ | 7 | Ethics, privacy, AI fairness, sustainability |
 
-**New campus total: 216 courses across 29 faculties.**
+**Historical v25 total: 216 courses across 29 faculties. The current v26 campus has 226 courses across 30 faculties, including Knowledge & Context Engineering.**
 
 ---
 
@@ -229,4 +233,4 @@ v24.0.0:
 
 ---
 
-*ICIL v2 — from knowledge base to intelligent learning platform.* 🔥
+*ICIL v2 — from knowledge base to intelligent learning platform. Roadmap delivered in v26.0.0; ongoing work is manual audit and community-driven v3 planning.* 🔥

@@ -47,13 +47,16 @@ CMD ["node", "dist/server.js"]
 
 ```yaml
 # docker-compose.yml
-version: "3.8"
+# Set POSTGRES_PASSWORD in a local .env file; never commit the secret.
+# If it is embedded in DATABASE_URL, URL-encode reserved characters.
 services:
   app:
     build: .
     ports: ["3000:3000"]
     environment:
-      DATABASE_URL: postgres://user:pass@db:5432/mydb
+      DATABASE_URL: postgres://user:${POSTGRES_PASSWORD}@db:5432/mydb
+      # For production, prefer separate connection fields or a secret-aware client
+      # so password escaping and secret rotation are handled explicitly.
     depends_on:
       db:
         condition: service_healthy
@@ -64,7 +67,7 @@ services:
     volumes: ["pgdata:/var/lib/postgresql/data"]
     environment:
       POSTGRES_USER: user
-      POSTGRES_PASSWORD: pass
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Set POSTGRES_PASSWORD in .env}
     healthcheck:
       test: ["CMD", "pg_isready", "-U", "user"]
       interval: 10s

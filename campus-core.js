@@ -143,23 +143,36 @@ function matchKeywords(index, prompt) {
       }
 
       // ── Auto-load prerequisites ──
+      // Use a queue and faculty-qualified identity so a prerequisite that is
+      // already a direct match is never emitted twice. Processing the queue
+      // (rather than only appending discovered prerequisites) preserves the
+      // recursive prerequisite behavior without duplicate output.
       const coursesWithPrereqs = [];
-      for (const courseId of matchedCourseIds) {
-        const course = facultyInfo.courses.find((c) => c.id === courseId);
-        if (course) {
-          coursesWithPrereqs.push(course);
-          resolvePrerequisites(course.prerequisites, facultySlug, index).forEach(
-            (prereq) => {
-              if (prereq.note) return; // skip unresolved (e.g., missing cross-faculty refs)
-              const dedupKey = prereq.isCrossFaculty
-                ? `${prereq.faculty}/${prereq.id}`
-                : prereq.id;
-              if (!matchedCourseIds.has(dedupKey)) {
-                matchedCourseIds.add(dedupKey);
-                coursesWithPrereqs.push(prereq);
-              }
-            }
-          );
+      const courseQueue = [...matchedCourseIds].map((id) => ({ faculty: facultySlug, id }));
+      const queuedCourseKeys = new Set(courseQueue.map((course) => `${course.faculty}/${course.id}`));
+      const processedCourseKeys = new Set();
+      for (let queueIndex = 0; queueIndex < courseQueue.length; queueIndex++) {
+        const queuedCourse = courseQueue[queueIndex];
+        const courseFaculty = index.faculties[queuedCourse.faculty];
+        const course = courseFaculty?.courses.find((c) => c.id === queuedCourse.id);
+        if (!course) continue;
+
+        const courseKey = `${queuedCourse.faculty}/${course.id}`;
+        if (processedCourseKeys.has(courseKey)) continue;
+        processedCourseKeys.add(courseKey);
+        coursesWithPrereqs.push(
+          queuedCourse.faculty === facultySlug
+            ? course
+            : { ...course, faculty: queuedCourse.faculty, isCrossFaculty: true }
+        );
+
+        for (const prereq of resolvePrerequisites(course.prerequisites, queuedCourse.faculty, index)) {
+          if (prereq.note) continue; // skip unresolved cross-faculty refs
+          const prereqFaculty = prereq.isCrossFaculty ? prereq.faculty : queuedCourse.faculty;
+          const prereqKey = `${prereqFaculty}/${prereq.id}`;
+          if (queuedCourseKeys.has(prereqKey)) continue;
+          queuedCourseKeys.add(prereqKey);
+          courseQueue.push({ faculty: prereqFaculty, id: prereq.id });
         }
       }
 
@@ -183,6 +196,7 @@ function matchKeywords(index, prompt) {
           title: course.title,
           level: course.level,
           file: course.file,
+          faculty: course.faculty,
           filepath: path.join(CAMPUS_ROOT, course.file),
         })),
       });
