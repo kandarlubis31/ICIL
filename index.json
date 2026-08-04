@@ -1122,6 +1122,18 @@
             "elegant color": [
               "02",
               "03"
+            ],
+            "red button": [
+              "03"
+            ],
+            "psychology button color": [
+              "03"
+            ],
+            "red buttons": [
+              "03"
+            ],
+            "psychology of color": [
+              "03"
             ]
           },
           "medium": {
@@ -1299,6 +1311,10 @@
             ],
             "fitts": [
               "03"
+            ],
+            "user frustration": [
+              "01",
+              "02"
             ]
           },
           "medium": {
@@ -1409,6 +1425,9 @@
             "bounce rate": [
               "01",
               "02"
+            ],
+            "session recordings": [
+              "01"
             ]
           },
           "low": {
@@ -1566,6 +1585,9 @@
             ],
             "onboarding flow": [
               "05"
+            ],
+            "form labels": [
+              "03"
             ]
           },
           "medium": {
@@ -2256,7 +2278,29 @@
           "color pattern",
           "design pattern (architecture)",
           "coding pattern",
-          "software pattern"
+          "software pattern",
+          "animation tutorial",
+          "haptic feedback",
+          "data viz pattern",
+          "data visualization",
+          "chatbot pattern",
+          "agent pattern",
+          "keyboard accessible",
+          "REST API design",
+          "dialog karakter",
+          "scroll-triggered animation",
+          "scatter plot",
+          "multi-modal",
+          "multi modal",
+          "dialog karakter",
+          "character dialog",
+          "API pagination",
+          "REST API",
+          "skeleton animation",
+          "skeleton loading",
+          "chatbot error",
+          "empty state copy",
+          "empty state text"
         ],
         "recommended_courses": [
           "01",
@@ -2365,9 +2409,6 @@
             ],
             "infinite scroll": [
               "05"
-            ],
-            "skeleton": [
-              "06"
             ],
             "spinner": [
               "06"
@@ -2482,6 +2523,12 @@
             ],
             "feedback states": [
               "06"
+            ],
+            "loan application form": [
+              "02"
+            ],
+            "application form": [
+              "02"
             ]
           },
           "medium": {
@@ -2616,9 +2663,6 @@
             "bottom navigation": [
               "03"
             ],
-            "faceted search": [
-              "04"
-            ],
             "skeleton screen": [
               "06"
             ],
@@ -2637,6 +2681,12 @@
             ],
             "input": [
               "07"
+            ],
+            "skeleton": [
+              "06"
+            ],
+            "mobile form": [
+              "02"
             ]
           },
           "low": {
@@ -2647,7 +2697,9 @@
             "elemen ui": "any",
             "widget": "any",
             "tap": "any",
-            "hover": "any",
+            "hover": [
+              "04"
+            ],
             "keyboard": "any",
             "tab": "any",
             "feedback": [
@@ -2659,12 +2711,21 @@
             "state": [
               "06"
             ],
-            "scroll": "any",
-            "swipe": "any",
-            "gesture": "any",
+            "scroll": [
+              "05"
+            ],
+            "swipe": [
+              "01"
+            ],
+            "gesture": [
+              "01"
+            ],
             "bikin ui": "any",
             "buat interface": "any",
-            "design ui": "any"
+            "design ui": "any",
+            "faceted search": [
+              "04"
+            ]
           }
         }
       },
@@ -3077,6 +3138,15 @@
             ],
             "value pillars": [
               "04"
+            ],
+            "sub-brand": [
+              "02"
+            ],
+            "sub brand": [
+              "02"
+            ],
+            "white label": [
+              "06"
             ]
           },
           "medium": {
@@ -3203,6 +3273,9 @@
             ],
             "tone of voice": [
               "04"
+            ],
+            "white-label": [
+              "06"
             ]
           },
           "low": {
@@ -3700,7 +3773,25 @@
           "booking experience",
           "appointment experience",
           "practice design",
-          "choice architecture"
+          "choice architecture",
+          "code optimization",
+          "query optimization",
+          "database performance",
+          "server performance",
+          "network optimization",
+          "CSS optimization",
+          "JavaScript performance",
+          "React performance",
+          "frontend performance",
+          "performance audit",
+          "security audit",
+          "code audit",
+          "regression test",
+          "retrieval regression",
+          "LLM evaluate",
+          "model evaluate",
+          "agent evaluate",
+          "evaluation metrics"
         ],
         "recommended_courses": [
           "01",
@@ -3893,6 +3984,9 @@
             ],
             "project improvement": [
               "01"
+            ],
+            "legacy codebase": [
+              "05"
             ]
           },
           "medium": {
@@ -4034,15 +4128,14 @@
             ],
             "nielsen heuristics": [
               "03"
+            ],
+            "extract design system": [
+              "05"
             ]
           },
           "low": {
             "ICE": [
               "04"
-            ],
-            "review": [
-              "02",
-              "03"
             ],
             "cek": [
               "02"
@@ -4059,9 +4152,15 @@
             "tidy": [
               "05"
             ],
-            "make it better": "any",
-            "jadi lebih bagus": "any",
-            "lebih baik": "any",
+            "make it better": [
+              "01"
+            ],
+            "jadi lebih bagus": [
+              "01"
+            ],
+            "lebih baik": [
+              "01"
+            ],
             "sesuai mas aul": [
               "01",
               "07"
@@ -4073,9 +4172,6 @@
             "intelligence mas aul": [
               "01",
               "07"
-            ],
-            "design system": [
-              "05"
             ],
             "bounce rate": [
               "01"
@@ -4093,7 +4189,15 @@
           "klinis",
           "clinical psychology",
           "cognitive computing",
-          "machine learning"
+          "machine learning",
+          "design thinking",
+          "design process",
+          "UX design",
+          "UI design",
+          "brand strategy",
+          "code logic",
+          "API architecture",
+          "database schema"
         ],
         "recommended_courses": [
           "01",
@@ -4318,6 +4422,15 @@
             ],
             "emosi dan kognisi": [
               "07"
+            ],
+            "perception of motion": [
+              "03"
+            ],
+            "motion perception": [
+              "03"
+            ],
+            "animation timing": [
+              "03"
             ]
           },
           "medium": {
@@ -4737,6 +4850,12 @@
             ],
             "mobile gaming": [
               "01"
+            ],
+            "onboarding flow teach": [
+              "05"
+            ],
+            "teach users": [
+              "05"
             ]
           },
           "medium": {
@@ -4856,6 +4975,9 @@
             ],
             "hamburger menu": [
               "03"
+            ],
+            "onboarding flow": [
+              "01"
             ]
           },
           "low": {
@@ -5044,6 +5166,12 @@
             ],
             "data story": [
               "06"
+            ],
+            "data visualizations accessible": [
+              "07"
+            ],
+            "color in charts": [
+              "03"
             ]
           },
           "medium": {
@@ -5391,6 +5519,18 @@
             ],
             "design maturity model": [
               "01"
+            ],
+            "extract design system": [
+              "05"
+            ],
+            "legacy design": [
+              "05"
+            ],
+            "extract from legacy": [
+              "05"
+            ],
+            "design system from codebase": [
+              "05"
             ]
           },
           "medium": {
@@ -5557,7 +5697,19 @@
           "english conversation",
           "chat room",
           "forum",
-          "discussion board"
+          "discussion board",
+          "dialog karakter",
+          "character dialog",
+          "UI component",
+          "button label",
+          "form input",
+          "grid layout",
+          "color system",
+          "typography scale",
+          "design pattern catalog",
+          "data table",
+          "modal popup",
+          "tooltip hover"
         ],
         "recommended_courses": [
           "01",
@@ -6416,7 +6568,10 @@
       "software-engineering": {
         "negative_keywords": [
           "software engineering (mechanical)",
-          "CAD software"
+          "CAD software",
+          "agent runtime",
+          "agent orchestration",
+          "AI agent"
         ],
         "recommended_courses": [
           "01",
@@ -6574,6 +6729,21 @@
             ],
             "kafka": [
               "09"
+            ],
+            "API design for devs": [
+              "03"
+            ],
+            "server performance": [
+              "01"
+            ],
+            "design an API": [
+              "03"
+            ],
+            "server is slow": [
+              "01"
+            ],
+            "code problem": [
+              "01"
             ]
           },
           "medium": {
@@ -6619,6 +6789,12 @@
             "maintainable": [
               "01",
               "02"
+            ],
+            "unit test": [
+              "05"
+            ],
+            "mocking": [
+              "05"
             ]
           },
           "low": {
@@ -6684,6 +6860,15 @@
             ],
             "IaC": [
               "07"
+            ],
+            "sistem scalable": [
+              "04"
+            ],
+            "scalable secure": [
+              "04"
+            ],
+            "scalable dan secure": [
+              "04"
             ]
           },
           "medium": {
@@ -6793,6 +6978,12 @@
             ],
             "pg_dump": [
               "07"
+            ],
+            "real-time collaborative": [
+              "02"
+            ],
+            "collaborative whiteboard": [
+              "06"
             ]
           },
           "medium": {
@@ -6837,7 +7028,15 @@
         "negative_keywords": [
           "AI integration (ERP)",
           "SAP AI",
-          "budget-aware planning"
+          "budget-aware planning",
+          "agentic engineering",
+          "multi-agent coordination",
+          "agent runtime",
+          "agent orchestration",
+          "agent protocol",
+          "A2A",
+          "agent marketplace",
+          "agent economics"
         ],
         "recommended_courses": [
           "01",
@@ -7396,9 +7595,6 @@
             "load testing": [
               "06"
             ],
-            "k6": [
-              "06"
-            ],
             "flamegraph": [
               "06"
             ],
@@ -7411,6 +7607,18 @@
             "concurrent users": [
               "01",
               "06"
+            ],
+            "server slow": [
+              "03"
+            ],
+            "slow under load": [
+              "03"
+            ],
+            "database replication": [
+              "04"
+            ],
+            "read-heavy": [
+              "04"
             ]
           },
           "medium": {
@@ -7571,6 +7779,15 @@
             ],
             "load test": [
               "05"
+            ],
+            "k6": [
+              "05"
+            ],
+            "breaking point": [
+              "05"
+            ],
+            "black friday test": [
+              "05"
             ]
           },
           "medium": {
@@ -7656,7 +7873,46 @@
           "onboarding flow",
           "user onboarding",
           "onboarding UX",
-          "onboarding UI"
+          "onboarding UI",
+          "chatbot",
+          "conversational ui",
+          "voice ui",
+          "mobile UX",
+          "color palette",
+          "typography font",
+          "accessibility WCAG",
+          "gaming",
+          "UX writing",
+          "UI design",
+          "product design",
+          "design system",
+          "mobile app",
+          "dashboard",
+          "data viz",
+          "brand",
+          "marketing",
+          "content",
+          "social media",
+          "form design",
+          "data display",
+          "navigation pattern",
+          "search UI",
+          "color theory",
+          "layout grid",
+          "animation motion",
+          "typography scale",
+          "brand identity",
+          "mobile touch",
+          "accessibility WCAG",
+          "database SQL",
+          "container Docker",
+          "cloud AWS",
+          "AI prompt",
+          "LLM RAG",
+          "security OWASP",
+          "performance cache",
+          "testing unit",
+          "user research"
         ],
         "recommended_courses": [
           "01",
@@ -7778,17 +8034,8 @@
             "sdk": [
               "05"
             ],
-            "docs": [
-              "04"
-            ],
-            "developer": [
-              "01"
-            ],
             "dev experience": [
               "01"
-            ],
-            "onboarding": [
-              "07"
             ],
             "quickstart": [
               "03"
@@ -7822,12 +8069,6 @@
             ],
             "typescript sdk": [
               "05"
-            ],
-            "API": [
-              "03"
-            ],
-            "error messages": [
-              "06"
             ]
           },
           "low": {
@@ -7842,6 +8083,21 @@
             ],
             "idempotency": [
               "05"
+            ],
+            "API": [
+              "03"
+            ],
+            "developer": [
+              "01"
+            ],
+            "docs": [
+              "04"
+            ],
+            "error messages": [
+              "06"
+            ],
+            "onboarding": [
+              "07"
             ]
           }
         }
@@ -7851,7 +8107,22 @@
           "iowa",
           "i.a.",
           "ia (state)",
-          "internal affairs"
+          "internal affairs",
+          "AI IA",
+          "personalization engine",
+          "recommendation engine",
+          "AI-augmented IA",
+          "semantic IA",
+          "search engine",
+          "search bar UI",
+          "autocomplete input",
+          "filter dropdown",
+          "sort by",
+          "page layout",
+          "website structure",
+          "sitemap generator",
+          "card sorting test",
+          "tree testing UX"
         ],
         "recommended_courses": [
           "01",
@@ -8898,6 +9169,15 @@
               "02"
             ],
             "design ethics faculty": [
+              "01"
+            ],
+            "ethical for brands": [
+              "01"
+            ],
+            "use slang ethically": [
+              "01"
+            ],
+            "brand ethics": [
               "01"
             ]
           },
