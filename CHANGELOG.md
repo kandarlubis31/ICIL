@@ -1,6 +1,35 @@
 # 📋 Changelog — ICIL
 
-> Intelligence Campus Interactive Library — from 1 faculty (9 courses) to 29 faculties (216 courses).
+## v27.0.0 (2026-08-05)
+
+### Added
+- 🆕 **Faculty #31: Casual & Slang Writing (penulisan-gaul)** — 10 courses on Indonesian informal writing
+  - Jaksel code-switching, abbreviations, social media slang, gaming lingo
+  - Campus slang, reverse wordplay, register calibration, regional variations
+  - Ethical slang writing
+- 10 new eval prompts (eval-218 to eval-227)
+- 100+ bilingual trigger keywords (EN+ID)
+
+### Changed
+- Version: 26.0.0 → 27.0.0
+- Total courses: 226 → 236 | Faculties: 30 → 31
+
+
+> Intelligence Campus Interactive Library — from 1 faculty (9 courses) to 30 faculties (226 courses).
+
+---
+
+## v26.0.0 (August 1, 2026) — 🗃️ Knowledge & Context Engineering
+
+### New Faculty #30
+- Added `knowledge-context/` with 10 courses covering context foundations, attention budgets, knowledge modeling, document engineering, retrieval/routing, provenance, evaluation, knowledge graphs, context security, and agent integration.
+- Added faculty metadata, prerequisites, trigger keywords, negative keywords, and cross-faculty routing boundaries to `index.json`.
+- Added 10 new regression/evaluation prompts (`eval-208` → `eval-217`).
+
+### Context Synchronization
+- Updated `AGENTS.md`, `README.md`, `CONTEXT.md`, `CAMPUS-OVERVIEW.md`, `PROGRESS-REPORT.md`, `index.md`, and package metadata to 226 courses / 30 faculties.
+- Added a governed knowledge/context learning path and explicit boundaries with `ia/`, `ai-integration/`, and `agentic-engineering/`.
+- Version bumped to `v26.0.0`.
 
 ---
 
@@ -458,4 +487,4 @@ Color theory, harmony, psychology, culture, digital models, accessibility, palet
 
 ---
 
-*ICIL v25.0.7 — 216 courses, 29 faculties, 10 MCP tools. Built by Mas Aul 🔥*
+*ICIL v26.0.0 — 226 courses, 30 faculties, 10 MCP tools. Built by Mas Aul 🔥*

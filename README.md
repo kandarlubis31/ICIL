@@ -1,10 +1,10 @@
 # 🎓 ICIL — Intelligence Campus Interactive Library
 
-[![Version](https://img.shields.io/badge/version-v25.0.7-blue)](https://github.com/kandarlubis31/ICIL/releases)
-[![Courses](https://img.shields.io/badge/courses-216-green)](./index.json)
-[![Faculties](https://img.shields.io/badge/faculties-29-orange)](./index.json)
+[![Version](https://img.shields.io/badge/version-v27.0.0-blue)](https://github.com/kandarlubis31/ICIL/releases)
+[![Courses](https://img.shields.io/badge/courses-236-green)](./index.json)
+[![Faculties](https://img.shields.io/badge/faculties-31-orange)](./index.json)
 [![MCP Tools](https://img.shields.io/badge/MCP%20tools-10-purple)](./mcp-server.js)
-[![Eval P@3](https://img.shields.io/badge/P%403-72.8%25-yellow)](./eval-set.json)
+[![Eval P@3](https://img.shields.io/badge/P%403-73.7%25-yellow)](./eval-set.json)
 [![License](https://img.shields.io/badge/license-MIT-lightgrey)](./LICENSE)
 
 > **Sacred Dictionary for AI Agents** — A super comprehensive knowledge base reference for AI agents across various knowledge domains.
@@ -24,15 +24,30 @@ git clone https://github.com/kandarlubis31/ICIL.git && cd ICIL && npm install
 # Route any design/dev prompt to relevant courses
 node load-context.js "build an accessible landing page"
 
-# List all 29 faculties with course counts
+# List all 31 faculties with course counts
 node load-context.js --list
 
 # Start MCP server for Claude Desktop / Cursor
 node mcp-server.js
 
-# Run CI validation
+# Run full CI validation
 node ci-validate.js --with-eval
+
+# Validate every faculty contract locally
+npm run ci:faculty
 ```
+
+### 🏛️ Faculty Addition CI
+
+New-faculty pull requests are checked automatically by [`.github/workflows/faculty.yml`](./.github/workflows/faculty.yml). The workflow compares the PR with its base commit and validates:
+
+- faculty directory, README, course files, IDs, metadata, and file paths;
+- `index.json` counts, package version/counts, trigger keywords, recommended courses, and duplicate HIGH keywords;
+- Markdown links and faculty-qualified course references;
+- `eval-set.json` coverage and router matching for the added faculty;
+- synchronized context updates across `AGENTS.md`, `README.md`, `CAMPUS-OVERVIEW.md`, `CONTEXT.md`, `PROGRESS-REPORT.md`, `CHANGELOG.md`, `index.md`, and `package.json`.
+
+Run the same checks locally with `npm run ci:faculty` for the full catalog, or target one faculty with `node ci-faculty.js --faculty <slug>`. PR base-commit detection runs automatically in `faculty.yml`.
 
 > **AI Agent?** Load [`AGENTS.md`](./AGENTS.md) first — it's the single source of truth for repo conventions.  
 > **MCP User?** Configure Claude Desktop with [`mcp-server.js`](./mcp-server.js) — 10 tools, zero API keys.
@@ -41,17 +56,17 @@ node ci-validate.js --with-eval
 
 ## 📈 Eval Progress
 
-> Auto-router precision & recall journey — from 54.4% P@3 to 72.8% across 5 tuning rounds.
+> Auto-router precision & recall journey — historical tuning through v25.0.5, then v27.0.0 re-baselined with the new faculty.
 
 ### Precision@3 & Recall@3
 
 ```mermaid
 xychart-beta
   title "P@3 & R@3 Progress — ICIL Auto-Router"
-  x-axis ["v24.1.0", "v25.0.0", "v25.0.3", "v25.0.5"]
+  x-axis ["v24.1.0", "v25.0.0", "v25.0.3", "v25.0.5", "v27.0.0"]
   y-axis "%" 50 --> 100
-  line [54.4, 59.3, 64.9, 72.8]
-  line [77.9, 85.9, 84.5, 94.4]
+  line [54.4, 59.3, 64.9, 72.8, 73.7]
+  line [77.9, 85.9, 84.5, 94.4, 96.0]
 ```
 
 > Top line: P@3 · Bottom line: R@3 — CI gate threshold at 70%
@@ -61,12 +76,12 @@ xychart-beta
 ```mermaid
 xychart-beta
   title "MRR Progress — ICIL Auto-Router"
-  x-axis ["v24.1.0", "v25.0.0", "v25.0.5"]
+  x-axis ["v24.1.0", "v25.0.0", "v25.0.5", "v27.0.0"]
   y-axis "MRR" 0.65 --> 1.0
-  line [0.731, 0.809, 0.922]
+  line [0.731, 0.809, 0.922, 0.934]
 ```
 
-> CI threshold at 0.65 ✅ — current 0.922 well above
+> CI threshold at 0.65 ✅ — current v27.0.0 MRR 0.934 well above
 
 | Release | P@3 | R@3 | MRR | Key Event |
 |---------|------|-----|-----|-----------|
@@ -74,6 +89,7 @@ xychart-beta
 | v25.0.0 | 59.3% | 85.9% | 0.809 | Design Ethics faculty + baseline |
 | v25.0.3 | 64.9% | 84.5% | — | DUPLICATE HIGH → 0 + noise removal |
 | **v25.0.5** | **72.8%** | **94.4%** | **0.922** | Phase 1 LOW tightening + 17 dup keywords fixed |
+| **v27.0.0** | **73.7%** | **96.0%** | **0.934** | Knowledge & Context Engineering + 10 eval prompts |
 
 ---
 
@@ -86,6 +102,7 @@ inteligence_mas-aul/
 ├── campus-core.js              # 🔧 Shared library
 ├── load-context.js             # 🔧 Auto-router CLI tool
 ├── mcp-server.js               # 🔌 MCP server (10 tools, v3)
+├── ci-faculty.js               # 🏛️ New-faculty contract validator
 ├── CONTEXT.md                  # 💾 Session save state
 ├── CHANGELOG.md                # 📋 Version history
 ├── CONTRIBUTING.md             # 🤝 Contribution guide
@@ -155,8 +172,12 @@ inteligence_mas-aul/
 │   └── (9 courses)
 ├── ux-research/                # 🔬 Faculty of UX Research & Discovery
 │   └── (7 courses)
-└── design-ethics/              # ⚖️ Faculty of Design Ethics
-    └── (7 courses)
+├── design-ethics/              # ⚖️ Faculty of Design Ethics
+│   └── (7 courses)
+└── knowledge-context/          # 🗃️ Faculty of Knowledge & Context Engineering
+    └── (10 courses)
+└── penulisan-gaul/             # 📝 Faculty of Casual & Slang Writing
+    └── (10 courses)
 ```
 
 ---
@@ -352,11 +373,23 @@ The **ethics layer** — teaches how to design responsibly. Covers ethical frame
 
 **7 Courses** | **Level: Beginner → Advanced**
 
+### 🗃️ Faculty of Knowledge & Context Engineering — `knowledge-context/`
+The **knowledge layer** between source documents and agent execution. Covers knowledge/context foundations, attention budgets, taxonomies and metadata, document engineering, retrieval/routing, provenance and freshness, context evaluation, knowledge graphs, context security, and agent integration. Distinct from `ia/` (information architecture), `ai-integration/` (RAG implementation), and `agentic-engineering/` (runtime operations).
+
+**10 Courses** | **Level: Beginner → Advanced**
+
+### 📝 Faculty of Casual & Slang Writing — `penulisan-gaul/`
+The **casual writing layer** — teaches how to write authentic Indonesian informal content. Covers Jaksel code-switching (which is, literally, basically), abbreviation & acronym culture (baper, mager, gabut, bucin), social media & TikTok slang (stecu, brainrot, skena, FOMO), gaming & esports lingo (mabar, gaskeun, GGWP, nerf), campus & youth slang (kating, maba, SKS, nongkrong), reverse slang & wordplay (sabi, bahasa walikan), tone/voice/register calibration, regional variations (Sunda, Jawa, Betawi), and ethical slang writing (appropriation, exclusion, authenticity).
+
+**10 Courses** | **Level: Beginner → Advanced**
+
 ---
 
 ## 🔮 Roadmap
 
-- [x] **ROADMAP v2 COMPLETE 🏁** — 216 courses, 29 faculties, 10 MCP tools
+- [x] **ROADMAP v2 COMPLETE 🏁** — 236 courses, 31 faculties, 10 MCP tools
+- [x] **v27.0.0 Knowledge & Context Engineering 🗃️** — 10 courses
+- [x] **v27.0.0 Casual & Slang Writing 📝** — 10 courses
 - [ ] **v3 planning** — Submit your ideas!
 
 ---

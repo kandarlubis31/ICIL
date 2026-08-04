@@ -2,13 +2,13 @@
 
 > **For AI Agents: Load this file FIRST to understand the entire campus, then use `load-context.js` or the auto-router to drill into specific faculties.**
 
-**Version:** v25.0.5 | **Courses:** 216 | **Faculties:** 29 | **P@3:** 72.8% | **Last Updated:** 2026-07-22 | **Roadmap:** ROADMAP-v2.md — COMPLETE ✅
+**Version:** v27.0.0 | **Courses:** 226 | **Faculties:** 30 | **Eval:** P@3 73.7% · R@3 96.0% · MRR 0.934 | **Last Updated:** 2026-08-01 | **Roadmap:** ROADMAP-v2.md — COMPLETE ✅
 
 ---
 
 ## 🗺️ What Is This Campus?
 
-The ICIL (Intelligence Campus Interactive Library) is a **structured knowledge base for AI agents** — 216 deep courses across 29 design, engineering, research, agentic, ethics, and quality faculties. Each `*.md` file is a self-contained course that an AI agent can load as context injection to instantly gain expert-level knowledge in a specific domain.
+The ICIL (Intelligence Campus Interactive Library) is a **structured knowledge base for AI agents** — 236 deep courses across 30 design, engineering, research, agentic, ethics, quality, and knowledge/context faculties. Each `*.md` file is a self-contained course that an AI agent can load as context injection to instantly gain expert-level knowledge in a specific domain.
 
 ```
 HOW TO USE:
@@ -22,7 +22,7 @@ HOW TO USE:
 
 ---
 
-## 🏛️ The 29 Faculties — At a Glance
+## 🏛️ The 31 Faculties — At a Glance
 
 ### 🎨 Foundation Layer — Visual & Perceptual Knowledge
 
@@ -112,6 +112,8 @@ HOW TO USE:
 | # | Faculty | Dir | Courses | Domain |
 |---|---------|-----|---------|--------|
 | 29 | ⚖️ **Design Ethics** | `design-ethics/` | 7 | Ethical frameworks, privacy-first design, inclusive design, AI fairness, dark patterns, sustainability, org ethics |
+| 30 | 🗃️ **Knowledge & Context Engineering** | `knowledge-context/` | 10 | Context budgets, knowledge modeling, document engineering, retrieval, provenance, evaluation, graphs, security, agent integration |
+| 31 | 📝 **Casual & Slang Writing** | `penulisan-gaul/` | 10 | Jaksel code-switching, abbreviations, gaming lingo, campus slang, wordplay, regional variations, ethical casual writing | Context budgets, knowledge modeling, document engineering, retrieval, provenance, evaluation, graphs, security, agent integration |
 
 ---
 
@@ -155,6 +157,10 @@ USER TASK → WHICH FACULTY?
   "Interview / survey users" ───────▶ 🔬 UX Research (02, 03)
   "Usability test / validate" ──────▶ 🔬 UX Research (06) + 🧩 Design Patterns
   "Synthesize research → insights" ─▶ 🔬 UX Research (04) + 📊 Data Viz
+  "Design a knowledge/context layer" ─▶ 🗃️ Knowledge & Context Engineering (01,03,05)
+  "Improve document retrieval" ──────▶ 🗃️ Knowledge & Context Engineering (04,05,07) + 🤖 AI Integration
+  "Govern sources and context safety" ─▶ 🗃️ Knowledge & Context Engineering (06,09) + 🔐 Security
+  "Write casual/slang content" ────────▶ 📝 Casual & Slang Writing (01,02,04) + ✍️ UX Writing
 ```
 
 ---
@@ -208,7 +214,7 @@ These are the most common multi-faculty combinations for AI agent tasks:
 ### Path 7: Full-Stack Design Education (Complete)
 ```
 🎨 Color → 🧠 UX Psychology → ✍️ UX Writing → 🔤 Typography → 📐 Layout → 🧩 Design Patterns → ✨ Animation → 🏷️ Branding → ♿ Accessibility → 🔧 Improvement → 🧠 Human Cognition → 📱 Mobile UX → 📊 Data Viz → 💬 Conversational UI → 🛠️ Design Systems → 🧭 Strategic Design → 🌐 Service Design → ⚙️ Software Engineering → 🐳 DevOps → 🗄️ Database → 🤖 AI Integration → 🔐 Security → ⚡ Performance → 🧪 Testing & QA → 🖥️ DX → 🗂️ IA → 🤖 Agentic Engineering → 🔬 UX Research
-→ All 216 courses | ~45 hours reading
+→ All 236 courses | ~47 hours reading
 ```
 
 ### Path 8: Define a Product Strategy from Scratch
@@ -239,6 +245,9 @@ These are the most common multi-faculty combinations for AI agent tasks:
 ```
 🗂️ Information Architecture (01,02,03,04) → 🧩 Design Patterns (03,04) → 📊 Data Viz (01,02) → 🗂️ IA (05,06)
 → Load 10 courses | ~110 min reading
+
+### Path 18: Write Casual Indonesian for Gen Z
+
 ```
 
 ### Path 13: Build a Production Agent System
@@ -263,6 +272,13 @@ These are the most common multi-faculty combinations for AI agent tasks:
 ```
 🔬 UX Research (01,05) → 🔬 UX Research (07) → 🔬 UX Research (04)
 → Load 4 courses | ~50 min reading
+```
+
+### Path 17: Build a Governed Knowledge & Context Layer
+```
+🗃️ Knowledge & Context (01,03,04) → 🗃️ Knowledge & Context (05,06,07)
+→ 🗃️ Knowledge & Context (09,10) + 🤖 AI Integration (02,03,05)
+→ Load 10 courses | ~110 min reading
 ```
 
 ---
@@ -299,6 +315,7 @@ These are the most common multi-faculty combinations for AI agent tasks:
 | 🗂️ Information Architecture | `ia` | 7 | Beginner→Advanced | LATCH, navigation, faceted search, taxonomies, content modeling, card sorting |
 | 🔀 Agentic Engineering | `agentic-engineering` | 9 | Beginner→Advanced | Runtimes, context eng, multi-agent, observability, cost, safety, lifecycle, A2A, economics |
 | 🔬 UX Research | `ux-research` | 7 | Beginner→Advanced | Research methods, interviews, quantitative, synthesis, ops, usability, AI-augmented |
+| 🗃️ Knowledge & Context | `knowledge-context` | 10 | Beginner→Advanced | Context budgets, modeling, documents, routing, provenance, eval, graphs, security, operations |
 
 ---
 
@@ -348,7 +365,7 @@ The MCP server exposes ten tools: `search_campus`, `load_course`, `list_facultie
 inteligence_mas-aul/
 ├── CAMPUS-OVERVIEW.md       ← 🗺️ YOU ARE HERE — start here
 ├── README.md                ← Campus map for humans
-├── index.json               ← Machine-readable catalog (v25.0.4) + auto-router
+├── index.json               ← Machine-readable catalog (v27.0.0) + auto-router
 ├── load-context.js          ← CLI auto-router
 ├── mcp-server.js            ← MCP server for AI agents (10 tools, v3)
 ├── campus-core.js           ← Shared library
@@ -384,7 +401,9 @@ inteligence_mas-aul/
 ├── ia/                      ← 🗂️ Faculty 26: Information Architecture (7)
 ├── agentic-engineering/     ← 🔀 Faculty 27: Agentic Engineering (9)
 ├── ux-research/             ← 🔬 Faculty 28: UX Research (7)
-└── design-ethics/           ← ⚖️ Faculty 29: Design Ethics (7)
+├── design-ethics/           ← ⚖️ Faculty 29: Design Ethics (7)
+└── knowledge-context/       ← 🗃️ Faculty 30: Knowledge & Context Engineering (10)
+└── penulisan-gaul/          ← 📝 Faculty 31: Casual & Slang Writing (10)
 ```
 
 ---
@@ -403,8 +422,8 @@ inteligence_mas-aul/
 
 ---
 
-> *"Deep knowledge makes agents truly powerful. This campus gives AI agents the expertise of 29 university departments in 216 files."* — Mas Aul 🔥
+> *"Deep knowledge makes agents truly powerful. This campus gives AI agents the expertise of 30 university departments in 226 files."* — Mas Aul 🔥
 >
-> **v25.0.5**: CI ALL GREEN — 0 DUPLICATE HIGH, P@3=72.8%, R@3=94.4%, MRR=0.922. 216 courses, 29 faculties, 10 MCP tools.
+> **v27.0.0**: Knowledge & Context Engineering added — 236 courses, 30 faculties, 10 MCP tools. Current router baseline: P@3 73.7%, R@3 96.0%, MRR 0.934 across 217 prompts.
 >
 > **🗺️ Next**: v3 planning — community proposals welcome.

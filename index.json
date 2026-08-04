@@ -1,9 +1,9 @@
 {
   "campus": "ICIL — Intelligence Campus Interactive Library",
-  "version": "25.0.7",
+  "version": "27.0.0",
   "language": "en",
-  "description": "ICIL v25.0.0 🏁 — Phase C complete: Faculty #29 Design Ethics & Responsibility (7 courses). 216 courses, 29 faculties, 10 MCP tools. Full audit (199 verified, 18 corrections) + Phase A (10 deepening courses) + Phase B (MCP v3) + Phase C (new faculty). CAMPUS MILESTONE.",
-  "totalCourses": 216,
+  "description": "ICIL v27.0.0 📝 — Faculty #31 Casual & Slang Writing (10 courses). 236 courses, 31 faculties, 10 MCP tools. Jaksel code-switching, abbreviations, gaming lingo, campus slang, reverse wordplay, regional variations, ethical casual writing.",
+  "totalCourses": 236,
   "auto_router": {
     "description": "Auto-detection system for faculties & courses based on user prompts. The AI agent reads this to determine which context to load.",
     "version": "1.0.0",
@@ -968,6 +968,54 @@
                 "06"
               ],
               "reason": "'dark patterns' = dark patterns & ethics in UX psychology"
+            }
+          ]
+        },
+        {
+          "prompt": "Design a governed knowledge base with context routing, provenance, and retrieval regression tests",
+          "triggered": [
+            {
+              "faculty": "knowledge-context",
+              "course_ids": [
+                "01",
+                "03",
+                "05",
+                "06",
+                "07"
+              ],
+              "reason": "'knowledge base' + 'context routing' + 'provenance' + 'retrieval regression' = the knowledge/context engineering path"
+            },
+            {
+              "faculty": "ai-integration",
+              "course_ids": [
+                "02",
+                "03",
+                "05"
+              ],
+              "reason": "'retrieval' + 'regression tests' connects to RAG implementation, embeddings, and LLM evaluation"
+            }
+          ]
+        },
+        {
+          "prompt": "Write casual Indonesian social media copy for a Gen Z audience about our new product launch",
+          "triggered": [
+            {
+              "faculty": "penulisan-gaul",
+              "course_ids": [
+                "01",
+                "02",
+                "04",
+                "08"
+              ],
+              "reason": "'casual Indonesian' + 'Gen Z' + 'social media copy' = foundations + Jaksel code-switching + social media slang + register calibration"
+            },
+            {
+              "faculty": "ux-writing",
+              "course_ids": [
+                "01",
+                "02"
+              ],
+              "reason": "'copy' + 'brand voice' = UX writing basics + voice & tone"
             }
           ]
         }
@@ -5790,7 +5838,8 @@
           "game design strategy",
           "military strategy",
           "war strategy",
-          "chess strategy"
+          "chess strategy",
+          "budget-aware planning"
         ],
         "recommended_courses": [
           "01",
@@ -5844,6 +5893,12 @@
               "03"
             ],
             "outcome over output": [
+              "03"
+            ],
+            "product outcomes": [
+              "03"
+            ],
+            "outcomes vs outputs": [
               "03"
             ],
             "product-market fit": [
@@ -5916,6 +5971,9 @@
               "01"
             ],
             "frame the right problem": [
+              "02"
+            ],
+            "solving the right problem": [
               "02"
             ],
             "strategy to execution": [
@@ -6679,7 +6737,8 @@
       "database-management": {
         "negative_keywords": [
           "database management (marketing)",
-          "CRM database"
+          "CRM database",
+          "budget-aware planning"
         ],
         "recommended_courses": [
           "01",
@@ -6777,7 +6836,8 @@
       "ai-integration": {
         "negative_keywords": [
           "AI integration (ERP)",
-          "SAP AI"
+          "SAP AI",
+          "budget-aware planning"
         ],
         "recommended_courses": [
           "01",
@@ -8097,6 +8157,9 @@
             "cost-aware planning": [
               "05"
             ],
+            "budget-aware planning": [
+              "05"
+            ],
             "cost per task": [
               "05"
             ],
@@ -8532,6 +8595,9 @@
               "01",
               "02"
             ],
+            "solving the right problem": [
+              "01"
+            ],
             "quantitative research": [
               "01",
               "03"
@@ -8927,6 +8993,495 @@
             ],
             "whistleblow": [
               "07"
+            ]
+          }
+        }
+      },
+      "knowledge-context": {
+        "negative_keywords": [
+          "context compaction",
+          "context rot",
+          "agent runtime",
+          "RAG architecture",
+          "vector search",
+          "human memory",
+          "working memory",
+          "information architecture"
+        ],
+        "recommended_courses": [
+          "01",
+          "02",
+          "03",
+          "04",
+          "05"
+        ],
+        "keywords": {
+          "high": {
+            "knowledge engineering": [
+              "01"
+            ],
+            "knowledge base architecture": [
+              "01"
+            ],
+            "knowledge context": [
+              "01"
+            ],
+            "context budget": [
+              "02"
+            ],
+            "attention budget design": [
+              "02"
+            ],
+            "knowledge modeling": [
+              "03"
+            ],
+            "taxonomy governance": [
+              "03"
+            ],
+            "document engineering": [
+              "04"
+            ],
+            "markdown standards": [
+              "04"
+            ],
+            "context retrieval": [
+              "05"
+            ],
+            "context routing": [
+              "05"
+            ],
+            "knowledge provenance": [
+              "06"
+            ],
+            "content freshness": [
+              "06"
+            ],
+            "context regression": [
+              "07"
+            ],
+            "retrieval regression": [
+              "07"
+            ],
+            "knowledge graph": [
+              "08"
+            ],
+            "relational context": [
+              "08"
+            ],
+            "context security": [
+              "09"
+            ],
+            "untrusted documents": [
+              "09"
+            ],
+            "knowledge operations": [
+              "10"
+            ],
+            "agent context operations": [
+              "10"
+            ],
+            "versioned context layer": [
+              "10"
+            ],
+            "context release gates": [
+              "10"
+            ],
+            "context release": [
+              "10"
+            ]
+          },
+          "medium": {
+            "context library": [
+              "01"
+            ],
+            "context injection": [
+              "01"
+            ],
+            "knowledge curation": [
+              "01",
+              "06"
+            ],
+            "context window design": [
+              "02"
+            ],
+            "document metadata": [
+              "03",
+              "04"
+            ],
+            "content governance": [
+              "06"
+            ],
+            "source provenance": [
+              "06"
+            ],
+            "knowledge freshness": [
+              "06"
+            ],
+            "context manifest": [
+              "05",
+              "10"
+            ],
+            "retrieval quality": [
+              "05",
+              "07"
+            ],
+            "prompt injection in documents": [
+              "09"
+            ],
+            "context observability": [
+              "07",
+              "10"
+            ],
+            "knowledge lifecycle": [
+              "06",
+              "10"
+            ]
+          },
+          "low": {
+            "knowledge base": "any",
+            "knowledge library": "any",
+            "context engineering": [
+              "01",
+              "02"
+            ],
+            "context design": [
+              "02"
+            ],
+            "taxonomy": [
+              "03"
+            ],
+            "ontology": [
+              "03"
+            ],
+            "retrieval": [
+              "05"
+            ],
+            "provenance": [
+              "06"
+            ],
+            "governance": [
+              "06"
+            ],
+            "prompt injection": [
+              "09"
+            ],
+            "context operations": [
+              "10"
+            ]
+          }
+        }
+      },
+      "penulisan-gaul": {
+        "negative_keywords": [
+          "formal writing",
+          "academic writing",
+          "technical writing",
+          "legal document",
+          "penulisan ilmiah",
+          "bahasa baku",
+          "jurnalistik"
+        ],
+        "recommended_courses": [
+          "01",
+          "02",
+          "03",
+          "04",
+          "08"
+        ],
+        "keywords": {
+          "high": {
+            "jaksel": [
+              "02",
+              "04"
+            ],
+            "code-switching": [
+              "02",
+              "08"
+            ],
+            "code switching": [
+              "02",
+              "08"
+            ],
+            "kode-switching": [
+              "02",
+              "08"
+            ],
+            "which is": [
+              "02"
+            ],
+            "literally": [
+              "02"
+            ],
+            "bahasa gaul": [
+              "01",
+              "03",
+              "04"
+            ],
+            "slang indonesia": [
+              "01",
+              "03",
+              "04"
+            ],
+            "indonesian slang": [
+              "01",
+              "03",
+              "04"
+            ],
+            "kata gaul": [
+              "01",
+              "03",
+              "04"
+            ],
+            "gaul terbaru": [
+              "04"
+            ],
+            "mabar": [
+              "05"
+            ],
+            "gaskeun": [
+              "05",
+              "07"
+            ],
+            "sabi": [
+              "07"
+            ],
+            "baper": [
+              "03"
+            ],
+            "gabut": [
+              "03"
+            ],
+            "bucin": [
+              "03"
+            ],
+            "mager": [
+              "03"
+            ],
+            "stecu": [
+              "04"
+            ],
+            "brainrot": [
+              "04"
+            ],
+            "yapping": [
+              "04"
+            ],
+            "skena": [
+              "04"
+            ],
+            "kalcer": [
+              "04"
+            ],
+            "gaming lingo": [
+              "05"
+            ],
+            "esports slang": [
+              "05"
+            ],
+            "tiktok slang": [
+              "04"
+            ],
+            "bahasa walikan": [
+              "07"
+            ],
+            "reverse slang": [
+              "07"
+            ],
+            "nongkrong": [
+              "06"
+            ],
+            "kating": [
+              "06"
+            ],
+            "dospem": [
+              "06"
+            ],
+            "FOMO": [
+              "04"
+            ],
+            "healing bahasa": [
+              "04"
+            ],
+            "red flag": [
+              "04"
+            ],
+            "penulisan informal": [
+              "01",
+              "08"
+            ],
+            "informal writing": [
+              "01",
+              "08"
+            ],
+            "gen z indonesia": [
+              "04",
+              "06"
+            ]
+          },
+          "medium": {
+            "slang": [
+              "01",
+              "03"
+            ],
+            "gaul": [
+              "01",
+              "03"
+            ],
+            "jakarta selatan": [
+              "02"
+            ],
+            "south jakarta": [
+              "02"
+            ],
+            "casual indonesian": [
+              "01",
+              "08"
+            ],
+            "bahasa informal": [
+              "01",
+              "08"
+            ],
+            "gaje": [
+              "03"
+            ],
+            "garing": [
+              "03"
+            ],
+            "galau": [
+              "03",
+              "06"
+            ],
+            "jones": [
+              "03"
+            ],
+            "nolep": [
+              "03",
+              "05"
+            ],
+            "alay": [
+              "03",
+              "07"
+            ],
+            "kepo": [
+              "03"
+            ],
+            "mantul": [
+              "03"
+            ],
+            "pick me": [
+              "04"
+            ],
+            "toxic": [
+              "04",
+              "10"
+            ],
+            "ggwp": [
+              "05"
+            ],
+            "GG": [
+              "05"
+            ],
+            "noob": [
+              "05"
+            ],
+            "nerf": [
+              "05"
+            ],
+            "buff": [
+              "05"
+            ],
+            "beban": [
+              "05"
+            ],
+            "afk": [
+              "05"
+            ],
+            "maba": [
+              "06"
+            ],
+            "sks kuliah": [
+              "06"
+            ],
+            "jomo": [
+              "04"
+            ],
+            "salfok": [
+              "03"
+            ],
+            "sunda slang": [
+              "07",
+              "09"
+            ],
+            "jawa slang": [
+              "09"
+            ],
+            "medan slang": [
+              "09"
+            ],
+            "ngalam": [
+              "07"
+            ],
+            "sistem kebut semalam": [
+              "06"
+            ],
+            "anak skena": [
+              "04"
+            ],
+            "green flag": [
+              "04"
+            ],
+            "vibe": [
+              "02",
+              "04"
+            ],
+            "prefer": [
+              "02",
+              "08"
+            ],
+            "basically": [
+              "02",
+              "08"
+            ],
+            "honestly": [
+              "02",
+              "08"
+            ]
+          },
+          "low": {
+            "bahasa": "any",
+            "indonesia": "any",
+            "jakarta": "any",
+            "ngobrol": "any",
+            "chat": "any",
+            "casual": "any",
+            "informal": "any",
+            "anak muda": "any",
+            "youth": "any",
+            "gen z": "any",
+            "tiktok": "any",
+            "gaming": "any",
+            "esports": "any",
+            "kampus": "any",
+            "kuliah": "any",
+            "game online": "any",
+            "mobile legends": "any",
+            "nulis santai": [
+              "01",
+              "08"
+            ],
+            "tone casual": [
+              "08"
+            ],
+            "register": [
+              "08"
+            ],
+            "code mix": [
+              "02",
+              "08"
+            ],
+            "authentic voice": [
+              "08",
+              "10"
             ]
           }
         }
@@ -13054,6 +13609,386 @@
             "ethics roadmap",
             "designer oath",
             "ethical KPIs"
+          ]
+        }
+      ]
+    },
+    "knowledge-context": {
+      "name": "Faculty of Knowledge & Context Engineering",
+      "slug": "knowledge-context",
+      "emoji": "🗃️",
+      "description": "Knowledge architecture and context operations: context budgets, taxonomies, document engineering, retrieval, provenance, evaluation, graphs, security, and agent integration.",
+      "courseCount": 10,
+      "level": "beginner-to-advanced",
+      "courses": [
+        {
+          "id": "01",
+          "title": "Knowledge & Context Foundations",
+          "level": "beginner",
+          "file": "knowledge-context/01-knowledge-context-foundations.md",
+          "prerequisites": [],
+          "topics": [
+            "knowledge engineering",
+            "context stack",
+            "context injection",
+            "static library",
+            "RAG boundary"
+          ]
+        },
+        {
+          "id": "02",
+          "title": "Context Budget & Attention Design",
+          "level": "intermediate",
+          "file": "knowledge-context/02-context-budget-attention.md",
+          "prerequisites": [
+            "01"
+          ],
+          "topics": [
+            "context budget",
+            "attention budget",
+            "compaction",
+            "signal to noise",
+            "just-in-time context"
+          ]
+        },
+        {
+          "id": "03",
+          "title": "Knowledge Modeling & Taxonomy",
+          "level": "intermediate",
+          "file": "knowledge-context/03-knowledge-modeling-taxonomy.md",
+          "prerequisites": [
+            "01"
+          ],
+          "topics": [
+            "knowledge modeling",
+            "taxonomy",
+            "ontology",
+            "metadata contract",
+            "controlled vocabulary"
+          ]
+        },
+        {
+          "id": "04",
+          "title": "Document Engineering & Markdown Standards",
+          "level": "intermediate",
+          "file": "knowledge-context/04-document-engineering.md",
+          "prerequisites": [
+            "01",
+            "03"
+          ],
+          "topics": [
+            "document engineering",
+            "Markdown standards",
+            "content normalization",
+            "semantic chunking",
+            "internal links"
+          ]
+        },
+        {
+          "id": "05",
+          "title": "Context Retrieval & Routing",
+          "level": "advanced",
+          "file": "knowledge-context/05-context-retrieval-routing.md",
+          "prerequisites": [
+            "02",
+            "03"
+          ],
+          "topics": [
+            "context retrieval",
+            "context routing",
+            "ranking signals",
+            "hybrid retrieval",
+            "context manifest"
+          ]
+        },
+        {
+          "id": "06",
+          "title": "Provenance, Freshness & Governance",
+          "level": "advanced",
+          "file": "knowledge-context/06-provenance-freshness-governance.md",
+          "prerequisites": [
+            "03",
+            "04"
+          ],
+          "topics": [
+            "knowledge provenance",
+            "content freshness",
+            "governance",
+            "source authority",
+            "supersession"
+          ]
+        },
+        {
+          "id": "07",
+          "title": "Context Evaluation & Regression Testing",
+          "level": "advanced",
+          "file": "knowledge-context/07-context-evaluation-regression.md",
+          "prerequisites": [
+            "04",
+            "05"
+          ],
+          "topics": [
+            "context regression",
+            "retrieval regression",
+            "precision recall",
+            "MRR",
+            "context evaluation"
+          ]
+        },
+        {
+          "id": "08",
+          "title": "Knowledge Graphs & Relational Context",
+          "level": "advanced",
+          "file": "knowledge-context/08-knowledge-graphs-relational-context.md",
+          "prerequisites": [
+            "03",
+            "05"
+          ],
+          "topics": [
+            "knowledge graph",
+            "relational context",
+            "typed edges",
+            "prerequisite graph",
+            "dependency traversal"
+          ]
+        },
+        {
+          "id": "09",
+          "title": "Context Security & Prompt-Injection Resistance",
+          "level": "advanced",
+          "file": "knowledge-context/09-context-security-prompt-injection.md",
+          "prerequisites": [
+            "04",
+            "05",
+            "06"
+          ],
+          "topics": [
+            "context security",
+            "prompt injection",
+            "untrusted documents",
+            "data poisoning",
+            "trust boundaries"
+          ]
+        },
+        {
+          "id": "10",
+          "title": "Context Operations & Agent Integration",
+          "level": "advanced",
+          "file": "knowledge-context/10-context-operations-agent-integration.md",
+          "prerequisites": [
+            "05",
+            "06",
+            "07",
+            "09"
+          ],
+          "topics": [
+            "knowledge operations",
+            "agent context operations",
+            "context manifest",
+            "context observability",
+            "release runbook"
+          ]
+        }
+      ]
+    },
+    "penulisan-gaul": {
+      "name": "Casual & Slang Writing",
+      "slug": "penulisan-gaul",
+      "emoji": "📝",
+      "courseCount": 10,
+      "level": "Beginner → Advanced",
+      "description": "Indonesian informal writing mastery — Jaksel code-switching, abbreviations, social media slang, gaming lingo, campus slang, wordplay, regional variations, and ethical casual communication.",
+      "courses": [
+        {
+          "id": "01",
+          "title": "Casual Indonesian Writing Foundations",
+          "level": "beginner",
+          "file": "penulisan-gaul/01-casual-indonesian-foundations.md",
+          "prerequisites": [],
+          "topics": [
+            "bahasa gaul",
+            "sociolect",
+            "slang history",
+            "prokem",
+            "alay",
+            "jaksel",
+            "register"
+          ]
+        },
+        {
+          "id": "02",
+          "title": "Jaksel Code-Switching Mastery",
+          "level": "intermediate",
+          "file": "penulisan-gaul/02-jaksel-code-switching.md",
+          "prerequisites": [
+            "01"
+          ],
+          "topics": [
+            "jaksel",
+            "code-switching",
+            "discourse markers",
+            "affixation",
+            "which is",
+            "literally",
+            "south jakarta"
+          ]
+        },
+        {
+          "id": "03",
+          "title": "Abbreviations, Portmanteaus & Acronyms",
+          "level": "beginner",
+          "file": "penulisan-gaul/03-abbreviations-acronyms.md",
+          "prerequisites": [
+            "01"
+          ],
+          "topics": [
+            "abbreviation",
+            "acronym",
+            "portmanteau",
+            "baper",
+            "mager",
+            "gabut",
+            "bucin",
+            "gaje"
+          ]
+        },
+        {
+          "id": "04",
+          "title": "Digital & Social Media Slang",
+          "level": "intermediate",
+          "file": "penulisan-gaul/04-internet-social-media-slang.md",
+          "prerequisites": [
+            "01"
+          ],
+          "topics": [
+            "social media",
+            "tiktok",
+            "twitter",
+            "fyp",
+            "stecu",
+            "brainrot",
+            "yapping",
+            "healing",
+            "fomo",
+            "jomo",
+            "skena"
+          ]
+        },
+        {
+          "id": "05",
+          "title": "Gaming & Esports Lingo",
+          "level": "intermediate",
+          "file": "penulisan-gaul/05-gaming-esports-lingo.md",
+          "prerequisites": [
+            "01"
+          ],
+          "topics": [
+            "gaming",
+            "esports",
+            "mabar",
+            "gaskeun",
+            "ggwp",
+            "noob",
+            "nerf",
+            "buff",
+            "mobile legends",
+            "pubg"
+          ]
+        },
+        {
+          "id": "06",
+          "title": "Campus & Youth Slang",
+          "level": "beginner",
+          "file": "penulisan-gaul/06-campus-youth-slang.md",
+          "prerequisites": [
+            "01"
+          ],
+          "topics": [
+            "campus",
+            "university",
+            "kating",
+            "maba",
+            "dospem",
+            "sks",
+            "nongkrong",
+            "student"
+          ]
+        },
+        {
+          "id": "07",
+          "title": "Reverse Slang & Wordplay",
+          "level": "advanced",
+          "file": "penulisan-gaul/07-reverse-slang-wordplay.md",
+          "prerequisites": [
+            "01",
+            "03"
+          ],
+          "topics": [
+            "wordplay",
+            "bahasa walikan",
+            "reversal",
+            "sabi",
+            "sound substitution",
+            "leet",
+            "alay script"
+          ]
+        },
+        {
+          "id": "08",
+          "title": "Tone, Voice & Register in Casual Writing",
+          "level": "advanced",
+          "file": "penulisan-gaul/08-tone-register-casual-writing.md",
+          "prerequisites": [
+            "01",
+            "02",
+            "03"
+          ],
+          "topics": [
+            "register",
+            "tone",
+            "voice",
+            "code-switching strategy",
+            "audience",
+            "formal vs casual"
+          ]
+        },
+        {
+          "id": "09",
+          "title": "Regional Variations & Loanword Integration",
+          "level": "advanced",
+          "file": "penulisan-gaul/09-regional-variations-loanwords.md",
+          "prerequisites": [
+            "01",
+            "02"
+          ],
+          "topics": [
+            "regional",
+            "sundanese",
+            "javanese",
+            "betawi",
+            "loanwords",
+            "dialect",
+            "multilingual"
+          ]
+        },
+        {
+          "id": "10",
+          "title": "The Ethical Slang Writer",
+          "level": "advanced",
+          "file": "penulisan-gaul/10-ethical-slang-writing.md",
+          "prerequisites": [
+            "01",
+            "02",
+            "08"
+          ],
+          "topics": [
+            "ethics",
+            "appropriation",
+            "exclusion",
+            "accessibility",
+            "authenticity",
+            "mental health",
+            "responsible writing"
           ]
         }
       ]

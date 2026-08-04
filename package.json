@@ -1,7 +1,7 @@
 {
   "name": "@kandarlubis/icil",
-  "version": "25.0.7",
-  "description": "ICIL — Intelligence Campus Interactive Library. 216 courses, 29 faculties, 10 MCP tools. P@3=72.8%, R@3=94.4%, MRR=0.922. CI All Green.",
+  "version": "27.0.0",
+  "description": "ICIL — Intelligence Campus Interactive Library. 236 courses, 31 faculties, 10 MCP tools. Casual & Slang Writing added. Jaksel code-switching, gaming lingo, social media slang, ethical casual communication.",
   "main": "campus-core.js",
   "bin": {
     "icil": "load-context.js",
@@ -40,7 +40,9 @@
     "ia/",
     "agentic-engineering/",
     "ux-research/",
-    "design-ethics/"
+    "design-ethics/",
+    "knowledge-context/",
+    "penulisan-gaul/"
   ],
   "scripts": {
     "search": "node load-context.js",
@@ -50,7 +52,10 @@
     "eval:json": "node eval-runner.js --json",
     "eval:ci": "node eval-runner.js --ci",
     "ci:validate": "node ci-validate.js",
-    "ci:gate": "node ci-validate.js --with-eval"
+    "ci:gate": "node ci-validate.js --with-eval",
+    "ci:faculty": "node ci-faculty.js --all",
+    "audit:loop": "node audit/audit-runner.js",
+    "audit:status": "node audit/audit-runner.js --status"
   },
   "keywords": [
     "ui",
@@ -86,6 +91,10 @@
     "campus",
     "icil",
     "context-injection",
+    "knowledge-engineering",
+    "context-engineering",
+    "document-engineering",
+    "retrieval",
     "llm",
     "claude-code"
   ],
