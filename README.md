@@ -4,7 +4,7 @@
 [![Courses](https://img.shields.io/badge/courses-236-green)](./index.json)
 [![Faculties](https://img.shields.io/badge/faculties-31-orange)](./index.json)
 [![MCP Tools](https://img.shields.io/badge/MCP%20tools-10-purple)](./mcp-server.js)
-[![Eval P@3](https://img.shields.io/badge/P%403-73.7%25-yellow)](./eval-set.json)
+[![Eval P@3](https://img.shields.io/badge/P%403-85.5%25-yellow)](./eval-set.json)
 [![License](https://img.shields.io/badge/license-MIT-lightgrey)](./LICENSE)
 
 > **Sacred Dictionary for AI Agents** — A super comprehensive knowledge base reference for AI agents across various knowledge domains.
@@ -63,10 +63,10 @@ Run the same checks locally with `npm run ci:faculty` for the full catalog, or t
 ```mermaid
 xychart-beta
   title "P@3 & R@3 Progress — ICIL Auto-Router"
-  x-axis ["v24.1.0", "v25.0.0", "v25.0.3", "v25.0.5", "v27.0.0"]
+  x-axis ["v24.1.0", "v25.0.0", "v25.0.3", "v25.0.5", "v27.0.0", "v27.1.0"]
   y-axis "%" 50 --> 100
-  line [54.4, 59.3, 64.9, 72.8, 73.7]
-  line [77.9, 85.9, 84.5, 94.4, 96.0]
+  line [54.4, 59.3, 64.9, 72.8, 73.7, 85.5]
+  line [77.9, 85.9, 84.5, 94.4, 96.0, 98.4]
 ```
 
 > Top line: P@3 · Bottom line: R@3 — CI gate threshold at 70%
@@ -76,12 +76,12 @@ xychart-beta
 ```mermaid
 xychart-beta
   title "MRR Progress — ICIL Auto-Router"
-  x-axis ["v24.1.0", "v25.0.0", "v25.0.5", "v27.0.0"]
+  x-axis ["v24.1.0", "v25.0.0", "v25.0.5", "v27.0.0", "v27.1.0"]
   y-axis "MRR" 0.65 --> 1.0
-  line [0.731, 0.809, 0.922, 0.934]
+  line [0.731, 0.809, 0.922, 0.934, 0.989]
 ```
 
-> CI threshold at 0.65 ✅ — current v27.0.0 MRR 0.934 well above
+> CI threshold at 0.65 ✅ — current v27.1.0 MRR 0.989 well above
 
 | Release | P@3 | R@3 | MRR | Key Event |
 |---------|------|-----|-----|-----------|
@@ -89,7 +89,8 @@ xychart-beta
 | v25.0.0 | 59.3% | 85.9% | 0.809 | Design Ethics faculty + baseline |
 | v25.0.3 | 64.9% | 84.5% | — | DUPLICATE HIGH → 0 + noise removal |
 | **v25.0.5** | **72.8%** | **94.4%** | **0.922** | Phase 1 LOW tightening + 17 dup keywords fixed |
-| **v27.0.0** | **73.7%** | **96.0%** | **0.934** | Knowledge & Context Engineering + 10 eval prompts |
+| **v27.0.0** | **73.7%** | **96.0%** | **0.934** | Knowledge & Context Engineering + Casual & Slang Writing |
+| **v27.1.0** | **85.5%** | **98.4%** | **0.989** | 7-round keyword tuning: mass-demotion, negatives, 227 prompts |
 
 ---
 
@@ -389,6 +390,7 @@ The **casual writing layer** — teaches how to write authentic Indonesian infor
 
 - [x] **ROADMAP v2 COMPLETE 🏁** — 236 courses, 31 faculties, 10 MCP tools
 - [x] **v27.0.0 Knowledge & Context Engineering 🗃️** — 10 courses
+- [x] **v27.1.0 Keyword Tuning 🎯** — P@3 85.5%, 7-round precision tuning
 - [x] **v27.0.0 Casual & Slang Writing 📝** — 10 courses
 - [ ] **v3 planning** — Submit your ideas!
 
