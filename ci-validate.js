@@ -339,6 +339,10 @@ function main() {
       const evalSet = JSON.parse(evalRaw);
       evalResult = runAll(index, evalSet);
     } catch (err) {
+      evalResult = {
+        error: err.message,
+        thresholdCheck: { allPassed: false },
+      };
       if (!jsonMode) console.error(`${c.yellow}⚠ Could not run eval: ${err.message}${c.reset}`);
     }
   }

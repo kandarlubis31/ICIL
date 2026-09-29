@@ -1,0 +1,180 @@
+{
+  "faculty": "knowledge-context",
+  "catalogVersion": "26.0.0",
+  "reviewedAt": "2026-08-01",
+  "researchCutoff": "2026-08-01",
+  "auditor": "ICIL audit pilot",
+  "method": "Course claims were compared with primary specifications, official documentation, standards, and primary research. Source presence alone was not treated as verification.",
+  "courses": [
+    {
+      "course": "knowledge-context/01",
+      "status": "verified_with_notes",
+      "sourceTier": ["primary", "expert_secondary"],
+      "sources": [
+        {"name": "Lewis et al. — Retrieval-Augmented Generation", "url": "https://arxiv.org/abs/2005.11401"},
+        {"name": "Anthropic — Building effective agents", "url": "https://www.anthropic.com/research/building-effective-agents"},
+        {"name": "NIST AI Risk Management Framework", "url": "https://www.nist.gov/itl/ai-risk-management-framework"}
+      ],
+      "findings": [
+        "The source/model/selection/packaging/use/feedback stack is a useful operational model, but it is an ICIL synthesis rather than a named standard.",
+        "The distinction between retrieved data and agent instructions is consistent with current agent-safety guidance.",
+        "The static-library-versus-RAG comparison should remain explicitly contextual rather than prescriptive."
+      ],
+      "actions": ["keep", "add canonical URLs and access date", "clarify that the stack is an ICIL model"],
+      "routingImpact": "inspect"
+    },
+    {
+      "course": "knowledge-context/02",
+      "status": "needs_update",
+      "sourceTier": ["primary", "expert_secondary"],
+      "sources": [
+        {"name": "Anthropic — Effective context engineering for AI agents", "url": "https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents"},
+        {"name": "Liu et al. — Lost in the Middle", "url": "https://arxiv.org/abs/2307.03172"},
+        {"name": "Packer et al. — MemGPT", "url": "https://arxiv.org/abs/2310.08560"}
+      ],
+      "findings": [
+        "The budget and compaction guidance is directionally supported, but attention behavior is model- and task-dependent; avoid presenting it as a universal law.",
+        "The cited MemGPT paper is a research system, not a general production prescription.",
+        "Anthropic guidance is fast-moving and needs an accessed date or version note."
+      ],
+      "actions": ["qualify attention claims", "add source dates", "recheck examples against current model/context APIs"],
+      "routingImpact": "inspect"
+    },
+    {
+      "course": "knowledge-context/03",
+      "status": "verified_with_notes",
+      "sourceTier": ["primary", "expert_secondary"],
+      "sources": [
+        {"name": "W3C SKOS Reference", "url": "https://www.w3.org/TR/skos-reference/"},
+        {"name": "Dublin Core Metadata Terms", "url": "https://www.dublincore.org/specifications/dublin-core/dcmi-terms/"},
+        {"name": "Noy & McGuinness — Ontology Development 101", "url": "https://protege.stanford.edu/publications/ontology_development/ontology101-noy-mcguinness.html"}
+      ],
+      "findings": [
+        "The taxonomy, facet, ontology, metadata, and controlled-vocabulary distinctions are broadly sound.",
+        "The ICIL metadata contract and boundary examples are project conventions, not requirements imposed by SKOS or Dublin Core.",
+        "Cross-reference edge labels are useful but should be documented as an ICIL vocabulary."
+      ],
+      "actions": ["keep", "label ICIL-specific fields and edge types", "add canonical source links"],
+      "routingImpact": "inspect"
+    },
+    {
+      "course": "knowledge-context/04",
+      "status": "verified_with_notes",
+      "sourceTier": ["primary", "expert_secondary"],
+      "sources": [
+        {"name": "CommonMark Specification", "url": "https://spec.commonmark.org/current/"},
+        {"name": "Diátaxis documentation framework", "url": "https://diataxis.fr/"},
+        {"name": "Web Content Accessibility Guidelines (WCAG) 2.2", "url": "https://www.w3.org/TR/WCAG22/"}
+      ],
+      "findings": [
+        "The document-shape and deterministic normalization guidance is compatible with CommonMark and docs-as-code practice.",
+        "WCAG supports readable structure and accessibility principles, but does not by itself define ICIL Markdown rules.",
+        "The sample heading format should remain aligned with AGENTS.md and the actual course parser/CI contract."
+      ],
+      "actions": ["keep", "qualify WCAG as a structure/readability reference", "add source URLs"],
+      "routingImpact": "none"
+    },
+    {
+      "course": "knowledge-context/05",
+      "status": "needs_update",
+      "sourceTier": ["primary", "expert_secondary"],
+      "sources": [
+        {"name": "Lewis et al. — Retrieval-Augmented Generation", "url": "https://arxiv.org/abs/2005.11401"},
+        {"name": "Stanford Introduction to Information Retrieval", "url": "https://nlp.stanford.edu/IR-book/"},
+        {"name": "NIST AI Risk Management Framework", "url": "https://www.nist.gov/itl/ai-risk-management-framework"}
+      ],
+      "findings": [
+        "The retrieval pipeline and failure-mode taxonomy are useful, but the exact ranking weights are intentionally heuristic and should not look normative.",
+        "The claim that high-confidence rules should override fuzzy matches is an ICIL design choice requiring eval evidence.",
+        "The course should explicitly distinguish lexical retrieval, semantic retrieval, and hybrid ranking assumptions."
+      ],
+      "actions": ["clarify heuristic versus measured behavior", "add routing examples and baseline metrics", "add canonical URLs"],
+      "routingImpact": "regression-required"
+    },
+    {
+      "course": "knowledge-context/06",
+      "status": "needs_sources",
+      "sourceTier": ["primary", "expert_secondary"],
+      "sources": [
+        {"name": "W3C PROV-O", "url": "https://www.w3.org/TR/prov-o/"},
+        {"name": "NIST AI Risk Management Framework", "url": "https://www.nist.gov/itl/ai-risk-management-framework"},
+        {"name": "ISO 30401 Knowledge management systems", "url": "https://www.iso.org/standard/68683.html"}
+      ],
+      "findings": [
+        "The provenance, freshness, governance, and conflict-resolution workflow is plausible and aligned with provenance/governance principles.",
+        "The course currently presents a proposed ICIL record and cadence without identifying which parts are standards requirements versus local policy.",
+        "ISO 30401 should be cited carefully because the standard is not freely reproduced and the course should not imply unsupported normative detail."
+      ],
+      "actions": ["separate standards guidance from ICIL policy", "add owner/review-date examples", "add access date and precise source scope"],
+      "routingImpact": "inspect"
+    },
+    {
+      "course": "knowledge-context/07",
+      "status": "needs_update",
+      "sourceTier": ["primary", "expert_secondary"],
+      "sources": [
+        {"name": "Stanford Introduction to Information Retrieval", "url": "https://nlp.stanford.edu/IR-book/"},
+        {"name": "Lewis et al. — Retrieval-Augmented Generation", "url": "https://arxiv.org/abs/2005.11401"},
+        {"name": "Ragas documentation", "url": "https://docs.ragas.io/"}
+      ],
+      "findings": [
+        "Precision, recall, MRR, and no-match metrics are appropriate retrieval signals, but their exact interpretation depends on labels and cutoff k.",
+        "The current course cites RAGAS without a version and should distinguish framework metrics from ICIL's faculty/course evaluator.",
+        "The answer-level faithfulness guidance needs a clearly scoped evaluation method rather than a general claim."
+      ],
+      "actions": ["add versioned evaluation references", "link metrics to ICIL eval-runner behavior", "add a small positive/negative/ambiguous example set"],
+      "routingImpact": "regression-required"
+    },
+    {
+      "course": "knowledge-context/08",
+      "status": "needs_sources",
+      "sourceTier": ["primary", "expert_secondary"],
+      "sources": [
+        {"name": "W3C RDF 1.1 Primer", "url": "https://www.w3.org/TR/rdf11-primer/"},
+        {"name": "W3C SKOS Reference", "url": "https://www.w3.org/TR/skos-reference/"},
+        {"name": "Hogan et al. — Knowledge Graphs", "url": "https://arxiv.org/abs/2003.02320"}
+      ],
+      "findings": [
+        "Typed entities and edges, prerequisite validation, stable IDs, and orphan review are sound graph-quality practices.",
+        "The edge vocabulary (`requires`, `implements`, `mitigates`, and others) is an ICIL proposal and needs an explicit schema owner.",
+        "The course should avoid implying that adding a graph database is necessary for the current catalog."
+      ],
+      "actions": ["define ICIL edge vocabulary separately", "add a machine-readable example", "keep the no-database recommendation scoped to current catalog size"],
+      "routingImpact": "inspect"
+    },
+    {
+      "course": "knowledge-context/09",
+      "status": "needs_update",
+      "sourceTier": ["primary", "expert_secondary"],
+      "sources": [
+        {"name": "OWASP Top 10 for LLM Applications", "url": "https://owasp.org/www-project-top-10-for-large-language-model-applications/"},
+        {"name": "NIST AI Risk Management Framework", "url": "https://www.nist.gov/itl/ai-risk-management-framework"},
+        {"name": "MITRE ATLAS", "url": "https://atlas.mitre.org/"}
+      ],
+      "findings": [
+        "The trusted/conditionally-trusted/untrusted boundary and direct/indirect injection examples are consistent with current AI security guidance.",
+        "OWASP and MITRE ATLAS are living sources; the course must record the reviewed edition/access date.",
+        "The safe wrapper is a conceptual pattern, not a complete defense; tool authorization and isolation need to remain primary controls."
+      ],
+      "actions": ["add exact source editions/access dates", "strengthen the architectural-control caveat", "add regression cases for direct, indirect, and poisoned content"],
+      "routingImpact": "regression-required"
+    },
+    {
+      "course": "knowledge-context/10",
+      "status": "needs_update",
+      "sourceTier": ["primary", "expert_secondary"],
+      "sources": [
+        {"name": "OpenTelemetry semantic conventions", "url": "https://opentelemetry.io/docs/specs/semconv/"},
+        {"name": "NIST AI Risk Management Framework", "url": "https://www.nist.gov/itl/ai-risk-management-framework"},
+        {"name": "Model Context Protocol specification", "url": "https://modelcontextprotocol.io/specification"}
+      ],
+      "findings": [
+        "The operational contract and release runbook are useful ICIL guidance, but not a single external standard.",
+        "OpenTelemetry GenAI conventions and MCP are fast-moving; exact versions and stability levels must be recorded.",
+        "The course should distinguish the current ICIL interfaces from future operational capabilities such as context manifests and citation telemetry."
+      ],
+      "actions": ["add protocol/specification versions", "mark proposed observability fields as ICIL design", "validate the runbook against current CI and MCP implementation"],
+      "routingImpact": "regression-required"
+    }
+  ]
+}

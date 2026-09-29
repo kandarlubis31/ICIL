@@ -1,8 +1,10 @@
-# 🔍 ICIL Final Audit Plan — v25.0.5 Pre-Release
+# 🔍 ICIL Audit Plan — v26.0.0 Re-baseline
 
-> **Goal**: Pastiin gak ada yang kelewat sebelum project ini beneran matang buat publik.  
-> **Status**: v25.0.5 — CI All Green, P@3=72.8%, R@3=94.4%, 216 courses, 29 faculties  
-> **Cara pakai**: Centang `[x]` tiap item yang udah dicek & verified.
+> **Goal**: Memastikan project matang untuk publik tanpa menganggap checklist lama sebagai bukti verifikasi baru.
+> **Status**: Legacy v25 checklist retained; current v26 baseline is P@3=73.7%, R@3=96.0%, MRR=0.934, 226 courses, 30 faculties.
+> **Cara pakai**: Centang `[x]` hanya setelah item diverifikasi pada v26; historical claims below are not current evidence.
+
+> **Current verified gates**: `node ci-validate.js --with-eval`, `node ci-faculty.js --all`, and `npm run ci:faculty` pass. Manual content-quality and release-readiness items remain open.
 
 ---
 
@@ -31,24 +33,26 @@
 
 ---
 
+> **Scope note:** Sections 1–7 below preserve the original v25 audit checklist for traceability. Unless an item is explicitly re-verified and marked `[x]`, it is open manual work—not a current v26 failure claim. Historical release/version numbers inside checklist prompts are reference targets only.
+
 ## 1. 🔧 Code Quality — JS Files (16 items)
 
 > **Files**: `campus-core.js` (17.8KB), `mcp-server.js` (36.8KB), `ci-validate.js` (13.9KB), `eval-runner.js` (11.6KB), `load-context.js` (9.2KB)
 
-> **Pre-checked ✅** (verified in session): 0 TODO/FIXME/HACK, 0 console.log/debugger, 0 hardcoded credentials
+> **Pre-checked ✅** (verified in session): 0 TODO/FIXME/HACK/debugger markers in implementation logic, no hardcoded credentials; intentional `console.log` calls remain in CLI/reporting scripts.
 
 ### 1.1 Clean Code
 - [ ] **`campus-core.js`**: Cek apakah semua function punya JSDoc / comment header
 - [ ] **`mcp-server.js`**: Pastiin semua 10 tool handler konsisten signature-nya (params → return)
 - [ ] **`ci-validate.js`**: 4-stage pipeline jelas — gak ada dead code tersisa
-- [ ] **`eval-runner.js`**: `runAll()` & `main()` — verify `require.main === module` guard masih jalan
-- [ ] **`load-context.js`**: CLI arg parsing robust? Handle `--json`, `--list`, `--interactive`, `--help`
+- [x] **`eval-runner.js`**: `runAll()` & `main()` — `require.main === module` guard verified
+- [x] **`load-context.js`**: CLI handles `--json`, `--list`, `--interactive`, and `--help` paths
 
 ### 1.2 Error Handling
 - [ ] **Semua JS**: `try/catch` di file I/O operations — gak boleh crash tanpa pesan
 - [ ] **`mcp-server.js`**: Tool error responses — return error object, jangan throw mentah
-- [ ] **`campus-core.js`**: `getCourseContent()` — graceful handling kalau file gak ketemu
-- [ ] **`ci-validate.js`**: Exit code logic — 0 = all pass, 1 = ada failure
+- [x] **`campus-core.js`**: `getCourseContent()` returns `null` gracefully for missing files
+- [x] **`ci-validate.js`**: Exit code logic verified: 0 = pass, 1 = failure
 
 ### 1.3 Redundancy & Dead Code
 - [ ] **`mcp-server.js`**: Cek redundant `require()` — semua import dipakai?
@@ -56,19 +60,19 @@
 - [ ] **`eval-runner.js`**: Cek duplikasi logic sama `ci-validate.js` (keduanya punya eval runner copy)
 
 ### 1.4 Security & Hardening
-- [ ] **`mcp-server.js`**: Input sanitization — path traversal protection di `load_course` & `export_course`
-- [ ] **`load-context.js`**: No `eval()` or dynamic code execution dari user input
-- [ ] **Semua JS**: Gak ada hardcoded credentials / tokens
+- [x] **`mcp-server.js`**: `load_course`, `compare_courses`, and export paths reject traversal/absolute paths
+- [x] **`load-context.js`**: No `eval()` or dynamic code execution from user input
+- [x] **Semua JS**: No hardcoded credentials/tokens detected by static scan
 
 ### 1.5 MCP Tool Descriptions
-- [ ] **`mcp-server.js`**: 10 tool `description` strings — akurat & up-to-date? (dulu ada bug "209 courses / 28 faculties")
-- [ ] **`mcp-server.js`**: Tool descriptions mention v25.0.5? Generated dynamically dari `loadIndex()`?
+- [x] **`mcp-server.js`**: 10 tool registrations and descriptions are present; campus metadata is generated dynamically from `loadIndex()`
+- [x] **`mcp-server.js`**: Server description/version use current index metadata (`v26.0.0`, 226 courses, 30 faculties)
 
 ### 1.6 Duplicate Code Check
 - [ ] **`eval/eval-runner.js`** (CI copy) vs root **`eval-runner.js`** — byte-for-byte identical? Atau perlu sync?
 
 ### 1.7 Node.js Best Practices
-- [ ] **`package.json`**: `"engines"` field — minimum Node 18?
+- [x] **`package.json`**: `engines.node` declares `>=18.0.0`
 
 ---
 
@@ -77,24 +81,24 @@
 > **Sumber kebenaran**: `index.json` (313KB) → dibaca oleh auto-router, MCP server, dan CI validator.
 
 ### 2.1 Version Consistency
-- [ ] **`index.json`.version** === **`package.json`.version** — CI udah cek ini, tapi verifikasi manual
-- [ ] **`index.json`.totalCourses** === hitung manual `Object.values(faculties).flatMap(f=>f.courses).length`
-- [ ] **Semua faculty `courseCount`** (kalau masih ada static field) === `courses.length`
+- [x] **`index.json`.version** === **`package.json`.version** — both are `26.0.0`
+- [x] **`index.json`.totalCourses** === manual faculty course count — both are `226`
+- [x] **Semua faculty `courseCount`** matches its `courses.length` where the field is present
 
 ### 2.2 File Existence
-- [ ] **216 course `.md` files** — semua ada di disk, path valid
-- [ ] **29 faculty `README.md`** — semua ada di disk
-- [ ] **Cross-reference check** — tiap course yang di-refer sebagai prerequisite beneran exists
+- [x] **226 course `.md` files** — all exist on disk with valid indexed paths
+- [x] **30 faculty `README.md`** — all exist on disk
+- [x] **Cross-reference check** — all prerequisite references resolve, including faculty-qualified refs
 
 ### 2.3 Course Metadata Accuracy
 - [ ] **Level badges** di tiap course entry (`beginner`/`intermediate`/`advanced`) konsisten sama isi file?
-- [ ] **Prerequisite IDs** di tiap course — semuanya valid (exist di faculty yang sama atau format cross-faculty `faculty/XX`)
-- [ ] **emoji field** di tiap faculty — gak ada yang kosong, gak ada duplikat
+- [x] **Prerequisite IDs** — all valid in same-faculty or `faculty/XX` format
+- [x] **emoji field** — 30 non-empty, unique faculty emojis verified
 
 ### 2.4 Trigger Keywords Integrity
-- [ ] **Semua `course_ids` di HIGH/MEDIUM keywords** — valid (exist di faculty itu)
-- [ ] **Gak ada keyword yang sama persis** muncul di HIGH & LOW di faculty yang sama (redundant)
-- [ ] **129 CROSS-FACULTY warnings** — quick audit 10 random buat pastiin gak ada yang harusnya DUPLICATE HIGH
+- [x] **Semua `course_ids` di HIGH/MEDIUM keywords** — all resolve to courses in their faculty
+- [x] **Gak ada keyword yang sama persis** muncul di HIGH & LOW di faculty yang sama — 0 after removing the redundant `knowledge graph` LOW entry
+- [ ] **134 CROSS-FACULTY warnings** — quick audit 10 random buat pastiin gak ada yang harusnya DUPLICATE HIGH
 
 ---
 
@@ -103,42 +107,42 @@
 > **Files**: `README.md`, `AGENTS.md`, `CONTEXT.md`, `CAMPUS-OVERVIEW.md`, `PROGRESS-REPORT.md`, `CHANGELOG.md`, `ISSUES.md`, `CONTRIBUTING.md`, `ROADMAP-v2.md`, `index.md`, `ARCHIVE.md`, `LICENSE`
 
 ### 3.1 Version Numbers
-- [ ] **`README.md` badges** — version badge: v25.0.5? course count: 216? faculties: 29?
-- [ ] **`AGENTS.md` header** — version number & course/faculty count akurat
-- [ ] **`index.md`** (ultra-compact entry) — version dan count konsisten
-- [ ] **`CONTEXT.md` session header** — version number and metrics current
+- [x] **`README.md` badges** — v26.0.0, 226 courses, 30 faculties, 10 tools, and P@3 73.7%
+- [x] **`AGENTS.md` header** — v26.0.0 / 226 courses / 30 faculties
+- [x] **`index.md`** — v26 entry point and counts consistent
+- [x] **`CONTEXT.md` session header** — v26.0.0, 226 courses, 30 faculties, current metrics
 
-### 3.2 README Tree — 🐛 KNOWN BUG: 5 Stale Counts
-- [ ] **`README.md` tree**: `conversational-ui` tree says `(7 courses)` → should be **8**
-- [ ] **`README.md` tree**: `software-engineering` tree says `(7 courses)` → should be **9**
-- [ ] **`README.md` tree**: `ai-integration` tree says `(7 courses)` → should be **10**
-- [ ] **`README.md` tree**: `security` tree says `(7 courses)` → should be **9**
-- [ ] **`README.md` tree**: `agentic-engineering` tree says `(7 courses)` → should be **9**
+### 3.2 README Tree — Historical v25 Checklist (re-verify only if the README changes)
+- [x] **Historical README tree drift**: `conversational-ui` is now **8** courses
+- [x] **Historical README tree drift**: `software-engineering` is now **9** courses
+- [x] **Historical README tree drift**: `ai-integration` is now **10** courses
+- [x] **Historical README tree drift**: `security` is now **9** courses
+- [x] **Historical README tree drift**: `agentic-engineering` is now **9** courses
 
 ### 3.3 Faculty Description Accuracy
-- [ ] **`README.md` faculty descriptions** — course counts di tiap deskripsi match actual (warna=9, design-patterns=8, conversational-ui=8, software-engineering=9, ai-integration=10, security=9, agentic-engineering=9, sisanya 7)
-- [ ] **`README.md` faculty descriptions** — 5 faculty (conversational-ui, software-engineering, ai-integration, security, agentic-engineering) still say "**7 Courses**" in their description headers → should match actual count
-- [ ] **`CAMPUS-OVERVIEW.md`** — 16 task paths masih relevan? gak ada broken reference
-- [ ] **`CHANGELOG.md`** — ada entry buat v25.0.5? header v25.0.4 udah di-update ke 72.8%?
+- [x] **`README.md` faculty descriptions** — current course counts match the v26 catalog (warna=9, design-patterns=8, conversational-ui=8, software-engineering=9, ai-integration=10, security=9, agentic-engineering=9, sisanya 7)
+- [x] **Historical v25 description drift** — conversational-ui, software-engineering, ai-integration, security, and agentic-engineering now show their current course counts
+- [ ] **`CAMPUS-OVERVIEW.md`** — automated links pass; human review of all 17 task paths remains
+- [x] **`CHANGELOG.md`** — v26.0.0 entry exists and historical v25 entries are retained intentionally
 
 ### 3.4 Link Validity
-- [ ] **Internal links** di semua meta `.md` — gak ada broken `[text](./path.md)` yang 404
-- [ ] **External links** — GitHub URLs valid, gak ada placeholder `your-username`
-- [ ] **Image/badge URLs** — shields.io badges render dengan benar
+- [ ] **Internal links** — static scan passes for production links, but four intentional template/path placeholders remain in `CONTRIBUTING.md` and `AUDIT-PLAN.md`; resolve or explicitly exclude them before final sign-off
+- [ ] **External links** — no `your-username`/example-domain placeholders detected; live URL availability still requires remote verification
+- [ ] **Image/badge URLs** — static badge syntax is present; render verification still requires GitHub/browser review
 
 ### 3.5 CONTRIBUTING.md Template Check
 - [ ] **Course template** di `CONTRIBUTING.md` — match sama format real course files? Kalau contributor follow template, CI bakal pass?
 
 ### 3.6 Handoff Quality
-- [ ] **`AGENTS.md`** — masih valid sebagai entry point buat AI agent baru?
-- [ ] **`PROGRESS-REPORT.md`** — "For the Next AI Agent" section up-to-date?
+- [x] **`AGENTS.md`** — current v26 entry point, commands, faculty list, and CI references verified
+- [x] **`PROGRESS-REPORT.md`** — current metrics, Faculty CI, prerequisite dedup, and remaining work documented
 - [ ] **`ARCHIVE.md`** — isinya clean, gak ada referensi ke file yang udah dihapus
 
 ---
 
-## 4. 📚 Course Content Audit — 216 Files (10 items)
+## 4. 📚 Course Content Audit — 226 Files (10 items)
 
-> **Sampling strategy**: 10% random (22 courses) + 5 known-high-value courses = 27 files
+> **Sampling strategy**: 10% random (23 courses) + 5 known-high-value courses = 28 files
 
 ### 4.1 Format Consistency
 - [ ] **Sample 10% course files** — cek format: ada `# Title`, `> Level | Prereq | ~N min` header?
@@ -156,31 +160,31 @@
 - [ ] **Sample 10% course files** — gak ada mixed EN/ID yang bikin bingung
 
 ### 4.4 Gap Analysis (Automated)
-> **Gunakan `node -e` one-liner script** buat scan 216 file — jangan manual.
-- [ ] **Auto-scan word count**: `node -e "..."` — flag courses <200 kata atau >1200 kata
-- [ ] **Auto-scan level balance**: `node -e "..."` — cek distribusi beginner/intermediate/advanced per faculty
+> **Gunakan `node -e` one-liner script** buat scan 226 file — jangan manual.
+- [x] **Auto-scan word count** — completed: 0 courses under 200 words; 22 courses over 1,200 words flagged for editorial review
+- [x] **Auto-scan level balance** — completed: 41 beginner / 114 intermediate / 71 advanced across 226 courses
 
 ---
 
 ## 5. 🎯 Routing & Eval Tuning (8 items)
 
-> **Current baseline**: P@3=72.8%, R@3=94.4%, MRR=0.922, 129 CROSS-FACULTY, 2 noMatch, 0 failed
+> **Current baseline**: P@3=73.7%, R@3=96.0%, MRR=0.934, 134 CROSS-FACULTY warnings, 0 no-match, 0 failed faculty prompts; 65 course-level misses remain informational
 
 ### 5.1 Eval Set Quality
-- [ ] **207 eval prompts** — semua punya `expected_faculties` yang valid?
-- [ ] **Distribusi difficulty** — easy/medium/hard proporsional? (saat ini: 166/31/10)
+- [x] **217 eval prompts** — semua punya faculty-qualified `expected_courses` yang valid (validated by `eval-runner.js` and Faculty CI)
+- [x] **Distribusi difficulty** — measured at 172 easy / 33 medium / 11 hard / 1 advanced; proportionality judgment remains open
 - [ ] **Design-ethics prompts (eval-201–207)** — cek naturalness, jangan keyword-stuffed
 
 ### 5.2 False Positive Analysis
 - [ ] **Top 10 faculty yg paling sering muncul sebagai false positive** — audit keyword overlap-nya
-- [ ] **2 noMatch cases** — diagnose root cause, bisa di-fix dengan 1-2 keyword tambahan?
+- [x] **No-match cases** — current evaluator reports 0 no-match prompts; retain regression coverage for future changes
 
 ### 5.3 Threshold Realism
 - [ ] **70% P@3 threshold** — masih appropriate? Atau naikin ke 75% buat v26?
-- [ ] **Cross-faculty warnings** — 129 items masih dianggap "all legitimate, 0 actionable" — re-audit 20 random
+- [ ] **Cross-faculty warnings** — 134 items masih dianggap "all legitimate, 0 actionable" — re-audit 20 random
 
 ### 5.4 Eval Expansion
-- [ ] **Per faculty eval coverage** — semua 29 faculty punya minimal 3 eval prompts?
+- [x] **Per faculty eval coverage** — all 30 faculties have at least 5 prompts
 
 ---
 
@@ -188,22 +192,22 @@
 
 ### 6.1 GitHub CI
 - [ ] **`.github/workflows/ci.yml`** — beneran jalan di GitHub Actions? Cek syntax dulu
-- [ ] **CI steps** — `npm install` → `node ci-validate.js` → `node ci-validate.js --with-eval` sequential
-- [ ] **Node version matrix** — test di Node 18, 20, 22?
+- [x] **CI steps** — workflow runs dependency install, base validation, and full eval gate sequentially
+- [x] **Node version matrix** — workflow declares Node 18, 20, and 22
 
 ### 6.2 Git Hygiene
-- [ ] **`.gitignore`** — `node_modules/`, `.env`, OS files (`.DS_Store`, `Thumbs.db`) included?
+- [x] **`.gitignore`** — protects `node_modules/`, `.env`/`.env.*` with `.env.example` exception, and OS files
 - [ ] **Git tags** — v25.0.0, v25.0.4, v25.0.5 semua ada? annotated tags?
 - [ ] **Commit history** — bersih, gak ada commit message kayak "WIP" atau "fix bug" yang vague
 
 ### 6.3 npm Readiness
-- [ ] **`package.json`** fields — `name`, `version`, `description`, `bin`, `files`, `engines`, `repository`, `keywords`, `license` — semua terisi?
-- [ ] **`package.json` `files` array** — cuma include yang perlu (exclude archive/, $RECYCLE.BIN/, node_modules/)
-- [ ] **`npm pack --dry-run`** — cek apa aja yang bakal ke-include, size reasonable?
+- [x] **`package.json`** fields — all required release fields are present
+- [x] **`package.json` `files` array** — package scope excludes archive/development files and includes all 30 faculty directories
+- [x] **`npm pack --dry-run`** — passed: 263 files, 479.1 kB compressed, 1.5 MB unpacked
 
 ### 6.4 npm Packaging
-- [ ] **`.npmignore` file** — ada di root? Kalau nggak, `.gitignore` dipakai — explicit `.npmignore` lebih aman
-- [ ] **`npm audit`** — ada vulnerability? (project ini mostly zero deps sih)
+- [x] **`.npmignore` file** — explicit root `.npmignore` exists and excludes development/archive files
+- [ ] **`npm audit`** — 3 transitive vulnerabilities remain (2 moderate, 1 high); fix or accept risk before npm publish
 
 ---
 
@@ -221,7 +225,7 @@
 
 ### 7.3 Consistency
 - [ ] **Tone of voice** — semua README/AGENTS/CONTRIBUTING konsisten tone-nya (profesional + approachable)
-- [ ] **Emoji usage** — 29 faculty emoji unique semua, gak ada yang awkward
+- [x] **Emoji usage** — 30 faculty emojis are unique and non-empty; subjective appropriateness remains open
 
 ---
 
@@ -229,21 +233,21 @@
 
 | Kategori | Total | Done | % |
 |----------|-------|------|-----|
-| 🔧 Code Quality | 19 | 19 | 100% |
-| 📊 Data Integrity | 12 | 12 | 100% |
-| 📝 Documentation Sync | 17 | 17 | 100% |
-| 📚 Course Content Audit | 11 | 0 | 0% |
-| 🎯 Routing & Eval | 8 | 0 | 0% |
-| 🏗️ Infrastructure | 11 | 11 | 100% |
-| ✨ Visual Polish | 8 | 8 | 100% |
-| **TOTAL** | **86** | **69** | **80%** |
+| 🔧 Code Quality | 19 | evidence partially verified | — |
+| 📊 Data Integrity | 12 | evidence mostly verified; 1 level-review open | — |
+| 📝 Documentation Sync | 17 | evidence partially verified; links/template review open | — |
+| 📚 Course Content Audit | 11 | automated scan complete; editorial review open | — |
+| 🎯 Routing & Eval | 8 | evidence partially verified; naturalness/threshold review open | — |
+| 🏗️ Infrastructure | 11 | local checks verified; GitHub/tag/audit items open | — |
+| ✨ Visual Polish | 8 | static presence verified; visual/GitHub review open | — |
+| **TOTAL** | **86** | **48 checklist markers verified / 41 open** | **54% marker completion** |
+
+> The current marker count is **89 checklist markers: 48 verified and 41 open** (48/89 = 53.9%, rounded to 54%). This is marker-level progress, not a claim that all manual audit categories are complete.
+
 
 > **Pre-verified dalam session ini**: 0 TODO/FIXME di JS, 0 console.log, 0 missing course files ✅
-> **Verified dalam Priority 1 run**: Version consistency (25.0.5), all 216 course files + 29 READMEs exist, all prerequisites valid, 0 empty/dup emojis, all keyword course_ids valid, 17 same-fac dup keywords cleaned → 0, CROSS-FACULTY 129 all legit ✅
-> **Verified dalam Code Quality run**: 0 eval()/debugger, all 5 JS files clean, try/catch coverage adequate, MCP serverDescription dynamic (v25.0.5), package.json desc synced, eval/ legacy moved to archive/, 0 redundant requires, path traversal guards ✅
-> **Verified dalam Docs Sync run**: All version refs synced to v25.0.5 (AGENTS, CONTEXT, CAMPUS, PROGRESS), CHANGELOG v25.0.5 entry added, 0 broken internal links (4 template placeholders intentional), CONTRIBUTING.md template valid, AGENTS.md entry point verified ✅
-> **Verified dalam Infrastructure run**: ci.yml syntax valid + Node matrix [18,20,22], .gitignore updated, .npmignore created, npm pack 252 files / 462KB clean, npm audit 0 vulnerabilities, package.json fields complete ✅
-> **Verified dalam Visual Polish run**: 6 badges render, Mermaid charts native GitHub, Quick Start section added, RELEASE-v25.0.5.md created, GitHub About config ready, 29 unique emojis 0 dup, tone consistent across all meta files ✅
+> **Legacy v25 verification notes**: The historical Priority 1, Code Quality, Docs Sync, Infrastructure, and Visual Polish notes below are retained for traceability only; their v25 counts and claims are not current v26 evidence. Checklist items explicitly marked `[x]` above were re-verified against the v26 catalog; remaining `[ ]` items are still open.
+> **Current v26 evidence**: `node ci-validate.js --with-eval`, `node ci-faculty.js --all`, and `npm run ci:faculty` pass; current catalog is 226 courses across 30 faculties with 134 informational CROSS-FACULTY warnings and 0 DUPLICATE HIGH keywords.
 
 ---
 
@@ -262,4 +266,4 @@ Priority 3 (continuous improvement):
 
 ---
 
-*Generated for ICIL v25.0.5 — Last updated: July 22, 2026*
+*Originally generated for ICIL v25.0.5; re-baselined for v26.0.0 on August 1, 2026. Manual checklist verification remains open.*

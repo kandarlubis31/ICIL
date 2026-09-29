@@ -1,0 +1,190 @@
+{
+  "faculty": "testing-qa",
+  "catalogVersion": "26.0.0",
+  "reviewedAt": "2026-08-01",
+  "researchCutoff": "2026-08-01",
+  "auditor": "ICIL audit batch",
+  "method": "Risk-first review against ISTQB, Martin Fowler, Testing Library, Vitest, OWASP API Security, Playwright, Grafana k6, GitHub Actions, Stryker, and DORA documentation. No course rewrite was performed.",
+  "facultyFindings": [
+    "The faculty gives a practical testing progression, but several numeric targets are presented as universal rules even though appropriate values depend on architecture, risk, workload, team size, and product context.",
+    "Tool-specific examples use Jest, Vitest, Testing Library, Supertest, Playwright, k6, GitHub Actions, and Stryker without consistently declaring versions, configuration prerequisites, environment isolation, or operational limits.",
+    "The test pyramid should be treated as a heuristic rather than a fixed ratio; modern component, contract, integration, and browser testing boundaries vary by system.",
+    "CI and load-test guidance needs stronger safety controls around flaky-test retries/skips, test data isolation, external services, runner cost, production-like environments, and sensitive artifacts."
+  ],
+  "courses": [
+    {
+      "course": "testing-qa/01",
+      "status": "needs_update",
+      "sourceTier": ["primary", "expert_secondary"],
+      "sources": [
+        {"name": "ISTQB CTFL v4.0", "url": "https://istqb.org/certifications/certified-tester-foundation-level-ctfl-v4-0/"},
+        {"name": "Martin Fowler — The Practical Test Pyramid", "url": "https://martinfowler.com/articles/practical-test-pyramid.html"}
+      ],
+      "findings": [
+        "The pyramid's qualitative cost/speed trade-off is useful, but the 70% unit, 20% integration, 10% E2E checklist is an unsupported fixed ratio; test distribution should follow risk, architecture, and feedback needs.",
+        "The statement that an inverted pyramid is a disaster is too absolute; a system may intentionally use more higher-level tests when component boundaries or domain risk require them, although cost and feedback trade-offs remain.",
+        "The test-quality table's <100ms unit and <2s integration limits are project budgets, not general definitions of a good test.",
+        "The TDD example is pedagogically useful, but TDD is a development approach rather than a requirement for every codebase or feature, and testing principles should also cover exploratory and non-functional testing.",
+        "The recommendation to run npm test before every commit assumes a project script and may create developer friction; fast local checks and full CI suites should be distinguished."
+      ],
+      "actions": [
+        "replace the fixed pyramid ratio with risk- and feedback-based guidance",
+        "label speed targets as illustrative budgets",
+        "qualify TDD/BDD as context-dependent approaches",
+        "add core testing principles such as exhaustive testing being impossible and testing showing defect presence",
+        "separate fast pre-commit checks from full CI execution"
+      ],
+      "routingImpact": "inspect"
+    },
+    {
+      "course": "testing-qa/02",
+      "status": "needs_update",
+      "sourceTier": ["primary", "expert_secondary"],
+      "sources": [
+        {"name": "Testing Library — Guiding Principles", "url": "https://testing-library.com/docs/guiding-principles/"},
+        {"name": "Vitest — Guide", "url": "https://vitest.dev/guide/"},
+        {"name": "Martin Fowler — Test Doubles", "url": "https://martinfowler.com/articles/mocksArentStubs.html"}
+      ],
+      "findings": [
+        "The behavior-focused component-testing guidance aligns with Testing Library principles, but the example uses vi.fn without naming Vitest configuration, globals, or an alternative for Jest users.",
+        "The fixed ≥80% line and 100% critical-branch coverage targets are policy examples, not universal quality thresholds; coverage measures execution, not correctness or risk coverage.",
+        "The <5-second entire unit suite target is not portable across repository size, CI hardware, parallelism, or test type; it should be a measured feedback objective.",
+        "The rule 'mock external APIs, never call real services' is sound for unit tests but should distinguish unit isolation from integration/contract tests that deliberately exercise controlled real boundaries.",
+        "The one-assertion-per-test anti-pattern is too categorical; a cohesive behavior may reasonably have multiple related assertions."
+      ],
+      "actions": [
+        "declare Vitest/Jest setup assumptions and versions for code examples",
+        "reframe coverage and suite-time numbers as risk-based project budgets",
+        "distinguish unit mocks from integration and contract-test boundaries",
+        "replace one-assertion language with cohesive-behavior guidance",
+        "add accessible user-facing query guidance for component tests"
+      ],
+      "routingImpact": "inspect"
+    },
+    {
+      "course": "testing-qa/03",
+      "status": "needs_update",
+      "sourceTier": ["primary", "expert_secondary"],
+      "sources": [
+        {"name": "OWASP API Security Project", "url": "https://owasp.org/API-Security/"},
+        {"name": "Pact — Contract Testing Documentation", "url": "https://docs.pact.io/"},
+        {"name": "Martin Fowler — Consumer-Driven Contracts", "url": "https://martinfowler.com/articles/consumerDrivenContracts.html"}
+      ],
+      "findings": [
+        "The integration examples are useful, but the Supertest/ORM/database stack is implicit and should name the framework, database engine, and test-runner assumptions.",
+        "The recommendation to use transaction rollback as the preferred test-database strategy is not universal; isolation, connection pooling, background workers, DDL, and parallel tests can escape or conflict with the transaction.",
+        "The checklist requiring every endpoint to test 200, 400, 401, 403, 404, and 500 creates a fixed matrix that may be inappropriate for endpoints whose valid states differ; behavior and threat-model coverage should drive cases.",
+        "The in-memory SQLite option is not equivalent to a production PostgreSQL/MySQL/other engine and can hide dialect, locking, constraint, and query-plan differences; realistic engine validation is needed at an appropriate layer.",
+        "The course should include contract testing and API authorization cases such as broken object-level authorization, not only status-code and happy-path assertions."
+      ],
+      "actions": [
+        "scope examples to declared framework, ORM, database, and runner versions",
+        "compare rollback, isolated schemas/databases, containers, and cleanup strategies",
+        "replace fixed status-code coverage with endpoint-specific behavior and threat-model cases",
+        "warn that in-memory databases are not production-engine substitutes",
+        "add contract-testing and OWASP API authorization guidance"
+      ],
+      "routingImpact": "regression-required"
+    },
+    {
+      "course": "testing-qa/04",
+      "status": "needs_update",
+      "sourceTier": ["primary"],
+      "sources": [
+        {"name": "Playwright — Best Practices", "url": "https://playwright.dev/docs/best-practices"},
+        {"name": "Playwright — Test Retries", "url": "https://playwright.dev/docs/test-retries"},
+        {"name": "Cypress — Best Practices", "url": "https://docs.cypress.io/app/core-concepts/best-practices"}
+      ],
+      "findings": [
+        "The statement that Playwright dominates in 2026 and is faster/more reliable/better than Cypress or Selenium is a time-sensitive, unsupported comparative claim; tool choice depends on browser coverage, team skills, architecture, and constraints.",
+        "The selector priority incorrectly presents data-testid as universally best; Playwright guidance generally favors user-facing roles, labels, and test IDs when appropriate, with locator choice based on user contract and stability.",
+        "The payment example uses test card data and production-looking checkout behavior without explicitly requiring a sandbox, isolated test account, and third-party payment mocking or test mode.",
+        "Retries can conceal flakiness if treated as a fix; the course needs distinction between retry diagnostics, quarantine policy, and root-cause remediation.",
+        "Cached storageState can leak mutable account state between workers or tests; account isolation, expiry, and cleanup requirements are missing."
+      ],
+      "actions": [
+        "replace the dated tool dominance claim with criteria-based tool selection",
+        "prioritize accessible/user-facing locators and scope test IDs appropriately",
+        "mark payment flows as sandbox-only with isolated data and third-party boundaries",
+        "treat retries as diagnostic/safety mechanisms, not flaky-test fixes",
+        "add worker-safe authentication state, account isolation, and teardown guidance"
+      ],
+      "routingImpact": "regression-required"
+    },
+    {
+      "course": "testing-qa/05",
+      "status": "needs_update",
+      "sourceTier": ["primary"],
+      "sources": [
+        {"name": "Grafana k6 — Documentation", "url": "https://grafana.com/docs/k6/latest/"},
+        {"name": "Grafana k6 — Thresholds", "url": "https://grafana.com/docs/k6/latest/using-k6/thresholds/"},
+        {"name": "Grafana k6 — Test Types", "url": "https://grafana.com/docs/k6/latest/testing-guides/test-types/"}
+      ],
+      "findings": [
+        "Load testing is valuable, but the claim that it is the only way to catch capacity issues before users do is too absolute; modeling, profiling, observability, and controlled experiments also contribute.",
+        "The 50 VUs, P95<500ms, and error-rate<1% values are illustrative acceptance criteria, not general health thresholds; targets should derive from workload, geography, endpoint mix, and SLOs.",
+        "The recommendation to load test before every major release needs authorization, environment isolation, downstream dependency controls, data cleanup, rate-limit protection, and cost safeguards.",
+        "The example targets a live-looking API URL and lacks explicit prohibition against unapproved production testing or third-party side effects.",
+        "The course should distinguish open/closed traffic models, test repetition, warm-up, confidence/variance, and representative workload design rather than treating one scenario as capacity evidence."
+      ],
+      "actions": [
+        "label VU, percentile, and error thresholds as example SLOs",
+        "add an explicit authorization and isolated-environment load-test gate",
+        "protect downstream services and test data from side effects",
+        "add workload-model, warm-up, repetition, variance, and result-interpretation guidance",
+        "replace the claim that load testing is the only capacity method with a broader measurement workflow"
+      ],
+      "routingImpact": "regression-required"
+    },
+    {
+      "course": "testing-qa/06",
+      "status": "needs_update",
+      "sourceTier": ["primary"],
+      "sources": [
+        {"name": "GitHub Actions Documentation", "url": "https://docs.github.com/en/actions"},
+        {"name": "Playwright — Continuous Integration", "url": "https://playwright.dev/docs/ci"},
+        {"name": "Playwright — Test Retries", "url": "https://playwright.dev/docs/test-retries"}
+      ],
+      "findings": [
+        "The workflow is a useful template, but action versions, Node/runtime behavior, permissions, caching, artifact retention, and runner images are version- and repository-policy-sensitive.",
+        "The statement that tests only run on developer machines are useless is too absolute; local checks are valuable, while CI provides reproducibility and shared enforcement.",
+        "The example contains a TODO inside test.skip and was correctly flagged by the structural scanner as a placeholder; skipped tests need an owner, issue reference, expiry/review policy, and visibility.",
+        "Running the full lint/typecheck/unit/E2E suite on every push may be costly; path filters, pull-request tiers, nightly suites, matrix builds, and protected-branch gates should be considered.",
+        "Retries, sharding, and uploaded artifacts need safeguards against masking failures, nondeterministic ordering, secret leakage, and excessive CI cost."
+      ],
+      "actions": [
+        "pin and periodically review action/runtime versions and permissions",
+        "replace the TODO/skip example with an explicit quarantine policy and tracking reference",
+        "distinguish local feedback from CI enforcement",
+        "add cost-aware pipeline tiers, path filters, matrix/shard strategy, and protected gates",
+        "document retry, artifact privacy, retention, and failure-triage rules"
+      ],
+      "routingImpact": "regression-required"
+    },
+    {
+      "course": "testing-qa/07",
+      "status": "needs_update",
+      "sourceTier": ["primary", "expert_secondary"],
+      "sources": [
+        {"name": "DORA — Four Keys / Metrics", "url": "https://dora.dev/guides/dora-metrics-four-keys/"},
+        {"name": "Stryker Mutator Documentation", "url": "https://stryker-mutator.io/docs/"},
+        {"name": "ISTQB CTFL v4.0", "url": "https://istqb.org/certifications/certified-tester-foundation-level-ctfl-v4-0/"}
+      ],
+      "findings": [
+        "Coverage, mutation, flakiness, and escaped-bug metrics can inform quality, but the table's universal targets (80%, 75%, 60%, <1%, <10%) are unsupported without product and risk context.",
+        "The opening claim that quality is measurable is incomplete; quantitative signals complement qualitative review, exploratory testing, usability, security, and production evidence rather than replacing them.",
+        "Running Stryker monthly across an entire codebase may be expensive and should be scoped to critical modules, changed code, scheduled jobs, or sampled campaigns.",
+        "Flakiness and escape-rate denominators, time windows, test retries, severity weighting, and detection boundaries are not defined, so values cannot yet be compared reliably.",
+        "The course should include DORA delivery/stability metrics carefully and warn against Goodhart effects such as adding meaningless assertions to hit coverage targets."
+      ],
+      "actions": [
+        "replace universal thresholds with risk-based baselines and trend interpretation",
+        "define metric denominators, windows, severity, and retry treatment",
+        "scope mutation testing by risk, changed code, or scheduled budget",
+        "add qualitative/exploratory/security/production evidence to the quality strategy",
+        "add Goodhart and metric-gaming safeguards plus DORA metric context"
+      ],
+      "routingImpact": "regression-required"
+    }
+  ]
+}

@@ -2,7 +2,7 @@
 
 > 🟡 Intermediate | Prereq: 01 | ~9 min
 
-RAG (Retrieval-Augmented Generation) — introduced by Lewis et al. (Meta AI, 2020) — grounds LLM responses in external knowledge, eliminating hallucinations on domain-specific facts. The core pattern behind most production AI applications.
+RAG (Retrieval-Augmented Generation) — introduced by Lewis et al. (Meta AI, 2020) — grounds LLM responses in external knowledge, reducing—but not eliminating—hallucinations on domain-specific facts. The core pattern behind most production AI applications.
 
 ---
 

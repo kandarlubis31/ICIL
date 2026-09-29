@@ -27,4 +27,4 @@ README.md
 
 ---
 
-*Generated: 2026-08-08 · Path: PHP Native\ICIL\ux-psikologi*
+*Generated: 2026-08-08 · Path: nodeJS\ICIL\ux-psikologi*

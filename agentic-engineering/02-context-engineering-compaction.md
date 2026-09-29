@@ -9,7 +9,7 @@
 ## 2.1 The Attention Budget Model
 
 ```
-CONTEXT WINDOW (e.g., 200K tokens)
+CONTEXT WINDOW (illustrative: e.g., 200K tokens)
 ┌────────────────────────────────────────────────┐
 │ System prompt + tools        │  ~5K   FIXED     │
 │ Ambient rules (AGENTS.md)    │  ~2K   FIXED     │
@@ -71,7 +71,7 @@ Fix the flaky login test in auth.test.ts
 - Root cause: race condition — DB connection not awaited (line 42)
 - Fix attempted: added await to getConnection()
 
-## TODO
+## Next Steps
 - [x] Identify root cause
 - [x] Apply fix
 - [ ] Run test 10x to verify
@@ -85,7 +85,7 @@ Fix the flaky login test in auth.test.ts
 ```ts
 function shouldCompact(messages: Message[], tokenCount: number): boolean {
   return (
-    tokenCount > MAX_CONTEXT * 0.7 ||           // approaching limit
+    tokenCount > MAX_CONTEXT * 0.7 ||           // illustrative starting point; tune to workload
     messages.length > 50 ||                      // too many turns
     hasProcessedToolResultsOlderThan(messages, 10) // stale tool data
   );
@@ -123,5 +123,5 @@ Related: `ai-integration/01` (prompt engineering — system prompt is the fixed 
 - [ ] Audit your agent's context: what % is fixed vs growing? Is tool-result bloat > 50%?
 - [ ] Add a scratchpad file for multi-step task state — don't store progress in chat history
 - [ ] Implement JIT loading: give agent search/read tools instead of pre-loading knowledge
-- [ ] Set a compaction trigger at 70% context capacity — prune processed tool results
+- [ ] Set and measure an appropriate compaction threshold (for example, 70% of capacity) — prune processed tool results
 - [ ] Test: run a 20-step task, then inspect final context — is there rot?

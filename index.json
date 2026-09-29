@@ -1,9 +1,9 @@
 {
   "campus": "ICIL — Intelligence Campus Interactive Library",
-  "version": "25.0.7",
+  "version": "27.0.0",
   "language": "en",
-  "description": "ICIL v25.0.0 🏁 — Phase C complete: Faculty #29 Design Ethics & Responsibility (7 courses). 216 courses, 29 faculties, 10 MCP tools. Full audit (199 verified, 18 corrections) + Phase A (10 deepening courses) + Phase B (MCP v3) + Phase C (new faculty). CAMPUS MILESTONE.",
-  "totalCourses": 216,
+  "description": "ICIL v27.0.0 📝 — Faculty #31 Casual & Slang Writing (10 courses). 236 courses, 31 faculties, 10 MCP tools. Jaksel code-switching, abbreviations, gaming lingo, campus slang, reverse wordplay, regional variations, ethical casual writing.",
+  "totalCourses": 236,
   "auto_router": {
     "description": "Auto-detection system for faculties & courses based on user prompts. The AI agent reads this to determine which context to load.",
     "version": "1.0.0",
@@ -970,6 +970,54 @@
               "reason": "'dark patterns' = dark patterns & ethics in UX psychology"
             }
           ]
+        },
+        {
+          "prompt": "Design a governed knowledge base with context routing, provenance, and retrieval regression tests",
+          "triggered": [
+            {
+              "faculty": "knowledge-context",
+              "course_ids": [
+                "01",
+                "03",
+                "05",
+                "06",
+                "07"
+              ],
+              "reason": "'knowledge base' + 'context routing' + 'provenance' + 'retrieval regression' = the knowledge/context engineering path"
+            },
+            {
+              "faculty": "ai-integration",
+              "course_ids": [
+                "02",
+                "03",
+                "05"
+              ],
+              "reason": "'retrieval' + 'regression tests' connects to RAG implementation, embeddings, and LLM evaluation"
+            }
+          ]
+        },
+        {
+          "prompt": "Write casual Indonesian social media copy for a Gen Z audience about our new product launch",
+          "triggered": [
+            {
+              "faculty": "penulisan-gaul",
+              "course_ids": [
+                "01",
+                "02",
+                "04",
+                "08"
+              ],
+              "reason": "'casual Indonesian' + 'Gen Z' + 'social media copy' = foundations + Jaksel code-switching + social media slang + register calibration"
+            },
+            {
+              "faculty": "ux-writing",
+              "course_ids": [
+                "01",
+                "02"
+              ],
+              "reason": "'copy' + 'brand voice' = UX writing basics + voice & tone"
+            }
+          ]
         }
       ]
     },
@@ -1073,6 +1121,18 @@
             ],
             "elegant color": [
               "02",
+              "03"
+            ],
+            "red button": [
+              "03"
+            ],
+            "psychology button color": [
+              "03"
+            ],
+            "red buttons": [
+              "03"
+            ],
+            "psychology of color": [
               "03"
             ]
           },
@@ -1251,6 +1311,10 @@
             ],
             "fitts": [
               "03"
+            ],
+            "user frustration": [
+              "01",
+              "02"
             ]
           },
           "medium": {
@@ -1349,9 +1413,6 @@
             "dark pattern": [
               "06"
             ],
-            "dark patterns": [
-              "06"
-            ],
             "deceptive design": [
               "06"
             ],
@@ -1361,6 +1422,9 @@
             "bounce rate": [
               "01",
               "02"
+            ],
+            "session recordings": [
+              "01"
             ]
           },
           "low": {
@@ -1396,9 +1460,6 @@
               "05",
               "07"
             ],
-            "churn": [
-              "05"
-            ],
             "addictive": [
               "07"
             ],
@@ -1411,6 +1472,9 @@
             "ngurangin bounce": [
               "01",
               "02"
+            ],
+            "dark patterns": [
+              "06"
             ]
           }
         }
@@ -1518,6 +1582,9 @@
             ],
             "onboarding flow": [
               "05"
+            ],
+            "form labels": [
+              "03"
             ]
           },
           "medium": {
@@ -1620,15 +1687,11 @@
             ]
           },
           "low": {
-            "tulisan": "any",
-            "text": "any",
             "teks": "any",
             "pesan": "any",
             "message": "any",
-            "copy": "any",
             "kalimat": "any",
             "kata": "any",
-            "bahasa": "any",
             "language": "any",
             "tone": "any",
             "friendly": [
@@ -1695,9 +1758,6 @@
               "02"
             ],
             "line-height": [
-              "05"
-            ],
-            "leading": [
               "05"
             ],
             "letter-spacing": [
@@ -1841,6 +1901,9 @@
             ],
             "tailwind type": [
               "02"
+            ],
+            "leading": [
+              "05"
             ]
           },
           "low": {
@@ -1880,9 +1943,6 @@
             "font apa": [
               "03"
             ],
-            "cocok": [
-              "03"
-            ],
             "modern font": [
               "01",
               "03"
@@ -1891,10 +1951,6 @@
               "03"
             ],
             "tech font": [
-              "01",
-              "03"
-            ],
-            "mewah": [
               "01",
               "03"
             ],
@@ -1992,9 +2048,6 @@
             "golden spiral": [
               "07"
             ],
-            "responsive": [
-              "05"
-            ],
             "responsive design": [
               "05"
             ],
@@ -2039,6 +2092,12 @@
             ],
             "spacing scale": [
               "07"
+            ],
+            "breaks at 768": [
+              "05"
+            ],
+            "1440px": [
+              "05"
             ]
           },
           "medium": {
@@ -2130,10 +2189,12 @@
             ],
             "mobile-first": [
               "05"
+            ],
+            "responsive": [
+              "05"
             ]
           },
           "low": {
-            "layout": "any",
             "tata letak": "any",
             "susunan": "any",
             "struktur halaman": "any",
@@ -2161,7 +2222,6 @@
             ],
             "spacing": "any",
             "spasi": "any",
-            "gap": "any",
             "jarak": "any",
             "ukuran layar": [
               "05"
@@ -2191,10 +2251,6 @@
             "card layout": [
               "03"
             ],
-            "landing page": [
-              "01",
-              "06"
-            ],
             "hero section": [
               "03",
               "06"
@@ -2208,7 +2264,34 @@
           "color pattern",
           "design pattern (architecture)",
           "coding pattern",
-          "software pattern"
+          "software pattern",
+          "animation tutorial",
+          "haptic feedback",
+          "data viz pattern",
+          "data visualization",
+          "chatbot pattern",
+          "agent pattern",
+          "keyboard accessible",
+          "REST API design",
+          "dialog karakter",
+          "scroll-triggered animation",
+          "scatter plot",
+          "multi-modal",
+          "multi modal",
+          "dialog karakter",
+          "character dialog",
+          "API pagination",
+          "REST API",
+          "skeleton animation",
+          "skeleton loading",
+          "chatbot error",
+          "empty state copy",
+          "empty state text",
+          "game dialog",
+          "narrative dialog",
+          "story dialog",
+          "percakapan karakter",
+          "dialog percakapan"
         ],
         "recommended_courses": [
           "01",
@@ -2220,9 +2303,6 @@
         "keywords": {
           "high": {
             "modal": [
-              "01"
-            ],
-            "dialog": [
               "01"
             ],
             "popup": [
@@ -2317,9 +2397,6 @@
             ],
             "infinite scroll": [
               "05"
-            ],
-            "skeleton": [
-              "06"
             ],
             "spinner": [
               "06"
@@ -2434,6 +2511,21 @@
             ],
             "feedback states": [
               "06"
+            ],
+            "loan application form": [
+              "02"
+            ],
+            "application form": [
+              "02"
+            ],
+            "autocomplete e-commerce": [
+              "04"
+            ],
+            "faceted search e-commerce": [
+              "04"
+            ],
+            "autocomplete with faceted": [
+              "04"
             ]
           },
           "medium": {
@@ -2543,9 +2635,6 @@
             "error state": [
               "06"
             ],
-            "error recovery": [
-              "06"
-            ],
             "multi-select": [
               "07"
             ],
@@ -2568,12 +2657,6 @@
             "bottom navigation": [
               "03"
             ],
-            "faceted search": [
-              "04"
-            ],
-            "skeleton screen": [
-              "06"
-            ],
             "onboarding flow": [
               "06"
             ],
@@ -2589,6 +2672,12 @@
             ],
             "input": [
               "07"
+            ],
+            "mobile form": [
+              "02"
+            ],
+            "dialog": [
+              "01"
             ]
           },
           "low": {
@@ -2599,7 +2688,6 @@
             "elemen ui": "any",
             "widget": "any",
             "tap": "any",
-            "hover": "any",
             "keyboard": "any",
             "tab": "any",
             "feedback": [
@@ -2608,15 +2696,24 @@
             "status": [
               "06"
             ],
-            "state": [
-              "06"
+            "swipe": [
+              "01"
             ],
-            "scroll": "any",
-            "swipe": "any",
-            "gesture": "any",
+            "gesture": [
+              "01"
+            ],
             "bikin ui": "any",
             "buat interface": "any",
-            "design ui": "any"
+            "design ui": "any",
+            "skeleton screen": [
+              "06"
+            ],
+            "skeleton": [
+              "06"
+            ],
+            "error recovery": [
+              "06"
+            ]
           }
         }
       },
@@ -2788,9 +2885,6 @@
             "spring animation": [
               "02"
             ],
-            "bounce": [
-              "02"
-            ],
             "intersection observer": [
               "06"
             ],
@@ -2847,18 +2941,11 @@
             "fluid": [
               "02"
             ],
-            "slide": [
-              "05",
-              "06"
-            ],
             "fade": [
               "03"
             ],
             "scale": [
               "03"
-            ],
-            "loading": [
-              "07"
             ],
             "loading screen": [
               "07"
@@ -2892,6 +2979,9 @@
             ],
             "placeholder animation": [
               "07"
+            ],
+            "bounce": [
+              "02"
             ]
           }
         }
@@ -2954,9 +3044,6 @@
             ],
             "style guide": [
               "05"
-            ],
-            "brand voice": [
-              "04"
             ],
             "brand touchpoints": [
               "06"
@@ -3029,13 +3116,18 @@
             ],
             "value pillars": [
               "04"
+            ],
+            "sub-brand": [
+              "02"
+            ],
+            "sub brand": [
+              "02"
+            ],
+            "white label": [
+              "06"
             ]
           },
           "medium": {
-            "brand": [
-              "01",
-              "02"
-            ],
             "branding": [
               "01",
               "02"
@@ -3138,9 +3230,6 @@
               "01",
               "04"
             ],
-            "service blueprint": [
-              "06"
-            ],
             "customer journey": [
               "06"
             ],
@@ -3150,10 +3239,13 @@
             "wow moment": [
               "06"
             ],
-            "voice and tone": [
+            "tone of voice": [
               "04"
             ],
-            "tone of voice": [
+            "white-label": [
+              "06"
+            ],
+            "brand voice": [
               "04"
             ]
           },
@@ -3187,6 +3279,16 @@
             ],
             "credibility": [
               "07"
+            ],
+            "brand": [
+              "01",
+              "02"
+            ],
+            "voice and tone": [
+              "04"
+            ],
+            "service blueprint": [
+              "06"
             ]
           }
         }
@@ -3353,9 +3455,6 @@
             "accessible error": [
               "05"
             ],
-            "autocomplete": [
-              "05"
-            ],
             "cognitive accessibility": [
               "07"
             ],
@@ -3381,9 +3480,6 @@
               "07"
             ],
             "seizure": [
-              "07"
-            ],
-            "captions": [
               "07"
             ],
             "audio description": [
@@ -3516,9 +3612,6 @@
             "dyslexia": [
               "07"
             ],
-            "ADHD": [
-              "07"
-            ],
             "cognitive disability": [
               "07"
             ],
@@ -3528,10 +3621,6 @@
             ],
             "4.5:1": [
               "01"
-            ],
-            "color contrast": [
-              "01",
-              "07"
             ],
             "gesture alternative": [
               "07"
@@ -3543,10 +3632,6 @@
               "07"
             ],
             "undo": [
-              "07"
-            ],
-            "error recovery": [
-              "05",
               "07"
             ],
             "video accessibility": [
@@ -3576,7 +3661,10 @@
             "touch target": [
               "02"
             ],
-            "inclusive design": [
+            "autocomplete": [
+              "05"
+            ],
+            "captions": [
               "07"
             ]
           },
@@ -3594,9 +3682,6 @@
             "ramah difabel": "any",
             "accessible web": "any",
             "web accessible": "any",
-            "tab": [
-              "04"
-            ],
             "keyboard": [
               "04"
             ],
@@ -3618,6 +3703,20 @@
             "inclusive": "any",
             "inklusif": "any",
             "universal design": [
+              "07"
+            ],
+            "error recovery": [
+              "05",
+              "07"
+            ],
+            "color contrast": [
+              "01",
+              "07"
+            ],
+            "ADHD": [
+              "07"
+            ],
+            "inclusive design": [
               "07"
             ]
           }
@@ -3652,7 +3751,25 @@
           "booking experience",
           "appointment experience",
           "practice design",
-          "choice architecture"
+          "choice architecture",
+          "code optimization",
+          "query optimization",
+          "database performance",
+          "server performance",
+          "network optimization",
+          "CSS optimization",
+          "JavaScript performance",
+          "React performance",
+          "frontend performance",
+          "performance audit",
+          "security audit",
+          "code audit",
+          "regression test",
+          "retrieval regression",
+          "LLM evaluate",
+          "model evaluate",
+          "agent evaluate",
+          "evaluation metrics"
         ],
         "recommended_courses": [
           "01",
@@ -3845,6 +3962,12 @@
             ],
             "project improvement": [
               "01"
+            ],
+            "legacy codebase": [
+              "05"
+            ],
+            "where do I start design system": [
+              "05"
             ]
           },
           "medium": {
@@ -3863,13 +3986,6 @@
             "tingkatkan": [
               "01",
               "02"
-            ],
-            "audit": [
-              "02"
-            ],
-            "evaluate": [
-              "02",
-              "03"
             ],
             "evaluasi": [
               "02",
@@ -3892,10 +4008,6 @@
             ],
             "incremental": [
               "06"
-            ],
-            "optimize": [
-              "01",
-              "02"
             ],
             "enhance": [
               "01",
@@ -3986,15 +4098,17 @@
             ],
             "nielsen heuristics": [
               "03"
+            ],
+            "extract design system": [
+              "05"
+            ],
+            "extract from legacy": [
+              "05"
             ]
           },
           "low": {
             "ICE": [
               "04"
-            ],
-            "review": [
-              "02",
-              "03"
             ],
             "cek": [
               "02"
@@ -4011,9 +4125,15 @@
             "tidy": [
               "05"
             ],
-            "make it better": "any",
-            "jadi lebih bagus": "any",
-            "lebih baik": "any",
+            "make it better": [
+              "01"
+            ],
+            "jadi lebih bagus": [
+              "01"
+            ],
+            "lebih baik": [
+              "01"
+            ],
             "sesuai mas aul": [
               "01",
               "07"
@@ -4026,14 +4146,22 @@
               "01",
               "07"
             ],
-            "design system": [
-              "05"
-            ],
             "bounce rate": [
               "01"
             ],
             "good design": [
               "01"
+            ],
+            "audit": [
+              "02"
+            ],
+            "evaluate": [
+              "02",
+              "03"
+            ],
+            "optimize": [
+              "01",
+              "02"
             ]
           }
         }
@@ -4045,7 +4173,21 @@
           "klinis",
           "clinical psychology",
           "cognitive computing",
-          "machine learning"
+          "machine learning",
+          "design thinking",
+          "design process",
+          "UX design",
+          "UI design",
+          "brand strategy",
+          "code logic",
+          "API architecture",
+          "database schema",
+          "color psychology",
+          "UX psychology",
+          "UX law",
+          "design psychology",
+          "strategic thinking framework",
+          "design thinking process"
         ],
         "recommended_courses": [
           "01",
@@ -4270,6 +4412,15 @@
             ],
             "emosi dan kognisi": [
               "07"
+            ],
+            "perception of motion": [
+              "03"
+            ],
+            "motion perception": [
+              "03"
+            ],
+            "animation timing": [
+              "03"
             ]
           },
           "medium": {
@@ -4352,9 +4503,6 @@
             "eye tracking": [
               "03"
             ],
-            "memory": [
-              "04"
-            ],
             "chunking": [
               "04"
             ],
@@ -4386,9 +4534,6 @@
               "05"
             ],
             "representativeness": [
-              "05"
-            ],
-            "anchoring": [
               "05"
             ],
             "gigerenzer": [
@@ -4513,9 +4658,7 @@
             "neural": "any",
             "mind": "any",
             "pikiran": "any",
-            "thinking": "any",
             "berpikir": "any",
-            "psychology": "any",
             "psikologi": "any",
             "thought": "any",
             "reasoning": "any",
@@ -4553,7 +4696,13 @@
             "overlook": [
               "03"
             ],
-            "decision making": "any"
+            "decision making": "any",
+            "anchoring": [
+              "05"
+            ],
+            "memory": [
+              "04"
+            ]
           }
         }
       },
@@ -4689,12 +4838,15 @@
             ],
             "mobile gaming": [
               "01"
+            ],
+            "onboarding flow teach": [
+              "05"
+            ],
+            "teach users": [
+              "05"
             ]
           },
           "medium": {
-            "mobile": [
-              "01"
-            ],
             "phone UX": [
               "01"
             ],
@@ -4808,6 +4960,9 @@
             ],
             "hamburger menu": [
               "03"
+            ],
+            "onboarding flow": [
+              "01"
             ]
           },
           "low": {
@@ -4828,7 +4983,10 @@
             "touchscreen": "any",
             "layar sentuh": "any",
             "mobile friendly": "any",
-            "mobile optimized": "any"
+            "mobile optimized": "any",
+            "mobile": [
+              "01"
+            ]
           }
         }
       },
@@ -4996,6 +5154,12 @@
             ],
             "data story": [
               "06"
+            ],
+            "data visualizations accessible": [
+              "07"
+            ],
+            "color in charts": [
+              "03"
             ]
           },
           "medium": {
@@ -5003,16 +5167,9 @@
               "01",
               "02"
             ],
-            "graph": [
-              "01",
-              "02"
-            ],
             "plot": [
               "01",
               "02"
-            ],
-            "dashboard": [
-              "04"
             ],
             "dasbor": [
               "04"
@@ -5150,7 +5307,6 @@
             "metric": "any",
             "statistics": "any",
             "statistical": "any",
-            "report": "any",
             "analytics": "any",
             "axis": [
               "01"
@@ -5161,9 +5317,6 @@
             ],
             "gridline": [
               "01"
-            ],
-            "table": [
-              "02"
             ],
             "spreadsheet": [
               "02"
@@ -5186,6 +5339,13 @@
               "04"
             ],
             "small multiples": [
+              "01",
+              "02"
+            ],
+            "dashboard": [
+              "04"
+            ],
+            "graph": [
               "01",
               "02"
             ]
@@ -5343,12 +5503,27 @@
             ],
             "design maturity model": [
               "01"
+            ],
+            "extract design system": [
+              "05"
+            ],
+            "legacy design": [
+              "05"
+            ],
+            "extract from legacy": [
+              "05"
+            ],
+            "design system from codebase": [
+              "05"
+            ],
+            "extract from codebase": [
+              "05"
+            ],
+            "legacy codebase design": [
+              "05"
             ]
           },
           "medium": {
-            "tokens": [
-              "02"
-            ],
             "token": [
               "02"
             ],
@@ -5372,9 +5547,6 @@
               "04"
             ],
             "governance": [
-              "05"
-            ],
-            "versioning": [
               "05"
             ],
             "semver": [
@@ -5497,8 +5669,11 @@
             "design system npm": [
               "03"
             ],
-            "component": [
-              "03"
+            "versioning": [
+              "05"
+            ],
+            "tokens": [
+              "02"
             ]
           }
         }
@@ -5509,7 +5684,29 @@
           "english conversation",
           "chat room",
           "forum",
-          "discussion board"
+          "discussion board",
+          "dialog karakter",
+          "character dialog",
+          "UI component",
+          "button label",
+          "form input",
+          "grid layout",
+          "color system",
+          "typography scale",
+          "design pattern catalog",
+          "data table",
+          "modal popup",
+          "tooltip hover",
+          "brand voice",
+          "brand tone",
+          "voice and tone",
+          "tone of voice",
+          "story dialog",
+          "game dialog",
+          "narrative dialog",
+          "modal dialog",
+          "dialog box",
+          "accessibility dialog"
         ],
         "recommended_courses": [
           "01",
@@ -5528,10 +5725,6 @@
             ],
             "conversation design": [
               "01"
-            ],
-            "chatbot": [
-              "01",
-              "03"
             ],
             "chat bot": [
               "01",
@@ -5706,9 +5899,6 @@
             "conversation flow": [
               "01"
             ],
-            "dialog": [
-              "01"
-            ],
             "greeting bot": [
               "03"
             ],
@@ -5730,9 +5920,6 @@
             ],
             "confirmation voice": [
               "04"
-            ],
-            "escalation": [
-              "05"
             ],
             "out-of-scope": [
               "05"
@@ -5767,20 +5954,30 @@
             "progressive disclosure voice": [
               "07"
             ],
-            "multi-modal": [
-              "07"
-            ],
             "human handoff": [
               "05"
             ],
             "agent memory": [
               "08"
+            ],
+            "chatbot": [
+              "01",
+              "03"
             ]
           },
           "low": {
             "conversation": "any",
             "bot": "any",
-            "natural language": "any"
+            "natural language": "any",
+            "multi-modal": [
+              "07"
+            ],
+            "escalation": [
+              "05"
+            ],
+            "dialog": [
+              "01"
+            ]
           }
         }
       },
@@ -5790,7 +5987,8 @@
           "game design strategy",
           "military strategy",
           "war strategy",
-          "chess strategy"
+          "chess strategy",
+          "budget-aware planning"
         ],
         "recommended_courses": [
           "01",
@@ -5844,6 +6042,12 @@
               "03"
             ],
             "outcome over output": [
+              "03"
+            ],
+            "product outcomes": [
+              "03"
+            ],
+            "outcomes vs outputs": [
               "03"
             ],
             "product-market fit": [
@@ -5918,6 +6122,9 @@
             "frame the right problem": [
               "02"
             ],
+            "solving the right problem": [
+              "02"
+            ],
             "strategy to execution": [
               "07"
             ]
@@ -5927,9 +6134,6 @@
               "01"
             ],
             "empathy mapping": [
-              "01"
-            ],
-            "prototype": [
               "01"
             ],
             "discover define": [
@@ -6023,23 +6227,12 @@
               "05",
               "06"
             ],
-            "strategy": [
-              "03",
-              "07"
-            ],
             "strategic": [
               "01",
               "03"
             ],
             "planning": [
               "04"
-            ],
-            "prioritize": [
-              "04"
-            ],
-            "validate": [
-              "01",
-              "02"
             ]
           },
           "low": {
@@ -6047,6 +6240,20 @@
             "bikin rencana": "any",
             "rencana strategis": "any",
             "good design": [
+              "01"
+            ],
+            "strategy": [
+              "03",
+              "07"
+            ],
+            "prioritize": [
+              "04"
+            ],
+            "validate": [
+              "01",
+              "02"
+            ],
+            "prototype": [
               "01"
             ]
           }
@@ -6204,9 +6411,6 @@
             ]
           },
           "medium": {
-            "service": [
-              "01"
-            ],
             "blueprint": [
               "02"
             ],
@@ -6216,14 +6420,6 @@
             ],
             "pain point service": [
               "03"
-            ],
-            "end-to-end": [
-              "01",
-              "03"
-            ],
-            "E2E": [
-              "01",
-              "02"
             ],
             "stakeholder": [
               "04"
@@ -6323,7 +6519,6 @@
             ]
           },
           "low": {
-            "orchestrate": "any",
             "orchestration": "any",
             "ecosystem": "any",
             "holistic": "any",
@@ -6351,14 +6546,35 @@
             "test service": [
               "06"
             ],
-            "CES": "any"
+            "CES": "any",
+            "E2E": [
+              "01",
+              "02"
+            ],
+            "end-to-end": [
+              "01",
+              "03"
+            ],
+            "service": [
+              "01"
+            ]
           }
         }
       },
       "software-engineering": {
         "negative_keywords": [
           "software engineering (mechanical)",
-          "CAD software"
+          "CAD software",
+          "agent runtime",
+          "agent orchestration",
+          "AI agent",
+          "IA architecture",
+          "information architecture",
+          "knowledge architecture",
+          "UX architecture",
+          "design architecture",
+          "content architecture",
+          "data architecture"
         ],
         "recommended_courses": [
           "01",
@@ -6382,9 +6598,6 @@
               "02"
             ],
             "API design": [
-              "03"
-            ],
-            "REST": [
               "03"
             ],
             "GraphQL": [
@@ -6516,12 +6729,24 @@
             ],
             "kafka": [
               "09"
+            ],
+            "API design for devs": [
+              "03"
+            ],
+            "server performance": [
+              "01"
+            ],
+            "design an API": [
+              "03"
+            ],
+            "server is slow": [
+              "01"
+            ],
+            "code problem": [
+              "01"
             ]
           },
           "medium": {
-            "architecture": [
-              "02"
-            ],
             "event-driven": [
               "02"
             ],
@@ -6539,9 +6764,6 @@
             ],
             "code smell": [
               "06"
-            ],
-            "DI": [
-              "07"
             ],
             "project structure": [
               "07"
@@ -6561,13 +6783,28 @@
             "maintainable": [
               "01",
               "02"
+            ],
+            "unit test": [
+              "05"
+            ],
+            "mocking": [
+              "05"
+            ],
+            "REST": [
+              "03"
             ]
           },
           "low": {
             "backend": "any",
             "clean architecture": "any",
             "OOP": "any",
-            "code quality": "any"
+            "code quality": "any",
+            "DI": [
+              "07"
+            ],
+            "architecture": [
+              "02"
+            ]
           }
         }
       },
@@ -6593,9 +6830,6 @@
             ],
             "containerization": [
               "02"
-            ],
-            "CI/CD": [
-              "03"
             ],
             "GitHub Actions": [
               "03"
@@ -6626,6 +6860,18 @@
             ],
             "IaC": [
               "07"
+            ],
+            "sistem scalable": [
+              "04"
+            ],
+            "scalable secure": [
+              "04"
+            ],
+            "scalable dan secure": [
+              "04"
+            ],
+            "scalable secure maintainable": [
+              "04"
             ]
           },
           "medium": {
@@ -6666,6 +6912,9 @@
             "resilient": [
               "04",
               "05"
+            ],
+            "CI/CD": [
+              "03"
             ]
           },
           "low": {
@@ -6679,7 +6928,8 @@
       "database-management": {
         "negative_keywords": [
           "database management (marketing)",
-          "CRM database"
+          "CRM database",
+          "budget-aware planning"
         ],
         "recommended_courses": [
           "01",
@@ -6695,9 +6945,6 @@
             ],
             "ERD": [
               "01"
-            ],
-            "SQL": [
-              "02"
             ],
             "window functions": [
               "02"
@@ -6723,9 +6970,6 @@
             "MongoDB": [
               "05"
             ],
-            "Redis": [
-              "05"
-            ],
             "data modeling": [
               "06"
             ],
@@ -6733,6 +6977,21 @@
               "07"
             ],
             "pg_dump": [
+              "07"
+            ],
+            "real-time collaborative": [
+              "02"
+            ],
+            "collaborative whiteboard": [
+              "06"
+            ],
+            "automated backup": [
+              "07"
+            ],
+            "disaster recovery": [
+              "07"
+            ],
+            "production database backup": [
               "07"
             ]
           },
@@ -6763,12 +7022,16 @@
             ],
             "access control": [
               "07"
+            ],
+            "Redis": [
+              "05"
+            ],
+            "SQL": [
+              "02"
             ]
           },
           "low": {
-            "database": "any",
             "schema": "any",
-            "query": "any",
             "data storage": "any",
             "PostgreSQL": "any"
           }
@@ -6777,7 +7040,16 @@
       "ai-integration": {
         "negative_keywords": [
           "AI integration (ERP)",
-          "SAP AI"
+          "SAP AI",
+          "budget-aware planning",
+          "agentic engineering",
+          "multi-agent coordination",
+          "agent runtime",
+          "agent orchestration",
+          "agent protocol",
+          "A2A",
+          "agent marketplace",
+          "agent economics"
         ],
         "recommended_courses": [
           "01",
@@ -7038,10 +7310,7 @@
           "low": {
             "LLM": "any",
             "vector": "any",
-            "orchestration": "any",
-            "agent": [
-              "04"
-            ]
+            "orchestration": "any"
           }
         }
       },
@@ -7219,16 +7488,9 @@
               "01",
               "02"
             ],
-            "injection": [
-              "01",
-              "03"
-            ],
             "password hashing": [
               "02",
               "04"
-            ],
-            "rate limiting": [
-              "03"
             ],
             "input validation": [
               "03"
@@ -7271,7 +7533,14 @@
             "security": "any",
             "vulnerability": "any",
             "hack": "any",
-            "exploit": "any"
+            "exploit": "any",
+            "injection": [
+              "01",
+              "03"
+            ],
+            "rate limiting": [
+              "03"
+            ]
           }
         }
       },
@@ -7336,9 +7605,6 @@
             "load testing": [
               "06"
             ],
-            "k6": [
-              "06"
-            ],
             "flamegraph": [
               "06"
             ],
@@ -7348,9 +7614,17 @@
             "bundle size": [
               "07"
             ],
-            "concurrent users": [
-              "01",
-              "06"
+            "server slow": [
+              "03"
+            ],
+            "slow under load": [
+              "03"
+            ],
+            "database replication": [
+              "04"
+            ],
+            "read-heavy": [
+              "04"
             ]
           },
           "medium": {
@@ -7405,22 +7679,35 @@
             "query optimization": [
               "04"
             ],
-            "EXPLAIN": [
-              "04"
-            ],
             "optimize": [
               "03",
               "04"
             ],
-            "scale": [
-              "03"
+            "k6": [
+              "06"
+            ],
+            "load test": [
+              "06"
+            ],
+            "breaking point": [
+              "06"
+            ],
+            "concurrent users": [
+              "01",
+              "06"
             ]
           },
           "low": {
             "performance": "any",
             "optimization": "any",
             "speed": "any",
-            "latency": "any"
+            "latency": "any",
+            "scale": [
+              "03"
+            ],
+            "EXPLAIN": [
+              "04"
+            ]
           }
         }
       },
@@ -7467,9 +7754,6 @@
             "API testing": [
               "03"
             ],
-            "rest api": [
-              "03"
-            ],
             "edge cases": [
               "03"
             ],
@@ -7506,10 +7790,16 @@
             "mutation testing": [
               "07"
             ],
-            "quality metrics": [
-              "07"
-            ],
             "load test": [
+              "05"
+            ],
+            "k6": [
+              "05"
+            ],
+            "breaking point": [
+              "05"
+            ],
+            "black friday test": [
               "05"
             ]
           },
@@ -7576,10 +7866,15 @@
             ],
             "component test": [
               "02"
+            ],
+            "quality metrics": [
+              "07"
+            ],
+            "rest api": [
+              "03"
             ]
           },
           "low": {
-            "test": "any",
             "coverage": "any",
             "assertion": "any"
           }
@@ -7596,7 +7891,57 @@
           "onboarding flow",
           "user onboarding",
           "onboarding UX",
-          "onboarding UI"
+          "onboarding UI",
+          "chatbot",
+          "conversational ui",
+          "voice ui",
+          "mobile UX",
+          "color palette",
+          "typography font",
+          "accessibility WCAG",
+          "gaming",
+          "UX writing",
+          "UI design",
+          "product design",
+          "design system",
+          "mobile app",
+          "dashboard",
+          "data viz",
+          "brand",
+          "marketing",
+          "content",
+          "social media",
+          "form design",
+          "data display",
+          "navigation pattern",
+          "search UI",
+          "color theory",
+          "layout grid",
+          "animation motion",
+          "typography scale",
+          "brand identity",
+          "mobile touch",
+          "accessibility WCAG",
+          "database SQL",
+          "container Docker",
+          "cloud AWS",
+          "AI prompt",
+          "LLM RAG",
+          "security OWASP",
+          "performance cache",
+          "testing unit",
+          "user research",
+          "user onboarding",
+          "onboarding UX",
+          "onboarding flow",
+          "form label",
+          "accessible form",
+          "REST API endpoint",
+          "API security",
+          "API performance",
+          "API test",
+          "knowledge base docs",
+          "RAG docs"
         ],
         "recommended_courses": [
           "01",
@@ -7699,6 +8044,12 @@
             ],
             "developer errors": [
               "06"
+            ],
+            "API developers love": [
+              "03"
+            ],
+            "useful for devs": [
+              "06"
             ]
           },
           "medium": {
@@ -7718,17 +8069,8 @@
             "sdk": [
               "05"
             ],
-            "docs": [
-              "04"
-            ],
-            "developer": [
-              "01"
-            ],
             "dev experience": [
               "01"
-            ],
-            "onboarding": [
-              "07"
             ],
             "quickstart": [
               "03"
@@ -7762,12 +8104,6 @@
             ],
             "typescript sdk": [
               "05"
-            ],
-            "API": [
-              "03"
-            ],
-            "error messages": [
-              "06"
             ]
           },
           "low": {
@@ -7791,7 +8127,29 @@
           "iowa",
           "i.a.",
           "ia (state)",
-          "internal affairs"
+          "internal affairs",
+          "AI IA",
+          "personalization engine",
+          "recommendation engine",
+          "AI-augmented IA",
+          "semantic IA",
+          "search engine",
+          "search bar UI",
+          "autocomplete input",
+          "filter dropdown",
+          "sort by",
+          "page layout",
+          "website structure",
+          "sitemap generator",
+          "card sorting test",
+          "tree testing UX",
+          "RAG pipeline",
+          "vector embedding",
+          "semantic search engine",
+          "hybrid search",
+          "chatbot search",
+          "AI-powered search",
+          "LLM search"
         ],
         "recommended_courses": [
           "01",
@@ -7811,9 +8169,6 @@
             "latch": [
               "01"
             ],
-            "taxonomy": [
-              "04"
-            ],
             "ontology": [
               "04"
             ],
@@ -7824,9 +8179,6 @@
               "06"
             ],
             "content modeling": [
-              "05"
-            ],
-            "metadata": [
               "05"
             ],
             "schema.org": [
@@ -7843,9 +8195,6 @@
             ],
             "wayfinding": [
               "02"
-            ],
-            "faceted search": [
-              "03"
             ],
             "search system": [
               "03"
@@ -7876,17 +8225,20 @@
             ],
             "headless CMS": [
               "05"
+            ],
+            "500+ pages": [
+              "02"
+            ],
+            "deep hierarchy navigation": [
+              "02"
+            ],
+            "navigation system site": [
+              "02"
             ]
           },
           "medium": {
-            "navigation": [
-              "02"
-            ],
             "breadcrumb": [
               "02"
-            ],
-            "search": [
-              "03"
             ],
             "indexing": [
               "03"
@@ -7949,36 +8301,27 @@
             "full-text search": [
               "03"
             ],
-            "rag": [
-              "07"
-            ],
-            "embedding": [
-              "07"
-            ],
-            "semantic search": [
-              "07"
-            ],
             "content model": [
+              "05"
+            ],
+            "faceted search": [
+              "03"
+            ],
+            "taxonomy": [
+              "04"
+            ],
+            "metadata": [
               "05"
             ]
           },
           "low": {
-            "organize": [
-              "01"
-            ],
             "categorize": [
               "01",
               "04"
             ],
-            "label": [
-              "01"
-            ],
             "findability": [
               "01",
               "03"
-            ],
-            "browse": [
-              "02"
             ],
             "information overload": [
               "01"
@@ -7997,6 +8340,15 @@
             ],
             "authority file": [
               "04"
+            ],
+            "search": [
+              "03"
+            ],
+            "embedding": [
+              "07"
+            ],
+            "semantic search": [
+              "07"
             ]
           }
         }
@@ -8095,6 +8447,9 @@
               "04"
             ],
             "cost-aware planning": [
+              "05"
+            ],
+            "budget-aware planning": [
               "05"
             ],
             "cost per task": [
@@ -8359,16 +8714,8 @@
             "token budget": [
               "05"
             ],
-            "agent": [
-              "01",
-              "04"
-            ],
             "budget cap": [
               "05"
-            ],
-            "agents": [
-              "01",
-              "04"
             ]
           },
           "low": {
@@ -8391,6 +8738,14 @@
             ],
             "agent rollback": [
               "07"
+            ],
+            "agent": [
+              "01",
+              "04"
+            ],
+            "agents": [
+              "01",
+              "04"
             ]
           }
         }
@@ -8498,9 +8853,6 @@
             "continuous discovery": [
               "05"
             ],
-            "heuristic evaluation": [
-              "06"
-            ],
             "nielsen heuristics": [
               "06"
             ],
@@ -8531,6 +8883,9 @@
             "qualitative research": [
               "01",
               "02"
+            ],
+            "solving the right problem": [
+              "01"
             ],
             "quantitative research": [
               "01",
@@ -8663,6 +9018,9 @@
             ],
             "sample size": [
               "03"
+            ],
+            "heuristic evaluation": [
+              "06"
             ]
           },
           "low": {
@@ -8688,12 +9046,6 @@
             ],
             "user experience research": "any",
             "uxr": "any",
-            "validate": [
-              "06"
-            ],
-            "validation": [
-              "06"
-            ],
             "prototype test": [
               "06"
             ],
@@ -8783,9 +9135,6 @@
             "dark pattern": [
               "05"
             ],
-            "dark patterns": [
-              "05"
-            ],
             "confirm shaming": [
               "05"
             ],
@@ -8832,6 +9181,15 @@
               "02"
             ],
             "design ethics faculty": [
+              "01"
+            ],
+            "ethical for brands": [
+              "01"
+            ],
+            "use slang ethically": [
+              "01"
+            ],
+            "brand ethics": [
               "01"
             ]
           },
@@ -8886,6 +9244,9 @@
             ],
             "pre mortem ethics": [
               "07"
+            ],
+            "dark patterns": [
+              "05"
             ]
           },
           "low": {
@@ -8910,9 +9271,6 @@
             "fairness": [
               "04"
             ],
-            "bias": [
-              "04"
-            ],
             "manipulation": [
               "05"
             ],
@@ -8927,6 +9285,488 @@
             ],
             "whistleblow": [
               "07"
+            ]
+          }
+        }
+      },
+      "knowledge-context": {
+        "negative_keywords": [
+          "context compaction",
+          "context rot",
+          "agent runtime",
+          "RAG architecture",
+          "vector search",
+          "human memory",
+          "working memory",
+          "information architecture"
+        ],
+        "recommended_courses": [
+          "01",
+          "02",
+          "03",
+          "04",
+          "05"
+        ],
+        "keywords": {
+          "high": {
+            "knowledge engineering": [
+              "01"
+            ],
+            "knowledge base architecture": [
+              "01"
+            ],
+            "knowledge context": [
+              "01"
+            ],
+            "context budget": [
+              "02"
+            ],
+            "attention budget design": [
+              "02"
+            ],
+            "knowledge modeling": [
+              "03"
+            ],
+            "taxonomy governance": [
+              "03"
+            ],
+            "document engineering": [
+              "04"
+            ],
+            "markdown standards": [
+              "04"
+            ],
+            "context retrieval": [
+              "05"
+            ],
+            "context routing": [
+              "05"
+            ],
+            "knowledge provenance": [
+              "06"
+            ],
+            "content freshness": [
+              "06"
+            ],
+            "context regression": [
+              "07"
+            ],
+            "retrieval regression": [
+              "07"
+            ],
+            "knowledge graph": [
+              "08"
+            ],
+            "relational context": [
+              "08"
+            ],
+            "context security": [
+              "09"
+            ],
+            "untrusted documents": [
+              "09"
+            ],
+            "knowledge operations": [
+              "10"
+            ],
+            "agent context operations": [
+              "10"
+            ],
+            "versioned context layer": [
+              "10"
+            ],
+            "context release gates": [
+              "10"
+            ],
+            "context release": [
+              "10"
+            ]
+          },
+          "medium": {
+            "context library": [
+              "01"
+            ],
+            "context injection": [
+              "01"
+            ],
+            "knowledge curation": [
+              "01",
+              "06"
+            ],
+            "context window design": [
+              "02"
+            ],
+            "document metadata": [
+              "03",
+              "04"
+            ],
+            "content governance": [
+              "06"
+            ],
+            "source provenance": [
+              "06"
+            ],
+            "knowledge freshness": [
+              "06"
+            ],
+            "context manifest": [
+              "05",
+              "10"
+            ],
+            "retrieval quality": [
+              "05",
+              "07"
+            ],
+            "prompt injection in documents": [
+              "09"
+            ],
+            "context observability": [
+              "07",
+              "10"
+            ],
+            "knowledge lifecycle": [
+              "06",
+              "10"
+            ]
+          },
+          "low": {
+            "knowledge library": "any",
+            "context engineering": [
+              "01",
+              "02"
+            ],
+            "context design": [
+              "02"
+            ],
+            "retrieval": [
+              "05"
+            ],
+            "provenance": [
+              "06"
+            ],
+            "governance": [
+              "06"
+            ],
+            "prompt injection": [
+              "09"
+            ],
+            "context operations": [
+              "10"
+            ]
+          }
+        }
+      },
+      "penulisan-gaul": {
+        "negative_keywords": [
+          "formal writing",
+          "academic writing",
+          "technical writing",
+          "legal document",
+          "penulisan ilmiah",
+          "bahasa baku",
+          "jurnalistik"
+        ],
+        "recommended_courses": [
+          "01",
+          "02",
+          "03",
+          "04",
+          "08"
+        ],
+        "keywords": {
+          "high": {
+            "jaksel": [
+              "02",
+              "04"
+            ],
+            "code-switching": [
+              "02",
+              "08"
+            ],
+            "code switching": [
+              "02",
+              "08"
+            ],
+            "kode-switching": [
+              "02",
+              "08"
+            ],
+            "literally": [
+              "02"
+            ],
+            "bahasa gaul": [
+              "01",
+              "03",
+              "04"
+            ],
+            "slang indonesia": [
+              "01",
+              "03",
+              "04"
+            ],
+            "indonesian slang": [
+              "01",
+              "03",
+              "04"
+            ],
+            "kata gaul": [
+              "01",
+              "03",
+              "04"
+            ],
+            "gaul terbaru": [
+              "04"
+            ],
+            "mabar": [
+              "05"
+            ],
+            "gaskeun": [
+              "05",
+              "07"
+            ],
+            "sabi": [
+              "07"
+            ],
+            "baper": [
+              "03"
+            ],
+            "gabut": [
+              "03"
+            ],
+            "bucin": [
+              "03"
+            ],
+            "mager": [
+              "03"
+            ],
+            "stecu": [
+              "04"
+            ],
+            "brainrot": [
+              "04"
+            ],
+            "yapping": [
+              "04"
+            ],
+            "skena": [
+              "04"
+            ],
+            "kalcer": [
+              "04"
+            ],
+            "gaming lingo": [
+              "05"
+            ],
+            "esports slang": [
+              "05"
+            ],
+            "tiktok slang": [
+              "04"
+            ],
+            "bahasa walikan": [
+              "07"
+            ],
+            "reverse slang": [
+              "07"
+            ],
+            "nongkrong": [
+              "06"
+            ],
+            "kating": [
+              "06"
+            ],
+            "dospem": [
+              "06"
+            ],
+            "FOMO": [
+              "04"
+            ],
+            "healing bahasa": [
+              "04"
+            ],
+            "red flag": [
+              "04"
+            ],
+            "penulisan informal": [
+              "01",
+              "08"
+            ],
+            "informal writing": [
+              "01",
+              "08"
+            ],
+            "gen z indonesia": [
+              "04",
+              "06"
+            ]
+          },
+          "medium": {
+            "slang": [
+              "01",
+              "03"
+            ],
+            "gaul": [
+              "01",
+              "03"
+            ],
+            "jakarta selatan": [
+              "02"
+            ],
+            "south jakarta": [
+              "02"
+            ],
+            "casual indonesian": [
+              "01",
+              "08"
+            ],
+            "bahasa informal": [
+              "01",
+              "08"
+            ],
+            "gaje": [
+              "03"
+            ],
+            "garing": [
+              "03"
+            ],
+            "galau": [
+              "03",
+              "06"
+            ],
+            "jones": [
+              "03"
+            ],
+            "nolep": [
+              "03",
+              "05"
+            ],
+            "alay": [
+              "03",
+              "07"
+            ],
+            "kepo": [
+              "03"
+            ],
+            "mantul": [
+              "03"
+            ],
+            "pick me": [
+              "04"
+            ],
+            "toxic": [
+              "04",
+              "10"
+            ],
+            "ggwp": [
+              "05"
+            ],
+            "GG": [
+              "05"
+            ],
+            "noob": [
+              "05"
+            ],
+            "nerf": [
+              "05"
+            ],
+            "buff": [
+              "05"
+            ],
+            "beban": [
+              "05"
+            ],
+            "afk": [
+              "05"
+            ],
+            "maba": [
+              "06"
+            ],
+            "sks kuliah": [
+              "06"
+            ],
+            "jomo": [
+              "04"
+            ],
+            "salfok": [
+              "03"
+            ],
+            "sunda slang": [
+              "07",
+              "09"
+            ],
+            "jawa slang": [
+              "09"
+            ],
+            "medan slang": [
+              "09"
+            ],
+            "ngalam": [
+              "07"
+            ],
+            "sistem kebut semalam": [
+              "06"
+            ],
+            "anak skena": [
+              "04"
+            ],
+            "green flag": [
+              "04"
+            ],
+            "vibe": [
+              "02",
+              "04"
+            ],
+            "prefer": [
+              "02",
+              "08"
+            ],
+            "basically": [
+              "02",
+              "08"
+            ],
+            "honestly": [
+              "02",
+              "08"
+            ],
+            "which is": [
+              "02"
+            ]
+          },
+          "low": {
+            "bahasa": "any",
+            "indonesia": "any",
+            "jakarta": "any",
+            "ngobrol": "any",
+            "chat": "any",
+            "casual": "any",
+            "informal": "any",
+            "anak muda": "any",
+            "youth": "any",
+            "gen z": "any",
+            "tiktok": "any",
+            "gaming": "any",
+            "esports": "any",
+            "kampus": "any",
+            "kuliah": "any",
+            "game online": "any",
+            "mobile legends": "any",
+            "nulis santai": [
+              "01",
+              "08"
+            ],
+            "tone casual": [
+              "08"
+            ],
+            "register": [
+              "08"
+            ],
+            "code mix": [
+              "02",
+              "08"
+            ],
+            "authentic voice": [
+              "08",
+              "10"
             ]
           }
         }
@@ -13054,6 +13894,386 @@
             "ethics roadmap",
             "designer oath",
             "ethical KPIs"
+          ]
+        }
+      ]
+    },
+    "knowledge-context": {
+      "name": "Faculty of Knowledge & Context Engineering",
+      "slug": "knowledge-context",
+      "emoji": "🗃️",
+      "description": "Knowledge architecture and context operations: context budgets, taxonomies, document engineering, retrieval, provenance, evaluation, graphs, security, and agent integration.",
+      "courseCount": 10,
+      "level": "beginner-to-advanced",
+      "courses": [
+        {
+          "id": "01",
+          "title": "Knowledge & Context Foundations",
+          "level": "beginner",
+          "file": "knowledge-context/01-knowledge-context-foundations.md",
+          "prerequisites": [],
+          "topics": [
+            "knowledge engineering",
+            "context stack",
+            "context injection",
+            "static library",
+            "RAG boundary"
+          ]
+        },
+        {
+          "id": "02",
+          "title": "Context Budget & Attention Design",
+          "level": "intermediate",
+          "file": "knowledge-context/02-context-budget-attention.md",
+          "prerequisites": [
+            "01"
+          ],
+          "topics": [
+            "context budget",
+            "attention budget",
+            "compaction",
+            "signal to noise",
+            "just-in-time context"
+          ]
+        },
+        {
+          "id": "03",
+          "title": "Knowledge Modeling & Taxonomy",
+          "level": "intermediate",
+          "file": "knowledge-context/03-knowledge-modeling-taxonomy.md",
+          "prerequisites": [
+            "01"
+          ],
+          "topics": [
+            "knowledge modeling",
+            "taxonomy",
+            "ontology",
+            "metadata contract",
+            "controlled vocabulary"
+          ]
+        },
+        {
+          "id": "04",
+          "title": "Document Engineering & Markdown Standards",
+          "level": "intermediate",
+          "file": "knowledge-context/04-document-engineering.md",
+          "prerequisites": [
+            "01",
+            "03"
+          ],
+          "topics": [
+            "document engineering",
+            "Markdown standards",
+            "content normalization",
+            "semantic chunking",
+            "internal links"
+          ]
+        },
+        {
+          "id": "05",
+          "title": "Context Retrieval & Routing",
+          "level": "advanced",
+          "file": "knowledge-context/05-context-retrieval-routing.md",
+          "prerequisites": [
+            "02",
+            "03"
+          ],
+          "topics": [
+            "context retrieval",
+            "context routing",
+            "ranking signals",
+            "hybrid retrieval",
+            "context manifest"
+          ]
+        },
+        {
+          "id": "06",
+          "title": "Provenance, Freshness & Governance",
+          "level": "advanced",
+          "file": "knowledge-context/06-provenance-freshness-governance.md",
+          "prerequisites": [
+            "03",
+            "04"
+          ],
+          "topics": [
+            "knowledge provenance",
+            "content freshness",
+            "governance",
+            "source authority",
+            "supersession"
+          ]
+        },
+        {
+          "id": "07",
+          "title": "Context Evaluation & Regression Testing",
+          "level": "advanced",
+          "file": "knowledge-context/07-context-evaluation-regression.md",
+          "prerequisites": [
+            "04",
+            "05"
+          ],
+          "topics": [
+            "context regression",
+            "retrieval regression",
+            "precision recall",
+            "MRR",
+            "context evaluation"
+          ]
+        },
+        {
+          "id": "08",
+          "title": "Knowledge Graphs & Relational Context",
+          "level": "advanced",
+          "file": "knowledge-context/08-knowledge-graphs-relational-context.md",
+          "prerequisites": [
+            "03",
+            "05"
+          ],
+          "topics": [
+            "knowledge graph",
+            "relational context",
+            "typed edges",
+            "prerequisite graph",
+            "dependency traversal"
+          ]
+        },
+        {
+          "id": "09",
+          "title": "Context Security & Prompt-Injection Resistance",
+          "level": "advanced",
+          "file": "knowledge-context/09-context-security-prompt-injection.md",
+          "prerequisites": [
+            "04",
+            "05",
+            "06"
+          ],
+          "topics": [
+            "context security",
+            "prompt injection",
+            "untrusted documents",
+            "data poisoning",
+            "trust boundaries"
+          ]
+        },
+        {
+          "id": "10",
+          "title": "Context Operations & Agent Integration",
+          "level": "advanced",
+          "file": "knowledge-context/10-context-operations-agent-integration.md",
+          "prerequisites": [
+            "05",
+            "06",
+            "07",
+            "09"
+          ],
+          "topics": [
+            "knowledge operations",
+            "agent context operations",
+            "context manifest",
+            "context observability",
+            "release runbook"
+          ]
+        }
+      ]
+    },
+    "penulisan-gaul": {
+      "name": "Casual & Slang Writing",
+      "slug": "penulisan-gaul",
+      "emoji": "📝",
+      "courseCount": 10,
+      "level": "Beginner → Advanced",
+      "description": "Indonesian informal writing mastery — Jaksel code-switching, abbreviations, social media slang, gaming lingo, campus slang, wordplay, regional variations, and ethical casual communication.",
+      "courses": [
+        {
+          "id": "01",
+          "title": "Casual Indonesian Writing Foundations",
+          "level": "beginner",
+          "file": "penulisan-gaul/01-casual-indonesian-foundations.md",
+          "prerequisites": [],
+          "topics": [
+            "bahasa gaul",
+            "sociolect",
+            "slang history",
+            "prokem",
+            "alay",
+            "jaksel",
+            "register"
+          ]
+        },
+        {
+          "id": "02",
+          "title": "Jaksel Code-Switching Mastery",
+          "level": "intermediate",
+          "file": "penulisan-gaul/02-jaksel-code-switching.md",
+          "prerequisites": [
+            "01"
+          ],
+          "topics": [
+            "jaksel",
+            "code-switching",
+            "discourse markers",
+            "affixation",
+            "which is",
+            "literally",
+            "south jakarta"
+          ]
+        },
+        {
+          "id": "03",
+          "title": "Abbreviations, Portmanteaus & Acronyms",
+          "level": "beginner",
+          "file": "penulisan-gaul/03-abbreviations-acronyms.md",
+          "prerequisites": [
+            "01"
+          ],
+          "topics": [
+            "abbreviation",
+            "acronym",
+            "portmanteau",
+            "baper",
+            "mager",
+            "gabut",
+            "bucin",
+            "gaje"
+          ]
+        },
+        {
+          "id": "04",
+          "title": "Digital & Social Media Slang",
+          "level": "intermediate",
+          "file": "penulisan-gaul/04-internet-social-media-slang.md",
+          "prerequisites": [
+            "01"
+          ],
+          "topics": [
+            "social media",
+            "tiktok",
+            "twitter",
+            "fyp",
+            "stecu",
+            "brainrot",
+            "yapping",
+            "healing",
+            "fomo",
+            "jomo",
+            "skena"
+          ]
+        },
+        {
+          "id": "05",
+          "title": "Gaming & Esports Lingo",
+          "level": "intermediate",
+          "file": "penulisan-gaul/05-gaming-esports-lingo.md",
+          "prerequisites": [
+            "01"
+          ],
+          "topics": [
+            "gaming",
+            "esports",
+            "mabar",
+            "gaskeun",
+            "ggwp",
+            "noob",
+            "nerf",
+            "buff",
+            "mobile legends",
+            "pubg"
+          ]
+        },
+        {
+          "id": "06",
+          "title": "Campus & Youth Slang",
+          "level": "beginner",
+          "file": "penulisan-gaul/06-campus-youth-slang.md",
+          "prerequisites": [
+            "01"
+          ],
+          "topics": [
+            "campus",
+            "university",
+            "kating",
+            "maba",
+            "dospem",
+            "sks",
+            "nongkrong",
+            "student"
+          ]
+        },
+        {
+          "id": "07",
+          "title": "Reverse Slang & Wordplay",
+          "level": "advanced",
+          "file": "penulisan-gaul/07-reverse-slang-wordplay.md",
+          "prerequisites": [
+            "01",
+            "03"
+          ],
+          "topics": [
+            "wordplay",
+            "bahasa walikan",
+            "reversal",
+            "sabi",
+            "sound substitution",
+            "leet",
+            "alay script"
+          ]
+        },
+        {
+          "id": "08",
+          "title": "Tone, Voice & Register in Casual Writing",
+          "level": "advanced",
+          "file": "penulisan-gaul/08-tone-register-casual-writing.md",
+          "prerequisites": [
+            "01",
+            "02",
+            "03"
+          ],
+          "topics": [
+            "register",
+            "tone",
+            "voice",
+            "code-switching strategy",
+            "audience",
+            "formal vs casual"
+          ]
+        },
+        {
+          "id": "09",
+          "title": "Regional Variations & Loanword Integration",
+          "level": "advanced",
+          "file": "penulisan-gaul/09-regional-variations-loanwords.md",
+          "prerequisites": [
+            "01",
+            "02"
+          ],
+          "topics": [
+            "regional",
+            "sundanese",
+            "javanese",
+            "betawi",
+            "loanwords",
+            "dialect",
+            "multilingual"
+          ]
+        },
+        {
+          "id": "10",
+          "title": "The Ethical Slang Writer",
+          "level": "advanced",
+          "file": "penulisan-gaul/10-ethical-slang-writing.md",
+          "prerequisites": [
+            "01",
+            "02",
+            "08"
+          ],
+          "topics": [
+            "ethics",
+            "appropriation",
+            "exclusion",
+            "accessibility",
+            "authenticity",
+            "mental health",
+            "responsible writing"
           ]
         }
       ]

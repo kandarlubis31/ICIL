@@ -30,4 +30,4 @@ README.md
 
 ---
 
-*Generated: 2026-08-08 · Path: PHP Native\ICIL\ai-integration*
+*Generated: 2026-08-08 · Path: nodeJS\ICIL\ai-integration*

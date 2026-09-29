@@ -6,9 +6,9 @@
 
 ## What is ICIL?
 
-**ICIL (Intelligence Campus Interactive Library)** — a curated knowledge base of 216 markdown "courses" across 29 "faculties", designed to be loaded as **context injection** for AI agents. Not a RAG corpus — a **static curated context library**. Each `.md` file is self-contained expert knowledge on one topic.
+**ICIL (Intelligence Campus Interactive Library)** — a curated knowledge base of 226 markdown "courses" across 30 "faculties", designed to be loaded as **context injection** for AI agents. Not a RAG corpus — a **static curated context library**. Each `.md` file is self-contained expert knowledge on one topic.
 
-**Current version:** v25.0.5 | **Faculties:** 29 | **Courses:** 216 | **Language:** English
+**Current version:** v27.0.0 | **Faculties:** 30 | **Courses:** 226 | **Language:** English
 
 ---
 
@@ -26,12 +26,14 @@ inteligence_mas-aul/
 ├── CONTEXT.md             # Session save state
 ├── CHANGELOG.md           # Version history
 ├── CONTRIBUTING.md        # Contribution guide + course template
-├── eval-set.json          # 200-prompt eval set (EN+ID bilingual, 3 difficulty tiers)
+├── eval-set.json          # 217-prompt eval set (EN+ID bilingual, 3 difficulty tiers)
 ├── eval-runner.js         # Eval runner: P@3, R@3, MRR, CI gate
 ├── ci-validate.js         # CI validator: schema, duplicates, cross-refs, eval gate
+├── ci-faculty.js          # New-faculty contract validator
+├── .github/workflows/faculty.yml # Faculty-addition PR workflow
 ├── eval/                  # Legacy eval scripts (eval-prompts.json era, pre-v24.1)
 ├── archive/               # Archive of deprecated files
-├── {29 faculty dirs}/     # Each: README.md + 7-10 .md courses
+├── {30 faculty dirs}/     # Each: README.md + 7-10 .md courses
 └── package.json
 ```
 
@@ -115,15 +117,22 @@ node load-context.js "build a RAG chatbot" --json
 # Test campus-core exports
 node -e "const c=require('./campus-core'); console.log(Object.keys(c))"
 
+# Full CI gate
+node ci-validate.js --with-eval
+
+# Validate all faculty contracts and the new-faculty contract locally
+npm run ci:faculty
+node ci-faculty.js --faculty <slug>
+
 # MCP server smoke test (starts server, kill with Ctrl+C)
 node mcp-server.js
 ```
 
 ---
 
-## Current Faculties (29)
+## Current Faculties (31)
 
-`warna` `ux-psikologi` `ux-writing` `tipografi` `layout` `design-patterns` `animasi` `branding` `aksesibilitas` `improvement` `kognisi` `mobile-ux` `data-viz` `design-systems` `conversational-ui` `strategic-design` `service-design` `software-engineering` `devops-infra` `database-management` `ai-integration` `security` `performance` `testing-qa` `dx` `ia` `agentic-engineering` `ux-research` `design-ethics`
+`warna` `ux-psikologi` `ux-writing` `tipografi` `layout` `design-patterns` `animasi` `branding` `aksesibilitas` `improvement` `kognisi` `mobile-ux` `data-viz` `design-systems` `conversational-ui` `strategic-design` `service-design` `software-engineering` `devops-infra` `database-management` `ai-integration` `security` `performance` `testing-qa` `dx` `ia` `agentic-engineering` `ux-research` `design-ethics` `knowledge-context` `penulisan-gaul`
 
 Use `node load-context.js --list` for full details.
 

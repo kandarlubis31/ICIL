@@ -7,7 +7,7 @@
  * and computes precision/recall/MRR/faculty accuracy metrics.
  *
  * Usage:
- *   node eval-runner.js                          # Run all 200 prompts
+ *   node eval-runner.js                          # Run all 217 prompts
  *   node eval-runner.js --faculty warna          # Run only warna prompts
  *   node eval-runner.js --difficulty hard        # Run only hard prompts
  *   node eval-runner.js --json                   # Output as JSON
@@ -32,16 +32,101 @@ function loadEvalSet() {
   return JSON.parse(raw);
 }
 
+// ── Validate faculty-qualified course labels ──────────────────
+/**
+ * Validate every expected_courses label against the catalog. Course labels
+ * are intentionally fully qualified because local IDs (for example, "01")
+ * are reused by many faculties.
+ *
+ * @returns {Array<string>} validation errors; an empty array means valid
+ */
+function validateExpectedCourses(index, evalSet) {
+  const errors = [];
+  const expectedFormat = "faculty-slug/XX";
+
+  if (evalSet.course_ref_format !== expectedFormat) {
+    errors.push(`Eval set must declare course_ref_format="${expectedFormat}"`);
+  }
+
+  for (const [promptIndex, evalPrompt] of (evalSet.prompts || []).entries()) {
+    const label = evalPrompt.id || `prompt #${promptIndex + 1}`;
+    if (!Array.isArray(evalPrompt.expected_faculties)) {
+      errors.push(`${label}: expected_faculties must be an array`);
+    }
+    if (!Array.isArray(evalPrompt.expected_courses)) {
+      errors.push(`${label}: expected_courses must be an array`);
+      continue;
+    }
+
+    const seen = new Set();
+    for (const ref of evalPrompt.expected_courses) {
+      if (typeof ref !== "string") {
+        errors.push(`${label}: expected_courses entries must be strings (got ${typeof ref})`);
+        continue;
+      }
+      const parts = ref.split("/");
+      if (
+        parts.length !== 2 ||
+        !parts[0] ||
+        !/^[0-9]{2}$/.test(parts[1])
+      ) {
+        errors.push(`${label}: invalid faculty-qualified course ref "${ref}" (expected faculty-slug/XX)`);
+        continue;
+      }
+
+      const [facultySlug, courseId] = parts;
+      const faculty = index.faculties?.[facultySlug];
+      if (!faculty) {
+        errors.push(`${label}: unknown faculty in expected course "${ref}"`);
+        continue;
+      }
+      if (!faculty.courses.some((course) => course.id === courseId)) {
+        errors.push(`${label}: unknown expected course "${ref}"`);
+      }
+      if (!Array.isArray(evalPrompt.expected_faculties) || !evalPrompt.expected_faculties.includes(facultySlug)) {
+        errors.push(`${label}: expected course "${ref}" is not in expected_faculties`);
+      }
+      if (seen.has(ref)) {
+        errors.push(`${label}: duplicate expected course "${ref}"`);
+      }
+      seen.add(ref);
+    }
+  }
+
+  return errors;
+}
+
 // ── Run single prompt ──────────────────────────────────────────
 function runPrompt(index, evalPrompt) {
   const results = core.matchKeywords(index, evalPrompt.prompt);
   const returnedFaculties = results.map((r) => r.faculty);
+  const courseFacultyByFile = new Map();
+  for (const [facultySlug, faculty] of Object.entries(index.faculties || {})) {
+    for (const course of faculty.courses || []) {
+      courseFacultyByFile.set(course.file, facultySlug);
+    }
+  }
+  const returnedCourses = [
+    ...new Set(
+      results.flatMap((result) =>
+        result.courses.map((course) => {
+          // Prerequisites may cross faculty boundaries; use the catalog's
+          // course/file identity instead of assuming the parent result's faculty.
+          const facultySlug =
+            course.faculty || courseFacultyByFile.get(course.file) || result.faculty;
+          return `${facultySlug}/${course.id}`;
+        })
+      )
+    ),
+  ];
 
   return {
     id: evalPrompt.id,
     prompt: evalPrompt.prompt,
     expected: evalPrompt.expected_faculties,
     returned: returnedFaculties,
+    expected_courses: evalPrompt.expected_courses,
+    returned_courses: returnedCourses,
     difficulty: evalPrompt.difficulty,
     category: evalPrompt.category,
   };
@@ -73,6 +158,11 @@ function reciprocalRank(expected, returned) {
 
 // ── Run all prompts ────────────────────────────────────────────
 function runAll(index, evalSet, filters = {}) {
+  const courseValidationErrors = validateExpectedCourses(index, evalSet);
+  if (courseValidationErrors.length > 0) {
+    throw new Error(`Eval course validation failed:\n- ${courseValidationErrors.join("\n- ")}`);
+  }
+
   let prompts = evalSet.prompts;
 
   if (filters.faculty) {
@@ -91,6 +181,9 @@ function runAll(index, evalSet, filters = {}) {
   let totalP1 = 0,
     totalR1 = 0,
     totalMRR = 0;
+  let totalCourseP1 = 0,
+    totalCourseR1 = 0,
+    totalCourseMRR = 0;
   let perfectHits = 0;
   let atLeastOne = 0;
   let noMatch = 0;
@@ -106,10 +199,16 @@ function runAll(index, evalSet, filters = {}) {
     const p1 = precisionAtK(r.expected, r.returned, 3);
     const r1 = recallAtK(r.expected, r.returned, 3);
     const rr = reciprocalRank(r.expected, r.returned);
+    const courseP1 = precisionAtK(r.expected_courses, r.returned_courses, 3);
+    const courseR1 = recallAtK(r.expected_courses, r.returned_courses, 3);
+    const courseRR = reciprocalRank(r.expected_courses, r.returned_courses);
 
     totalP1 += p1;
     totalR1 += r1;
     totalMRR += rr;
+    totalCourseP1 += courseP1;
+    totalCourseR1 += courseR1;
+    totalCourseMRR += courseRR;
 
     if (p1 === 1 && r1 === 1) perfectHits++;
     if (r1 > 0) atLeastOne++;
@@ -141,6 +240,9 @@ function runAll(index, evalSet, filters = {}) {
   const avgP1 = n > 0 ? totalP1 / n : 0;
   const avgR1 = n > 0 ? totalR1 / n : 0;
   const avgMRR = n > 0 ? totalMRR / n : 0;
+  const avgCourseP1 = n > 0 ? totalCourseP1 / n : 0;
+  const avgCourseR1 = n > 0 ? totalCourseR1 / n : 0;
+  const avgCourseMRR = n > 0 ? totalCourseMRR / n : 0;
 
   // Average per-faculty
   const facultyAccuracy = {};
@@ -171,6 +273,21 @@ function runAll(index, evalSet, filters = {}) {
     precisionAt3: avgP1,
     recallAt3: avgR1,
     mrr: avgMRR,
+    courseValidation: {
+      valid: true,
+      format: "faculty-slug/XX",
+      checkedPrompts: evalSet.prompts.length,
+      checkedRefs: evalSet.prompts.reduce(
+        (count, prompt) => count + prompt.expected_courses.length,
+        0
+      ),
+    },
+    // Course metrics are reported as informational during migration. The
+    // existing faculty-level metrics remain the CI gate until course labels
+    // and router course targeting are tuned to a stable threshold.
+    coursePrecisionAt3: avgCourseP1,
+    courseRecallAt3: avgCourseR1,
+    courseMrr: avgCourseMRR,
     perfectHits,
     perfectHitRate: n > 0 ? perfectHits / n : 0,
     atLeastOne,
@@ -183,6 +300,10 @@ function runAll(index, evalSet, filters = {}) {
       precision_at_k: avgP1 >= THRESHOLDS.precision_at_k,
       recall_at_k: avgR1 >= THRESHOLDS.recall_at_k,
       mrr: avgMRR >= THRESHOLDS.mrr,
+      course_metrics: "informational_only",
+      course_precision_at_k: avgCourseP1 >= THRESHOLDS.precision_at_k,
+      course_recall_at_k: avgCourseR1 >= THRESHOLDS.recall_at_k,
+      course_mrr: avgCourseMRR >= THRESHOLDS.mrr,
       faculty_accuracy:
         Object.values(facultyAccuracy).filter((f) => f.recall > 0).length /
           Object.keys(facultyAccuracy).length >=
@@ -199,6 +320,16 @@ function runAll(index, evalSet, filters = {}) {
         prompt: r.prompt,
         expected: r.expected,
         returned: r.returned,
+        difficulty: r.difficulty,
+      })),
+    promptResults: results,
+    failedCoursePrompts: results
+      .filter((r) => recallAtK(r.expected_courses, r.returned_courses, 3) === 0)
+      .map((r) => ({
+        id: r.id,
+        prompt: r.prompt,
+        expected_courses: r.expected_courses,
+        returned_courses: r.returned_courses,
         difficulty: r.difficulty,
       })),
   };
@@ -247,6 +378,10 @@ function printReport(report, jsonMode) {
   console.log(
     `  No match:     ${report.noMatch}/${report.totalPrompts} (${(report.noMatchRate * 100).toFixed(1)}%)`
   );
+  console.log(`\n${c.bold}Course-Level Metrics (qualified refs, informational):${c.reset}`);
+  console.log(`  Precision@3:  ${(report.coursePrecisionAt3 * 100).toFixed(1)}%`);
+  console.log(`  Recall@3:     ${(report.courseRecallAt3 * 100).toFixed(1)}%`);
+  console.log(`  MRR:          ${report.courseMrr.toFixed(3)}`);
 
   // Difficulty breakdown
   console.log(`\n${c.bold}By Difficulty:${c.reset}`);
@@ -270,6 +405,18 @@ function printReport(report, jsonMode) {
   }
 
   // Failed prompts
+  if (report.failedCoursePrompts.length > 0) {
+    console.log(`\n${c.yellow}${c.bold}⚠ Course-Level Misses (${report.failedCoursePrompts.length}):${c.reset}`);
+    for (const fp of report.failedCoursePrompts.slice(0, 10)) {
+      console.log(
+        `  ${fp.id}: expected [${fp.expected_courses.join(", ")}], got [${fp.returned_courses.join(", ") || "NONE"}]`
+      );
+    }
+    if (report.failedCoursePrompts.length > 10) {
+      console.log(`  ... and ${report.failedCoursePrompts.length - 10} more`);
+    }
+  }
+
   if (report.failedPrompts.length > 0) {
     console.log(`\n${c.yellow}${c.bold}⚠ Failed Prompts (${report.failedPrompts.length}):${c.reset}`);
     for (const fp of report.failedPrompts.slice(0, 15)) {
@@ -330,4 +477,12 @@ if (require.main === module) {
 }
 
 // ── Exports (for CI integration) ─────────────────────────────
-module.exports = { runAll, precisionAtK, recallAtK, reciprocalRank, THRESHOLDS };
+module.exports = {
+  runAll,
+  runPrompt,
+  validateExpectedCourses,
+  precisionAtK,
+  recallAtK,
+  reciprocalRank,
+  THRESHOLDS,
+};

@@ -1,0 +1,193 @@
+{
+  "faculty": "database-management",
+  "catalogVersion": "26.0.0",
+  "reviewedAt": "2026-08-01",
+  "researchCutoff": "2026-08-01",
+  "auditor": "ICIL audit batch",
+  "method": "Risk-first review against official PostgreSQL, MongoDB, Redis, OWASP, NIST, and CISA documentation. No course rewrite was performed.",
+  "facultyFindings": [
+    "All seven courses lack an explicit Sources/References section; substantive verification is therefore incomplete until citations and access/version notes are added.",
+    "The faculty mixes durable database concepts with PostgreSQL-, MongoDB-, Redis-, and driver-specific examples without consistently naming the engine, version, extension, or client library.",
+    "Numeric thresholds and categorical rules such as always-index, choose-two CAP explanations, batch sizes, retention periods, and universal rollback expectations should be labeled as heuristics or replaced with workload- and engine-specific guidance.",
+    "Operational examples involving roles, backups, restore commands, schema swaps, and cache configuration need stronger warnings because copying them directly into production can cause privilege, availability, data-loss, or recovery failures."
+  ],
+  "courses": [
+    {
+      "course": "database-management/01",
+      "status": "needs_update",
+      "sourceTier": ["primary"],
+      "sources": [
+        {"name": "PostgreSQL CREATE TABLE and constraints", "url": "https://www.postgresql.org/docs/current/sql-createtable.html"},
+        {"name": "PostgreSQL constraints", "url": "https://www.postgresql.org/docs/current/ddl-constraints.html"},
+        {"name": "PostgreSQL data definition", "url": "https://www.postgresql.org/docs/current/ddl.html"}
+      ],
+      "findings": [
+        "The 1NF/2NF/3NF overview is useful, but normalization definitions and practical trade-offs should be presented as relational-design guidance rather than an unconditional schema recipe.",
+        "SERIAL, TIMESTAMPTZ, and PostgreSQL constraint syntax are provider-specific and should be labeled as PostgreSQL examples; equivalent identity/auto-increment behavior differs across engines.",
+        "The checklist rule that every foreign key must have an explicit ON DELETE action is a project policy, not a universal requirement; the chosen action must follow domain semantics, and CASCADE can cause unintended deletion.",
+        "The claim that composite keys with more than three columns should be avoided is an unsupported heuristic and should be reframed around key stability, access paths, and domain constraints.",
+        "The polymorphic/EAV and NULL guidance needs caveats: these patterns can be valid in constrained designs, though they carry queryability and integrity trade-offs."
+      ],
+      "actions": [
+        "add engine/version scope and canonical citations",
+        "label ICIL checklist preferences separately from relational requirements",
+        "replace the fixed composite-key threshold with decision criteria",
+        "explain deletion semantics and test destructive cascades"
+      ],
+      "routingImpact": "inspect"
+    },
+    {
+      "course": "database-management/02",
+      "status": "needs_update",
+      "sourceTier": ["primary"],
+      "sources": [
+        {"name": "PostgreSQL SELECT documentation", "url": "https://www.postgresql.org/docs/current/sql-select.html"},
+        {"name": "PostgreSQL window functions", "url": "https://www.postgresql.org/docs/current/functions-window.html"},
+        {"name": "PostgreSQL WITH queries", "url": "https://www.postgresql.org/docs/current/queries-with.html"}
+      ],
+      "findings": [
+        "SQL is not a single uniform implementation: the logical query-processing model is useful, but JOIN behavior, date functions, window features, NULL semantics, and syntax vary by engine.",
+        "DATE_TRUNC, the PostgreSQL-style window/CTE examples, and positional GROUP BY are provider- or dialect-sensitive and need explicit scope.",
+        "The growth example can divide by zero when the prior revenue is zero; the course should show a NULLIF or equivalent guard before presenting it as copy-ready SQL.",
+        "EXPLAIN ANALYZE executes the query in PostgreSQL, so the recommendation needs a read-only/safe-environment warning and transaction or workload caveats.",
+        "The >10K-row checklist threshold is arbitrary without a workload, plan, latency, and selectivity context."
+      ],
+      "actions": [
+        "add SQL dialect and tested-version labels",
+        "qualify the logical execution-order diagram",
+        "guard the division-by-zero case",
+        "warn that EXPLAIN ANALYZE executes statements and replace row-count thresholds with measurement guidance"
+      ],
+      "routingImpact": "regression-required"
+    },
+    {
+      "course": "database-management/03",
+      "status": "needs_update",
+      "sourceTier": ["primary"],
+      "sources": [
+        {"name": "PostgreSQL indexes", "url": "https://www.postgresql.org/docs/current/indexes.html"},
+        {"name": "PostgreSQL EXPLAIN", "url": "https://www.postgresql.org/docs/current/using-explain.html"},
+        {"name": "PostgreSQL planner statistics", "url": "https://www.postgresql.org/docs/current/planner-stats.html"}
+      ],
+      "findings": [
+        "The opening claim that indexes are the number-one performance lever and can turn 1 ms into 30 seconds is uncited and too absolute; latency depends on workload, plan, data distribution, hardware, and contention.",
+        "The index table is PostgreSQL-specific. Hash indexes are not generally guaranteed to be faster than B-tree, and BRIN suitability should be based on physical correlation and table characteristics rather than a 10M-row threshold.",
+        "The rule to always index every foreign key is an operational heuristic, not a universal guarantee; write cost, join direction, workload, and existing indexes must be evaluated.",
+        "The statement that a function in WHERE kills an index is too broad: expression indexes, generated columns, operator classes, and planner behavior can change the outcome.",
+        "The SELECT-star/covering-index explanation confuses index-only scan eligibility with a general claim that indexes are wasted; covering indexes also have storage and write-maintenance costs."
+      ],
+      "actions": [
+        "remove or source numeric performance claims",
+        "scope the index catalog and EXPLAIN syntax to a tested PostgreSQL version",
+        "replace ALWAYS and threshold rules with plan- and workload-based criteria",
+        "explain expression/partial/covering indexes and their maintenance trade-offs"
+      ],
+      "routingImpact": "regression-required"
+    },
+    {
+      "course": "database-management/04",
+      "status": "needs_update",
+      "sourceTier": ["primary"],
+      "sources": [
+        {"name": "PostgreSQL ALTER TABLE", "url": "https://www.postgresql.org/docs/current/sql-altertable.html"},
+        {"name": "PostgreSQL concurrency control", "url": "https://www.postgresql.org/docs/current/mvcc.html"},
+        {"name": "PostgreSQL backup and restore", "url": "https://www.postgresql.org/docs/current/backup.html"}
+      ],
+      "findings": [
+        "Expand/contract and immutable migration history are sound general patterns, but rollback is not always a safe or possible inverse after data transformation or external side effects.",
+        "The claim that ALTER TABLE changing a default locks a table for ten minutes is workload- and version-dependent and should not be stated as a universal outcome.",
+        "Adding a nullable column may avoid a table rewrite in some PostgreSQL versions and cases, but lock acquisition, indexes, constraints, and concurrent traffic still require testing.",
+        "A fixed backfill batch size of 1000 is an arbitrary starting point; batch size, throttling, retryability, idempotency, and replica impact need workload-based tuning.",
+        "The example drops and renames columns during a swap, which can break old application versions and is not a safe zero-downtime pattern without compatibility sequencing, validation, and a recovery plan."
+      ],
+      "actions": [
+        "qualify lock/rewrite behavior by engine and version",
+        "distinguish rollback, roll-forward, and backup restore strategies",
+        "replace the fixed batch size with measured throttling guidance",
+        "rewrite the swap example around expand/contract compatibility and deployment sequencing",
+        "add an explicit warning that DROP COLUMN is destructive"
+      ],
+      "routingImpact": "regression-required"
+    },
+    {
+      "course": "database-management/05",
+      "status": "needs_update",
+      "sourceTier": ["primary"],
+      "sources": [
+        {"name": "MongoDB data modeling", "url": "https://www.mongodb.com/docs/manual/data-modeling/"},
+        {"name": "Redis command SET", "url": "https://redis.io/docs/latest/commands/set/"},
+        {"name": "Redis expiration", "url": "https://redis.io/docs/latest/commands/expire/"},
+        {"name": "OWASP Database Security Cheat Sheet", "url": "https://cheatsheetseries.owasp.org/cheatsheets/Database_Security_Cheat_Sheet.html"}
+      ],
+      "findings": [
+        "The SQL-versus-NoSQL decision tree is a useful orientation, but database choice cannot be reduced to data shape; access patterns, consistency, durability, operational maturity, cost, and failure modes also matter.",
+        "The CAP diagram's 'pick two of three' framing and fixed CP/AP/CA assignments are oversimplified. CAP concerns trade-offs during partitions, and behavior depends on the system, configuration, and consistency guarantees.",
+        "The MongoDB example needs a server/driver version scope and should mention deliberate access-pattern modeling, validation, and embedding-size/update trade-offs.",
+        "The Redis example uses ioredis and a Prisma-like `findUnique` call without declaring dependencies or versions; `SET` with expiration is the current general command pattern, and cache atomicity/error behavior should be explained.",
+        "Redis is not inherently only a cache and allkeys-lru is not a universal eviction policy; persistence, replication, eviction, and data-loss assumptions must be explicit.",
+        "The fixed 100 requests/minute and 1-hour TTL values are examples, not defaults, and need workload, abuse, and freshness context."
+      ],
+      "actions": [
+        "replace CAP shorthand with a scoped explanation and system-specific examples",
+        "add provider, server, driver, and client-library versions",
+        "declare or remove undeclared ioredis/ORM assumptions",
+        "use current Redis expiration guidance and explain atomicity/error handling",
+        "reframe TTL, rate limits, and eviction settings as measured policy choices"
+      ],
+      "routingImpact": "regression-required"
+    },
+    {
+      "course": "database-management/06",
+      "status": "needs_update",
+      "sourceTier": ["primary", "expert_secondary"],
+      "sources": [
+        {"name": "PostgreSQL recursive queries", "url": "https://www.postgresql.org/docs/current/queries-with.html"},
+        {"name": "PostgreSQL foreign keys", "url": "https://www.postgresql.org/docs/current/ddl-constraints.html"},
+        {"name": "Martin Fowler — Event Sourcing", "url": "https://martinfowler.com/eaaDev/EventSourcing.html"}
+      ],
+      "findings": [
+        "The pattern catalog is useful, but closure tables, event sourcing, polymorphic associations, and denormalization need workload and consistency trade-offs rather than being presented as universally superior solutions.",
+        "The recursive CTE and SERIAL examples are PostgreSQL-specific; recursion depth, cycle handling, ordering, and identity syntax need engine/version scope.",
+        "The polymorphic association example cannot enforce a normal database foreign key to multiple target tables, which conflicts with the later 'every relationship has a foreign key' checklist item.",
+        "The claim that EAV is a 'schema killer' and JSON queried data belongs in a column is too categorical; both patterns can be justified in bounded domains, with explicit validation and indexing trade-offs.",
+        "The recommendation to denormalize when reads greatly exceed writes is only a heuristic and should require measured bottlenecks, consistency strategy, and a rebuild/backfill plan."
+      ],
+      "actions": [
+        "define the scope and trade-offs for each modeling pattern",
+        "add cycle, depth, and engine/version caveats to recursive examples",
+        "explain the referential-integrity limitation of polymorphic associations",
+        "replace categorical EAV/JSON language with decision criteria",
+        "require measurement and consistency planning before denormalization"
+      ],
+      "routingImpact": "inspect"
+    },
+    {
+      "course": "database-management/07",
+      "status": "needs_update",
+      "sourceTier": ["primary"],
+      "sources": [
+        {"name": "PostgreSQL backup and restore", "url": "https://www.postgresql.org/docs/current/backup.html"},
+        {"name": "PostgreSQL continuous archiving and point-in-time recovery", "url": "https://www.postgresql.org/docs/current/continuous-archiving.html"},
+        {"name": "OWASP Database Security Cheat Sheet", "url": "https://cheatsheetseries.owasp.org/cheatsheets/Database_Security_Cheat_Sheet.html"},
+        {"name": "NIST SP 800-209 Storage Infrastructure", "url": "https://csrc.nist.gov/publications/detail/sp/800-209/final"},
+        {"name": "CISA Data Backup Options", "url": "https://www.cisa.gov/stopransomware/back-up-your-data"}
+      ],
+      "findings": [
+        "The layered security model is directionally sound, but network isolation is not sufficient by itself; authentication, authorization, patching, monitoring, and recovery controls need engine/provider scope.",
+        "The SQL examples contain production-looking passwords and create a SUPERUSER login. They must be replaced with inert placeholders and explicit secret-management, non-superuser, and connection/TLS caveats.",
+        "The backup pipeline is incomplete: pg_dump format determines the restore command, and `pg_restore` does not directly restore a plain SQL dump as shown. Backup consistency, encryption key management, integrity verification, and failure handling are not covered.",
+        "WAL archiving configuration is version-, filesystem-, and operationally sensitive; the example needs archive durability, command exit-status, retention, monitoring, and restore-test caveats.",
+        "The 3-2-1 rule and daily/monthly cadence are useful policy patterns but not universal requirements; RPO/RTO, data classification, immutability, ransomware recovery, and tested restores should drive the plan.",
+        "The blanket prohibition on public database ports is a strong default, but deployment-specific controls and managed-service connectivity should be described without implying VPC alone is a complete defense."
+      ],
+      "actions": [
+        "replace all credential-looking examples with unmistakably inert values",
+        "remove SUPERUSER from the normal application walkthrough and document role separation",
+        "correct the pg_dump/pg_restore format example and add restore verification",
+        "scope WAL/PITR commands to a tested PostgreSQL version and operational setup",
+        "add RPO/RTO, immutable/offline backup, key-management, monitoring, and restore-drill guidance"
+      ],
+      "routingImpact": "regression-required"
+    }
+  ]
+}

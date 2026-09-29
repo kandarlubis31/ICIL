@@ -17,6 +17,11 @@ archive/eval-legacy/_eval-results-*.json
 # Dependencies
 node_modules/
 
+# Secrets
+.env
+.env.*
+!.env.example
+
 # Temp
 *.tmp
 *.log

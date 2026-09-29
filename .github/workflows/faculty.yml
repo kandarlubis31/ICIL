@@ -1,0 +1,42 @@
+name: Faculty Addition CI
+
+on:
+  pull_request:
+    branches: [master, main]
+    paths:
+      - "index.json"
+      - "eval-set.json"
+      - "package.json"
+      - "*.md"
+      - "**/*.md"
+      - "ci-faculty.js"
+      - "ci-validate.js"
+      - "campus-core.js"
+      - "eval-runner.js"
+      - "package-lock.json"
+      - ".github/workflows/faculty.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  validate-faculty-addition:
+    name: Validate new faculty contract
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout full history
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Detect and validate added faculty
+        run: node ci-faculty.js --base "${{ github.event.pull_request.base.sha }}"

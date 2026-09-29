@@ -6,9 +6,9 @@ Security starts with understanding threats. OWASP Top 10 catalogues the most cri
 
 ---
 
-## 1.1 OWASP Top 10 (2021)
+## 1.1 OWASP Top 10 (2021 historical edition)
 
-> ℹ️ **Status**: OWASP Top 10:2021 remains the current **official, finalized** version. A 2025 update is in data-collection phase (not yet released) — do not cite draft lists as final.
+> ℹ️ **Edition note (reviewed 2026-08-01)**: This table preserves the OWASP Top 10:2021 taxonomy for continuity with the examples below. OWASP's official project page now identifies **Top 10:2025** as the most current released version. Re-check the official edition before using this table as a current risk ranking.
 
 | # | Vulnerability | Impact | Defense |
 |---|-------------|--------|---------|
@@ -25,6 +25,8 @@ Security starts with understanding threats. OWASP Top 10 catalogues the most cri
 
 ## 1.2 OWASP Top 10 for LLM Applications (v1.1)
 
+> **Edition note (reviewed 2026-08-01)**: This course uses OWASP's v1.1 taxonomy as a teaching snapshot. The OWASP project page labels v1.1 as archived and links to the current GenAI/LLM Top 10 project; verify the current edition before treating these labels as a live ranking.
+>
 > AI/LLM apps face threats the web Top 10 doesn't cover. OWASP maintains a **separate** list for LLM applications.
 
 | # | Risk | Impact | Defense |
@@ -51,7 +53,7 @@ D — Denial of Svc: "Can the service be overwhelmed?"
 E — Elevation:     "Can a user gain unauthorized privileges?"
 ```
 
-> 🔄 **Complementary frameworks**: Pair STRIDE with **PASTA** (risk-centric, attack simulation) or **MITRE ATT&CK** (adversary tactics). For AI systems, use **STRIDE-LM** extensions that add model-poisoning and prompt-injection categories.
+> 🔄 **Complementary frameworks**: Pair STRIDE with **PASTA** (risk-centric, attack simulation) or **MITRE ATT&CK** (adversary tactics). For AI systems, map threats to a current AI-security framework; any STRIDE-LM extension should be treated as a proposed adaptation, not as an OWASP standard, until its source and scope are verified.
 
 ---
 
@@ -69,11 +71,17 @@ Feature: User uploads profile photo
 
 ## 1.5 Anti-Patterns
 
-- **"Security later"** — retrofitting security costs 30x more than building it in
+- **"Security later"** — delaying security increases remediation risk and cost; quantify the impact for your own project rather than relying on an unsourced universal multiplier
 - **Trusting user input** — ALL input is hostile until proven otherwise
 - **Security through obscurity** — hidden ≠ secure
 
-## 1.6 ICIL Cross-Ref
+## 1.6 Sources / Verification Notes
+
+- [OWASP Top 10 project](https://owasp.org/www-project-top-ten/) — official page reviewed 2026-08-01; lists Top 10:2025 as the current released edition and links historical editions.
+- [OWASP Top 10 for LLM Applications](https://owasp.org/www-project-top-10-for-large-language-model-applications/) — official project page reviewed 2026-08-01; v1.1 is presented as archived and the page points to the current GenAI/LLM project.
+- [Microsoft STRIDE threat modeling guidance](https://learn.microsoft.com/en-us/azure/security/develop/threat-modeling-tool-threats) — framework reference; examples in this course remain instructional.
+
+## 1.7 ICIL Cross-Ref
 
 Use with: `software-engineering/03` (API input validation), `ai-integration/06` (AI safety), `agentic-engineering/06` (agent security — see §1.2 OWASP LLM Top 10)
 

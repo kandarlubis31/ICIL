@@ -1,6 +1,6 @@
-# 🎓 ICIL v25.0 — AI Agent Entry Point
+# 🎓 ICIL v26.0 — AI Agent Entry Point
 
-> 216 courses · 29 faculties · 10 MCP tools · 🏁 CAMPUS MILESTONE
+> 236 courses · 31 faculties · 10 MCP tools · 🗃️ Knowledge & Context Engineering
 
 ## ⚡ Query
 
@@ -13,7 +13,7 @@ const { searchCampus } = require('./campus-core');
 ```
 **MCP v3:** `{ mcpServers: { icil: { command: "node", args: ["mcp-server.js"] } } }` — 10 tools: `search_campus` · `load_course` · `list_faculties` · `search_across` · `compare_courses` · `get_campus_stats` · `search_by_faculty` · `get_course_prerequisites` · `export_course` · `recommend_learning_path`
 
-## 🏛️ 29 Faculties
+## 🏛️ 30 Faculties
 
 | # | Slug | Topics | # | Slug | Topics |
 |---|------|--------|---|------|--------|
@@ -31,27 +31,31 @@ const { searchCampus } = require('./campus-core');
 | 12 | `mobile-ux` | Touch, gestures | 27 | `agentic-engineering` | Runtimes, agents |
 | 13 | `data-viz` | Charts, dashboards | 28 | `ux-research` | Interviews, synthesis |
 | 14 | `conversational-ui` | Chatbots, voice UI, AI agents | 29 | `design-ethics` | Ethics, privacy, fairness |
-| 15 | `design-systems` | Tokens, components |
+| 15 | `design-systems` | Tokens, components | 30 | `knowledge-context` | Context, retrieval, governance |
 
 ## 🎯 Instant Route
 
 ```
-visual    → warna tipografi layout    | data    → data-viz warna
-usable    → ux-psikologi kognisi     | chatbot → conversational-ui ux-writing
-content   → ux-writing branding      | deploy  → devops-infra software-engineering
-build UI  → design-patterns design-systems | backend → software-engineering database-management
-accessible→ aksesibilitas design-ethics | AI/LLM → ai-integration conversational-ui
-improve   → improvement + domain    | secure  → security software-engineering
-mobile    → mobile-ux layout         | fast    → performance testing-qa
-strategy  → strategic-design improvement | test  → testing-qa software-engineering
-devtools   → dx software-engineering      | nav/search → ia design-patterns
-prod agent → agentic-engineering ai-integration  | context rot → agentic-engineering
-user research → ux-research ux-psikologi     | usability → ux-research
-ethics    → design-ethics ux-psikologi  | privacy  → design-ethics security
+visual      → warna tipografi layout       | data       → data-viz warna
+usable      → ux-psikologi kognisi         | chatbot    → conversational-ui ux-writing
+content     → ux-writing branding          | deploy     → devops-infra software-engineering
+build UI    → design-patterns design-systems | backend  → software-engineering database-management
+accessible  → aksesibilitas design-ethics  | AI/LLM     → ai-integration conversational-ui
+improve     → improvement + domain         | secure     → security software-engineering
+mobile      → mobile-ux layout              | fast       → performance testing-qa
+strategy    → strategic-design improvement  | test       → testing-qa software-engineering
+devtools    → dx software-engineering       | nav/search → ia design-patterns
+prod agent  → agentic-engineering ai-integration | context rot → agentic-engineering
+knowledge   → knowledge-context             | retrieval  → knowledge-context ai-integration
+context security → knowledge-context security ai-integration
+user research → ux-research ux-psikologi    | usability  → ux-research
+ethics      → design-ethics ux-psikologi     | privacy    → design-ethics security
 ```
 
 → Auto-route any prompt: `node load-context.js "prompt" --json`
 
 ## 📂 Files
 
-`AGENTS.md` (agent guide — load first) · `index.json` (catalog) · `campus-core.js` (lib) · `load-context.js` (CLI) · `mcp-server.js` (MCP v3, 10 tools) · `CAMPUS-OVERVIEW.md` (full overview + 16 task paths) · `CHANGELOG.md` (history) · `ROADMAP-v2.md` (evolution plan — COMPLETED 🏁)
+`AGENTS.md` (agent guide — load first) · `index.json` (catalog) · `campus-core.js` (lib) · `load-context.js` (CLI) · `mcp-server.js` (MCP v3, 10 tools) · `CAMPUS-OVERVIEW.md` (full overview + task paths) · `CHANGELOG.md` (history) · `knowledge-context/` (context engineering faculty)
+
+`penulisan-gaul` 
