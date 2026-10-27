@@ -1,11 +1,13 @@
 # 🗺️ ICIL v2 Roadmap — The Next Evolution
 
-> **Status**: ✅ COMPLETE — v26.0.0 delivered. 226 courses, 30 faculties, 10 MCP tools. All 3 phases (A+B+C) shipped; Knowledge & Context Engineering was added afterward as Faculty #30.
-> **Strategy**: DEEPEN first (advanced courses in top faculties) → BUILD MCP v3 (new tools) → EXPAND (Design Ethics, then Knowledge & Context). ✅ ALL DONE (manual v26 audit re-baseline remains)
+> **Status**: ✅ COMPLETE — delivered in v26.0.0 (226 courses, 30 faculties, 10 MCP tools). All 3 phases (A+B+C) shipped; Knowledge & Context Engineering landed as Faculty #30. **This file is a historical roadmap record** — the current campus is v27.1.0 with 243 courses and 32 faculties.
+> **Strategy**: DEEPEN first (advanced courses in top faculties) → BUILD MCP v3 (new tools) → EXPAND (Design Ethics, then Knowledge & Context). ✅ ALL DONE (manual audit re-baseline remains)
 
 ---
 
-## 📍 Current State (v26.0.0)
+## 📍 Delivery Snapshot (v26.0.0 — historical)
+
+> Current values live in `index.json` and `CONTEXT.md`: **v27.1.0, 243 courses, 32 faculties, P@3 86.5%, R@3 98.9%, MRR 0.986 across 251 routing prompts; 20/20 off-topic prompts blocked.** The table below preserves the v26 delivery snapshot.
 
 | Attribute | Value |
 |-----------|-------|
@@ -19,7 +21,7 @@
 
 ### Historical Faculty Map (v23 snapshot retained for roadmap traceability)
 
-> The map below documents the starting point for this roadmap. The current v26 faculty catalog is authoritative in `index.json` and includes Design Ethics (#29) plus Knowledge & Context Engineering (#30).
+> The map below documents the starting point for this roadmap. The v27.1.0 faculty catalog is authoritative in `index.json` and includes Design Ethics (#29), Knowledge & Context Engineering (#30), and Casual & Slang Writing (#31).
 
 ```
 🎨 DESIGN FOUNDATIONS (1-11):  Color(9), UX Psychology, UX Writing, Typography,
@@ -177,7 +179,7 @@ Why: Quick overview for AI agents before loading context. "How big is this campu
 |---------|-------|---------|--------|
 | design-ethics | ⚖️ | 7 | Ethics, privacy, AI fairness, sustainability |
 
-**Historical v25 total: 216 courses across 29 faculties. The current v26 campus has 226 courses across 30 faculties, including Knowledge & Context Engineering.**
+**Historical v26 delivery total: 226 courses across 30 faculties. The current v27.1.0 campus has 243 courses across 32 faculties, including Casual & Slang Writing (faculty #31) and Anti-Slop & Authentic Output (faculty #32).**
 
 ---
 
@@ -233,4 +235,4 @@ v24.0.0:
 
 ---
 
-*ICIL v2 — from knowledge base to intelligent learning platform. Roadmap delivered in v26.0.0; ongoing work is manual audit and community-driven v3 planning.* 🔥
+*ICIL v2 — from knowledge base to intelligent learning platform. Roadmap delivered in v26.0.0; current state is v27.1.0 (243 courses, 32 faculties). Ongoing work is manual audit and community-driven v3 planning.* 🔥

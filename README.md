@@ -1,10 +1,10 @@
 # 🎓 ICIL — Intelligence Campus Interactive Library
 
-[![Version](https://img.shields.io/badge/version-v27.0.0-blue)](https://github.com/kandarlubis31/ICIL/releases)
-[![Courses](https://img.shields.io/badge/courses-236-green)](./index.json)
-[![Faculties](https://img.shields.io/badge/faculties-31-orange)](./index.json)
+[![Version](https://img.shields.io/badge/version-v27.1.0-blue)](https://github.com/kandarlubis31/ICIL/releases)
+[![Courses](https://img.shields.io/badge/courses-243-green)](./index.json)
+[![Faculties](https://img.shields.io/badge/faculties-32-orange)](./index.json)
 [![MCP Tools](https://img.shields.io/badge/MCP%20tools-10-purple)](./mcp-server.js)
-[![Eval P@3](https://img.shields.io/badge/P%403-85.5%25-yellow)](./eval-set.json)
+[![Eval P@3](https://img.shields.io/badge/P%403-86.5%25-brightgreen)](./eval-set.json)
 [![License](https://img.shields.io/badge/license-MIT-lightgrey)](./LICENSE)
 
 > **Sacred Dictionary for AI Agents** — A super comprehensive knowledge base reference for AI agents across various knowledge domains.
@@ -24,8 +24,17 @@ git clone https://github.com/kandarlubis31/ICIL.git && cd ICIL && npm install
 # Route any design/dev prompt to relevant courses
 node load-context.js "build an accessible landing page"
 
-# List all 31 faculties with course counts
+# List all 32 faculties with course counts
 node load-context.js --list
+
+# Run unit tests (node:test, no extra dependencies)
+npm test
+
+# Run every local gate: tests + audit + CI + faculty contracts + MCP smoke
+npm run verify
+
+# Verify all 10 MCP tools over JSON-RPC
+npm run mcp:smoke
 
 # Start MCP server for Claude Desktop / Cursor
 node mcp-server.js
@@ -50,13 +59,13 @@ New-faculty pull requests are checked automatically by [`.github/workflows/facul
 Run the same checks locally with `npm run ci:faculty` for the full catalog, or target one faculty with `node ci-faculty.js --faculty <slug>`. PR base-commit detection runs automatically in `faculty.yml`.
 
 > **AI Agent?** Load [`AGENTS.md`](./AGENTS.md) first — it's the single source of truth for repo conventions.  
-> **MCP User?** Configure Claude Desktop with [`mcp-server.js`](./mcp-server.js) — 10 tools, zero API keys.
+> **MCP User?** Configure Claude Desktop with [`mcp-server.js`](./mcp-server.js) — 10 tools, zero API keys. `list_faculties` is compact by default; pass `includeCourses=true` (optionally with `faculty="security"`) when you need course titles.
 
 ---
 
 ## 📈 Eval Progress
 
-> Auto-router precision & recall journey — historical tuning through v25.0.5, then v27.0.0 re-baselined with the new faculty.
+> Auto-router precision & recall journey — historical tuning through v25.0.5, v27.0.0 re-baselined with the new faculty, v27.1.0 adds the Indonesian keyword layer, direct-match ranking, and an off-topic abstention suite.
 
 ### Precision@3 & Recall@3
 
@@ -65,8 +74,8 @@ xychart-beta
   title "P@3 & R@3 Progress — ICIL Auto-Router"
   x-axis ["v24.1.0", "v25.0.0", "v25.0.3", "v25.0.5", "v27.0.0", "v27.1.0"]
   y-axis "%" 50 --> 100
-  line [54.4, 59.3, 64.9, 72.8, 73.7, 85.5]
-  line [77.9, 85.9, 84.5, 94.4, 96.0, 98.4]
+  line [54.4, 59.3, 64.9, 72.8, 73.7, 86.3]
+  line [77.9, 85.9, 84.5, 94.4, 96.0, 98.9]
 ```
 
 > Top line: P@3 · Bottom line: R@3 — CI gate threshold at 70%
@@ -78,10 +87,11 @@ xychart-beta
   title "MRR Progress — ICIL Auto-Router"
   x-axis ["v24.1.0", "v25.0.0", "v25.0.5", "v27.0.0", "v27.1.0"]
   y-axis "MRR" 0.65 --> 1.0
-  line [0.731, 0.809, 0.922, 0.934, 0.989]
+  line [0.731, 0.809, 0.922, 0.934, 0.986]
 ```
 
-> CI threshold at 0.65 ✅ — current v27.1.0 MRR 0.989 well above
+> CI threshold at 0.65 ✅ — current v27.1.0 MRR 0.986 well above
+> Off-topic abstention: **20/20** prompts return no faculty (threshold 90%) — the suite caught and removed bare generic keywords like `EXPLAIN`, `jakarta`, `light`, and `check`.
 
 | Release | P@3 | R@3 | MRR | Key Event |
 |---------|------|-----|-----|-----------|
@@ -90,7 +100,7 @@ xychart-beta
 | v25.0.3 | 64.9% | 84.5% | — | DUPLICATE HIGH → 0 + noise removal |
 | **v25.0.5** | **72.8%** | **94.4%** | **0.922** | Phase 1 LOW tightening + 17 dup keywords fixed |
 | **v27.0.0** | **73.7%** | **96.0%** | **0.934** | Knowledge & Context Engineering + Casual & Slang Writing |
-| **v27.1.0** | **85.5%** | **98.4%** | **0.989** | 7-round keyword tuning: mass-demotion, negatives, 227 prompts |
+| **v27.1.0** | **86.5%** | **98.9%** | **0.986** | Indonesian keyword layer, direct-match-first course ranking, Anti-Slop faculty, 251 routing + 20 abstention prompts |
 
 ---
 
@@ -175,10 +185,12 @@ inteligence_mas-aul/
 │   └── (7 courses)
 ├── design-ethics/              # ⚖️ Faculty of Design Ethics
 │   └── (7 courses)
-└── knowledge-context/          # 🗃️ Faculty of Knowledge & Context Engineering
-    └── (10 courses)
-└── penulisan-gaul/             # 📝 Faculty of Casual & Slang Writing
-    └── (10 courses)
+├── knowledge-context/          # 🗃️ Faculty of Knowledge & Context Engineering
+│   └── (10 courses)
+├── penulisan-gaul/             # 📝 Faculty of Casual & Slang Writing
+│   └── (10 courses)
+└── anti-slop/                  # 🚫 Faculty of Anti-Slop & Authentic Output
+    └── (7 courses)
 ```
 
 ---
@@ -384,14 +396,43 @@ The **casual writing layer** — teaches how to write authentic Indonesian infor
 
 **10 Courses** | **Level: Beginner → Advanced**
 
+### 🚫 Faculty of Anti-Slop & Authentic Output — `anti-slop/`
+The **output quality layer** — teaches agents to detect and remove mass-produced AI slop ("slop" was Merriam-Webster's Word of the Year 2025) across all three domains it appears in. Covers slop anatomy and detection heuristics, the banned lexicon (cliché words in EN + ID), structural tells (the triad, pivot formula, hedging stacks, opener rituals), code slop & comment hygiene, generated-UI slop patterns, the 5-pass de-slop workflow with trap-prompt testing, and building authentic voice systems. Distinct from `ux-writing/` (copy craft rules) and `improvement/` (design audits) — this faculty audits **AI-generated output specifically**.
+
+**7 Courses** | **Level: Beginner → Advanced**
+
+---
+
+## 🔐 Security
+
+ICIL is **read-only and offline**: the MCP server speaks JSON-RPC over stdio, opens no ports, makes no outbound requests, and requires no API keys.
+
+- **File access is confined** to `faculty/file.md` inside the repository. Absolute paths, `..` traversal, non-Markdown files, root-level files, and symlinks that escape the root are rejected by `getCourseContent()`.
+- **Dependencies are audited** in CI with `npm audit --omit=dev --audit-level=high`; current baseline is **0 vulnerabilities**.
+- **Report vulnerabilities privately** — see [`SECURITY.md`](./SECURITY.md). Please do not open a public issue.
+- **Course content is data, not instructions.** ICIL does not sanitize Markdown for prompt injection; review untrusted content before adding it to the catalog.
+
+---
+
+## 📦 Package
+
+The npm package is scoped as **`@kandarlubis/icil`** (not `icil`). It ships `campus-core.js`, `load-context.js`, `mcp-server.js`, `index.json`, `SECURITY.md`, and all 32 faculty directories — 283 files, ~520 KB tarball. The two CLI entries are `icil` and `icil-mcp`.
+
+```bash
+npm pack --dry-run   # inspect the tarball
+npm run verify       # also runs automatically before npm publish
+npm publish --access public   # owner-only
+```
+
 ---
 
 ## 🔮 Roadmap
 
-- [x] **ROADMAP v2 COMPLETE 🏁** — 236 courses, 31 faculties, 10 MCP tools
+- [x] **ROADMAP v2 COMPLETE 🏁** — campus now 243 courses, 32 faculties, 10 MCP tools
 - [x] **v27.0.0 Knowledge & Context Engineering 🗃️** — 10 courses
-- [x] **v27.1.0 Keyword Tuning 🎯** — P@3 85.5%, 7-round precision tuning
+- [x] **v27.1.0 Indonesian Routing 🎯** — 142 ID keywords, direct-match-first ranking, keyword detox (`EXPLAIN`, `jakarta`, `light`, `check`), 20/20 off-topic prompts blocked
 - [x] **v27.0.0 Casual & Slang Writing 📝** — 10 courses
+- [x] **v27.1.0 Anti-Slop & Authentic Output 🚫** — 7 courses, slop detection + banned lexicon + de-slop workflow + authentic voice across text/code/UI
 - [ ] **v3 planning** — Submit your ideas!
 
 ---

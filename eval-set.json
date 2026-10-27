@@ -1,14 +1,16 @@
 {
   "name": "ICIL Auto-Router Eval Set",
-  "version": "1.0.0",
-  "description": "Labeled evaluation prompts for measuring ICIL auto-router accuracy. 217 prompts across 30 faculties, 3 difficulty tiers, EN+ID bilingual coverage, edge-case testing, and faculty-qualified course-level labels.",
-  "total_prompts": 227,
-  "faculties_covered": 31,
+  "version": "1.4.0",
+  "description": "Gold-standard routing prompts for the ICIL auto-router. 251 routing prompts (227 English/Indonesian baseline + 15 Indonesian-phrasing regression + 2 near-miss regression prompts + 7 Anti-Slop prompts) plus 20 off-topic abstention prompts — including near-miss prompts sharing trigger vocabulary (explain, write, light, check) — that must return no faculty (v1.4.0).",
+  "total_prompts": 251,
+  "total_abstention_prompts": 20,
+  "faculties_covered": 32,
   "metrics_target": {
     "precision_at_k": 0.85,
     "recall_at_k": 0.8,
     "mrr": 0.75,
-    "faculty_accuracy": 0.8
+    "faculty_accuracy": 0.8,
+    "abstention_pass_rate": 0.9
   },
   "prompts": [
     {
@@ -52,7 +54,8 @@
       ],
       "category": "color",
       "difficulty": "easy",
-      "notes": "BI: palet warna + mewah = harmony + psychology + palette"
+      "notes": "BI: palet warna + mewah = harmony + psychology + palette",
+      "language": "id"
     },
     {
       "id": "eval-004",
@@ -535,7 +538,8 @@
       ],
       "category": "patterns-accessibility",
       "difficulty": "medium",
-      "notes": "BI: modal + accessible = design-patterns + aksesibilitas"
+      "notes": "BI: modal + accessible = design-patterns + aksesibilitas",
+      "language": "id"
     },
     {
       "id": "eval-040",
@@ -2376,7 +2380,8 @@
       ],
       "category": "accessibility",
       "difficulty": "easy",
-      "notes": "BI: broad accessibility query"
+      "notes": "BI: broad accessibility query",
+      "language": "id"
     },
     {
       "id": "eval-179",
@@ -2391,7 +2396,8 @@
       ],
       "category": "typography",
       "difficulty": "easy",
-      "notes": "BI: readability + spacing + scale for mobile"
+      "notes": "BI: readability + spacing + scale for mobile",
+      "language": "id"
     },
     {
       "id": "eval-180",
@@ -2406,7 +2412,8 @@
       ],
       "category": "layout",
       "difficulty": "easy",
-      "notes": "BI: Grid vs Flexbox"
+      "notes": "BI: Grid vs Flexbox",
+      "language": "id"
     },
     {
       "id": "eval-181",
@@ -2422,7 +2429,8 @@
       ],
       "category": "psychology-improvement",
       "difficulty": "medium",
-      "notes": "BI: bounce rate = UX psychology + improvement"
+      "notes": "BI: bounce rate = UX psychology + improvement",
+      "language": "id"
     },
     {
       "id": "eval-182",
@@ -2479,7 +2487,8 @@
       ],
       "category": "writing",
       "difficulty": "easy",
-      "notes": "BI: button label microcopy"
+      "notes": "BI: button label microcopy",
+      "language": "id"
     },
     {
       "id": "eval-186",
@@ -2566,7 +2575,8 @@
       ],
       "category": "devops",
       "difficulty": "easy",
-      "notes": "BI: deployment query"
+      "notes": "BI: deployment query",
+      "language": "id"
     },
     {
       "id": "eval-192",
@@ -2696,7 +2706,8 @@
       ],
       "category": "multi",
       "difficulty": "hard",
-      "notes": "BI: broad system design — architecture + security + cloud deployment"
+      "notes": "BI: broad system design — architecture + security + cloud deployment",
+      "language": "id"
     },
     {
       "id": "eval-201",
@@ -3092,6 +3103,578 @@
       "category": "penulisan-gaul",
       "language": "id",
       "source": "v27 penulisan-gaul eval"
+    },
+    {
+      "id": "eval-228",
+      "prompt": "Bikin landing page yang accessible buat startup kami",
+      "expected_faculties": [
+        "aksesibilitas"
+      ],
+      "expected_courses": [
+        "aksesibilitas/01"
+      ],
+      "category": "aksesibilitas",
+      "difficulty": "easy",
+      "notes": "ID phrasing — accessibility + landing page",
+      "language": "id"
+    },
+    {
+      "id": "eval-229",
+      "prompt": "Rancang skema warna dan tipografi buat brand skincare lokal",
+      "expected_faculties": [
+        "warna",
+        "tipografi",
+        "branding"
+      ],
+      "expected_courses": [
+        "warna/02"
+      ],
+      "category": "warna",
+      "difficulty": "medium",
+      "notes": "ID phrasing — visual identity for a brand",
+      "language": "id"
+    },
+    {
+      "id": "eval-230",
+      "prompt": "Tombol di aplikasi mobile kami kecil-kecil, susah dipencet",
+      "expected_faculties": [
+        "mobile-ux"
+      ],
+      "expected_courses": [
+        "mobile-ux/02"
+      ],
+      "category": "mobile-ux",
+      "difficulty": "medium",
+      "notes": "ID phrasing — touch target complaint",
+      "language": "id"
+    },
+    {
+      "id": "eval-231",
+      "prompt": "Formulir login kami bikin pengguna frustrasi, gimana benerinnya?",
+      "expected_faculties": [
+        "design-patterns"
+      ],
+      "expected_courses": [
+        "design-patterns/02"
+      ],
+      "category": "design-patterns",
+      "difficulty": "medium",
+      "notes": "ID phrasing — form UX",
+      "language": "id"
+    },
+    {
+      "id": "eval-232",
+      "prompt": "Query SQL-nya lambat padahal datanya cuma sedikit",
+      "expected_faculties": [
+        "database-management"
+      ],
+      "expected_courses": [
+        "database-management/03"
+      ],
+      "category": "database-management",
+      "difficulty": "easy",
+      "notes": "ID phrasing — query optimization",
+      "language": "id"
+    },
+    {
+      "id": "eval-233",
+      "prompt": "Deploy aplikasi Node.js ke cloud pakai Docker",
+      "expected_faculties": [
+        "devops-infra"
+      ],
+      "expected_courses": [
+        "devops-infra/04"
+      ],
+      "category": "devops-infra",
+      "difficulty": "easy",
+      "notes": "ID phrasing — cloud deployment",
+      "language": "id"
+    },
+    {
+      "id": "eval-234",
+      "prompt": "API kami kena serangan XSS, gimana ngamankan input pengguna?",
+      "expected_faculties": [
+        "security"
+      ],
+      "expected_courses": [
+        "security/03"
+      ],
+      "category": "security",
+      "difficulty": "medium",
+      "notes": "ID phrasing — input security",
+      "language": "id"
+    },
+    {
+      "id": "eval-235",
+      "prompt": "Bikin dashboard penjualan yang gampang dibaca",
+      "expected_faculties": [
+        "data-viz"
+      ],
+      "expected_courses": [
+        "data-viz/04"
+      ],
+      "category": "data-viz",
+      "difficulty": "easy",
+      "notes": "ID phrasing — dashboard design",
+      "language": "id"
+    },
+    {
+      "id": "eval-236",
+      "prompt": "Banyak pengguna drop off di onboarding aplikasi kami",
+      "expected_faculties": [
+        "ux-writing"
+      ],
+      "expected_courses": [
+        "ux-writing/05"
+      ],
+      "category": "ux-writing",
+      "difficulty": "easy",
+      "notes": "ID phrasing — onboarding copy",
+      "language": "id"
+    },
+    {
+      "id": "eval-237",
+      "prompt": "Riset pengguna murah buat validasi ide fitur baru",
+      "expected_faculties": [
+        "ux-research"
+      ],
+      "expected_courses": [
+        "ux-research/01"
+      ],
+      "category": "ux-research",
+      "difficulty": "medium",
+      "notes": "ID phrasing — discovery research",
+      "language": "id"
+    },
+    {
+      "id": "eval-238",
+      "prompt": "Animasi transisi halaman yang gak bikin pusing",
+      "expected_faculties": [
+        "animasi"
+      ],
+      "expected_courses": [
+        "animasi/05"
+      ],
+      "category": "animasi",
+      "difficulty": "easy",
+      "notes": "ID phrasing — page transition",
+      "language": "id"
+    },
+    {
+      "id": "eval-239",
+      "prompt": "Kami mau adopsi design system, mulai dari mana?",
+      "expected_faculties": [
+        "design-systems"
+      ],
+      "expected_courses": [
+        "design-systems/01"
+      ],
+      "category": "design-systems",
+      "difficulty": "easy",
+      "notes": "ID phrasing — design system adoption",
+      "language": "id"
+    },
+    {
+      "id": "eval-240",
+      "prompt": "Chatbot CS kami jawabannya ngawur terus",
+      "expected_faculties": [
+        "conversational-ui"
+      ],
+      "expected_courses": [
+        "conversational-ui/05"
+      ],
+      "category": "conversational-ui",
+      "difficulty": "medium",
+      "notes": "ID phrasing — chatbot recovery (course-level gap)",
+      "language": "id"
+    },
+    {
+      "id": "eval-241",
+      "prompt": "Bikin konten TikTok pakai bahasa gaul yang natural",
+      "expected_faculties": [
+        "penulisan-gaul"
+      ],
+      "expected_courses": [
+        "penulisan-gaul/04"
+      ],
+      "category": "penulisan-gaul",
+      "difficulty": "easy",
+      "notes": "ID phrasing — social slang",
+      "language": "id"
+    },
+    {
+      "id": "eval-242",
+      "prompt": "Tulis pesan error yang ramah, jangan nyalahin pengguna",
+      "expected_faculties": [
+        "ux-writing"
+      ],
+      "expected_courses": [
+        "ux-writing/04"
+      ],
+      "category": "ux-writing",
+      "difficulty": "easy",
+      "notes": "ID phrasing — error copy",
+      "language": "id"
+    },
+    {
+      "id": "eval-243",
+      "prompt": "explain the query plan for this slow SQL query",
+      "expected_faculties": [
+        "database-management"
+      ],
+      "expected_courses": [
+        "database-management/03"
+      ],
+      "category": "database-management",
+      "difficulty": "medium",
+      "notes": "Near-miss regression: shares the word 'explain' with the removed bare EXPLAIN keyword, but routes on 'query plan'",
+      "language": "en"
+    },
+    {
+      "id": "eval-244",
+      "prompt": "use a light font weight for captions",
+      "expected_faculties": [
+        "tipografi"
+      ],
+      "expected_courses": [
+        "tipografi/01"
+      ],
+      "category": "typography",
+      "difficulty": "medium",
+      "notes": "Near-miss regression: bare 'light' keyword was removed; font-weight queries still route via 'light font'",
+      "language": "en"
+    },
+    {
+      "id": "eval-245",
+      "prompt": "artikel ini kelihatan AI banget dan terlalu generik",
+      "expected_faculties": [
+        "anti-slop"
+      ],
+      "expected_courses": [
+        "anti-slop/01"
+      ],
+      "category": "ai-output-quality",
+      "difficulty": "easy",
+      "language": "id",
+      "notes": "BI: 'kelihatan AI banget' hits the reserved HIGH phrase 'AI banget' -> slop anatomy; no other faculty trips"
+    },
+    {
+      "id": "eval-246",
+      "prompt": "hapus kata klise dari deskripsi produk ini sebelum rilis",
+      "expected_faculties": [
+        "anti-slop",
+        "ux-writing"
+      ],
+      "expected_courses": [
+        "anti-slop/02",
+        "ux-writing/01",
+        "ux-writing/03"
+      ],
+      "category": "ai-output-quality",
+      "difficulty": "medium",
+      "language": "id",
+      "notes": "Cross-faculty: 'kata klise' (reserved) -> banned lexicon; product copy context co-triggers ux-writing at LOW"
+    },
+    {
+      "id": "eval-247",
+      "prompt": "why does every AI-written summary have the same rule of three pattern",
+      "expected_faculties": [
+        "anti-slop"
+      ],
+      "expected_courses": [
+        "anti-slop/03",
+        "anti-slop/01"
+      ],
+      "category": "ai-output-quality",
+      "difficulty": "medium",
+      "language": "en",
+      "notes": "Reserved phrase 'rule of three' -> structural patterns; 01 auto-loads as prerequisite"
+    },
+    {
+      "id": "eval-248",
+      "prompt": "the PR is full of narrating comments, fix the comment hygiene",
+      "expected_faculties": [
+        "anti-slop"
+      ],
+      "expected_courses": [
+        "anti-slop/04",
+        "anti-slop/01"
+      ],
+      "category": "ai-output-quality",
+      "difficulty": "easy",
+      "language": "en",
+      "notes": "Reserved phrases 'narrating comments' + 'comment hygiene' -> code slop; 01 auto-loads as prerequisite"
+    },
+    {
+      "id": "eval-249",
+      "prompt": "the generated UI looks like a generic SaaS dashboard, purple gradient everywhere",
+      "expected_faculties": [
+        "anti-slop",
+        "warna"
+      ],
+      "expected_courses": [
+        "anti-slop/05",
+        "warna/01",
+        "warna/02"
+      ],
+      "category": "ai-output-quality",
+      "difficulty": "medium",
+      "language": "en",
+      "notes": "Cross-faculty: reserved phrase 'generated ui' -> UI slop; 'purple gradient' legitimately co-triggers warna color psychology"
+    },
+    {
+      "id": "eval-250",
+      "prompt": "remove slop from these AI-written docs before publishing",
+      "expected_faculties": [
+        "anti-slop"
+      ],
+      "expected_courses": [
+        "anti-slop/01",
+        "anti-slop/06",
+        "anti-slop/02"
+      ],
+      "category": "ai-output-quality",
+      "difficulty": "hard",
+      "language": "en",
+      "notes": "'remove slop' + 'slop' both reserved HIGH -> de-slop workflow with anatomy first; 02 auto-loads as prerequisite"
+    },
+    {
+      "id": "eval-251",
+      "prompt": "humanize this assistant copy, it sounds robotic",
+      "expected_faculties": [
+        "anti-slop"
+      ],
+      "expected_courses": [
+        "anti-slop/07",
+        "anti-slop/01",
+        "anti-slop/02"
+      ],
+      "category": "ai-output-quality",
+      "difficulty": "medium",
+      "language": "en",
+      "notes": "Reserved phrases 'humanize' + 'sounds robotic' -> authentic voice; 01/02 auto-load as prerequisites"
+    }
+  ],
+  "abstention_prompts": [
+    {
+      "id": "neg-001",
+      "prompt": "Resep rendang daging sapi yang empuk dan tahan lama",
+      "expected_faculties": [],
+      "expected_courses": [],
+      "expect_no_match": true,
+      "category": "out-of-scope",
+      "difficulty": "easy",
+      "language": "id",
+      "notes": "Cooking — outside all 31 faculties"
+    },
+    {
+      "id": "neg-002",
+      "prompt": "Jadwal pertandingan liga bola malam ini",
+      "expected_faculties": [],
+      "expected_courses": [],
+      "expect_no_match": true,
+      "category": "out-of-scope",
+      "difficulty": "easy",
+      "language": "id",
+      "notes": "Sports schedule — outside campus scope"
+    },
+    {
+      "id": "neg-003",
+      "prompt": "Cara menghitung zakat mal yang benar",
+      "expected_faculties": [],
+      "expected_courses": [],
+      "expect_no_match": true,
+      "category": "out-of-scope",
+      "difficulty": "easy",
+      "language": "id",
+      "notes": "Religious finance — outside campus scope"
+    },
+    {
+      "id": "neg-004",
+      "prompt": "Harga tiket kereta cepat Jakarta Bandung",
+      "expected_faculties": [],
+      "expected_courses": [],
+      "expect_no_match": true,
+      "category": "out-of-scope",
+      "difficulty": "easy",
+      "language": "id",
+      "notes": "Regression: bare jakarta keyword used to match penulisan-gaul"
+    },
+    {
+      "id": "neg-005",
+      "prompt": "How do I change a flat car tire safely?",
+      "expected_faculties": [],
+      "expected_courses": [],
+      "expect_no_match": true,
+      "category": "out-of-scope",
+      "difficulty": "easy",
+      "language": "en",
+      "notes": "Automotive — outside campus scope"
+    },
+    {
+      "id": "neg-006",
+      "prompt": "Best sourdough bread recipe for beginners",
+      "expected_faculties": [],
+      "expected_courses": [],
+      "expect_no_match": true,
+      "category": "out-of-scope",
+      "difficulty": "easy",
+      "language": "en",
+      "notes": "Cooking — outside all 31 faculties"
+    },
+    {
+      "id": "neg-007",
+      "prompt": "Who won the 2022 FIFA World Cup?",
+      "expected_faculties": [],
+      "expected_courses": [],
+      "expect_no_match": true,
+      "category": "out-of-scope",
+      "difficulty": "easy",
+      "language": "en",
+      "notes": "Sports trivia — outside campus scope"
+    },
+    {
+      "id": "neg-008",
+      "prompt": "Explain photosynthesis in simple terms",
+      "expected_faculties": [],
+      "expected_courses": [],
+      "expect_no_match": true,
+      "category": "out-of-scope",
+      "difficulty": "easy",
+      "language": "en",
+      "notes": "Regression: bare EXPLAIN keyword used to match database/performance"
+    },
+    {
+      "id": "neg-009",
+      "prompt": "How to train a puppy to sit on command",
+      "expected_faculties": [],
+      "expected_courses": [],
+      "expect_no_match": true,
+      "category": "out-of-scope",
+      "difficulty": "easy",
+      "language": "en",
+      "notes": "Pet training — outside campus scope"
+    },
+    {
+      "id": "neg-010",
+      "prompt": "What is the capital city of Australia?",
+      "expected_faculties": [],
+      "expected_courses": [],
+      "expect_no_match": true,
+      "category": "out-of-scope",
+      "difficulty": "easy",
+      "language": "en",
+      "notes": "Geography trivia — outside campus scope"
+    },
+    {
+      "id": "neg-011",
+      "prompt": "Cara mengurus KTP baru di kelurahan",
+      "expected_faculties": [],
+      "expected_courses": [],
+      "expect_no_match": true,
+      "category": "out-of-scope",
+      "difficulty": "easy",
+      "language": "id",
+      "notes": "Civic administration — outside campus scope"
+    },
+    {
+      "id": "neg-012",
+      "prompt": "Tips investasi saham untuk pemula",
+      "expected_faculties": [],
+      "expected_courses": [],
+      "expect_no_match": true,
+      "category": "out-of-scope",
+      "difficulty": "easy",
+      "language": "id",
+      "notes": "Personal finance — outside campus scope"
+    },
+    {
+      "id": "neg-013",
+      "prompt": "explain photosynthesis to a 10 year old",
+      "expected_faculties": [],
+      "expected_courses": [],
+      "expect_no_match": true,
+      "category": "out-of-scope",
+      "difficulty": "medium",
+      "language": "en",
+      "notes": "Near-miss regression: shares 'explain' with the removed bare EXPLAIN keyword — biology homework, not tech SQL"
+    },
+    {
+      "id": "neg-014",
+      "prompt": "who won the 2002 world cup",
+      "expected_faculties": [],
+      "expected_courses": [],
+      "expect_no_match": true,
+      "category": "out-of-scope",
+      "difficulty": "easy",
+      "language": "en",
+      "notes": "Sports trivia — outside campus scope"
+    },
+    {
+      "id": "neg-015",
+      "prompt": "best protein powder for muscle gain",
+      "expected_faculties": [],
+      "expected_courses": [],
+      "expect_no_match": true,
+      "category": "out-of-scope",
+      "difficulty": "easy",
+      "language": "en",
+      "notes": "Fitness nutrition — outside campus scope"
+    },
+    {
+      "id": "neg-016",
+      "prompt": "write a limerick about my cat",
+      "expected_faculties": [],
+      "expected_courses": [],
+      "expect_no_match": true,
+      "category": "out-of-scope",
+      "difficulty": "medium",
+      "language": "en",
+      "notes": "Near-miss regression: creative writing shares the word 'write' with writing faculties — poetry is not UI copy"
+    },
+    {
+      "id": "neg-017",
+      "prompt": "repair my car's check engine light",
+      "expected_faculties": [],
+      "expected_courses": [],
+      "expect_no_match": true,
+      "category": "out-of-scope",
+      "difficulty": "medium",
+      "language": "en",
+      "notes": "Regression: bare 'light' (tipografi) and 'check' (improvement) keywords used to match car repair"
+    },
+    {
+      "id": "neg-018",
+      "prompt": "tips to win at chess openings",
+      "expected_faculties": [],
+      "expected_courses": [],
+      "expect_no_match": true,
+      "category": "out-of-scope",
+      "difficulty": "easy",
+      "language": "en",
+      "notes": "Board game — outside campus scope"
+    },
+    {
+      "id": "neg-019",
+      "prompt": "how to lower my electricity bill",
+      "expected_faculties": [],
+      "expected_courses": [],
+      "expect_no_match": true,
+      "category": "out-of-scope",
+      "difficulty": "easy",
+      "language": "en",
+      "notes": "Home utilities — outside campus scope"
+    },
+    {
+      "id": "neg-020",
+      "prompt": "cara mengatasi jerawat di punggung",
+      "expected_faculties": [],
+      "expected_courses": [],
+      "expect_no_match": true,
+      "category": "out-of-scope",
+      "difficulty": "easy",
+      "language": "id",
+      "notes": "Skincare — outside campus scope ('mengatasi' is a generic Indonesian verb)"
     }
   ],
   "course_ref_format": "faculty-slug/XX"

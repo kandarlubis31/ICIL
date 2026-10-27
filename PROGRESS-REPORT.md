@@ -1,7 +1,7 @@
 # 🎓 ICIL v27.1.0 — Progress Report & AI Handoff
 
 > **Purpose**: Give this file to ANY AI agent to understand the full ICIL project state.
-> **Date**: August 5, 2026
+> **Date**: October 25, 2026
 > **Status**: ✅ STABLE — CI All Green, ready for GitHub
 
 ---
@@ -10,22 +10,24 @@
 
 | Metric | Value |
 |--------|-------|
-| **Version** | v27.0.0 |
-| **Total Courses** | 236 |
-| **Total Faculties** | 31 |
+| **Version** | v27.1.0 |
+| **Total Courses** | 243 |
+| **Total Faculties** | 32 |
 | **MCP Tools** | 10 (v3) |
-| **Trigger Keywords** | 2,200+ across 31 faculty groups |
-| **Eval Set** | 227 labeled prompts (EN+ID bilingual, 3 difficulty tiers) |
-| **Precision@3** | **85.5%** |
-| **Recall@3** | **98.4%** |
-| **MRR** | **0.989** |
+| **Trigger Keywords** | 2,839 across 32 faculty groups |
+| **Eval Set** | 251 routing + 20 abstention prompts (EN+ID, 4 difficulty tiers, near-miss regressions) |
+| **Precision@3** | **86.5%** |
+| **Recall@3** | **98.9%** |
+| **MRR** | **0.986** |
 | **DUPLICATE HIGH** | **0** |
 | **CROSS-FACULTY** | 136 (informational overlaps, 0 known blockers) |
+| **Unit Tests** | 15/15 pass (`npm test`, path guard + catalog + ranking + docs + README consistency) |
+| **Dependency Audit** | 0 vulnerabilities (`npm audit --omit=dev --audit-level=high`) |
 | **CI Exit Code** | **0** (ALL CHECKS PASSED) |
 
 ---
 
-## 🏛️ All 31 Faculties (236 Courses)
+## 🏛️ All 32 Faculties (243 Courses)
 
 ### Design Layer (#1-11 — Original Core)
 | # | Emoji | Faculty | Slug | Courses | Focus |
@@ -80,7 +82,12 @@
 | 28 | 🔬 | UX Research & Discovery | `ux-research` | 7 | Research methods, interviews, quantitative, synthesis, ops, usability, AI-augmented |
 | 29 | ⚖️ | Design Ethics | `design-ethics` | 7 | Ethical frameworks, privacy-first, inclusive design, AI fairness, dark patterns, sustainability, org ethics |
 | 30 | 🗃️ | Knowledge & Context Engineering | `knowledge-context` | 10 | Context budgets, modeling, document engineering, retrieval, provenance, evaluation, graphs, security, operations |
-| 31 | 📝 | Casual & Slang Writing | `penulisan-gaul` | 10 | Jaksel code-switching, abbreviations, gaming lingo, campus slang, wordplay, ethical writing | Context budgets, modeling, document engineering, retrieval, provenance, evaluation, graphs, security, operations |
+| 31 | 📝 | Casual & Slang Writing | `penulisan-gaul` | 10 | Jaksel code-switching, abbreviations, gaming lingo, campus slang, wordplay, ethical writing |
+
+### AI-Output Quality Layer (#32)
+| # | Emoji | Faculty | Slug | Courses | Focus |
+|---|-------|---------|------|---------|------|
+| 32 | 🚫 | Anti-Slop & Authentic Output | `anti-slop` | 7 | Slop anatomy, banned lexicon EN+ID, structural patterns, comment hygiene, generated-UI patterns, de-slop workflow, authentic voice |
 
 ---
 
@@ -95,20 +102,20 @@ icil/
 ├── load-context.js          # CLI auto-router
 ├── ci-faculty.js            # New-faculty contract validator
 ├── .github/workflows/faculty.yml # Faculty-addition PR workflow
-├── eval-set.json            # 217 labeled eval prompts (EN+ID bilingual)
+├── eval-set.json            # 251 routing + 20 abstention prompts (EN+ID, near-miss regressions)
 ├── eval-runner.js          # Eval runner: P@3, R@3, MRR, CI gate
 ├── eval/                    # Legacy eval scripts (pre-v24.1, eval-prompts.json era)
 ├── ci-validate.js          # 4-stage CI: schema, duplicates, cross-refs, eval gate
-├── index.md                # Ultra-compact AI entry point (~500 tokens)
+├── index.md                # Ultra-compact AI entry point (~900 tokens)
 ├── AGENTS.md               # Agent guide — "load this first"
-├── CAMPUS-OVERVIEW.md      # Full overview + 16 cross-faculty task paths
+├── CAMPUS-OVERVIEW.md      # Full overview + 19 cross-faculty task paths
 ├── README.md               # Human-readable campus map + badges
 ├── CONTEXT.md              # Session save state
-├── CHANGELOG.md            # Complete history v1.0.0→v27.0.0
+├── CHANGELOG.md            # Complete history v1.0.0→v27.1.0
 ├── ISSUES.md               # All 9 bugs closed ✅
 ├── CONTRIBUTING.md         # Contribution guide + course template
 ├── PROGRESS-REPORT.md      # THIS FILE — handoff for other AI agents
-├── {30 faculty dirs}/      # Each with 7-10 .md courses + README.md
+├── {31 faculty dirs}/      # Each with 7-10 .md courses + README.md
 └── archive/                # Deprecated files
 ```
 
@@ -118,7 +125,7 @@ loadIndex()           // Parse index.json
 searchCampus(query)   // Full auto-router: matchKeywords → sorted results
 matchKeywords(i, txt) // Match trigger_keywords with word-boundary regex
 keywordMatch(kw, txt) // Word-boundary regex matching
-searchAcrossCampus(q) // Full-text search ALL 236 course files
+searchAcrossCampus(q) // Full-text search ALL 243 course files
 compareCourses(a,b)   // Side-by-side course comparison
 getCourseContent(fp)  // Load single course by file path
 listFacultiesData(i)  // Get all faculty metadata
@@ -131,8 +138,8 @@ CAMPUS_ROOT           // Path to campus root directory
 ```
 search_campus              → Auto-route prompt to relevant faculties + courses
 load_course                → Load full course content by path
-list_faculties             → List all 31 faculties
-search_across              → Full-text search across all 236 courses
+list_faculties             → List all 32 faculties
+search_across              → Full-text search across all 243 courses
 compare_courses            → Side-by-side comparison of any 2 courses
 get_campus_stats           → Quick campus metadata + course breakdown
 search_by_faculty          → Scoped full-text search within one faculty
@@ -143,7 +150,7 @@ recommend_learning_path    → Rules-based course sequence for 15+ goals
 
 ### Auto-Router Logic
 1. Parse user prompt → normalize text
-2. Iterate all 31 `trigger_keywords` groups
+2. Iterate all 32 `trigger_keywords` groups
 3. Match HIGH → MEDIUM → LOW keyword tiers via word-boundary `keywordMatch()`
 4. Score: HIGH=0, MEDIUM=1, LOW=2
 5. Return matches sorted by priority, deduplicated
@@ -201,12 +208,15 @@ recommend_learning_path    → Rules-based course sequence for 15+ goals
 ### Current Baseline (v27.1.0)
 | Metric | Score | Threshold | Status |
 |--------|-------|-----------|--------|
-| **Precision@3** | **85.5%** | 70% | ✅ |
-| **Recall@3** | **98.4%** | 70% | ✅ |
-| **MRR** | **0.989** | 0.65 | ✅ |
-| Perfect hits | 153/227 (67.4%) | — | — |
-| Failed faculty prompts | 0/227 (0.0%) | — | — |
-| No match | 0/217 (0.0%) | — | — |
+| **Precision@3** | **86.5%** | 70% | ✅ |
+| **Recall@3** | **98.9%** | 70% | ✅ |
+| **MRR** | **0.986** | 0.65 | ✅ |
+| Perfect hits | 177/251 (70.5%) | — | — |
+| Failed faculty prompts | 0/251 (0.0%) | — | — |
+| No match (routing set) | 0/251 (0.0%) | — | — |
+| Off-topic blocked (abstention set) | 20/20 (100.0%) | 90% | ✅ |
+| ID routing (32 tagged prompts) | P@3 89.1% · R@3 97.4% · MRR 0.984 | — | — |
+| Anti-Slop routing (7 prompts) | P@3 100% · MRR 1.0 | — | — |
 
 ### Full Journey
 | Version | P@3 | R@3 | MRR | Event |
@@ -217,7 +227,7 @@ recommend_learning_path    → Rules-based course sequence for 15+ goals
 | v25.0.3 | 64.9% | 84.5% | — | DUPLICATE HIGH → 0 + noise removal |
 | **v25.0.5** | **72.8%** | **94.4%** | **0.922** | Phase 1 LOW tightening + Data Integrity + CI all green |
 | **v27.0.0** | **73.7%** | **96.0%** | **0.934** | Knowledge & Context + Casual & Slang Writing faculties |
-| **v27.1.0** | **85.5%** | **98.4%** | **0.989** | 7-round precision tuning: mass-demotion, negatives, 227 prompts |
+| **v27.1.0** | **86.5%** | **98.9%** | **0.986** | Indonesian keyword layer + keyword detox + direct-match-first ranking + Anti-Slop faculty (#32), 251 routing + 20 abstention prompts |
 
 ---
 
@@ -225,11 +235,15 @@ recommend_learning_path    → Rules-based course sequence for 15+ goals
 
 ### Current Status
 ```
-✓ Schema Validation — PASSED (31 faculties, 236 courses)
+✓ Schema Validation — PASSED (32 faculties, 243 courses)
 ✓ Duplicate Keywords — PASSED (0 DUPLICATE HIGH)
-⚠ Cross-Faculty Keywords — 134 warnings (informational, all legitimate overlaps)
+⚠ Cross-Faculty Keywords — 136 warnings (informational, all legitimate overlaps)
 ✓ Cross-References — PASSED
-✓ Eval Gate — PASSED (P@3=85.5%, R@3=98.4%, MRR=0.989)
+✓ Unit Tests — PASSED (15/15, path guard + catalog + ranking + docs + README consistency)
+✓ Dependency Audit — PASSED (0 vulnerabilities, high/critical gate)
+✓ MCP Smoke Test — PASSED (10/10 tools over JSON-RPC)
+✓ Faculty Contracts — PASSED (32/32)
+✓ Eval Gate — PASSED (P@3=86.5%, R@3=98.9%, MRR=0.986; 20/20 off-topic blocked)
 
 ✓ ALL CHECKS PASSED — Exit Code 0
 ```
@@ -242,12 +256,17 @@ recommend_learning_path    → Rules-based course sequence for 15+ goals
 | v25.0.3 | 0 | 123 | ❌ (64.9% vs 80%) | 1 |
 | v25.0.5 | **0** | **129** | ✅ (72.8% vs 70%) | **0** |
 | v27.0.0 | **0** | **134** | ✅ (73.7% vs 70%) | **0** |
-| v27.1.0 | **0** | **136** | ✅ (85.5% vs 70%) | **0** |
+| v27.1.0 | **0** | **136** | ✅ (86.5% vs 70%) | **0** |
 
-### Key CI Changes carried into v27.0.0
-- **Eval threshold**: 0.80→0.70 (v27.0.0 P@3=73.7% passes)
-- **Prerequisite output deduplication**: faculty-qualified queue prevents repeated course entries without changing faculty routing
-- **v27.0.0 eval expansion**: 10 Knowledge & Context prompts added; baseline re-run at 217 prompts
+### Key CI Changes carried into v27.1.0
+- **Indonesian keyword layer**: 142 ID keywords, 2 toxic keywords removed (`ADA`, `DI`), plus bare-token detox (`EXPLAIN`, `jakarta`, `light`, `check`, `cek`)
+- **Anti-Slop reserved keywords**: 46 additional keywords for faculty #32 (EN + 6 ID terms) using vocabulary not present in any other faculty's HIGH tier
+- **Direct-match-first ranking**: `flattenCourseResults()` keeps prerequisites out of every top slot
+- **v27.1.0 eval expansion**: 15 Indonesian regression prompts + 2 near-miss routing prompts + 7 Anti-Slop prompts, one per course (baseline: 251 routing prompts); off-topic abstention suite at 20 prompts (90% gate, incl. near-miss prompts sharing trigger vocabulary) with per-language metrics
+- **Eval hygiene**: new prompts carry `language: "id"`; `eval-runner.js --abstention` runs the off-topic suite standalone; `eval-runner.js --omit <ids>` supports generalization checks when tuning keywords
+- **Security gate**: `getCourseContent()` confines reads to `faculty/file.md`; unit tests cover traversal and non-course files
+- **Supply chain gate**: CI runs `npm audit --omit=dev --audit-level=high` and `npm ci`; baseline is 0 vulnerabilities
+- **MCP smoke gate**: `scripts/mcp-smoke.js` spawns the server, verifies 10 tools, and calls each one
 - **ci-validate.js refactor**: CROSS-FACULTY = warnings (yellow), DUPLICATE HIGH = hard errors (red)
 - **Exit code**: only hard errors + eval gate affect exit code
 
@@ -255,31 +274,37 @@ recommend_learning_path    → Rules-based course sequence for 15+ goals
 
 ## 🔮 What's Been Accomplished
 
-1. ✅ **ROADMAP v2 100% complete** — 236 courses, 31 faculties, 10 MCP tools
-2. ✅ **P@3 85.5% achieved** — 7-round keyword tuning: mass-demotion, 98 keywords fixed, -44 FP
-2. ✅ **Knowledge & Context Engineering added** — 10 courses, router metadata, eval coverage, and synchronized context docs
-3. ✅ **All 9 bugs fixed** — ISSUES.md closed, zero known issues
-4. ✅ **DUPLICATE HIGH → 0** — no routing conflicts remain
-5. ✅ **CI All Green** — exit code 0, schema + cross-refs + eval gate all pass
-6. ✅ **v27.0.0 eval baseline** — P@3 85.5%, R@3 98.4%, MRR 0.989 across 217 prompts
-7. ✅ **Faculty Addition CI** — PR base detection and full contract checks for files, metadata, links, keywords, eval, and context docs
-8. ✅ **Prerequisite deduplication** — direct and recursive prerequisite entries are emitted once per faculty-qualified course ref
-9. ✅ **README.md and CONTEXT.md updated** — CI workflow usage, local commands, and current metrics documented
-10. ✅ **Single source of truth for emojis** — `index.json` only
-11. ✅ **CHANGELOG updated** — v1.0.0→v27.0.0 complete and scannable
-12. ✅ **Context docs synchronized** — AGENTS, README, CONTEXT, CAMPUS-OVERVIEW, PROGRESS-REPORT, index.md
-13. ✅ **Git history retained** — v25 release history preserved while v27.0.0 remains the current working state
+1. ✅ **ROADMAP v2 100% complete** — campus now 243 courses, 32 faculties, 10 MCP tools
+2. ✅ **P@3 86.5% achieved** — Indonesian keyword layer + keyword detox + direct-match-first ranking, 251 routing prompts
+3. ✅ **Knowledge & Context Engineering added** — 10 courses, router metadata, eval coverage, and synchronized context docs
+4. ✅ **Casual & Slang Writing added** — 10 courses as faculty #31 in v27.0.0
+5. ✅ **Anti-Slop & Authentic Output added** — 7 courses as faculty #32: slop anatomy, banned lexicon, structural patterns, code/UI slop, de-slop workflow, authentic voice
+5. ✅ **All 9 bugs fixed** — ISSUES.md closed, zero known issues
+6. ✅ **DUPLICATE HIGH → 0** — no routing conflicts remain
+7. ✅ **CI All Green** — exit code 0, schema + cross-refs + eval gate all pass
+8. ✅ **v27.1.0 eval baseline** — P@3 86.5%, R@3 98.9%, MRR 0.986 across 251 routing prompts; 20/20 off-topic prompts blocked
+9. ✅ **Faculty Addition CI** — PR base detection and full contract checks for files, metadata, links, keywords, eval, and context docs
+10. ✅ **Prerequisite deduplication** — direct and recursive prerequisite entries are emitted once per faculty-qualified course ref
+11. ✅ **README.md and CONTEXT.md updated** — CI workflow usage, local commands, and current metrics documented
+12. ✅ **Single source of truth for emojis** — `index.json` only
+13. ✅ **CHANGELOG updated** — v1.0.0→v27.1.0 complete and scannable
+14. ✅ **Context docs synchronized** — AGENTS, README, CONTEXT, CAMPUS-OVERVIEW, PROGRESS-REPORT, index.md
+15. ✅ **Git history retained** — v25 release history preserved while v27.1.0 remains the current working state
+16. ✅ **MCP server smoke-tested** — `npm install` + JSON-RPC session verified all 10 tools; fixed `compare_courses`/`export_course` level parsing (`unknown` → beginner/intermediate/advanced)
+17. ✅ **Security hardened** — path traversal closed, `SECURITY.md` added, 0 dependency vulnerabilities (SDK 1.32.2, zod 4.6.7)
+18. ✅ **Unit tests + CI gates** — 15 `node:test` cases, `npm audit` high/critical gate, `npm ci`, and MCP smoke all run in GitHub Actions
+19. ✅ **Compact MCP output** — `list_faculties` 54 KB → 8.9 KB, `get_campus_stats` 6 KB → ~1 KB by default, with opt-in detail
 
 ---
 
 ## 🔮 What Remains
 
-1. **0 failed faculty prompts and 0 no-match cases** — 65 course-level misses remain informational because course labels are stricter than the faculty-level CI gate; `eval-090`, `eval-166`, and `eval-199` now hit their expected courses in top-3.
-2. **134 CROSS-FACULTY keywords** — informational overlaps, including intentional knowledge/context, security, and AI safety relationships.
-3. **Manual content audit** — the legacy 86-item audit plan needs re-baselining for v26 and explicit completion evidence.
+1. **0 failed routing prompts, 0 no-match on the routing set, 20/20 off-topic prompts blocked** — 32 course-level misses remain informational because course labels are stricter than the faculty-level CI gate; `eval-098` and most Indonesian prompts now resolve their expected courses, with one documented conversational-ui course-level miss kept honest rather than keyword-fitted.
+2. **CROSS-FACULTY keywords** — informational overlaps, including intentional knowledge/context, security, and AI safety relationships; the anti-slop HIGH tier was built with reserved vocabulary and adds 0 duplicate-HIGH errors (re-run `node ci-validate.js --with-eval` for the live warning count).
+3. **Manual content audit** — the legacy 86-item audit plan is a v26 snapshot; re-baseline it to v27.1.0 counts before claiming completion.
 4. **GitHub push** — intentionally left for the project owner; no commit or push was performed.
-5. **npm publish** — `package.json` has `bin` entry, ready for `npm publish` when public.
-6. ~~**80% precision target**~~ — **ACHIEVED!** P@3 85.5% as of v27.1.0. Next stretch goal: 90%.
+5. **npm publish** — `package.json` is scoped as `@kandarlubis/icil` and has `bin` entries (`icil`, `icil-mcp`), ready for `npm publish --access public` when the owner decides.
+6. ~~**80% precision target**~~ — **ACHIEVED!** P@3 86.5% as of v27.1.0. Next stretch goal: 90%.
 
 ---
 
@@ -289,18 +314,16 @@ recommend_learning_path    → Rules-based course sequence for 15+ goals
 1. Load `AGENTS.md` first — it's the single source of truth for conventions
 2. All course content is in `{faculty}/XX-course-name.md` files
 3. `index.json` is the machine-readable catalog — every faculty, course, and keyword lives here
-4. Run `node ci-validate.js --with-eval` before committing to verify no regressions
+4. Run `npm run verify` (tests + audit + CI + faculty contracts + MCP smoke) before committing to verify no regressions
 5. Course format: compact (~400-600 words), dense tables, ⚡ Action Checklists
 
 ### Where to focus next:
-- **Manual audit re-baseline**: update the legacy v25 checklist to v26 counts and mark only independently verified items.
-- **90% P@3 target**: The next stretch goal. Current 85.5% is well above the original 80% target.
+- **Manual audit re-baseline**: update the legacy v26 checklist to v27.1.0 counts and mark only independently verified items.
+- **90% P@3 target**: The next stretch goal. Current 86.5% is well above the original 80% target.
 - **New faculties**: Community proposals welcome — the architecture supports adding faculties with `index.json`, course files, README, routing cases, eval prompts, and synchronized context docs.
-- **npm distribution**: Package is ready — `npm publish` as `icil` once public.
+- **npm distribution**: Package is ready — publish as `@kandarlubis/icil` (`npm publish --access public`). The unscoped name `icil` is not used by this project.
 - **Multi-language**: Translate key courses to Bahasa Indonesia for local community.
 
 ---
 
-*Generated from ICIL v27.1.0 — 236 courses, 31 faculties, 10 MCP tools. Current eval: P@3 73.7%, R@3 96.0%, MRR 0.934. Faculty CI and prerequisite deduplication are implemented; manual audit re-baselining remains.* 🔥
-
-- 📝 Casual & Slang Writing (penulisan-gaul): 10 courses added in v27.0.0
+*Generated from ICIL v27.1.0 — 243 courses, 32 faculties, 10 MCP tools. Current eval: P@3 86.5%, R@3 98.9%, MRR 0.986 across 251 routing prompts; 20/20 off-topic prompts blocked. Anti-Slop & Authentic Output (faculty #32) is routed 7/7 perfect. Faculty CI, MCP smoke test, and prerequisite deduplication are implemented; manual audit re-baselining remains.* 🔥

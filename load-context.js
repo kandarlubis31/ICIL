@@ -15,12 +15,8 @@
  * the relevant course file paths to load as AI agent context.
  */
 
-const fs = require("fs");
-const path = require("path");
 const readline = require("readline");
 const core = require("./campus-core");
-
-const CAMPUS_ROOT = __dirname;
 
 // ── ANSI Colors ──────────────────────────────────────────────
 const c = {
@@ -106,7 +102,8 @@ function printResults(results, prompt, options = {}) {
 
       if (options.print) {
         try {
-          const content = fs.readFileSync(course.filepath, "utf-8");
+          const content = core.getCourseContent(course.file);
+          if (!content) throw new Error(`Course file not available: ${course.file}`);
           console.log(`       ${c.dim}--- content ---${c.reset}`);
           content.split("\n").forEach((line) => {
             console.log(`       ${line}`);

@@ -4,12 +4,16 @@
  * eval-runner.js — ICIL Auto-Router Evaluation Runner
  *
  * Runs all labeled prompts from eval-set.json through the auto-router
- * and computes precision/recall/MRR/faculty accuracy metrics.
+ * and computes precision/recall/MRR/faculty accuracy metrics. Also runs
+ * the off-topic abstention suite, which asserts that out-of-scope prompts
+ * return no faculty at all.
  *
  * Usage:
- *   node eval-runner.js                          # Run all 217 prompts
+ *   node eval-runner.js                          # Run all routing prompts
+ *   node eval-runner.js --abstention             # Run only the off-topic suite
  *   node eval-runner.js --faculty warna          # Run only warna prompts
  *   node eval-runner.js --difficulty hard        # Run only hard prompts
+ *   node eval-runner.js --omit eval-006,eval-021 # Excluded IDs, for generalization checks
  *   node eval-runner.js --json                   # Output as JSON
  *   node eval-runner.js --ci                     # CI mode: exit 1 if below threshold
  */
@@ -24,6 +28,9 @@ const THRESHOLDS = {
   recall_at_k: 0.70,
   mrr: 0.65,
   faculty_accuracy: 0.75,
+  // Off-topic prompts must return no faculty. 0.90 allows one engineered
+  // exception but still catches newly introduced generic keywords.
+  abstention_pass_rate: 0.90,
 };
 
 // ── Load eval set ──────────────────────────────────────────────
@@ -48,48 +55,78 @@ function validateExpectedCourses(index, evalSet) {
     errors.push(`Eval set must declare course_ref_format="${expectedFormat}"`);
   }
 
-  for (const [promptIndex, evalPrompt] of (evalSet.prompts || []).entries()) {
-    const label = evalPrompt.id || `prompt #${promptIndex + 1}`;
-    if (!Array.isArray(evalPrompt.expected_faculties)) {
-      errors.push(`${label}: expected_faculties must be an array`);
-    }
-    if (!Array.isArray(evalPrompt.expected_courses)) {
-      errors.push(`${label}: expected_courses must be an array`);
-      continue;
-    }
+  const groups = [
+    { name: "prompts", prompts: evalSet.prompts || [] },
+    { name: "abstention_prompts", prompts: evalSet.abstention_prompts || [] },
+  ];
+  const seenIds = new Set();
 
-    const seen = new Set();
-    for (const ref of evalPrompt.expected_courses) {
-      if (typeof ref !== "string") {
-        errors.push(`${label}: expected_courses entries must be strings (got ${typeof ref})`);
-        continue;
+  for (const group of groups) {
+    for (const [promptIndex, evalPrompt] of group.prompts.entries()) {
+      const label = evalPrompt.id || `${group.name} #${promptIndex + 1}`;
+      if (evalPrompt.id) {
+        if (seenIds.has(evalPrompt.id)) {
+          errors.push(`${label}: duplicate prompt id`);
+        }
+        seenIds.add(evalPrompt.id);
       }
-      const parts = ref.split("/");
-      if (
-        parts.length !== 2 ||
-        !parts[0] ||
-        !/^[0-9]{2}$/.test(parts[1])
-      ) {
-        errors.push(`${label}: invalid faculty-qualified course ref "${ref}" (expected faculty-slug/XX)`);
+      if (typeof evalPrompt.prompt !== "string" || evalPrompt.prompt.trim() === "") {
+        errors.push(`${label}: prompt must be a non-empty string`);
+      }
+      if (!Array.isArray(evalPrompt.expected_faculties)) {
+        errors.push(`${label}: expected_faculties must be an array`);
+      }
+      if (!Array.isArray(evalPrompt.expected_courses)) {
+        errors.push(`${label}: expected_courses must be an array`);
         continue;
       }
 
-      const [facultySlug, courseId] = parts;
-      const faculty = index.faculties?.[facultySlug];
-      if (!faculty) {
-        errors.push(`${label}: unknown faculty in expected course "${ref}"`);
+      if (group.name === "abstention_prompts") {
+        if (evalPrompt.expect_no_match !== true) {
+          errors.push(`${label}: abstention prompt must set expect_no_match=true`);
+        }
+        if (evalPrompt.expected_faculties.length > 0 || evalPrompt.expected_courses.length > 0) {
+          errors.push(`${label}: abstention prompt must have empty expected arrays`);
+        }
         continue;
       }
-      if (!faculty.courses.some((course) => course.id === courseId)) {
-        errors.push(`${label}: unknown expected course "${ref}"`);
+      if (evalPrompt.expect_no_match === true) {
+        errors.push(`${label}: routing prompt cannot set expect_no_match=true`);
       }
-      if (!Array.isArray(evalPrompt.expected_faculties) || !evalPrompt.expected_faculties.includes(facultySlug)) {
-        errors.push(`${label}: expected course "${ref}" is not in expected_faculties`);
+
+      const seen = new Set();
+      for (const ref of evalPrompt.expected_courses) {
+        if (typeof ref !== "string") {
+          errors.push(`${label}: expected_courses entries must be strings (got ${typeof ref})`);
+          continue;
+        }
+        const parts = ref.split("/");
+        if (
+          parts.length !== 2 ||
+          !parts[0] ||
+          !/^[0-9]{2}$/.test(parts[1])
+        ) {
+          errors.push(`${label}: invalid faculty-qualified course ref "${ref}" (expected faculty-slug/XX)`);
+          continue;
+        }
+
+        const [facultySlug, courseId] = parts;
+        const faculty = index.faculties?.[facultySlug];
+        if (!faculty) {
+          errors.push(`${label}: unknown faculty in expected course "${ref}"`);
+          continue;
+        }
+        if (!faculty.courses.some((course) => course.id === courseId)) {
+          errors.push(`${label}: unknown expected course "${ref}"`);
+        }
+        if (!Array.isArray(evalPrompt.expected_faculties) || !evalPrompt.expected_faculties.includes(facultySlug)) {
+          errors.push(`${label}: expected course "${ref}" is not in expected_faculties`);
+        }
+        if (seen.has(ref)) {
+          errors.push(`${label}: duplicate expected course "${ref}"`);
+        }
+        seen.add(ref);
       }
-      if (seen.has(ref)) {
-        errors.push(`${label}: duplicate expected course "${ref}"`);
-      }
-      seen.add(ref);
     }
   }
 
@@ -100,23 +137,13 @@ function validateExpectedCourses(index, evalSet) {
 function runPrompt(index, evalPrompt) {
   const results = core.matchKeywords(index, evalPrompt.prompt);
   const returnedFaculties = results.map((r) => r.faculty);
-  const courseFacultyByFile = new Map();
-  for (const [facultySlug, faculty] of Object.entries(index.faculties || {})) {
-    for (const course of faculty.courses || []) {
-      courseFacultyByFile.set(course.file, facultySlug);
-    }
-  }
   const returnedCourses = [
     ...new Set(
-      results.flatMap((result) =>
-        result.courses.map((course) => {
-          // Prerequisites may cross faculty boundaries; use the catalog's
-          // course/file identity instead of assuming the parent result's faculty.
-          const facultySlug =
-            course.faculty || courseFacultyByFile.get(course.file) || result.faculty;
-          return `${facultySlug}/${course.id}`;
-        })
-      )
+      core.flattenCourseResults(results).map((course) => {
+        // Prerequisites may cross faculty boundaries; every course carries
+        // its own faculty slug, falling back to the parent result.
+        return `${course.faculty}/${course.id}`;
+      })
     ),
   ];
 
@@ -129,6 +156,38 @@ function runPrompt(index, evalPrompt) {
     returned_courses: returnedCourses,
     difficulty: evalPrompt.difficulty,
     category: evalPrompt.category,
+    language: evalPrompt.language || "en",
+    expectNoMatch: evalPrompt.expect_no_match === true,
+  };
+}
+
+// ── Run off-topic abstention suite ────────────────────────────
+function runAbstention(index, evalSet, filters = {}) {
+  let prompts = evalSet.abstention_prompts || [];
+  if (filters.omitted) {
+    prompts = prompts.filter((p) => !filters.omitted.includes(p.id));
+  }
+  const results = prompts.map((prompt) =>
+    runPrompt(index, prompt)
+  );
+  const failures = results
+    .filter((r) => r.returned.length > 0)
+    .map((r) => ({
+      id: r.id,
+      prompt: r.prompt,
+      returned: r.returned,
+    }));
+  const total = results.length;
+  const passed = total - failures.length;
+  const passRate = total > 0 ? passed / total : 1;
+
+  return {
+    total,
+    passed,
+    passRate,
+    threshold: THRESHOLDS.abstention_pass_rate,
+    gatePassed: passRate >= THRESHOLDS.abstention_pass_rate,
+    failures,
   };
 }
 
@@ -174,8 +233,16 @@ function runAll(index, evalSet, filters = {}) {
   if (filters.category) {
     prompts = prompts.filter((p) => p.category === filters.category);
   }
+  if (filters.omitted) {
+    // Generalization check: exclude the prompts that motivated a keyword
+    // change, so the remaining set shows whether the change generalizes.
+    // Pass --ci to require the reduced set to still pass all thresholds.
+    const omitted = new Set(filters.omitted);
+    prompts = prompts.filter((p) => !omitted.has(p.id));
+  }
 
   const results = prompts.map((p) => runPrompt(index, p));
+  const abstention = runAbstention(index, evalSet, filters);
 
   // Aggregate metrics
   let totalP1 = 0,
@@ -190,10 +257,11 @@ function runAll(index, evalSet, filters = {}) {
 
   // Per-faculty stats
   const facultyStats = {};
-  // Per-difficulty stats
-  const difficultyStats = { easy: { count: 0, p1: 0, r1: 0, mrr: 0 },
-    medium: { count: 0, p1: 0, r1: 0, mrr: 0 },
-    hard: { count: 0, p1: 0, r1: 0, mrr: 0 } };
+  // Per-difficulty stats — created on demand so new tiers (e.g. "advanced")
+  // are never silently dropped from the breakdown.
+  const difficultyStats = {};
+  // Per-language stats — prompts without an explicit language default to "en".
+  const languageStats = {};
 
   for (const r of results) {
     const p1 = precisionAtK(r.expected, r.returned, 3);
@@ -227,13 +295,20 @@ function runAll(index, evalSet, filters = {}) {
     }
 
     // Per-difficulty
-    const d = r.difficulty;
-    if (difficultyStats[d]) {
-      difficultyStats[d].count++;
-      difficultyStats[d].p1 += p1;
-      difficultyStats[d].r1 += r1;
-      difficultyStats[d].mrr += rr;
-    }
+    const d = r.difficulty || "unlabeled";
+    if (!difficultyStats[d]) difficultyStats[d] = { count: 0, p1: 0, r1: 0, mrr: 0 };
+    difficultyStats[d].count++;
+    difficultyStats[d].p1 += p1;
+    difficultyStats[d].r1 += r1;
+    difficultyStats[d].mrr += rr;
+
+    // Per-language
+    const lang = r.language || "en";
+    if (!languageStats[lang]) languageStats[lang] = { count: 0, p1: 0, r1: 0, mrr: 0 };
+    languageStats[lang].count++;
+    languageStats[lang].p1 += p1;
+    languageStats[lang].r1 += r1;
+    languageStats[lang].mrr += rr;
   }
 
   const n = results.length;
@@ -268,6 +343,19 @@ function runAll(index, evalSet, filters = {}) {
     }
   }
 
+  // Average per-language
+  const languageMetrics = {};
+  for (const [lang, s] of Object.entries(languageStats)) {
+    if (s.count > 0) {
+      languageMetrics[lang] = {
+        count: s.count,
+        precision: s.p1 / s.count,
+        recall: s.r1 / s.count,
+        mrr: s.mrr / s.count,
+      };
+    }
+  }
+
   return {
     totalPrompts: n,
     precisionAt3: avgP1,
@@ -276,8 +364,8 @@ function runAll(index, evalSet, filters = {}) {
     courseValidation: {
       valid: true,
       format: "faculty-slug/XX",
-      checkedPrompts: evalSet.prompts.length,
-      checkedRefs: evalSet.prompts.reduce(
+      checkedPrompts: evalSet.prompts.length + (evalSet.abstention_prompts || []).length,
+      checkedRefs: [...evalSet.prompts, ...(evalSet.abstention_prompts || [])].reduce(
         (count, prompt) => count + prompt.expected_courses.length,
         0
       ),
@@ -294,8 +382,10 @@ function runAll(index, evalSet, filters = {}) {
     atLeastOneRate: n > 0 ? atLeastOne / n : 0,
     noMatch,
     noMatchRate: n > 0 ? noMatch / n : 0,
+    abstention,
     facultyAccuracy,
     difficultyMetrics,
+    languageMetrics,
     thresholdCheck: {
       precision_at_k: avgP1 >= THRESHOLDS.precision_at_k,
       recall_at_k: avgR1 >= THRESHOLDS.recall_at_k,
@@ -308,10 +398,12 @@ function runAll(index, evalSet, filters = {}) {
         Object.values(facultyAccuracy).filter((f) => f.recall > 0).length /
           Object.keys(facultyAccuracy).length >=
         THRESHOLDS.faculty_accuracy,
+      abstention_pass_rate: abstention.passRate >= THRESHOLDS.abstention_pass_rate,
       allPassed:
         avgP1 >= THRESHOLDS.precision_at_k &&
         avgR1 >= THRESHOLDS.recall_at_k &&
-        avgMRR >= THRESHOLDS.mrr,
+        avgMRR >= THRESHOLDS.mrr &&
+        abstention.passRate >= THRESHOLDS.abstention_pass_rate,
     },
     failedPrompts: results
       .filter((r) => recallAtK(r.expected, r.returned, 3) === 0)
@@ -378,6 +470,11 @@ function printReport(report, jsonMode) {
   console.log(
     `  No match:     ${report.noMatch}/${report.totalPrompts} (${(report.noMatchRate * 100).toFixed(1)}%)`
   );
+  const abstention = report.abstention;
+  const aOk = abstention.gatePassed;
+  console.log(
+    `  Off-topic blocked: ${(aOk ? c.green : c.red) + abstention.passed}/${abstention.total}${c.reset} (${(abstention.passRate * 100).toFixed(1)}%, threshold ${(THRESHOLDS.abstention_pass_rate * 100).toFixed(0)}%)`
+  );
   console.log(`\n${c.bold}Course-Level Metrics (qualified refs, informational):${c.reset}`);
   console.log(`  Precision@3:  ${(report.coursePrecisionAt3 * 100).toFixed(1)}%`);
   console.log(`  Recall@3:     ${(report.courseRecallAt3 * 100).toFixed(1)}%`);
@@ -385,10 +482,24 @@ function printReport(report, jsonMode) {
 
   // Difficulty breakdown
   console.log(`\n${c.bold}By Difficulty:${c.reset}`);
+  const difficultyLabels = {
+    easy: "🟢 Easy",
+    medium: "🟡 Medium",
+    hard: "🔴 Hard",
+    advanced: "🟣 Advanced",
+  };
   for (const [d, m] of Object.entries(report.difficultyMetrics)) {
-    const label = d === "easy" ? "🟢 Easy" : d === "medium" ? "🟡 Medium" : "🔴 Hard";
+    const label = difficultyLabels[d] || `⚪ ${d}`;
     console.log(
       `  ${label}: P@3=${(m.precision * 100).toFixed(1)}% R@3=${(m.recall * 100).toFixed(1)}% MRR=${m.mrr.toFixed(3)} (${m.count} prompts)`
+    );
+  }
+
+  // Language breakdown
+  console.log(`\n${c.bold}By Language:${c.reset}`);
+  for (const [lang, m] of Object.entries(report.languageMetrics)) {
+    console.log(
+      `  ${lang.toUpperCase()}: P@3=${(m.precision * 100).toFixed(1)}% R@3=${(m.recall * 100).toFixed(1)}% MRR=${m.mrr.toFixed(3)} (${m.count} prompts)`
     );
   }
 
@@ -405,6 +516,15 @@ function printReport(report, jsonMode) {
   }
 
   // Failed prompts
+  if (report.abstention.failures.length > 0) {
+    console.log(`\n${c.red}${c.bold}⚠ Off-Topic False Positives (${report.abstention.failures.length}):${c.reset}`);
+    for (const fp of report.abstention.failures) {
+      console.log(
+        `  ${fp.id}: "${fp.prompt.substring(0, 70)}..." → got [${fp.returned.join(", ")}]`
+      );
+    }
+  }
+
   if (report.failedCoursePrompts.length > 0) {
     console.log(`\n${c.yellow}${c.bold}⚠ Course-Level Misses (${report.failedCoursePrompts.length}):${c.reset}`);
     for (const fp of report.failedCoursePrompts.slice(0, 10)) {
@@ -439,11 +559,33 @@ function printReport(report, jsonMode) {
   console.log("");
 }
 
+// ── Print abstention-only report ───────────────────────────────
+function printAbstentionReport(report, jsonMode) {
+  if (jsonMode) {
+    console.log(JSON.stringify(report, null, 2));
+    return;
+  }
+
+  console.log(`\n═══ ICIL Off-Topic Abstention Suite ═══\n`);
+  console.log(`  Prompts:  ${report.total}`);
+  console.log(`  Blocked:  ${report.passed}/${report.total} (${(report.passRate * 100).toFixed(1)}%)`);
+  console.log(`  Threshold: ${(report.threshold * 100).toFixed(0)}% — ${report.gatePassed ? "PASSED" : "FAILED"}`);
+
+  if (report.failures.length > 0) {
+    console.log(`\n  False positives:`);
+    for (const fp of report.failures) {
+      console.log(`    ${fp.id}: "${fp.prompt}" → [${fp.returned.join(", ")}]`);
+    }
+  }
+  console.log("");
+}
+
 // ── Main ────────────────────────────────────────────────────────
 function main() {
   const args = process.argv.slice(2);
   const jsonMode = args.includes("--json");
   const ciMode = args.includes("--ci");
+  const abstentionOnly = args.includes("--abstention");
 
   // Parse filters
   const filters = {};
@@ -453,9 +595,27 @@ function main() {
   if (diffIdx !== -1 && args[diffIdx + 1]) filters.difficulty = args[diffIdx + 1];
   const catIdx = args.indexOf("--category");
   if (catIdx !== -1 && args[catIdx + 1]) filters.category = args[catIdx + 1];
+  const omitIdx = args.indexOf("--omit");
+  if (omitIdx !== -1 && args[omitIdx + 1]) {
+    filters.omitted = String(args[omitIdx + 1])
+      .split(",")
+      .map((id) => id.trim())
+      .filter(Boolean);
+  }
 
   const index = core.loadIndex();
   const evalSet = loadEvalSet();
+
+  if (abstentionOnly) {
+    const errors = validateExpectedCourses(index, evalSet);
+    if (errors.length > 0) {
+      throw new Error(`Eval validation failed:\n- ${errors.join("\n- ")}`);
+    }
+    const report = runAbstention(index, evalSet, filters);
+    printAbstentionReport(report, jsonMode);
+    if (ciMode && !report.gatePassed) process.exit(1);
+    return;
+  }
 
   if (!ciMode && !jsonMode) {
     console.log(`ICIL Eval Runner v${evalSet.version} — ${evalSet.total_prompts} prompts, ${evalSet.faculties_covered} faculties`);
@@ -480,6 +640,7 @@ if (require.main === module) {
 module.exports = {
   runAll,
   runPrompt,
+  runAbstention,
   validateExpectedCourses,
   precisionAtK,
   recallAtK,

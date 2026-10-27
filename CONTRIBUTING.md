@@ -216,11 +216,22 @@ Before submitting a PR, verify:
 □ CONTEXT.md is updated (if adding faculty)
 □ CHANGELOG.md has a new entry
 □ All claims are research-backed
+□ `npm test` passes
+□ `npm audit --omit=dev --audit-level=high` reports 0 vulnerabilities
+□ `npm run mcp:smoke` passes (if MCP tools changed)
 ```
 
 ---
 
 ## 🧪 Testing Your Changes
+
+### Unit tests (fast)
+
+```bash
+npm test
+```
+
+Covers path confinement, catalog invariants (243 courses, 32 faculties), direct-match ranking, level parsing, and eval-set integrity.
 
 ### Validate index.json
 
@@ -234,9 +245,33 @@ node -e "require('./index.json'); console.log('JSON valid ✓')"
 node load-context.js "your test prompt here"
 ```
 
+### Full gate + MCP server
+
+```bash
+node ci-validate.js --with-eval
+npm run mcp:smoke
+```
+
+### Everything at once
+
+```bash
+npm run verify   # tests + audit + CI + faculty contracts + MCP smoke
+```
+
 ### Verify Cross-References
 
 Check that all `faculty/XX-file.md` references point to files that actually exist.
+
+---
+
+## 🔐 Security
+
+ICIL is read-only and offline. Never add an MCP tool that writes files, opens a
+network port, or executes shell commands. All course reads must go through
+`getCourseContent()` and stay inside `faculty/file.md`.
+
+Report vulnerabilities privately — see [`SECURITY.md`](./SECURITY.md). Do not
+open a public issue for a security problem.
 
 ---
 

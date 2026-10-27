@@ -1,9 +1,9 @@
 {
   "campus": "ICIL — Intelligence Campus Interactive Library",
-  "version": "27.0.0",
+  "version": "27.1.0",
   "language": "en",
-  "description": "ICIL v27.0.0 📝 — Faculty #31 Casual & Slang Writing (10 courses). 236 courses, 31 faculties, 10 MCP tools. Jaksel code-switching, abbreviations, gaming lingo, campus slang, reverse wordplay, regional variations, ethical casual writing.",
-  "totalCourses": 236,
+  "description": "ICIL v27.1.0 — 243 courses, 32 faculties, 10 MCP tools. Anti-Slop faculty (#32) added for AI output quality. Indonesian keyword layer + direct-match-first course ranking. Router baseline: P@3 86.2%, R@3 98.9%, MRR 0.986 across 251 routing prompts; 20/20 off-topic prompts blocked.",
+  "totalCourses": 243,
   "auto_router": {
     "description": "Auto-detection system for faculties & courses based on user prompts. The AI agent reads this to determine which context to load.",
     "version": "1.0.0",
@@ -1018,6 +1018,20 @@
               "reason": "'copy' + 'brand voice' = UX writing basics + voice & tone"
             }
           ]
+        },
+        {
+          "prompt": "Rewrite our changelog intro, it sounds like AI slop",
+          "triggered": [
+            {
+              "faculty": "anti-slop",
+              "course_ids": [
+                "01",
+                "02",
+                "06"
+              ],
+              "reason": "'sounds like AI slop' = anatomy + banned lexicon + the de-slop editing pass"
+            }
+          ]
         }
       ]
     },
@@ -1194,6 +1208,18 @@
             ],
             "tint shade tone": [
               "01"
+            ],
+            "warna aksen": [
+              "08"
+            ],
+            "gradasi warna": [
+              "09"
+            ],
+            "warna netral": [
+              "01"
+            ],
+            "palet merek": [
+              "08"
             ]
           },
           "low": {
@@ -1425,6 +1451,12 @@
             ],
             "session recordings": [
               "01"
+            ],
+            "psikologi pengguna": [
+              "01"
+            ],
+            "pola gelap": [
+              "06"
             ]
           },
           "low": {
@@ -1684,6 +1716,24 @@
             ],
             "alt text": [
               "06"
+            ],
+            "teks antarmuka": [
+              "01"
+            ],
+            "nada dan suara": [
+              "02"
+            ],
+            "teks tombol": [
+              "03"
+            ],
+            "onboarding aplikasi": [
+              "05"
+            ],
+            "onboarding pengguna": [
+              "05"
+            ],
+            "alur onboarding": [
+              "05"
             ]
           },
           "low": {
@@ -1861,7 +1911,7 @@
             "bold": [
               "01"
             ],
-            "light": [
+            "light font": [
               "01"
             ],
             "font size": [
@@ -1904,6 +1954,15 @@
             ],
             "leading": [
               "05"
+            ],
+            "jarak baris": [
+              "05"
+            ],
+            "hierarki teks": [
+              "02"
+            ],
+            "tipografi web": [
+              "07"
             ]
           },
           "low": {
@@ -2192,6 +2251,15 @@
             ],
             "responsive": [
               "05"
+            ],
+            "tata letak responsif": [
+              "05"
+            ],
+            "sistem grid": [
+              "01"
+            ],
+            "komposisi visual": [
+              "06"
             ]
           },
           "low": {
@@ -2678,6 +2746,24 @@
             ],
             "dialog": [
               "01"
+            ],
+            "formulir": [
+              "02"
+            ],
+            "login": [
+              "02"
+            ],
+            "dialog modal": [
+              "01"
+            ],
+            "pola navigasi": [
+              "03"
+            ],
+            "pola pencarian": [
+              "04"
+            ],
+            "umpan balik": [
+              "06"
             ]
           },
           "low": {
@@ -2824,6 +2910,9 @@
             ],
             "animation principles": [
               "01"
+            ],
+            "transisi halaman": [
+              "05"
             ]
           },
           "medium": {
@@ -2926,6 +3015,15 @@
             ],
             "prefers-reduced-motion": [
               "01"
+            ],
+            "transisi": [
+              "03"
+            ],
+            "interaksi mikro": [
+              "04"
+            ],
+            "animasi scroll": [
+              "06"
             ]
           },
           "low": {
@@ -3247,6 +3345,15 @@
             ],
             "brand voice": [
               "04"
+            ],
+            "identitas merek": [
+              "02"
+            ],
+            "pedoman merek": [
+              "05"
+            ],
+            "positioning merek": [
+              "07"
             ]
           },
           "low": {
@@ -3338,9 +3445,6 @@
               "01"
             ],
             "conformance level": [
-              "01"
-            ],
-            "ADA": [
               "01"
             ],
             "EAA": [
@@ -3516,6 +3620,9 @@
             ],
             "aria": [
               "03"
+            ],
+            "ada compliance": [
+              "01"
             ]
           },
           "medium": {
@@ -3666,6 +3773,21 @@
             ],
             "captions": [
               "07"
+            ],
+            "aksesibel": [
+              "01"
+            ],
+            "kontras teks": [
+              "06"
+            ],
+            "navigasi keyboard": [
+              "04"
+            ],
+            "pembaca layar": [
+              "06"
+            ],
+            "formulir aksesibel": [
+              "05"
             ]
           },
           "low": {
@@ -4104,17 +4226,20 @@
             ],
             "extract from legacy": [
               "05"
+            ],
+            "audit ui": [
+              "02"
+            ],
+            "prioritas perbaikan": [
+              "04"
+            ],
+            "audit desain": [
+              "02"
             ]
           },
           "low": {
             "ICE": [
               "04"
-            ],
-            "cek": [
-              "02"
-            ],
-            "check": [
-              "02"
             ],
             "clean up": [
               "05"
@@ -4649,6 +4774,18 @@
             ],
             "insight": [
               "06"
+            ],
+            "kognisi": [
+              "01"
+            ],
+            "beban kognitif": [
+              "01"
+            ],
+            "memori kerja": [
+              "04"
+            ],
+            "persepsi visual": [
+              "03"
             ]
           },
           "low": {
@@ -4963,6 +5100,18 @@
             ],
             "onboarding flow": [
               "01"
+            ],
+            "tombol": [
+              "02"
+            ],
+            "formulir mobile": [
+              "05"
+            ],
+            "haptik": [
+              "06"
+            ],
+            "desain satu tangan": [
+              "04"
             ]
           },
           "low": {
@@ -5297,6 +5446,21 @@
             ],
             "ordinal data": [
               "01"
+            ],
+            "pemilihan grafik": [
+              "02"
+            ],
+            "warna grafik": [
+              "03"
+            ],
+            "grafik interaktif": [
+              "05"
+            ],
+            "cerita data": [
+              "06"
+            ],
+            "grafik aksesibel": [
+              "07"
             ]
           },
           "low": {
@@ -5632,6 +5796,21 @@
             ],
             "design system scorecard": [
               "07"
+            ],
+            "design token": [
+              "02"
+            ],
+            "library komponen": [
+              "03"
+            ],
+            "tata kelola sistem desain": [
+              "05"
+            ],
+            "multi merek": [
+              "06"
+            ],
+            "design system": [
+              "01"
             ]
           },
           "low": {
@@ -5963,6 +6142,21 @@
             "chatbot": [
               "01",
               "03"
+            ],
+            "desain percakapan": [
+              "01"
+            ],
+            "pemetaan intent": [
+              "02"
+            ],
+            "antarmuka suara": [
+              "04"
+            ],
+            "pemulihan error": [
+              "05"
+            ],
+            "agen percakapan": [
+              "08"
             ]
           },
           "low": {
@@ -6233,6 +6427,18 @@
             ],
             "planning": [
               "04"
+            ],
+            "strategi produk": [
+              "03"
+            ],
+            "peta jalan": [
+              "04"
+            ],
+            "prinsip pertama": [
+              "05"
+            ],
+            "eksekusi strategi": [
+              "07"
             ]
           },
           "low": {
@@ -6516,11 +6722,28 @@
             "service flow design": [
               "02",
               "06"
+            ],
+            "blueprint layanan": [
+              "02"
+            ],
+            "peta perjalanan": [
+              "03"
+            ],
+            "ekosistem layanan": [
+              "04"
+            ],
+            "pemangku kepentingan": [
+              "04"
+            ],
+            "prototipe layanan": [
+              "06"
             ]
           },
           "low": {
             "orchestration": "any",
-            "ecosystem": "any",
+            "ecosystem": [
+              "04"
+            ],
             "holistic": "any",
             "customer experience": "any",
             "CX": "any",
@@ -6792,6 +7015,18 @@
             ],
             "REST": [
               "03"
+            ],
+            "arsitektur perangkat lunak": [
+              "02"
+            ],
+            "kode bersih": [
+              "01"
+            ],
+            "desain api": [
+              "03"
+            ],
+            "domain driven design": [
+              "08"
             ]
           },
           "low": {
@@ -6799,9 +7034,6 @@
             "clean architecture": "any",
             "OOP": "any",
             "code quality": "any",
-            "DI": [
-              "07"
-            ],
             "architecture": [
               "02"
             ]
@@ -6872,6 +7104,9 @@
             ],
             "scalable secure maintainable": [
               "04"
+            ],
+            "cloud": [
+              "04"
             ]
           },
           "medium": {
@@ -6915,6 +7150,18 @@
             ],
             "CI/CD": [
               "03"
+            ],
+            "pipeline ci cd": [
+              "03"
+            ],
+            "komputasi awan": [
+              "04"
+            ],
+            "infrastruktur sebagai kode": [
+              "07"
+            ],
+            "pemantauan": [
+              "06"
             ]
           },
           "low": {
@@ -6958,7 +7205,7 @@
             "query optimization": [
               "03"
             ],
-            "EXPLAIN": [
+            "explain analyze": [
               "03"
             ],
             "migrations": [
@@ -6993,6 +7240,12 @@
             ],
             "production database backup": [
               "07"
+            ],
+            "query": [
+              "03"
+            ],
+            "kueri": [
+              "03"
             ]
           },
           "medium": {
@@ -7028,6 +7281,15 @@
             ],
             "SQL": [
               "02"
+            ],
+            "indeks basis data": [
+              "03"
+            ],
+            "normalisasi": [
+              "01"
+            ],
+            "migrasi basis data": [
+              "04"
             ]
           },
           "low": {
@@ -7305,6 +7567,21 @@
             ],
             "prompt injection": [
               "06"
+            ],
+            "rekayasa prompt": [
+              "01"
+            ],
+            "evaluasi llm": [
+              "05"
+            ],
+            "keamanan ai": [
+              "06"
+            ],
+            "agen ai": [
+              "08"
+            ],
+            "biaya token": [
+              "10"
             ]
           },
           "low": {
@@ -7527,6 +7804,21 @@
             ],
             "secure": [
               "01"
+            ],
+            "keamanan aplikasi": [
+              "01"
+            ],
+            "otentikasi": [
+              "02"
+            ],
+            "otorisasi": [
+              "02"
+            ],
+            "enkripsi": [
+              "04"
+            ],
+            "keamanan api": [
+              "03"
             ]
           },
           "low": {
@@ -7695,6 +7987,21 @@
             "concurrent users": [
               "01",
               "06"
+            ],
+            "kinerja web": [
+              "01"
+            ],
+            "strategi caching": [
+              "02"
+            ],
+            "optimasi backend": [
+              "03"
+            ],
+            "uji beban": [
+              "06"
+            ],
+            "anggaran performa": [
+              "07"
             ]
           },
           "low": {
@@ -7704,9 +8011,6 @@
             "latency": "any",
             "scale": [
               "03"
-            ],
-            "EXPLAIN": [
-              "04"
             ]
           }
         }
@@ -7872,6 +8176,21 @@
             ],
             "rest api": [
               "03"
+            ],
+            "pengujian unit": [
+              "02"
+            ],
+            "pengujian integrasi": [
+              "03"
+            ],
+            "pengujian e2e": [
+              "04"
+            ],
+            "otomasi pengujian": [
+              "06"
+            ],
+            "metrik kualitas": [
+              "07"
             ]
           },
           "low": {
@@ -8104,6 +8423,21 @@
             ],
             "typescript sdk": [
               "05"
+            ],
+            "pengalaman developer": [
+              "01"
+            ],
+            "desain cli": [
+              "02"
+            ],
+            "dokumentasi teknis": [
+              "04"
+            ],
+            "desain sdk": [
+              "05"
+            ],
+            "onboarding developer": [
+              "07"
             ]
           },
           "low": {
@@ -8311,6 +8645,18 @@
               "04"
             ],
             "metadata": [
+              "05"
+            ],
+            "arsitektur informasi": [
+              "01"
+            ],
+            "taksonomi": [
+              "04"
+            ],
+            "pencarian": [
+              "03"
+            ],
+            "pemodelan konten": [
               "05"
             ]
           },
@@ -8716,6 +9062,21 @@
             ],
             "budget cap": [
               "05"
+            ],
+            "agen otonom": [
+              "01"
+            ],
+            "orkestrasi agen": [
+              "03"
+            ],
+            "multi agen": [
+              "03"
+            ],
+            "observability agen": [
+              "04"
+            ],
+            "siklus hidup agen": [
+              "07"
             ]
           },
           "low": {
@@ -8877,6 +9238,15 @@
             ],
             "session recordings": [
               "03"
+            ],
+            "riset pengguna": [
+              "01"
+            ],
+            "wawancara": [
+              "02"
+            ],
+            "survei": [
+              "03"
             ]
           },
           "medium": {
@@ -9021,6 +9391,12 @@
             ],
             "heuristic evaluation": [
               "06"
+            ],
+            "uji kegunaan": [
+              "06"
+            ],
+            "sintesis riset": [
+              "04"
             ]
           },
           "low": {
@@ -9247,6 +9623,18 @@
             ],
             "dark patterns": [
               "05"
+            ],
+            "privasi pengguna": [
+              "02"
+            ],
+            "keadilan algoritma": [
+              "04"
+            ],
+            "desain berkelanjutan": [
+              "06"
+            ],
+            "etika organisasi": [
+              "07"
             ]
           },
           "low": {
@@ -9427,6 +9815,24 @@
             "knowledge lifecycle": [
               "06",
               "10"
+            ],
+            "rekayasa konteks": [
+              "01"
+            ],
+            "anggaran konteks": [
+              "02"
+            ],
+            "taksonomi pengetahuan": [
+              "03"
+            ],
+            "retrieval konteks": [
+              "05"
+            ],
+            "evaluasi konteks": [
+              "07"
+            ],
+            "keamanan konteks": [
+              "09"
             ]
           },
           "low": {
@@ -9730,12 +10136,29 @@
             ],
             "which is": [
               "02"
+            ],
+            "campur kode": [
+              "02"
+            ],
+            "singkatan gaul": [
+              "03"
+            ],
+            "slang medsos": [
+              "04"
+            ],
+            "bahasa gamer": [
+              "05"
+            ],
+            "bahasa kampus": [
+              "06"
+            ],
+            "plesetan": [
+              "07"
             ]
           },
           "low": {
             "bahasa": "any",
             "indonesia": "any",
-            "jakarta": "any",
             "ngobrol": "any",
             "chat": "any",
             "casual": "any",
@@ -9770,10 +10193,299 @@
             ]
           }
         }
+      },
+      "anti-slop": {
+        "negative_keywords": [],
+        "recommended_courses": [
+          "01",
+          "02",
+          "03",
+          "05",
+          "06"
+        ],
+        "keywords": {
+          "high": {
+            "slop": [
+              "01"
+            ],
+            "anti-slop": [
+              "01",
+              "06"
+            ],
+            "anti slop": [
+              "01",
+              "06"
+            ],
+            "AI slop": [
+              "01"
+            ],
+            "sounds like AI": [
+              "01"
+            ],
+            "AI banget": [
+              "01"
+            ],
+            "generic output": [
+              "01"
+            ],
+            "remove slop": [
+              "06"
+            ],
+            "de-slop": [
+              "06"
+            ],
+            "banned words": [
+              "02"
+            ],
+            "kata terlarang": [
+              "02"
+            ],
+            "kata klise": [
+              "02"
+            ],
+            "cue words": [
+              "02"
+            ],
+            "triad": [
+              "03"
+            ],
+            "triads": [
+              "03"
+            ],
+            "rule of three": [
+              "03"
+            ],
+            "komentar kode": [
+              "04"
+            ],
+            "comment hygiene": [
+              "04"
+            ],
+            "narrating comments": [
+              "04"
+            ],
+            "useless comments": [
+              "04"
+            ],
+            "generated ui": [
+              "05"
+            ],
+            "generic ui": [
+              "05"
+            ],
+            "trap prompts": [
+              "06"
+            ],
+            "humanize": [
+              "07"
+            ],
+            "sounds robotic": [
+              "07"
+            ]
+          },
+          "medium": {
+            "klise": [
+              "02"
+            ],
+            "cliche": [
+              "02"
+            ],
+            "buzzword": [
+              "02"
+            ],
+            "buzzwords": [
+              "02"
+            ],
+            "purple prose": [
+              "03"
+            ],
+            "sycophancy": [
+              "03"
+            ],
+            "hedging": [
+              "03"
+            ],
+            "in conclusion": [
+              "03"
+            ],
+            "code comments": [
+              "04"
+            ],
+            "verbose comments": [
+              "04"
+            ],
+            "purple gradient": [
+              "05"
+            ],
+            "human voice": [
+              "07"
+            ],
+            "voice drift": [
+              "07"
+            ],
+            "terlalu AI": [
+              "01"
+            ]
+          },
+          "low": {
+            "sloppy": [
+              "01"
+            ],
+            "filler": [
+              "02"
+            ],
+            "filler words": [
+              "02"
+            ],
+            "jargon": [
+              "02"
+            ],
+            "corporate jargon": [
+              "02"
+            ],
+            "formulaic": [
+              "03"
+            ],
+            "robotic": [
+              "07"
+            ]
+          }
+        }
       }
     }
   },
   "faculties": {
+    "anti-slop": {
+      "name": "Faculty of Anti-Slop & Authentic Output",
+      "slug": "anti-slop",
+      "emoji": "🚫",
+      "courseCount": 7,
+      "level": "Beginner → Advanced",
+      "description": "Detect and remove mass-produced AI slop across prose (clichés, triads, hedging), code (narrating comments, dead abstractions), and UI (generic generated dashboards), then rebuild authentic voice systems.",
+      "courses": [
+        {
+          "id": "01",
+          "title": "The Anatomy of AI Slop",
+          "level": "beginner",
+          "file": "anti-slop/01-anatomy-of-ai-slop.md",
+          "prerequisites": [],
+          "topics": [
+            "slop",
+            "AI slop",
+            "generic output",
+            "curation",
+            "RLHF agreeableness",
+            "word of the year"
+          ]
+        },
+        {
+          "id": "02",
+          "title": "The Banned Lexicon",
+          "level": "intermediate",
+          "file": "anti-slop/02-banned-lexicon.md",
+          "prerequisites": [
+            "01"
+          ],
+          "topics": [
+            "banned words",
+            "cliche words",
+            "delve",
+            "tapestry",
+            "pivotal",
+            "kata klise",
+            "corporate jargon"
+          ]
+        },
+        {
+          "id": "03",
+          "title": "Structural Slop Patterns",
+          "level": "intermediate",
+          "file": "anti-slop/03-structural-slop-patterns.md",
+          "prerequisites": [
+            "01"
+          ],
+          "topics": [
+            "triad",
+            "rule of three",
+            "hedging",
+            "sycophancy",
+            "opener rituals",
+            "conclusion ritual",
+            "sentence-length variance"
+          ]
+        },
+        {
+          "id": "04",
+          "title": "Code Slop & Comment Hygiene",
+          "level": "intermediate",
+          "file": "anti-slop/04-code-slop-comment-hygiene.md",
+          "prerequisites": [
+            "01"
+          ],
+          "topics": [
+            "narrating comments",
+            "comment hygiene",
+            "dead abstraction",
+            "exception swallowing",
+            "emoji in code",
+            "PR description"
+          ]
+        },
+        {
+          "id": "05",
+          "title": "UI Slop Patterns",
+          "level": "intermediate",
+          "file": "anti-slop/05-ui-slop-patterns.md",
+          "prerequisites": [
+            "01"
+          ],
+          "topics": [
+            "generic UI",
+            "AI-generated dashboard",
+            "purple gradient",
+            "dead CTA",
+            "lorem shelf copy",
+            "design-system tokens"
+          ]
+        },
+        {
+          "id": "06",
+          "title": "De-Slop Workflow & Trap Prompts",
+          "level": "advanced",
+          "file": "anti-slop/06-deslop-workflow-trap-prompts.md",
+          "prerequisites": [
+            "01",
+            "02"
+          ],
+          "topics": [
+            "5-pass edit",
+            "trap prompts",
+            "banned-list grep",
+            "skill document",
+            "before after",
+            "regression check"
+          ]
+        },
+        {
+          "id": "07",
+          "title": "Authentic Voice Systems",
+          "level": "advanced",
+          "file": "anti-slop/07-authentic-voice-systems.md",
+          "prerequisites": [
+            "01",
+            "02"
+          ],
+          "topics": [
+            "authentic voice",
+            "specificity",
+            "POV",
+            "trade-offs",
+            "voice drift",
+            "human sign-off"
+          ]
+        }
+      ]
+    },
     "warna": {
       "name": "Faculty of Color",
       "slug": "warna",

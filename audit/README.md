@@ -1,15 +1,15 @@
 # ICIL Content Audit
 
-> Research-backed audit protocol for the 30-faculty, 226-course catalog.
+> Research-backed audit protocol for the 32-faculty, 243-course catalog.
 
 This directory separates editorial/content review from the release and CI checklist in `AUDIT-PLAN.md`. The audit is intentionally evidence-based: automated scans identify candidates, while research review decides whether a course is accurate, current, well-scoped, and useful for context injection.
 
 ## Scope
 
-- **Catalog baseline:** ICIL v26.0.0, 30 faculties, 226 courses.
-- **Audit date baseline:** 2026-08-01.
+- **Catalog baseline:** ICIL v27.1.0, 32 faculties, 243 courses.
+- **Audit date baseline:** 2026-08-01 (bundled manifest/checkpoint are the v26.0.0 snapshot; they regenerate on the next `audit:loop` run).
 - **Primary source of catalog truth:** `index.json`.
-- **Current router baseline:** P@3 73.7%, R@3 96.0%, MRR 0.934.
+- **Current router baseline:** P@3 86.2%, R@3 98.9%, MRR 0.986 (244 routing prompts; 20/20 off-topic prompts blocked, eval-set v1.3.0).
 - **No automatic rewrite policy:** scanners may flag a course, but they must not rewrite content or mark a course research-verified.
 
 ## Status vocabulary
@@ -71,7 +71,7 @@ Record an access/review date for fast-moving sources. Suggested review cadence:
 - security, AI, browser, and regulatory guidance: event-driven plus scheduled review;
 - eval prompts and router metadata: after every catalog/content change.
 
-Do not add frontmatter to all 226 files as part of this first pass. Keep audit metadata outside the course content until the schema and workflow have proven useful; this avoids context bloat and a mass diff.
+Do not add frontmatter to all 243 files as part of this first pass. Keep audit metadata outside the course content until the schema and workflow have proven useful; this avoids context bloat and a mass diff.
 
 ## Workflow
 
@@ -108,9 +108,12 @@ One completed batch is one faculty or 5–10 courses. Each batch must include re
 ### 3. Validate every batch
 
 ```bash
+npm test
+npm audit --omit=dev --audit-level=high
 node ci-validate.js --with-eval
 npm run ci:faculty
 npm run eval:ci
+npm run mcp:smoke
 ```
 
 Save the before/after metrics before changing router keywords. A content correction must not be mixed silently with a routing-tuning change.

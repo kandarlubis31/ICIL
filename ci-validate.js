@@ -292,7 +292,7 @@ function printReport(schemaErrors, dupHardErrors, dupWarnings, refErrors, evalRe
   // Eval (if run)
   if (evalResult) {
     if (evalResult.thresholdCheck?.allPassed) {
-      console.log(`${c.green}✓ Eval Gate — PASSED (P@3=${(evalResult.precisionAt3 * 100).toFixed(1)}%, R@3=${(evalResult.recallAt3 * 100).toFixed(1)}%, MRR=${evalResult.mrr.toFixed(3)})${c.reset}`);
+      console.log(`${c.green}✓ Eval Gate — PASSED (P@3=${(evalResult.precisionAt3 * 100).toFixed(1)}%, R@3=${(evalResult.recallAt3 * 100).toFixed(1)}%, MRR=${evalResult.mrr.toFixed(3)}; ${evalResult.abstention?.passed ?? 0}/${evalResult.abstention?.total ?? 0} off-topic blocked)${c.reset}`);
     } else {
       console.log(`${c.red}✗ Eval Gate — FAILED${c.reset}`);
     }

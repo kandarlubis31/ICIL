@@ -1,5 +1,66 @@
 # 📋 Changelog — ICIL
 
+## v27.1.0 (2026-10-25)
+
+### Router — Indonesian language layer
+- **142 Indonesian trigger keywords** added across all 31 faculties, each mapped to real course IDs (e.g. `formulir → design-patterns/02`, `riset pengguna → ux-research/01`)
+- Removed keywords that collided with Indonesian function words: `ADA` (matched "ada") and `DI` (matched "di" in almost every Indonesian prompt)
+- Removed lowercase duplicate `Docker` (the existing `Docker` key already covers it)
+- `service-design` LOW keyword `ecosystem` now targets course 04 instead of the generic recommended list
+
+### Router — course ranking
+- **Direct-match-first**: courses matched by keywords now rank above auto-loaded prerequisites
+- Added `flattenCourseResults()` — canonical cross-faculty course ordering
+- Courses expose an `isDirect` flag in `matchKeywords()` output
+
+### New Faculty #32 — Anti-Slop & Authentic Output (`anti-slop/`)
+- 🆕 **7 courses** responding to "slop" (Merriam-Webster Word of the Year 2025): AI-slop anatomy (`01`), banned lexicon EN+ID (`02`), structural patterns (triads, hedging, rituals — `03`), code slop & comment hygiene (`04`), generated-UI patterns (`05`), the 5-pass de-slop workflow + trap-prompt testing (`06`), and authentic voice systems (`07`)
+- **46 reserved trigger keywords** (25 HIGH / 14 MEDIUM / 7 LOW; EN + 6 ID terms: `AI banget`, `kata klise`, `kata terlarang`, `komentar kode`, `klise`, `terlalu AI`) — vocabulary chosen to not collide with any other faculty's HIGH tier; `negative_keywords` intentionally empty
+- **7 routing eval prompts** (`eval-245` … `eval-251`, one per course, EN+ID mixed) — all P@3 = 1.0; eval set → **v1.4.0 (251 routing + 20 abstention prompts)**; `faculties_covered` → 32
+- Counts: 236 → **243 courses** | 31 → **32 faculties**
+
+### Eval
+- **15 Indonesian regression prompts** added (`eval-228` … `eval-242`), all tagged `language: "id"`
+- **Bare-token keyword detox** — removed generic single keywords `light` (tipografi MEDIUM; replaced with `light font`), `check` and `cek` (improvement LOW). Regression: `repair my car's check engine light` matched tipografi + improvement; font-weight queries still route via `light font`. No eval prompt had depended on the removed keys.
+- **Near-miss abstention coverage** — eval set v1.3.0: 244 routing + **20** abstention prompts (was 242 + 12, v1.2.0). New abstention prompts share trigger vocabulary with real topics (explain, write, light, check) but are out of scope: photosynthesis, world cup, protein powder, limerick, check-engine light, chess, electricity bill, skincare (ID)
+- **Near-miss routing regression prompts** — `eval-243` (explain the *query plan* → database-management/03, rank 1) and `eval-244` (light *font weight* → tipografi/01, rank 1) prove the detox kept legitimate routes
+- **`eval-runner.js --omit eval-006,eval-021`** — excludes prompt IDs from both suites so keyword changes can be checked for generalization (with `--ci`) instead of fitted to specific prompts
+- **Faculty README consistency guard** — `tests/catalog.test.js` now validates every faculty README course table against `index.json` (all 32 pass)
+- `eval-runner.js`: per-language metrics (ID: P@3 89.1%, R@3 97.4%, MRR 0.984 across 32 tagged prompts) and `--abstention` mode
+- ID routing: 10/15 → 13/15 faculty-exact, 6/15 → 14/15 course top-3
+- `eval-runner.js`: difficulty buckets are now dynamic — the `advanced` tier is no longer silently dropped
+- Baseline: **P@3 86.5%, R@3 98.9%, MRR 0.986** across 251 routing prompts; **20/20 off-topic blocked** (course-level informational: P@3 44.4%, R@3 81.7%, MRR 0.806)
+- Course-level misses: 57 → 32
+
+### MCP
+- Added `scripts/mcp-smoke.js` (`npm run mcp:smoke`) — spawns the server over stdio, verifies the 10-tool list and calls every tool with valid arguments; wired into GitHub Actions
+- **Compact `list_faculties` by default** — 54 KB → 8.9 KB. Full course titles remain available with `includeCourses=true`, and `faculty="security"` narrows the response to one faculty (2.2 KB)
+- **Compact `get_campus_stats` by default** — 6 KB → ~1 KB. Per-faculty counts moved behind `includeFaculties=true`
+- Fixed `compare_courses` and `export_course` level parsing: both header formats (`> 🟡 Intermediate | ...` and `> **Level: 🔴 Advanced** | ...`) now resolve to beginner/intermediate/advanced instead of `unknown`
+- Fixed `recommend_learning_path` template matching: multi-word keys now require every word (a web-app goal no longer selects the mobile-app path), and a `web app` template was added
+
+### Security
+- **Path traversal fixed in `getCourseContent()`** — reads are confined to `faculty/file.md` inside the campus root. Absolute paths, `..`, root-level files, non-Markdown files, and symlinks resolving outside the root are rejected. Previously `../../../../../Windows/win.ini`, `package.json`, and `index.json` were readable through `load_course`; `load-context.js --print` now uses the same guarded read path
+- **Runtime dependencies upgraded** — `@modelcontextprotocol/sdk` 1.29.0 → 1.32.2, `zod` 4.4.3 → 4.6.7. `npm audit --omit=dev --audit-level=high` now reports **0 vulnerabilities** (was 1 critical, 5 high, 3 moderate)
+- Added `SECURITY.md` with the read-only security model, private reporting process, and dependency policy
+- CI now runs `npm audit --omit=dev --audit-level=high` and uses `npm ci` for reproducible installs
+
+### Tests
+- Added `tests/campus-core.test.js` and `tests/catalog.test.js` (`npm test`) — 15 `node:test` cases covering path-traversal rejection, non-course files, all 243 indexed courses, both level header formats, `compareCourses` path validation, catalog counts, package contents, direct-match ranking, per-faculty caps, toxic-keyword regressions, eval-set integrity, faculty-README/index consistency, and root-doc drift (version, course/faculty counts, dependency claims)
+- Unit tests run on Node 18, 20, 22, and 24 in GitHub Actions
+
+### Documentation
+- Synced version (27.0.0 → 27.1.0) across `index.json`, `package.json`, `README.md`, `AGENTS.md`, `CONTEXT.md`, `CAMPUS-OVERVIEW.md`, `index.md`, `PROGRESS-REPORT.md`
+- Fixed stale 226/30 counts, `index.md` v26.0 header, broken Markdown fence in `CAMPUS-OVERVIEW.md` Path 12/18, duplicate domain text in the faculty table, missing quick-reference row, and a malformed README tree
+- Fixed the package-name mismatch: the project publishes as `@kandarlubis/icil`, not `icil`
+- Marked `ISSUES.md` as a historical v25.0.4 record and replaced its misleading "what a new user gets on clone" list with current v27.1.0 facts
+- Re-baselined `AUDIT-PLAN.md` open items: 243 courses, 32 faculties, 251 prompts, and current level/difficulty distributions
+- Added `.gitattributes` (LF normalization, binary markers) and `.editorconfig` for cross-platform consistency
+- Added `npm run verify` (all gates in one command), `npm run pack:check`, and a `prepublishOnly` gate
+- Added Dependabot for weekly npm and monthly GitHub Actions updates
+
+---
+
 ## v27.0.0 (2026-08-05)
 
 ### Added
@@ -15,7 +76,7 @@
 - Total courses: 226 → 236 | Faculties: 30 → 31
 
 
-> Intelligence Campus Interactive Library — from 1 faculty (9 courses) to 30 faculties (226 courses).
+> Intelligence Campus Interactive Library — from 1 faculty (9 courses) to 32 faculties (243 courses).
 
 ---
 
@@ -487,4 +548,4 @@ Color theory, harmony, psychology, culture, digital models, accessibility, palet
 
 ---
 
-*ICIL v26.0.0 — 226 courses, 30 faculties, 10 MCP tools. Built by Mas Aul 🔥*
+*ICIL v27.1.0 — 243 courses, 32 faculties, 10 MCP tools. Built by Mas Aul 🔥*

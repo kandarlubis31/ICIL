@@ -1,10 +1,10 @@
-# 🔍 ICIL Audit Plan — v26.0.0 Re-baseline
+# 🔍 ICIL Audit Plan — v26.0.0 Re-baseline (Historical Snapshot)
 
 > **Goal**: Memastikan project matang untuk publik tanpa menganggap checklist lama sebagai bukti verifikasi baru.
-> **Status**: Legacy v25 checklist retained; current v26 baseline is P@3=73.7%, R@3=96.0%, MRR=0.934, 226 courses, 30 faculties.
-> **Cara pakai**: Centang `[x]` hanya setelah item diverifikasi pada v26; historical claims below are not current evidence.
+> **Status**: ⚠️ **Historical snapshot** — last re-baselined at v26.0.0 (226 courses, 30 faculties, P@3 73.7%). Current campus is **v27.1.0**: 243 courses, 32 faculties, P@3 86.5%, R@3 98.9%, MRR 0.986; 20/20 off-topic prompts blocked. Re-baseline counts before reusing any item.
+> **Cara pakai**: Centang `[x]` hanya setelah item diverifikasi pada versi saat ini; historical claims below are not current evidence.
 
-> **Current verified gates**: `node ci-validate.js --with-eval`, `node ci-faculty.js --all`, and `npm run ci:faculty` pass. Manual content-quality and release-readiness items remain open.
+> **Current verified gates**: `npm run verify` (15 unit tests, dependency audit, full CI, faculty contracts, MCP smoke) passes on v27.1.0. Manual content-quality and release-readiness items remain open.
 
 ---
 
@@ -33,7 +33,7 @@
 
 ---
 
-> **Scope note:** Sections 1–7 below preserve the original v25 audit checklist for traceability. Unless an item is explicitly re-verified and marked `[x]`, it is open manual work—not a current v26 failure claim. Historical release/version numbers inside checklist prompts are reference targets only.
+> **Scope note:** Sections 1–7 below preserve the original v25/v26 audit checklist for traceability. Unless an item is explicitly re-verified and marked `[x]` against the current v27.1.0 catalog, it is open manual work—not a current failure claim. Historical release/version numbers inside checklist prompts are reference targets only.
 
 ## 1. 🔧 Code Quality — JS Files (16 items)
 
@@ -98,7 +98,7 @@
 ### 2.4 Trigger Keywords Integrity
 - [x] **Semua `course_ids` di HIGH/MEDIUM keywords** — all resolve to courses in their faculty
 - [x] **Gak ada keyword yang sama persis** muncul di HIGH & LOW di faculty yang sama — 0 after removing the redundant `knowledge graph` LOW entry
-- [ ] **134 CROSS-FACULTY warnings** — quick audit 10 random buat pastiin gak ada yang harusnya DUPLICATE HIGH
+- [ ] **136 CROSS-FACULTY warnings** - quick audit 10 random buat pastiin gak ada yang harusnya DUPLICATE (134 at v26.0.0) HIGH
 
 ---
 
@@ -140,7 +140,7 @@
 
 ---
 
-## 4. 📚 Course Content Audit — 226 Files (10 items)
+## 4. 📚 Course Content Audit — 226 Files at v26.0.0 (243 today)
 
 > **Sampling strategy**: 10% random (23 courses) + 5 known-high-value courses = 28 files
 
@@ -160,19 +160,19 @@
 - [ ] **Sample 10% course files** — gak ada mixed EN/ID yang bikin bingung
 
 ### 4.4 Gap Analysis (Automated)
-> **Gunakan `node -e` one-liner script** buat scan 226 file — jangan manual.
-- [x] **Auto-scan word count** — completed: 0 courses under 200 words; 22 courses over 1,200 words flagged for editorial review
-- [x] **Auto-scan level balance** — completed: 41 beginner / 114 intermediate / 71 advanced across 226 courses
+> **Gunakan `node -e` one-liner script** buat scan every indexed course (243 at v27.1.0) — jangan manual.
+- [x] **Auto-scan word count** — completed at v26.0.0: 0 courses under 200 words; 22 courses over 1,200 words flagged for editorial review (still 0 / 22 at v27.1.0)
+- [x] **Auto-scan level balance** — completed at v26.0.0: 41 beginner / 114 intermediate / 71 advanced across 226 courses; **v27.1.0: 45 / 121 / 77 across 243**
 
 ---
 
 ## 5. 🎯 Routing & Eval Tuning (8 items)
 
-> **Current baseline**: P@3=73.7%, R@3=96.0%, MRR=0.934, 134 CROSS-FACULTY warnings, 0 no-match, 0 failed faculty prompts; 65 course-level misses remain informational
+> **Historical v26 baseline**: P@3=73.7%, R@3=96.0%, MRR=0.934, 134 CROSS-FACULTY warnings, 0 no-match, 0 failed faculty prompts; 65 course-level misses remain informational
 
 ### 5.1 Eval Set Quality
-- [x] **217 eval prompts** — semua punya faculty-qualified `expected_courses` yang valid (validated by `eval-runner.js` and Faculty CI)
-- [x] **Distribusi difficulty** — measured at 172 easy / 33 medium / 11 hard / 1 advanced; proportionality judgment remains open
+- [x] **217 eval prompts at v26.0.0** — all had faculty-qualified `expected_courses` that validate; **244 routing + 20 abstention prompts at v27.1.0 (eval-set v1.3.0, incl. near-miss regressions)**, validated by `eval-runner.js` and Faculty CI
+- [x] **Distribusi difficulty** — v26.0.0: 172 easy / 33 medium / 11 hard / 1 advanced; **v27.1.0: 183 / 43 / 15 / 1**; proportionality judgment remains open
 - [ ] **Design-ethics prompts (eval-201–207)** — cek naturalness, jangan keyword-stuffed
 
 ### 5.2 False Positive Analysis
@@ -180,11 +180,11 @@
 - [x] **No-match cases** — current evaluator reports 0 no-match prompts; retain regression coverage for future changes
 
 ### 5.3 Threshold Realism
-- [ ] **70% P@3 threshold** — masih appropriate? Atau naikin ke 75% buat v26?
-- [ ] **Cross-faculty warnings** — 134 items masih dianggap "all legitimate, 0 actionable" — re-audit 20 random
+- [ ] **70% P@3 threshold** — masih appropriate? Atau naikin ke 75% untuk rilis berikutnya? (v27.1.0: 86.2%)
+- [ ] **Cross-faculty warnings** - 136 items masih dianggap "all legitimate, 0 actionable" - re-audit 20 random
 
 ### 5.4 Eval Expansion
-- [x] **Per faculty eval coverage** — all 30 faculties have at least 5 prompts
+- [x] **Per faculty eval coverage** — all 30 faculties at v26.0.0; all 31 have at least 5 prompts at v27.1.0
 
 ---
 
@@ -193,7 +193,7 @@
 ### 6.1 GitHub CI
 - [ ] **`.github/workflows/ci.yml`** — beneran jalan di GitHub Actions? Cek syntax dulu
 - [x] **CI steps** — workflow runs dependency install, base validation, and full eval gate sequentially
-- [x] **Node version matrix** — workflow declares Node 18, 20, and 22
+- [x] **Node version matrix** — workflow declares Node 18, 20, 22, and 24
 
 ### 6.2 Git Hygiene
 - [x] **`.gitignore`** — protects `node_modules/`, `.env`/`.env.*` with `.env.example` exception, and OS files
@@ -202,12 +202,12 @@
 
 ### 6.3 npm Readiness
 - [x] **`package.json`** fields — all required release fields are present
-- [x] **`package.json` `files` array** — package scope excludes archive/development files and includes all 30 faculty directories
-- [x] **`npm pack --dry-run`** — passed: 263 files, 479.1 kB compressed, 1.5 MB unpacked
+- [x] **`package.json` `files` array** — package scope excludes archive/development files and includes all 31 faculty directories
+- [x] **`npm pack --dry-run`** — passed: 275 files, ~508 kB tarball, ~1.5 MB unpacked (v27.1.0)
 
 ### 6.4 npm Packaging
 - [x] **`.npmignore` file** — explicit root `.npmignore` exists and excludes development/archive files
-- [ ] **`npm audit`** — 3 transitive vulnerabilities remain (2 moderate, 1 high); fix or accept risk before npm publish
+- [x] **`npm audit`** — 0 vulnerabilities as of v27.1.0 (`npm audit --omit=dev --audit-level=high`), enforced in CI
 
 ---
 
@@ -246,8 +246,8 @@
 
 
 > **Pre-verified dalam session ini**: 0 TODO/FIXME di JS, 0 console.log, 0 missing course files ✅
-> **Legacy v25 verification notes**: The historical Priority 1, Code Quality, Docs Sync, Infrastructure, and Visual Polish notes below are retained for traceability only; their v25 counts and claims are not current v26 evidence. Checklist items explicitly marked `[x]` above were re-verified against the v26 catalog; remaining `[ ]` items are still open.
-> **Current v26 evidence**: `node ci-validate.js --with-eval`, `node ci-faculty.js --all`, and `npm run ci:faculty` pass; current catalog is 226 courses across 30 faculties with 134 informational CROSS-FACULTY warnings and 0 DUPLICATE HIGH keywords.
+> **Legacy v25/v26 verification notes**: The historical Priority 1, Code Quality, Docs Sync, Infrastructure, and Visual Polish notes below are retained for traceability only; their v25/v26 counts and claims are not current v27.1.0 evidence. Checklist items explicitly marked `[x]` above were verified against the v25/v26 catalogs; remaining `[ ]` items are still open.
+> **Current v27.1.0 evidence**: `node ci-validate.js --with-eval`, `node ci-faculty.js --all`, and `npm run ci:faculty` pass; current catalog is 243 courses across 32 faculties with 136 informational CROSS-FACULTY warnings and 0 DUPLICATE HIGH keywords.
 
 ---
 
@@ -266,4 +266,4 @@ Priority 3 (continuous improvement):
 
 ---
 
-*Originally generated for ICIL v25.0.5; re-baselined for v26.0.0 on August 1, 2026. Manual checklist verification remains open.*
+*Originally generated for ICIL v25.0.5; re-baselined for v26.0.0 on August 1, 2026; marked historical at v27.1.0 (243 courses, 32 faculties). Manual checklist verification remains open.*

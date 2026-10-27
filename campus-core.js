@@ -12,6 +12,7 @@ const fs = require("fs");
 const path = require("path");
 
 const CAMPUS_ROOT = __dirname;
+const CAMPUS_REAL_ROOT = fs.realpathSync(CAMPUS_ROOT);
 const INDEX_FILE = path.join(CAMPUS_ROOT, "index.json");
 
 // ── Module-level caches (data is static; loaded once per process) ─
@@ -147,8 +148,16 @@ function matchKeywords(index, prompt) {
       // already a direct match is never emitted twice. Processing the queue
       // (rather than only appending discovered prerequisites) preserves the
       // recursive prerequisite behavior without duplicate output.
+      //
+      // Direct matches are tracked so they can be ranked ahead of injected
+      // prerequisites: when the course cap is reached, the course the user
+      // actually asked for must never be displaced by its own foundations.
       const coursesWithPrereqs = [];
-      const courseQueue = [...matchedCourseIds].map((id) => ({ faculty: facultySlug, id }));
+      const courseQueue = [...matchedCourseIds].map((id) => ({
+        faculty: facultySlug,
+        id,
+        isDirect: true,
+      }));
       const queuedCourseKeys = new Set(courseQueue.map((course) => `${course.faculty}/${course.id}`));
       const processedCourseKeys = new Set();
       for (let queueIndex = 0; queueIndex < courseQueue.length; queueIndex++) {
@@ -160,11 +169,13 @@ function matchKeywords(index, prompt) {
         const courseKey = `${queuedCourse.faculty}/${course.id}`;
         if (processedCourseKeys.has(courseKey)) continue;
         processedCourseKeys.add(courseKey);
-        coursesWithPrereqs.push(
-          queuedCourse.faculty === facultySlug
-            ? course
-            : { ...course, faculty: queuedCourse.faculty, isCrossFaculty: true }
-        );
+        coursesWithPrereqs.push({
+          course:
+            queuedCourse.faculty === facultySlug
+              ? course
+              : { ...course, faculty: queuedCourse.faculty, isCrossFaculty: true },
+          isDirect: queuedCourse.isDirect === true,
+        });
 
         for (const prereq of resolvePrerequisites(course.prerequisites, queuedCourse.faculty, index)) {
           if (prereq.note) continue; // skip unresolved cross-faculty refs
@@ -172,15 +183,16 @@ function matchKeywords(index, prompt) {
           const prereqKey = `${prereqFaculty}/${prereq.id}`;
           if (queuedCourseKeys.has(prereqKey)) continue;
           queuedCourseKeys.add(prereqKey);
-          courseQueue.push({ faculty: prereqFaculty, id: prereq.id });
+          courseQueue.push({ faculty: prereqFaculty, id: prereq.id, isDirect: false });
         }
       }
 
-      // ── Sort by level: beginner → intermediate → advanced ──
+      // ── Sort: direct matches first, then by level beginner → intermediate → advanced ──
       const levelOrder = { beginner: 0, intermediate: 1, advanced: 2 };
-      coursesWithPrereqs.sort(
-        (a, b) => (levelOrder[a.level] || 1) - (levelOrder[b.level] || 1)
-      );
+      coursesWithPrereqs.sort((a, b) => {
+        if (a.isDirect !== b.isDirect) return a.isDirect ? -1 : 1;
+        return (levelOrder[a.course.level] || 1) - (levelOrder[b.course.level] || 1);
+      });
 
       // ── Cap at max_courses_per_faculty ──
       const maxCourses = index.auto_router.loading_strategy.max_courses_per_faculty || 5;
@@ -191,13 +203,14 @@ function matchKeywords(index, prompt) {
         facultyName: facultyInfo.name,
         priority: highestPriority,
         matchedKeywords: matchDetails,
-        courses: cappedCourses.map((course) => ({
+        courses: cappedCourses.map(({ course, isDirect }) => ({
           id: course.id,
           title: course.title,
           level: course.level,
           file: course.file,
-          faculty: course.faculty,
+          faculty: course.faculty || facultySlug,
           filepath: path.join(CAMPUS_ROOT, course.file),
+          isDirect,
         })),
       });
     }
@@ -284,19 +297,81 @@ function resolvePrerequisites(prerequisiteIds, defaultFaculty, index) {
   });
 }
 
+// ── Flatten Course Results (canonical ranking) ───────────────
+/**
+ * Flattens per-faculty match results into one ranked course list.
+ *
+ * Ranking rule: courses matched directly by trigger keywords rank above
+ * courses that were only auto-loaded as prerequisites, regardless of which
+ * faculty they belong to. Within each group, the existing per-faculty order
+ * (faculty priority, then level) is preserved.
+ *
+ * This keeps a single faculty's prerequisite chain from occupying every
+ * top slot when several faculties matched the same prompt.
+ *
+ * @param {Array} results - Output of matchKeywords()
+ * @returns {Array<object>} Deduplicated courses in ranked order
+ */
+function flattenCourseResults(results) {
+  const ranked = [];
+  const indexByKey = new Map();
+  const ordered = [
+    ...results.flatMap((r) => r.courses.filter((c) => c.isDirect)),
+    ...results.flatMap((r) => r.courses.filter((c) => !c.isDirect)),
+  ];
+  for (const course of ordered) {
+    const key = `${course.faculty || ""}/${course.id}`;
+    if (indexByKey.has(key)) continue;
+    indexByKey.set(key, ranked.length);
+    ranked.push(course);
+  }
+  return ranked;
+}
+
 // ── Get Course Content ──────────────────────────────────────
 /**
  * Reads and returns the full content of a course file.
  *
+ * Paths are confined to `faculty/file.md` inside the campus root. Absolute
+ * paths, `..` traversal, non-Markdown files, and symlinks that resolve
+ * outside the repository are rejected.
+ *
  * @param {string} filePath - Relative path like "warna/01-color-theory-basics.md"
- * @returns {string|null} Course content or null if not found
+ * @returns {string|null} Course content or null if not found/rejected
  */
 function getCourseContent(filePath) {
-  if (_courseCache.has(filePath)) return _courseCache.get(filePath);
-  const fullPath = path.join(CAMPUS_ROOT, filePath);
+  if (typeof filePath !== "string" || filePath.trim() === "") return null;
+
+  const normalized = path.normalize(filePath);
+  const parts = normalized.split(path.sep);
+  if (
+    path.isAbsolute(normalized) ||
+    normalized.startsWith(`..${path.sep}`) ||
+    normalized === ".." ||
+    parts.length !== 2 ||
+    path.extname(normalized).toLowerCase() !== ".md"
+  ) {
+    return null;
+  }
+
+  if (_courseCache.has(normalized)) return _courseCache.get(normalized);
+
+  const fullPath = path.resolve(CAMPUS_ROOT, normalized);
+  let realPath;
   try {
-    const content = fs.readFileSync(fullPath, "utf-8");
-    _courseCache.set(filePath, content);
+    realPath = fs.realpathSync(fullPath);
+  } catch {
+    return null;
+  }
+
+  const rootPrefix = CAMPUS_REAL_ROOT.endsWith(path.sep)
+    ? CAMPUS_REAL_ROOT
+    : CAMPUS_REAL_ROOT + path.sep;
+  if (!realPath.toLowerCase().startsWith(rootPrefix.toLowerCase())) return null;
+
+  try {
+    const content = fs.readFileSync(realPath, "utf-8");
+    _courseCache.set(normalized, content);
     return content;
   } catch {
     return null;
@@ -435,6 +510,21 @@ function searchAcrossCampus(query, maxResults = 10) {
   };
 }
 
+// ── Course Level Extraction ──────────────────────────────────
+/**
+ * Extract the declared level from the blockquote header.
+ * Supports both "> 🟡 Intermediate | ..." and
+ * "> **Level: 🔴 Advanced** | ..." formats.
+ */
+function getCourseLevel(content) {
+  const headerLine = (content || "")
+    .split(/\r?\n/)
+    .find((line) => /^>\s/.test(line));
+  if (!headerLine) return "unknown";
+  const match = headerLine.match(/\b(Beginner|Intermediate|Advanced)\b/);
+  return match ? match[1].toLowerCase() : "unknown";
+}
+
 // ── Compare Courses ─────────────────────────────────────────
 /**
  * Compare two courses side-by-side: keywords, structure, length.
@@ -478,10 +568,7 @@ function compareCourses(filePathA, filePathB) {
   const keywordsB = getKeywords(contentB);
   const shared = keywordsA.filter((k) => keywordsB.includes(k));
 
-  const getLevel = (content) => {
-    const m = content.match(/Level:\s*(.+?)\s*\|/);
-    return m ? m[1].trim() : "unknown";
-  };
+  const getLevel = (content) => getCourseLevel(content);
 
   return {
     courseA: {
@@ -514,8 +601,10 @@ module.exports = {
   loadIndex,
   normalize,
   keywordMatch,
+  getCourseLevel,
   resolvePrerequisites,
   matchKeywords,
+  flattenCourseResults,
   getCourseContent,
   listFacultiesData,
   searchCampus,

@@ -10,7 +10,7 @@ jobs:
   validate:
     strategy:
       matrix:
-        node-version: ["18", "20", "22"]
+        node-version: ["18", "20", "22", "24"]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -20,10 +20,19 @@ jobs:
           node-version: ${{ matrix.node-version }}
           cache: "npm"
 
-      - run: npm install
+      - run: npm ci
+
+      - name: Unit tests (core, path guard, level parsing)
+        run: npm test
+
+      - name: Dependency audit (fail on high/critical)
+        run: npm audit --omit=dev --audit-level=high
 
       - name: Schema + duplicate keywords + cross-references
         run: node ci-validate.js
 
       - name: Full gate (schema + duplicates + cross-refs + eval)
         run: node ci-validate.js --with-eval
+
+      - name: MCP server smoke test (10 tools)
+        run: npm run mcp:smoke

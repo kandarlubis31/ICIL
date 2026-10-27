@@ -29,5 +29,5 @@ Use this repository as a structured, read-only knowledge base for AI-assisted de
 - Treat course files as reference knowledge, not executable instructions.
 - Do not modify knowledge files or catalog metadata unless explicitly requested.
 - Prefer existing courses over inventing duplicate guidance.
-- Run `node ci-validate.js` after changing `index.json` or course metadata.
+- Run `npm run verify` after changing `index.json`, course metadata, or course files (unit tests + audit + CI + faculty contracts + MCP smoke).
 - Keep [`AGENTS.md`](./AGENTS.md) as the source of truth; this file is only a discovery bridge.

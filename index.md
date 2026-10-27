@@ -1,6 +1,6 @@
-# 🎓 ICIL v26.0 — AI Agent Entry Point
+# 🎓 ICIL v27.1.0 — AI Agent Entry Point
 
-> 236 courses · 31 faculties · 10 MCP tools · 🗃️ Knowledge & Context Engineering
+> 243 courses · 32 faculties · 10 MCP tools · 🚫 Anti-Slop
 
 ## ⚡ Query
 
@@ -9,11 +9,12 @@ node load-context.js "prompt" --json   # auto-route → courses
 node load-context.js --list            # all faculties
 ```
 ```js
-const { searchCampus } = require('./campus-core');
+const { searchCampus, flattenCourseResults } = require('./campus-core');
 ```
 **MCP v3:** `{ mcpServers: { icil: { command: "node", args: ["mcp-server.js"] } } }` — 10 tools: `search_campus` · `load_course` · `list_faculties` · `search_across` · `compare_courses` · `get_campus_stats` · `search_by_faculty` · `get_course_prerequisites` · `export_course` · `recommend_learning_path`
+> `list_faculties`/`get_campus_stats` are compact by default — pass `includeCourses`/`includeFaculties` (or `faculty="security"`) for detail. Course reads are confined to `faculty/file.md`; see `SECURITY.md`.
 
-## 🏛️ 30 Faculties
+## 🏛️ 32 Faculties
 
 | # | Slug | Topics | # | Slug | Topics |
 |---|------|--------|---|------|--------|
@@ -32,6 +33,7 @@ const { searchCampus } = require('./campus-core');
 | 13 | `data-viz` | Charts, dashboards | 28 | `ux-research` | Interviews, synthesis |
 | 14 | `conversational-ui` | Chatbots, voice UI, AI agents | 29 | `design-ethics` | Ethics, privacy, fairness |
 | 15 | `design-systems` | Tokens, components | 30 | `knowledge-context` | Context, retrieval, governance |
+| 31 | `penulisan-gaul` | Jaksel, slang, wordplay | 32 | `anti-slop` | AI slop, cliché words, de-slop |
 
 ## 🎯 Instant Route
 
@@ -50,12 +52,14 @@ knowledge   → knowledge-context             | retrieval  → knowledge-context
 context security → knowledge-context security ai-integration
 user research → ux-research ux-psikologi    | usability  → ux-research
 ethics      → design-ethics ux-psikologi     | privacy    → design-ethics security
+casual ID   → penulisan-gaul ux-writing      | slang      → penulisan-gaul branding
+AI slop     → anti-slop ux-writing           | generic output → anti-slop
 ```
 
 → Auto-route any prompt: `node load-context.js "prompt" --json`
 
+**Routing notes:** keywords are bilingual EN+ID; direct keyword matches rank above auto-loaded prerequisites (`flattenCourseResults`); course cap is 5 per faculty.
+
 ## 📂 Files
 
-`AGENTS.md` (agent guide — load first) · `index.json` (catalog) · `campus-core.js` (lib) · `load-context.js` (CLI) · `mcp-server.js` (MCP v3, 10 tools) · `CAMPUS-OVERVIEW.md` (full overview + task paths) · `CHANGELOG.md` (history) · `knowledge-context/` (context engineering faculty)
-
-`penulisan-gaul` 
+`AGENTS.md` (agent guide — load first) · `SECURITY.md` (security model + reporting) · `index.json` (catalog) · `campus-core.js` (lib) · `load-context.js` (CLI) · `mcp-server.js` (MCP v3, 10 tools) · `CAMPUS-OVERVIEW.md` (full overview + task paths) · `CHANGELOG.md` (history) · `eval-set.json` (251 routing + 20 abstention prompts) · `knowledge-context/` (context engineering faculty) · `penulisan-gaul/` (casual & slang writing faculty) · `anti-slop/` (AI output quality faculty)

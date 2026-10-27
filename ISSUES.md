@@ -1,6 +1,10 @@
-# ✅ ICIL Issues & Technical Debt — v25.0.4 CLOSED
+# ✅ ICIL Issues & Technical Debt — v25.0.4 (historical record)
 
-> **Opened:** July 19, 2026 | **Closed:** July 19, 2026 | **Verdict:** 🟢 **ALL CLEAR — Ready for GitHub push**
+> **Status:** 📜 **HISTORICAL SNAPSHOT.** This file records the v25.0.4 bug-fix cycle and is kept for traceability. It is **not** the current project status.
+>
+> **Current state (v27.1.0):** 243 courses · 32 faculties · 10 MCP tools · 15 unit tests · 0 dependency vulnerabilities. See [`CONTEXT.md`](./CONTEXT.md) for the live save state and [`CHANGELOG.md`](./CHANGELOG.md) for the latest changes.
+>
+> **Opened:** July 19, 2026 | **Closed:** July 19, 2026 | **Verdict at the time:** 🟢 **ALL CLEAR — Ready for GitHub push**
 
 ---
 
@@ -133,7 +137,9 @@ Different priority tiers ensure the router prioritizes correctly. Same-tier over
 
 ---
 
-## 🚀 Ready for GitHub Push
+## 🚀 Ready for GitHub Push (at v25.0.4)
+
+> Snapshot of the pre-push checks at the time of closing. Current gates live in `package.json` (`npm run verify`) and `.github/workflows/ci.yml`.
 
 ### Pre-push checklist
 
@@ -151,7 +157,7 @@ Different priority tiers ensure the router prioritizes correctly. Same-tier over
 | `node -e "require('./campus-core')"` loads clean | ✅ |
 | `node -e "require('./mcp-server')"` loads clean | ✅ |
 
-### What a new user gets on clone
+### What a new user got on clone at v25.0.4
 
 1. `npm install` — zero dependencies (pure Node.js ≥ 18)
 2. `node load-context.js "build an accessible landing page"` — instant routing
@@ -160,7 +166,16 @@ Different priority tiers ensure the router prioritizes correctly. Same-tier over
 5. Auto-router with 71.2% P@3, 93.9% R@3, 0.919 MRR
 6. CI validation pipeline (`ci-validate.js`) with 4-stage checks
 
-### Version: v25.0.4
+### What a new user gets on clone today (v27.1.0)
+
+1. `npm ci` — two runtime dependencies (`@modelcontextprotocol/sdk`, `zod`), 0 known vulnerabilities
+2. `node load-context.js "build an accessible landing page"` — instant routing
+3. `node mcp-server.js` — 10 read-only MCP tools, compact by default
+4. 243 self-contained markdown courses across 32 faculties
+5. Auto-router with 86.2% P@3, 98.9% R@3, 0.986 MRR; 20/20 off-topic prompts blocked
+6. `npm run verify` — unit tests + audit + CI + faculty contracts + MCP smoke (15 tests)
+
+### Version (at close): v25.0.4
 
 ```
 ICIL v25.0.4 — 216 courses, 29 faculties, 10 MCP tools

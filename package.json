@@ -1,7 +1,7 @@
 {
   "name": "@kandarlubis/icil",
-  "version": "27.0.0",
-  "description": "ICIL — Intelligence Campus Interactive Library. 236 courses, 31 faculties, 10 MCP tools. Casual & Slang Writing added. Jaksel code-switching, gaming lingo, social media slang, ethical casual communication.",
+  "version": "27.1.0",
+  "description": "ICIL — Intelligence Campus Interactive Library. 243 courses, 32 faculties, 10 MCP tools. Anti-Slop faculty for AI output quality. Indonesian keyword layer + direct-match-first course ranking. P@3 86.2% across 251 routing prompts; 20/20 off-topic prompts blocked.",
   "main": "campus-core.js",
   "bin": {
     "icil": "load-context.js",
@@ -12,6 +12,8 @@
     "load-context.js",
     "mcp-server.js",
     "index.json",
+    "SECURITY.md",
+    "anti-slop/",
     "warna/",
     "ux-psikologi/",
     "ux-writing/",
@@ -48,7 +50,13 @@
     "search": "node load-context.js",
     "list": "node load-context.js --list",
     "mcp": "node mcp-server.js",
+    "mcp:smoke": "node scripts/mcp-smoke.js",
+    "test": "node --test",
+    "verify": "npm test && npm audit --omit=dev --audit-level=high && node ci-validate.js --with-eval && npm run ci:faculty && npm run mcp:smoke",
+    "pack:check": "npm pack --dry-run",
+    "prepublishOnly": "npm run verify",
     "eval": "node eval-runner.js",
+    "eval:abstention": "node eval-runner.js --abstention",
     "eval:json": "node eval-runner.js --json",
     "eval:ci": "node eval-runner.js --ci",
     "ci:validate": "node ci-validate.js",
@@ -96,7 +104,9 @@
     "document-engineering",
     "retrieval",
     "llm",
-    "claude-code"
+    "claude-code",
+    "anti-slop",
+    "prompt-engineering"
   ],
   "author": "Mas Aul",
   "license": "MIT",
@@ -109,8 +119,8 @@
     "url": "https://github.com/kandarlubis31/ICIL/issues"
   },
   "dependencies": {
-    "@modelcontextprotocol/sdk": "^1.0.0",
-    "zod": "^4.4.3"
+    "@modelcontextprotocol/sdk": "^1.32.2",
+    "zod": "^4.6.7"
   },
   "engines": {
     "node": ">=18.0.0"

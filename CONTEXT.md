@@ -9,12 +9,14 @@
 | Attribute | Value |
 |-----------|-------|
 | **Project** | ICIL — Intelligence Campus Interactive Library |
-| **Version** | v27.0.0 |
+| **Version** | v27.1.0 |
 | **Language** | English (fully translated from Indonesian) |
-| **Total Courses** | 226 |
-| **Total Faculties** | 30 active |
+| **Total Courses** | 243 |
+| **Total Faculties** | 32 active |
 
-| **Root files** | AGENTS.md, README.md, index.json, campus-core.js, load-context.js, mcp-server.js, index.md, CAMPUS-OVERVIEW.md, CONTEXT.md, CHANGELOG.md, eval-set.json, eval-runner.js, ci-validate.js, ci-faculty.js |
+| **Root files** | AGENTS.md, README.md, SECURITY.md, index.json, campus-core.js, load-context.js, mcp-server.js, index.md, CAMPUS-OVERVIEW.md, CONTEXT.md, CHANGELOG.md, PROGRESS-REPORT.md, eval-set.json, eval-runner.js, ci-validate.js, ci-faculty.js, ROADMAP-v2.md, AUDIT-PLAN.md, ISSUES.md, SKILL.md |
+| **Tests** | `npm test` — 15 `node:test` cases (path guard, catalog invariants, ranking, docs + README drift, level parsing) |
+| **Eval Set** | `eval-set.json` v1.4.0 — 251 routing + 20 abstention prompts |
 | **Faculty CI** | `.github/workflows/faculty.yml` — validates new-faculty PRs against the base commit |
 
 ### 🏛️ Faculty Addition CI
@@ -38,7 +40,7 @@ node ci-faculty.js --faculty <slug> # Validate one faculty contract
 
 ---
 
-## 🏛️ Active Faculties (30)
+## 🏛️ Active Faculties (32)
 
 | # | Faculty | Dir | Courses | Status |
 |---|---------|-----|---------|--------|
@@ -72,6 +74,8 @@ node ci-faculty.js --faculty <slug> # Validate one faculty contract
 | 28 | 🔬 UX Research & Discovery | `ux-research/` | 7 | ✅ Complete |
 | 29 | ⚖️ Design Ethics | `design-ethics/` | 7 | ✅ Complete |
 | 30 | 🗃️ Knowledge & Context Engineering | `knowledge-context/` | 10 | ✅ Complete |
+| 31 | 📝 Casual & Slang Writing | `penulisan-gaul/` | 10 | ✅ Complete |
+| 32 | 🚫 Anti-Slop & Authentic Output | `anti-slop/` | 7 | ✅ Complete |
 
 ---
 
@@ -80,6 +84,8 @@ node ci-faculty.js --faculty <slug> # Validate one faculty contract
 | Priority | Faculty | Topics |
 |----------|---------|--------|
 | **Open** | 🎓 New faculty ideas welcome | Submit proposals for new knowledge domains |
+| **Candidate** | 🎞️ Visual Storytelling & Slides | Deck narrative arcs, slide grammar, data-story pacing, keynote vs. webinar pacing |
+| **Candidate** | 📜 Content Compliance & Policy Docs | Regulatory writing, claims discipline, legal-safe marketing copy, policy tone |
 
 ---
 
@@ -136,9 +142,9 @@ Content with code blocks, tables, ASCII diagrams.
 ```
 inteligence_mas-aul/
 ├── README.md              # Campus map
-├── index.json             # Machine-readable index (v27.0.0)
+├── index.json             # Machine-readable index (v27.1.0)
 ├── CONTEXT.md             # THIS FILE — session save state
-├── CHANGELOG.md           # Version history (v1.0 → v27.0.0)
+├── CHANGELOG.md           # Version history (v1.0 → v27.1.0)
 ├── CONTRIBUTING.md        # Contribution guide & templates
 ├── LICENSE                # MIT License
 ├── load-context.js        # Auto-router CLI tool
@@ -174,6 +180,7 @@ inteligence_mas-aul/
 ├── ux-research/             # Faculty of UX Research & Discovery (7 courses)
 ├── design-ethics/           # Faculty of Design Ethics (7 courses)
 └── knowledge-context/       # Faculty of Knowledge & Context Engineering (10 courses)
+└── penulisan-gaul/          # Faculty of Casual & Slang Writing (10 courses)
 ```
 
 ---
@@ -193,59 +200,54 @@ inteligence_mas-aul/
 
 ## 📋 Session History (Summary)
 
-> Full version-by-version history lives in [`CHANGELOG.md`](./CHANGELOG.md) — v1.0.0 (1 faculty, 9 courses) → v25.0.5 (29 faculties, 216 courses).
+> Full version-by-version history lives in [`CHANGELOG.md`](./CHANGELOG.md) — v1.0.0 (1 faculty, 9 courses) → v27.1.0 (32 faculties, 243 courses).
 
-**Key milestones:** v9 Branding + Accessibility · v11 Cognitive Science · v18 4 Engineering Faculties · v19.1 74% token compaction · v20 DX + IA + MCP v2 · v21 Agentic Engineering + router fix · v22 UX Research · v23 Full Content Audit (199 courses, 18 fixes) · v24 Phase A1/B/C (204→216 courses, 5 MCP→10 tools) · v25.0.5 Phase 1 LOW tightening · v27.0.0 Knowledge & Context Engineering (236 courses, 31 faculties)
+**Key milestones:** v9 Branding + Accessibility · v11 Cognitive Science · v18 4 Engineering Faculties · v19.1 74% token compaction · v20 DX + IA + MCP v2 · v21 Agentic Engineering + router fix · v22 UX Research · v23 Full Content Audit (199 courses, 18 fixes) · v24 Phase A1/B/C (204→216 courses, 5 MCP→10 tools) · v25.0.5 Phase 1 LOW tightening · v26 Knowledge & Context Engineering · v27.0.0 Casual & Slang Writing (236 courses, 31 faculties) · v27.1.0 Indonesian keyword layer + direct-match-first ranking + security hardening + unit tests · v27.1.0 addendum Anti-Slop & Authentic Output (faculty #32, 243 courses)
 
 ---
 
-## 🔜 Current State (v27.0.0)
+## 🔜 Current State (v27.1.0)
 
-> **🏁 STABLE — CI ALL GREEN.** 236 courses, 31 faculties, 10 MCP tools. Knowledge & Context Engineering added with 10 courses. Current eval: P@3=73.7%, R@3=96.0%, MRR=0.934 across 217 prompts.
+> **🏁 STABLE — CI ALL GREEN.** 243 courses, 32 faculties, 10 MCP tools (smoke-tested 10/10). Eval: P@3=86.5%, R@3=98.9%, MRR=0.986 across 251 routing prompts; 20/20 off-topic prompts blocked. Course-level metrics (informational): P@3 44.4%, R@3 81.7%, MRR 0.806. ID routing (32 tagged prompts): P@3 89.1%, R@3 97.4%, MRR 0.984. Anti-Slop routing: 7/7 prompts perfect (P@3=1, MRR=1).
 
-### What's done (v25.0.1→v27.0.0)
-- ✅ 9 bugs fixed (ISSUES.md closed)
-- ✅ 15 DUPLICATE HIGH → 0
-- ✅ `getFacultyEmoji()` deleted — emoji single source: `index.json`
-- ✅ 6 redundant `loadIndex()` calls removed from mcp-server.js
-- ✅ Module-level caching for index + course files
-- ✅ `compare_courses` + `search_across` deduplicated
-- ✅ Prerequisite format standardized
-- ✅ Dynamic mcp-server.js description from `loadIndex()`
-- ✅ Historical keyword tuning: P@3 59.3%→72.8%, R@3 85.9%→94.4%
-- ✅ v27.0.0 eval baseline: P@3 73.7%, R@3 96.0%, MRR 0.934 across 217 prompts
-- ✅ Eval threshold 0.80→0.70 (CI now green)
-- ✅ ci-validate.js: CROSS-FACULTY = warnings only (don't block CI)
-- ✅ README badges + package.json v27.0.0 + AGENTS.md synced
-- ✅ 7 meta files synced (PROGRESS-REPORT full rewrite, CAMPUS-OVERVIEW course counts, CONTEXT trimmed) + Phase 1 LOW tightening docs
-- ✅ Phase 1 LOW keyword tightening: 35 dropped, 8 tightened → P@3 71.6%→72.8%
-- ✅ 17 same-fac duplicate keywords cleaned → 0
-- ✅ README.md tree counts fixed (5 faculties) + Mermaid eval progress charts
-- ✅ eval/ legacy scripts (7 files) → archive/eval-legacy/
-- ✅ package.json + index.json version synced to 26.0.0
-- ✅ CHANGELOG v27.0.0 entry + AGENTS.md/CONTEXT/CAMPUS/PROGRESS synced
-- ✅ GitHub CI workflow + version drift check + dynamic courseCount
-- ✅ AUDIT-PLAN.md retained as a legacy v25 checklist; v26 re-baselining is now tracked separately because its checkbox markers do not match the reported historical 69/86 total
-- ✅ Knowledge & Context Engineering faculty added: 10 courses, routing metadata, eval coverage, and context docs
-- ✅ Faculty Addition CI added: `.github/workflows/faculty.yml` detects new faculties against the PR base and validates files, metadata, links, keywords, eval coverage, and context-document updates
-- ✅ README.md and CONTEXT.md updated with Faculty Addition CI usage, local commands, PR base detection, and current eval metrics
-- ✅ Documentation validation passed: Markdown fences balanced, JSON valid, Faculty CI passed for all 31 faculties, and the full CI/eval gate passed
-- ✅ Prerequisite output deduplicated with faculty-qualified queue traversal; full eval metrics remained unchanged
+### What's done (v27.1.0)
+- ✅ Indonesian keyword layer: 142 ID keywords across the 31 existing faculties, each mapped to real course IDs
+- ✅ **Anti-Slop & Authentic Output faculty (#32) added**: 7 courses (`anti-slop/01`…`07`) covering slop anatomy (Merriam-Webster WOTY 2025), banned-lexicon building, structural patterns, code slop & comment hygiene, generated-UI patterns, the 5-pass de-slop workflow with trap prompts, and authentic voice systems
+- ✅ Removed keywords that collided with Indonesian function words: `ADA` (matched "ada"), `DI` (matched "di"), duplicate `Docker`
+- ✅ Direct-match-first course ranking — a requested course is never displaced by its own prerequisites
+- ✅ `flattenCourseResults()` for canonical cross-faculty ordering; `isDirect` flag exposed on courses
+- ✅ eval-runner: dynamic difficulty buckets (the `advanced` tier was silently dropped before)
+- ✅ 15 Indonesian regression prompts (eval-228…242, now tagged `language: "id"`); ID routing improved from 10/15 → 13/15 faculty-exact and 6/15 → 14/15 course top-3; 30 tagged ID prompts now report P@3 88.3% in the runner
+- ✅ Off-topic abstention suite (20 prompts, incl. near-miss prompts sharing trigger vocabulary) with a 90% CI gate; caught and removed bare `EXPLAIN`, `jakarta`, `light`, `check`, and `cek` keywords
+- ✅ Near-miss routing regression prompts (eval-243 `explain query plan` → database-management, eval-244 `light font weight` → tipografi) and `eval-runner.js --omit` for keyword-tuning generalization checks
+- ✅ **Anti-Slop reserved keywords**: 46 trigger keywords added to faculty #32 (EN + 6 ID terms: `AI banget`, `kata klise`, `kata terlarang`, `komentar kode`, `klise`, `terlalu AI`), all verified not to collide with another faculty's HIGH tier; eval-245…eval-251 added (one per course, all P@3 = 1.0)
+- ✅ Faculty README consistency: every faculty README course table is validated against `index.json` by `tests/catalog.test.js`
+- ✅ `service-design` LOW keyword `ecosystem` mapped to course 04 instead of the generic recommended list
+- ✅ **Security hardening**: `getCourseContent()` path guard blocks absolute paths, `..`, root-level files, non-`.md` files, and symlinks escaping the repo; all 243 indexed courses still load
+- ✅ **Dependencies**: `@modelcontextprotocol/sdk` 1.32.2 + `zod` 4.6.7; `npm audit --omit=dev --audit-level=high` = **0 vulnerabilities**
+- ✅ **Tests + CI**: `tests/campus-core.test.js` (`npm test`), `npm audit` and MCP smoke steps in GitHub Actions, `npm ci` for reproducible installs
+- ✅ **MCP efficiency**: `list_faculties` 54 KB → 8.9 KB and `get_campus_stats` 6 KB → ~1 KB by default, with opt-in full details
+- ✅ **MCP correctness**: level parsing fixed for both header formats; `recommend_learning_path` multi-word matching fixed and `web app` template added
+- ✅ `SECURITY.md` added; package-name mismatch corrected to `@kandarlubis/icil`
+- ✅ Docs synced (AGENTS, README, CONTEXT, CAMPUS-OVERVIEW, index.md, PROGRESS-REPORT, CHANGELOG) + version bump 27.0.0 → 27.1.0
 
 ### What remains
-- Faculty-level eval: 0 failed prompts and 0 no-match cases; 65 stricter course-level misses remain informational and need a separate course-ranking tuning pass
-- 134 CROSS-FACULTY keywords — informational overlaps, including intentional context/security/AI overlap
-- Re-baseline the legacy 86-item audit plan against v26 counts and verify remaining manual content-quality items
+- 32 course-level misses across 251 routing prompts — informational; the router's course targeting is still the weakest layer
+- CROSS-FACULTY keyword warnings — informational overlaps, including intentional context/security/AI overlap (count re-measured after the anti-slop keyword map; see `npm run ci:faculty`)
+- Re-baseline the legacy 86-item audit plan against current counts and verify remaining manual content-quality items
+- `npm ci` (or `npm install`) is required before running `mcp-server.js` (SDK not vendored); `npm run mcp:smoke` verifies all 10 tools over JSON-RPC
 - GitHub push is intentionally left to the project owner; no commit or push was performed
 
 ### Quick commands
 ```bash
+npm test                          # Unit tests (path guard, catalog, level parsing)
+npm run verify                    # All gates: tests + audit + CI + faculty + MCP smoke
+npm run mcp:smoke                 # Verify all 10 MCP tools over JSON-RPC
+npm audit --omit=dev --audit-level=high  # Dependency audit gate
 node ci-validate.js --with-eval   # Full CI: schema + dupes + cross-refs + eval gate
 npm run ci:faculty                # Validate all faculty contracts locally
 node ci-faculty.js --faculty slug  # Validate one faculty contract
 node load-context.js "prompt"     # Auto-route prompt to faculties
-node load-context.js --list       # List all 31 faculties
+node load-context.js --list       # List all 32 faculties
 node mcp-server.js                # Start MCP server (10 tools)
 ```
-
-- 📝 penulisan-gaul: Casual & Slang Writing (10 courses) — v27.0.0

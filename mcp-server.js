@@ -194,26 +194,49 @@ server.tool(
 // ── Tool: list_faculties ─────────────────────────────────────
 server.tool(
   "list_faculties",
-  `List all ${facultyCount} faculties available in the ICIL campus. Use this to discover what knowledge domains are available before searching. Returns faculty names, descriptions, course counts, and all course files.`,
-  {},
-  async () => {
+  `List all ${facultyCount} faculties available in the ICIL campus. Returns faculty names, descriptions, and course counts — compact by default so it does not flood agent context. Pass includeCourses=true to also receive every course title and file (large payload), or set faculty to a slug to inspect a single faculty.`,
+  {
+    includeCourses: z.boolean().optional().default(false).describe("Include the full course list (id, title, level, file) for each faculty. Default false — this output is large (~54 KB for all faculties)."),
+    faculty: z.string().optional().describe("Optional faculty slug to return only that faculty (e.g. 'security', 'warna'). Use get_campus_stats or a no-argument call to see valid slugs."),
+  },
+  async ({ includeCourses = false, faculty }) => {
     try {
       const faculties = core.listFacultiesData(index);
+      const selected = faculty
+        ? faculties.filter((f) => f.slug === faculty)
+        : faculties;
 
-      const summary = faculties.map((f) => ({
-        emoji: f.emoji,
-        name: f.name,
-        slug: f.slug,
-        description: f.description,
-        courseCount: f.courseCount,
-        level: f.level,
-        courses: f.courses.map((c) => ({
-          id: c.id,
-          title: c.title,
-          level: c.level,
-          file: c.file,
-        })),
-      }));
+      if (faculty && selected.length === 0) {
+        return {
+          content: [{
+            type: "text",
+            text: fmt({
+              error: `Faculty '${faculty}' not found.`,
+              hint: "Call list_faculties without arguments to see all 31 slugs.",
+            }),
+          }],
+        };
+      }
+
+      const summary = selected.map((f) => {
+        const entry = {
+          emoji: f.emoji,
+          name: f.name,
+          slug: f.slug,
+          description: f.description,
+          courseCount: f.courseCount,
+          level: f.level,
+        };
+        if (includeCourses) {
+          entry.courses = f.courses.map((c) => ({
+            id: c.id,
+            title: c.title,
+            level: c.level,
+            file: c.file,
+          }));
+        }
+        return entry;
+      });
 
       return {
         content: [
@@ -223,9 +246,13 @@ server.tool(
               campus: index.campus,
               version: index.version,
               totalCourses: index.totalCourses,
-              totalFaculties: summary.length,
+              totalFaculties: faculties.length,
+              returnedFaculties: summary.length,
+              includeCourses,
               faculties: summary,
-              usage: 'Use search_campus to find relevant courses, then load_course to read them.',
+              usage: includeCourses || faculty
+                ? 'Use search_campus to find relevant courses, then load_course to read them.'
+                : 'This is the compact list. Call list_faculties with includeCourses=true (optionally with faculty="security") to see course titles and file paths, or go straight to search_campus.',
             }),
           },
         ],
@@ -336,9 +363,11 @@ server.tool(
 // ── Tool: get_campus_stats ───────────────────────────────────
 server.tool(
   "get_campus_stats",
-  "Get quick statistics and metadata about the ICIL campus. Returns version, total courses, faculties breakdown, and course distribution. Use this when you need a high-level overview before diving into specific topics.",
-  {},
-  async () => {
+  "Get quick statistics and metadata about the ICIL campus. Returns version, total courses, and course distribution. Compact by default; pass includeFaculties=true for the per-faculty breakdown. Use this when you need a high-level overview before diving into specific topics.",
+  {
+    includeFaculties: z.boolean().optional().default(false).describe("Include the per-faculty course counts (31 entries). Default false to keep the response small."),
+  },
+  async ({ includeFaculties = false }) => {
     try {
       const faculties = Object.entries(index.faculties).map(([slug, f]) => ({
         slug,
@@ -370,7 +399,11 @@ server.tool(
               intermediate: byLevel.intermediate,
               advanced: byLevel.advanced,
             },
-            faculties: faculties.sort((a, b) => b.courseCount - a.courseCount),
+            ...(includeFaculties
+              ? { faculties: faculties.sort((a, b) => b.courseCount - a.courseCount) }
+              : {
+                  faculties: `${faculties.length} faculties — call list_faculties for the compact directory, or pass includeFaculties=true here for course counts.`,
+                }),
             mcpTools: 10,
             autoRouterKeywords: Object.keys(index.auto_router.trigger_keywords).length + " keyword groups",
           }),
@@ -610,12 +643,12 @@ server.tool(
           case "json": {
             // Extract structured data
             const titleMatch = content.match(/#\s+.+?—\s+(.+)/);
-            const levelMatch = content.match(/Level:\s*(.+?)\s*\|/);
+            const level = core.getCourseLevel(content);
             const sections = [...content.matchAll(/^##\s+(.+)$/gm)].map(m => m[1].trim());
             const checklists = [...content.matchAll(/^- \[([ x])\] (.+)$/gm)].map(m => ({ checked: m[1] === 'x', item: m[2].trim() }));
             output = {
               title: titleMatch ? titleMatch[1].trim() : file,
-              level: levelMatch ? levelMatch[1].trim() : "unknown",
+              level,
               file,
               wordCount: content.split(/\s+/).length,
               sections: sections.map((s, i) => ({ index: i + 1, title: s })),
@@ -757,6 +790,12 @@ server.tool(
           { faculty: "layout", ids: ["05"] },
           { faculty: "design-patterns", ids: ["03"] },
         ],
+        "web app": [
+          { faculty: "software-engineering", ids: ["01", "02", "03", "07"] },
+          { faculty: "layout", ids: ["01", "05"] },
+          { faculty: "aksesibilitas", ids: ["01", "02"] },
+          { faculty: "design-patterns", ids: ["06"] },
+        ],
         "brand identity": [
           { faculty: "branding", ids: ["01", "02", "03", "04", "05"] },
           { faculty: "warna", ids: ["03", "07"] },
@@ -788,9 +827,10 @@ server.tool(
       for (const [key, template] of Object.entries(templates)) {
         let score = 0;
         const keyWords = key.split(" ");
-        for (const kw of keyWords) {
-          if (normalizedGoal.includes(kw)) score += 2;
-        }
+        // Multi-word keys must match every word; a single generic word like
+        // "app" should not select "mobile app" for a web-app goal.
+        const matchedWords = keyWords.filter((kw) => normalizedGoal.includes(kw));
+        if (matchedWords.length === keyWords.length) score += keyWords.length * 2;
         if (normalizedGoal === key) score += 5;
         if (score > matchScore) {
           matchScore = score;
