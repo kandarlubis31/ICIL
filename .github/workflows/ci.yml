@@ -13,20 +13,24 @@ jobs:
         node-version: ["18", "20", "22", "24"]
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
-      - uses: actions/setup-node@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10
+
+      - uses: actions/setup-node@v7
         with:
           node-version: ${{ matrix.node-version }}
-          cache: "npm"
+          cache: "pnpm"
 
-      - run: npm ci
+      - run: pnpm install --frozen-lockfile
 
       - name: Unit tests (core, path guard, level parsing)
-        run: npm test
+        run: pnpm test
 
       - name: Dependency audit (fail on high/critical)
-        run: npm audit --omit=dev --audit-level=high
+        run: pnpm audit --prod --audit-level=high
 
       - name: Schema + duplicate keywords + cross-references
         run: node ci-validate.js
@@ -35,4 +39,4 @@ jobs:
         run: node ci-validate.js --with-eval
 
       - name: MCP server smoke test (10 tools)
-        run: npm run mcp:smoke
+        run: pnpm run mcp:smoke
