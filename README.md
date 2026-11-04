@@ -9,7 +9,6 @@
 
 > **Sacred Dictionary for AI Agents** — A super comprehensive knowledge base reference for AI agents across various knowledge domains.
 >
-> **New to the repo? Load [`AGENTS.md`](./AGENTS.md) first** — it's the agent guide with repo layout, routing, conventions, and testing.
 
 Welcome to **ICIL — Intelligence Campus Interactive Library**, an *intelligence layer* designed as a sacred reference for AI agents. Each directory is a **faculty of knowledge**, and each `.md` file is a **course** that can be loaded by AI agents as deep contextual knowledge.
 
@@ -54,11 +53,10 @@ New-faculty pull requests are checked automatically by [`.github/workflows/facul
 - `index.json` counts, package version/counts, trigger keywords, recommended courses, and duplicate HIGH keywords;
 - Markdown links and faculty-qualified course references;
 - `eval-set.json` coverage and router matching for the added faculty;
-- synchronized context updates across `AGENTS.md`, `README.md`, `CAMPUS-OVERVIEW.md`, `CONTEXT.md`, `PROGRESS-REPORT.md`, `CHANGELOG.md`, `index.md`, and `package.json`.
+- synchronized context updates across `README.md`, `CAMPUS-OVERVIEW.md`, `PROGRESS-REPORT.md`, `CHANGELOG.md`, `index.md`, and `package.json`.
 
 Run the same checks locally with `npm run ci:faculty` for the full catalog, or target one faculty with `node ci-faculty.js --faculty <slug>`. PR base-commit detection runs automatically in `faculty.yml`.
 
-> **AI Agent?** Load [`AGENTS.md`](./AGENTS.md) first — it's the single source of truth for repo conventions.  
 > **MCP User?** Configure Claude Desktop with [`mcp-server.js`](./mcp-server.js) — 10 tools, zero API keys. `list_faculties` is compact by default; pass `includeCourses=true` (optionally with `faculty="security"`) when you need course titles.
 
 ---
@@ -114,7 +112,6 @@ inteligence_mas-aul/
 ├── load-context.js             # 🔧 Auto-router CLI tool
 ├── mcp-server.js               # 🔌 MCP server (10 tools, v3)
 ├── ci-faculty.js               # 🏛️ New-faculty contract validator
-├── CONTEXT.md                  # 💾 Session save state
 ├── CHANGELOG.md                # 📋 Version history
 ├── CONTRIBUTING.md             # 🤝 Contribution guide
 ├── LICENSE                     # ⚖️ MIT License
