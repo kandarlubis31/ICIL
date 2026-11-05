@@ -204,6 +204,8 @@ inteligence_mas-aul/
 
 **Key milestones:** v9 Branding + Accessibility · v11 Cognitive Science · v18 4 Engineering Faculties · v19.1 74% token compaction · v20 DX + IA + MCP v2 · v21 Agentic Engineering + router fix · v22 UX Research · v23 Full Content Audit (199 courses, 18 fixes) · v24 Phase A1/B/C (204→216 courses, 5 MCP→10 tools) · v25.0.5 Phase 1 LOW tightening · v26 Knowledge & Context Engineering · v27.0.0 Casual & Slang Writing (236 courses, 31 faculties) · v27.1.0 Indonesian keyword layer + direct-match-first ranking + security hardening + unit tests · v27.1.0 addendum Anti-Slop & Authentic Output (faculty #32, 243 courses)
 
+**2026-11-05 — docs gate restored:** `AGENTS.md`, root `CONTEXT.md`, and the 32 per-faculty `CONTEXT.md` files (34 total) were accidentally removed in `91d71ec` by a bulk "no agent docs in public repos" sweep. They are a deliberate exception — `SKILL.md` points to `AGENTS.md` as the source of truth, and `CONTEXT.md` is the session save state. Restored from `0907b2f` in `caa3298`, README references re-enabled, the contradictory `.gitignore` guard removed, and the stale `dependabot/github_actions/actions/setup-node-7` branch deleted. `npm run ci:faculty` = PASSED (32 faculties).
+
 ---
 
 ## 🔜 Current State (v27.1.0)
@@ -236,7 +238,7 @@ inteligence_mas-aul/
 - CROSS-FACULTY keyword warnings — informational overlaps, including intentional context/security/AI overlap (count re-measured after the anti-slop keyword map; see `npm run ci:faculty`)
 - Re-baseline the legacy 86-item audit plan against current counts and verify remaining manual content-quality items
 - `npm ci` (or `npm install`) is required before running `mcp-server.js` (SDK not vendored); `npm run mcp:smoke` verifies all 10 tools over JSON-RPC
-- GitHub push is intentionally left to the project owner; no commit or push was performed
+- Docs gate (`AGENTS.md`, root `CONTEXT.md`, 32 per-faculty `CONTEXT.md`) is tracked and pushed as `caa3298` (2026-11-05); future pushes still follow the project owner's rule
 
 ### Quick commands
 ```bash
