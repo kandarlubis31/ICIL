@@ -71,11 +71,11 @@ Run the same checks locally with `npm run ci:faculty` for the full catalog, or t
 
 ```mermaid
 xychart-beta
- title "P@3 & R@3 Progress — ICIL Auto-Router"
- x-axis ["v24.1.0", "v25.0.0", "v25.0.3", "v25.0.5", "v27.0.0", "v27.1.0"]
- y-axis "%" 50 --> 100
- line [54.4, 59.3, 64.9, 72.8, 73.7, 86.3]
- line [77.9, 85.9, 84.5, 94.4, 96.0, 98.9]
+  title "P@3 & R@3 Progress — ICIL Auto-Router"
+  x-axis ["v24.1.0", "v25.0.0", "v25.0.3", "v25.0.5", "v27.0.0", "v27.1.0"]
+  y-axis "%" 50 --> 100
+  line [54.4, 59.3, 64.9, 72.8, 73.7, 86.3]
+  line [77.9, 85.9, 84.5, 94.4, 96.0, 98.9]
 ```
 
 > Top line: P@3 · Bottom line: R@3 — CI gate threshold at 70%
@@ -84,10 +84,10 @@ xychart-beta
 
 ```mermaid
 xychart-beta
- title "MRR Progress — ICIL Auto-Router"
- x-axis ["v24.1.0", "v25.0.0", "v25.0.5", "v27.0.0", "v27.1.0"]
- y-axis "MRR" 0.65 --> 1.0
- line [0.731, 0.809, 0.922, 0.934, 0.986]
+  title "MRR Progress — ICIL Auto-Router"
+  x-axis ["v24.1.0", "v25.0.0", "v25.0.5", "v27.0.0", "v27.1.0"]
+  y-axis "MRR" 0.65 --> 1.0
+  line [0.731, 0.809, 0.922, 0.934, 0.986]
 ```
 
 > CI threshold at 0.65 — current v27.1.0 MRR 0.986 well above
